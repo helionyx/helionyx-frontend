@@ -1,0 +1,365 @@
+export const products = [
+	{
+		id: 1,
+		name: 'Fiber Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Advanced laser marking system with high-quality fiber lasers, offering superior beam quality and energy efficiency for precise marking on various materials.',
+		description:
+			"The Fiber Laser Marking Machine is an integrated system featuring high-quality fiber lasers. It uses an air-cooling system that prevents optical device pollution, ensuring consistent performance. The machine outputs a fundamental mode (TEMOO) laser, providing excellent beam quality for precise marking. With its low power consumption of less than 400W/H, it's an energy-efficient solution for various marking needs.",
+		power: '400W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Integrated structure with high-quality fiber lasers',
+			'Air-cooling system without optical device pollution',
+			'Fundamental mode (TEMOO) output laser',
+			'Low power consumption (less than 400W/H)',
+		],
+		specifications: [
+			{ name: 'Laser Type', value: 'Fiber laser' },
+			{ name: 'Wavelength', value: '1064nm' },
+			{ name: 'Minimum Focusing Point', value: '0.01mm' },
+			{ name: 'Power Consumption', value: '< 400W/H' },
+			{ name: 'Output Frequency', value: '> 20KHz' },
+		],
+		applications: [
+			'Metal product marking',
+			'Electronic component labeling',
+			'Automotive part marking',
+			'Jewelry engraving',
+		],
+	},
+	{
+		id: 2,
+		name: 'UV Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Specialized laser marking system using 355nm UV wavelength for fine marking with minimal heat-affected zones, ideal for sensitive materials and high-precision applications.',
+		description:
+			'The UV Laser Marking Machine is a cutting-edge system that utilizes a 355nm UV wavelength for exceptionally fine marking. Its extremely small focus spot allows for high-precision applications, while the negligible heat-affected zone makes it ideal for sensitive materials. This machine combines fast speed with stable performance, making it suitable for a wide range of industrial applications requiring precise, high-quality marking.',
+		power: '100W',
+		wavelength: '355nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'355nm UV wavelength for fine marking',
+			'Extremely small focus spot',
+			'Negligible heat-affected zone',
+			'Fast speed and stable performance',
+		],
+		specifications: [
+			{ name: 'Laser Type', value: 'UV laser' },
+			{ name: 'Wavelength', value: '355nm' },
+			{ name: 'Focus Spot', value: 'Extremely small' },
+			{ name: 'Heat Affected Zone', value: 'Negligible' },
+		],
+		applications: [
+			'Fine marking on sensitive materials',
+			'Special material marking and engraving',
+			'High-precision applications in electronics and medical devices',
+			'Automotive part marking',
+		],
+	},
+	{
+		id: 3,
+		name: 'Portable Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Compact and mobile laser marking solution designed for improved work efficiency and convenience in various industrial settings.',
+		description:
+			"The Portable Laser Marking Machine is a compact and mobile solution that brings laser marking capabilities to various industrial settings. Its integrated design significantly reduces space requirements, making it ideal for environments where space is at a premium. Despite its small size, it offers convenient operation and stable performance, ensuring high-quality marking results wherever it's needed.",
+		power: '100W',
+		wavelength: '355nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Compact and integrated design',
+			'Reduced space requirements',
+			'Convenient operation',
+			'Stable performance',
+		],
+		specifications: [
+			{ name: 'Weight', value: 'TBD' },
+			{ name: 'Dimensions', value: 'TBD' },
+			{ name: 'Power Source', value: 'TBD' },
+			{ name: 'Marking Area', value: 'TBD' },
+		],
+		applications: [
+			'On-site marking in various industries',
+			'Small-scale production environments',
+			'Field service and maintenance marking',
+			'Temporary or mobile marking stations',
+		],
+	},
+	{
+		id: 4,
+		name: 'A8 Series Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'High-speed continuous marking machine for improved productivity, featuring self-developed laser technology for stable performance and fast processing efficiency.',
+		description:
+			'The A8 Series Laser Marking Machine is a high-performance solution designed for continuous marking in high-volume production environments. It incorporates self-developed laser technology that ensures both stable performance and rapid processing. This machine is particularly well-suited for industries requiring high-speed, high-volume marking applications, such as production date coding, anti-counterfeiting measures, and packaging for pharmaceuticals and food products.',
+		power: '100W',
+		wavelength: '355nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'High-speed continuous marking',
+			'Self-developed laser technology',
+			'Higher security and stable performance',
+			'Support for various marking functions',
+		],
+		specifications: [
+			{ name: 'Marking Speed', value: 'Up to 200 meters/minute (single line 2MM high characters)' },
+			{
+				name: 'Compatible Materials',
+				value: 'Most metal materials and some surface-treated non-metallic materials',
+			},
+			{ name: 'Laser Source', value: 'Self-developed high-performance laser' },
+			{
+				name: 'Marking Functions',
+				value: 'Automatic coding, serial number, batch number, date, barcode, QR code, automatic number jump',
+			},
+		],
+		applications: [
+			'Production date marking',
+			'Anti-counterfeiting',
+			'Pharmaceutical packaging',
+			'Food packaging',
+			'Personal care products labeling',
+			'Electronic components marking',
+			'Chemical building materials labeling',
+		],
+	},
+	{
+		id: 5,
+		name: 'CCD Visual Positioning Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Advanced laser marking system integrating CCD high-precision module and MACS visual dynamic positioning system for accurate marking on complex workpieces and automated production lines.',
+		description:
+			"The CCD Visual Positioning Laser Marking Machine represents the pinnacle of precision in laser marking technology. By integrating a CCD high-precision module with the MACS visual dynamic positioning system, this machine achieves unparalleled accuracy in marking complex workpieces. It's capable of real-time product location information collection, making it ideal for automated production lines and marking tasks that require extreme precision and flexibility.",
+		power: '100W',
+		wavelength: '355nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'CCD high-precision module',
+			'MACS visual dynamic positioning system',
+			'Real-time product location information collection',
+			'Compatible with automation equipment',
+		],
+		specifications: [
+			{ name: 'Positioning Accuracy', value: 'High precision' },
+			{
+				name: 'Compatible Systems',
+				value: 'Assembly lines, vibration plates, XY-axis platform automation equipment',
+			},
+			{ name: 'Marking Capability', value: 'Any angle, any quantity, any position of incoming materials' },
+			{ name: 'Visual System', value: 'MACS visual dynamic positioning system' },
+		],
+		applications: [
+			'IC chip marking',
+			'Small screw labeling',
+			'Jewelry engraving',
+			'Capacitor marking',
+			'Card personalization',
+			'Automated production lines',
+			'Complex workpiece marking',
+		],
+	},
+	{
+		id: 6,
+		name: 'Flying Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'High-speed continuous marking machine designed for improving productivity in production lines, capable of marking at speeds up to 200 meters/minute.',
+		description:
+			'The Flying Laser Marking Machine is engineered for high-speed, continuous marking in fast-paced production environments. With the ability to mark at speeds up to 200 meters per minute, this machine significantly enhances productivity. It features an imported industrial-grade high-performance laser light source, ensuring consistent quality even at high speeds. The machine supports a wide range of coding and marking functions, making it versatile for various industrial applications.',
+		power: '100W',
+		wavelength: '355nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768'],
+		features: [
+			'High-speed continuous marking',
+			'Marking speed up to 200 meters/minute',
+			'Imported industrial-grade high-performance laser light source',
+			'Support for various coding and marking functions',
+		],
+		specifications: [
+			{ name: 'Marking Speed', value: 'Up to 200 meters/minute' },
+			{ name: 'Compatible Materials', value: 'Various industrial materials' },
+			{ name: 'Laser Source', value: 'Imported industrial-grade high-performance laser' },
+			{
+				name: 'Supported Functions',
+				value: 'Automatic coding, serial number, batch number, date, barcode, QR code',
+			},
+		],
+		applications: [
+			'High-volume production lines',
+			'Date coding',
+			'Batch numbering',
+			'Anti-counterfeiting measures',
+			'Pharmaceutical packaging',
+			'Food packaging',
+		],
+	},
+	{
+		id: 7,
+		name: 'Q8 Handheld Intelligent Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Portable, rechargeable lithium battery-powered handheld marking machine, ideal for marking large, bulky, or difficult-to-carry workpieces.',
+		description:
+			'The Q8 Handheld Intelligent Laser Marking Machine is a revolutionary portable solution for on-site laser marking. Powered by a 24V rechargeable lithium battery, it offers 6-8 hours of continuous use, making it perfect for field operations. Its lightweight design, with the whole machine weighing just 6kg and the marking head only 1.25kg, ensures easy maneuverability. This machine is particularly useful for marking large, bulky, or immovable objects that cannot be brought to a stationary laser marking station.',
+		power: '20W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Portable and rechargeable',
+			'24V lithium battery power supply',
+			'6-8 hours of normal use on a single charge',
+			'Lightweight design (whole machine 6kg, marking head 1.25kg)',
+		],
+		specifications: [
+			{ name: 'Weight', value: '6kg (whole machine), 1.25kg (marking head)' },
+			{ name: 'Battery Life', value: '6-8 hours under normal use' },
+			{ name: 'Battery Type', value: '24V rechargeable lithium' },
+			{ name: 'Interface', value: 'Rear USB' },
+		],
+		applications: [
+			'Marking large or immovable workpieces',
+			'On-site marking in various industries',
+			'Automotive parts marking',
+			'Construction material labeling',
+		],
+	},
+	{
+		id: 8,
+		name: '3D Laser Marking Machine',
+		category: 'Laser Marking Machines',
+		summarization:
+			'Advanced laser marking system capable of surface depression processing, offering enhanced flexibility for marking on curved surfaces and objects of different heights.',
+		description:
+			'The 3D Laser Marking Machine represents a significant advancement in laser marking technology. It excels in surface depression processing, allowing for marking on curved surfaces and objects of varying heights with unprecedented flexibility. This machine offers a larger marking range compared to traditional 2D marking systems and is particularly suited for deep engraving applications. Its ability to work with reduced surface flatness requirements makes it invaluable for complex marking tasks in various industries.',
+		power: '50W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Larger marking range compared to 2D marking',
+			'Variable focal length for marking curved surfaces',
+			'Suitable for deep engraving',
+			'Reduced surface flatness requirements',
+		],
+		specifications: [
+			{ name: 'Marking Range', value: 'Larger than traditional 2D marking' },
+			{ name: 'Focal Length', value: 'Variable for different heights and curved surfaces' },
+			{ name: 'Engraving Depth', value: 'Suitable for deep engraving' },
+			{ name: 'Surface Requirements', value: 'Reduced flatness requirements compared to 2D marking' },
+		],
+		applications: [
+			'Marking on curved surfaces',
+			'Deep engraving applications',
+			'Automotive parts',
+			'Consumer electronics',
+		],
+	},
+	{
+		id: 9,
+		name: 'Laser Cleaning Machine',
+		category: 'Laser Cleaning Machines',
+		summarization:
+			'High-tech surface cleaning solution using laser technology, offering efficient, environmentally friendly, and precise cleaning for various materials and applications.',
+		description:
+			"The Laser Cleaning Machine is a cutting-edge solution for surface cleaning that leverages advanced laser technology. This machine offers a chemical-free, highly precise cleaning process that is both efficient and environmentally friendly. It's capable of cleaning a wide range of materials, including metals and delicate cultural relics. The laser cleaning process is particularly effective for removing rust, paint, oil, and various coatings without damaging the underlying surface.",
+		power: '100W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Chemical-free cleaning process',
+			'High cleaning precision',
+			'Efficient and environmentally friendly',
+			'Suitable for various materials including metals and cultural relics',
+		],
+		specifications: [
+			{ name: 'Cleaning Precision', value: 'High' },
+			{ name: 'Compatible Materials', value: 'Organic pollutants, inorganic substances, metals, ceramics' },
+			{ name: 'Environmental Impact', value: 'Low, no chemical residues' },
+			{ name: 'Cleaning Speed', value: 'Efficient, varies by application' },
+		],
+		applications: [
+			'Rust removal',
+			'Paint removal',
+			'Oil removal',
+			'Cultural relic restoration',
+			'Glue removal',
+			'Coating removal',
+			'Plating removal',
+		],
+	},
+	{
+		id: 10,
+		name: 'Laser Cutting Machine',
+		category: 'Laser Cutting Machines',
+		summarization:
+			'High-precision metal processing equipment using laser technology for quick and accurate cutting of metal sheets and various materials.',
+		description:
+			"The Laser Cutting Machine is a high-performance solution for precision cutting of metals and other materials. Driven by imported magnetic suspension linear motors, it offers high positioning accuracy and a large speed regulation range. The machine features a built-in circulating cooling system and a menu-based control with LCD display, allowing for easy operation and precise control. It's an ideal choice for industrial and mining enterprises, as well as scientific research institutes requiring high-quality sample preparation.",
+		power: '500W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'High-speed precision cutting',
+			'Driven by imported magnetic suspension linear motors',
+			'Large speed regulation range',
+			'Built-in circulating cooling system',
+		],
+		specifications: [
+			{
+				name: 'Cutting Materials',
+				value: 'Metals, electronic components, ceramic materials, crystals, hard alloys',
+			},
+			{ name: 'Positioning Accuracy', value: 'High' },
+			{ name: 'Control', value: 'Menu-based with LCD display' },
+			{ name: 'Cooling System', value: 'Built-in circulating cooling' },
+		],
+		applications: [
+			'Automotive industry',
+			'Aerospace manufacturing',
+			'Electronics production',
+			'Scientific research sample preparation',
+		],
+	},
+	{
+		id: 11,
+		name: 'Laser Tube Cutting Machine',
+		category: 'Laser Cutting Machines',
+		summarization:
+			'Efficient and precise processing equipment for cutting metal tubes using laser technology, capable of handling complex shapes and sizes.',
+		description:
+			'The Laser Tube Cutting Machine is a specialized solution for efficient and precise cutting of metal tubes. It excels in handling complex shapes and sizes, offering fast and accurate tube cutting capabilities. This machine significantly reduces material waste and enhances production efficiency, making it an invaluable asset in industries that work extensively with tubular materials. Its ability to cut various shapes, including straight lines, curves, and holes, provides unparalleled flexibility in tube processing.',
+		power: '1000W',
+		wavelength: '1064nm',
+		mainImage: 'https://fakeimg.pl/250x100/',
+		imagesList: ['https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768', 'https://fakeimg.pl/1024x768'],
+		features: [
+			'Fast and accurate tube cutting',
+			'Capable of cutting complex shapes',
+			'Reduced material waste',
+			'High production efficiency',
+		],
+		specifications: [
+			{ name: 'Cutting Speed', value: 'Fast' },
+			{ name: 'Compatible Materials', value: 'Metal tubes' },
+			{ name: 'Shapes', value: 'Straight lines, curves, holes, etc.' },
+			{ name: 'Waste Reduction', value: 'Significant compared to traditional methods' },
+		],
+		applications: ['Automotive industry', 'Aerospace manufacturing', 'Furniture production', 'HVAC system components'],
+	},
+]

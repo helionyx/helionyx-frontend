@@ -14,6 +14,8 @@ const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/$productId' })
 	const { data: product, isPending, isError } = useSuspenseQuery(productQueryOption(productId))
 
+	console.log(product)
+
 	const navigateAndScroll = useNavigateAndScroll()
 
 	if (isPending) return <div>Loading...</div>

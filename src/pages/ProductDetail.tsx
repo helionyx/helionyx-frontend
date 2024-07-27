@@ -3,12 +3,12 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { products } from '@/db'
 import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
 import { productQueryOption } from '@/services/queries.service'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useParams } from '@tanstack/react-router'
 import { Mailbox, Phone, ShoppingCart } from 'lucide-react'
-import { products } from '../../db.json'
 
 const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/$productId' })

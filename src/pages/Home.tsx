@@ -3,8 +3,6 @@ import Layout from '@/layouts/Layout'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
-import { Link } from '@tanstack/react-router'
-
 import group from '@/assets/group.png'
 import unmatchPrecision from '@/assets/icon-benefits-commitment.png'
 import innovation from '@/assets/icon-benefits-innovation.png'
@@ -18,6 +16,7 @@ import testimonail1 from '@/assets/01.png'
 import testimonail2 from '@/assets/02.png'
 import bg_laser from '@/assets/bg-laser.jpg'
 
+import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
 import { LightbulbIcon, ShieldCheckIcon } from 'lucide-react'
 import { GiSewingMachine } from 'react-icons/gi'
 
@@ -62,6 +61,8 @@ const testimonial = [
 ]
 
 const HomePage = () => {
+	const navigateAndScroll = useNavigateAndScroll()
+
 	return (
 		<>
 			<Layout>
@@ -157,18 +158,17 @@ const HomePage = () => {
 											<p className='text-gray-600'>{product.description}</p>
 										</CardContent>
 										<CardFooter>
-											<Link
-												to='/products'
-												search={{ category: product.title.split('Laser')[1].trim().toLowerCase() }}
-												className='w-full'
+											<Button
+												variant='outline'
+												onClick={() =>
+													navigateAndScroll('/products', {
+														search: { category: product.title.split('Laser')[1].trim().toLowerCase() },
+													})
+												}
+												className='data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent transition-color duration-300 w-full text-zinc-950 border-solid border-2 border-[#F89D44] hover:text-[#F89D44]'
 											>
-												<Button
-													variant='outline'
-													className='data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent transition-color duration-300 w-full text-zinc-950 border-solid border-2 border-[#F89D44] hover:text-[#F89D44]'
-												>
-													Learn More
-												</Button>
-											</Link>
+												Learn More
+											</Button>
 										</CardFooter>
 									</Card>
 								))}

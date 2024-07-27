@@ -4,11 +4,15 @@ interface Specification {
 }
 
 export interface Product {
-	id: string
+	id: number
 	name: string
 	category: string
+	summarization: string
 	description: string
-	images: string[]
+	power: string
+	wavelength: string
+	mainImage: string
+	imagesList: string[]
 	features: string[]
 	specifications: Specification[]
 	applications: string[]

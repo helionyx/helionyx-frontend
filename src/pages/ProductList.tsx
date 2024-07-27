@@ -1,19 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
-import type { ProductSearch } from '@/routes/products'
 import { productsQueryOptions } from '@/services/queries.service'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import { useSearch } from '@tanstack/react-router'
 import { useState } from 'react'
 
 const categories = ['All', 'Laser Marking Machines', 'Laser Cutting Machines', 'Laser Cleaning Machines']
 
 const ProductList: React.FC = () => {
-	const { category } = useSearch({ from: '/products' }) as ProductSearch
-
-	console.log(category)
-
 	const productsQuery = useSuspenseQuery(productsQueryOptions)
 
 	const [selectedCategory, setSelectedCategory] = useState('All')

@@ -1,7 +1,7 @@
 import type { Product } from '@/types/product'
 import axios from 'axios'
 
-const BASE_URI_PREFIX = 'http://localhost:3000'
+const BASE_URI_PREFIX = 'http://localhost:10000'
 const axiosInstance = axios.create({ baseURL: BASE_URI_PREFIX })
 
 export class PostNotFoundError extends Error {}

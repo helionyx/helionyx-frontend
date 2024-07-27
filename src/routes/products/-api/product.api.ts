@@ -1,5 +1,5 @@
 import { products } from '@/db'
-import type { Product } from '@/types/product'
+import type { Product } from '@/routes/products/-types/product'
 // import axios from 'axios'
 
 // const BASE_URI_PREFIX = 'http://localhost:10000'

@@ -1,5 +1,5 @@
 import Layout from '@/layouts/Layout'
-import { productsQueryOptions } from '@/services/queries.service'
+import { productsQueryOptions } from '@/routes/products/-api/queries.api'
 import { Outlet, createFileRoute } from '@tanstack/react-router'
 
 export type ProductSearch = {

@@ -1,5 +1,5 @@
 import { queryOptions } from '@tanstack/react-query'
-import { getProductById, getProducts } from './product.service'
+import { getProductById, getProducts } from './product.api'
 
 export const productsQueryOptions = queryOptions({
 	queryKey: ['products'],

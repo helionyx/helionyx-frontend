@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
-import { productsQueryOptions } from '@/services/queries.service'
+import { productsQueryOptions } from '@/routes/products/-api/queries.api'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useState } from 'react'
 

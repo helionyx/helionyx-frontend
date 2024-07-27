@@ -1,5 +1,5 @@
-import ProductDetail from '@/pages/ProductDetail'
-import { productQueryOption } from '@/services/queries.service'
+import { productQueryOption } from '@/routes/products/-api/queries.api'
+import ProductDetail from '@/routes/products/-pages/ProductDetail'
 import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/products/$productId')({

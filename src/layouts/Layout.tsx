@@ -126,7 +126,7 @@ const Header: React.FC = () => {
 											to='/about'
 											className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 										>
-											ABOUT
+											ABOUT US
 										</Link>
 									</NavigationMenuLink>
 								</NavigationMenuItem>

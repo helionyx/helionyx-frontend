@@ -26,7 +26,7 @@ const ProductList: React.FC = () => {
 			: productsQuery.data.filter((product) => product.category === selectedCategory)
 
 	return (
-		<div className='bg-gradient-to-r from-emerald-50 to-blue-50 py-12'>
+		<div className='bg-gray-50 py-12'>
 			<div className='container mx-auto px-4'>
 				<h1 className='text-4xl font-bold text-amber-500 mb-8'>Our Products</h1>
 

@@ -4,7 +4,7 @@ import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/products/$productId')({
 	loader: ({ context: { queryClient }, params: { productId } }) => {
-		return queryClient.ensureQueryData(productQueryOption(productId))
+		return queryClient.ensureQueryData(productQueryOption(Number(productId)))
 	},
 	component: ProductDetail,
 })

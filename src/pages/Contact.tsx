@@ -6,7 +6,9 @@ const Contact = () => {
 			<div className='container'>
 				<div className='mt-10 text-center'>
 					<h1 className='text-3xl font-semibold mb-3'>CONTACT US</h1>
-					<p className='text-center'>Please enter your information and we will get back to you within one business day.</p>
+					<p className='text-center'>
+						Please enter your information and we will get back to you within one business day.
+					</p>
 				</div>
 				<div className='mt-10 mb-10 flex flex-row justify-center'>
 					<div className='w-full max-w-lg p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700 mt-5'>

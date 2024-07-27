@@ -19,9 +19,9 @@ export const getProducts = async (): Promise<Product[]> => {
 	return products
 }
 
-export const getProductById = async (id: string): Promise<Product | null> => {
+export const getProductById = async (id: number): Promise<Product | null> => {
 	// const response = await axiosInstance.get<Product>(`products/${id}`)
 	// return response.data || null
-	const product = products.find((product) => product.id === Number(id))
+	const product = products.find((product) => product.id === id)
 	return product || null
 }

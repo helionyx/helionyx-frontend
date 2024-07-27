@@ -6,7 +6,7 @@ export const productsQueryOptions = queryOptions({
 	queryFn: () => getProducts(),
 })
 
-export const productQueryOption = (productId: string) =>
+export const productQueryOption = (productId: number) =>
 	queryOptions({
 		queryKey: ['posts', { productId }],
 		queryFn: () => getProductById(productId),

@@ -12,14 +12,10 @@ import { products } from '../../db.json'
 
 const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/$productId' })
-	const { data: product, isPending, isError } = useSuspenseQuery(productQueryOption(productId))
-
-	console.log(product)
+	const { data: product } = useSuspenseQuery(productQueryOption(Number(productId)))
 
 	const navigateAndScroll = useNavigateAndScroll()
 
-	if (isPending) return <div>Loading...</div>
-	if (isError) return <div>An error accrued...</div>
 	if (!product) return <div>Product not found</div>
 
 	const relatedProducts = products.filter((p) => p.category === product.category && p.id !== product.id).slice(0, 3)

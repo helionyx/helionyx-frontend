@@ -72,11 +72,14 @@ const Header: React.FC = () => {
 						<NavigationMenu>
 							<NavigationMenuList className='space-x-2'>
 								<NavigationMenuItem>
-									<Link to='/'>
-										<NavigationMenuLink className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'>
+									<NavigationMenuLink asChild>
+										<Link
+											to='/'
+											className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
+										>
 											HOME
-										</NavigationMenuLink>
-									</Link>
+										</Link>
+									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuTrigger
@@ -89,7 +92,8 @@ const Header: React.FC = () => {
 										<ul className='bg-white p-4 rounded-md shadow-lg w-64'>
 											<li>
 												<Link
-													to='/products?category=marking'
+													to='/products'
+													search={{ category: 'marking' }}
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													Laser Marking
@@ -97,7 +101,8 @@ const Header: React.FC = () => {
 											</li>
 											<li>
 												<Link
-													to='/products?category=cutting'
+													to='/products'
+													search={{ category: 'cutting' }}
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													Laser Cutting
@@ -105,7 +110,8 @@ const Header: React.FC = () => {
 											</li>
 											<li>
 												<Link
-													to='/products?category=cleaning'
+													to='/products'
+													search={{ category: 'cleaning' }}
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													Laser Cleaning
@@ -115,18 +121,24 @@ const Header: React.FC = () => {
 									</NavigationMenuContent>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<Link to='/about'>
-										<NavigationMenuLink className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'>
-											ABOUT US
-										</NavigationMenuLink>
-									</Link>
+									<NavigationMenuLink asChild>
+										<Link
+											to='/about'
+											className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
+										>
+											ABOUT US CONTACT US
+										</Link>
+									</NavigationMenuLink>
 								</NavigationMenuItem>
 								<NavigationMenuItem>
-									<Link to='/contact'>
-										<NavigationMenuLink className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'>
+									<NavigationMenuLink asChild>
+										<Link
+											to='/contact'
+											className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
+										>
 											CONTACT US
-										</NavigationMenuLink>
-									</Link>
+										</Link>
+									</NavigationMenuLink>
 								</NavigationMenuItem>
 							</NavigationMenuList>
 						</NavigationMenu>

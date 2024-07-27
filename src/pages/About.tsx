@@ -1,13 +1,11 @@
 import company from '@/assets/company.jpg'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import Layout from '@/layouts/Layout'
-import { AwardIcon, CalendarIcon, CompassIcon, Link, MountainIcon, TargetIcon } from 'lucide-react'
-import technology from '@/assets/technology-aboutus.jpg'
 import group_2 from '@/assets/group_2.png'
-import reliability_2 from '@/assets/reliability_2.png'
 import innovation_2 from '@/assets/innovation_2.png'
-import sustainability_2 from '@/assets/sustainability_2.png'
 import quality_2 from '@/assets/quality_2.png'
+import reliability_2 from '@/assets/reliability_2.png'
+import sustainability_2 from '@/assets/sustainability_2.png'
+import technology from '@/assets/technology-aboutus.jpg'
+import Layout from '@/layouts/Layout'
 
 const About = () => {
 	return (

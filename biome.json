@@ -93,7 +93,7 @@
 				"useValidTypeof": "error"
 			}
 		},
-		"ignore": ["**/dist", "**/.eslintrc.cjs", "src/routeTree.gen.ts"]
+		"ignore": ["./dist", "**/.eslintrc.cjs", "src/routeTree.gen.ts"]
 	},
 	"javascript": {
 		"formatter": {

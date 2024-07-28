@@ -415,7 +415,7 @@ export const products = [
 	{
 		id: 12,
 		name: 'Dot Pin Marking Machine',
-		category: 'Marking Machines',
+		category: 'Laser Marking Machines',
 		summarization:
 			'Portable pneumatic marking machine, lightweight and easy to operate, ideal for on-site marking of large or immovable workpieces.',
 		power: '1000W',

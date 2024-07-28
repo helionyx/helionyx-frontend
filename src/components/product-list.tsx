@@ -289,16 +289,16 @@ export function ProductList() {
 									</>
 								))
 						: filteredProducts?.map((product) => (
-								<Card key={product.id} className='bg-muted p-6 rounded-lg'>
-									<div className='relative overflow-hidden rounded-lg'>
+								<Card key={product.id} className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden'>
+									<div className='relative overflow-hidden rounded-lg flex justify-center mb-4'>
 										<img
 											src={product.mainImage}
 											alt={product.name}
 											width={400}
 											height={300}
-											className='w-full h-48 object-cover bg-transparent'
+											className='w-48 h-48 object-contain bg-transparent'
 										/>
-										<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/50 to-transparent' />
+										<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
 									</div>
 									<div className='mt-4'>
 										<h3 className='text-xl font-bold'>{product.name}</h3>

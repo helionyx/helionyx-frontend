@@ -162,9 +162,6 @@ const ProductDetail: React.FC = () => {
 						<div className='md:w-1/2 p-6'>
 							<Carousel setApi={setApi} className='w-full max-w-md'>
 								<CarouselContent>
-									<CarouselItem>
-										<img src={product.mainImage} alt={product.name} className='w-full h-full object-cover rounded-lg' />
-									</CarouselItem>
 									{product.imagesList.map((image, index) => (
 										<CarouselItem key={index}>
 											<img

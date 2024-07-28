@@ -1,5 +1,4 @@
 import Layout from '@/layouts/Layout'
-import { productsQueryOptions } from '@/routes/products/-api/queries.api'
 import { Outlet, createFileRoute } from '@tanstack/react-router'
 
 export type ProductSearch = {
@@ -12,7 +11,6 @@ export const Route = createFileRoute('/products')({
 			category: (search.category as string) || '',
 		}
 	},
-	loader: ({ context: { queryClient } }) => queryClient.ensureQueryData(productsQueryOptions),
 	component: () => (
 		<Layout>
 			<Outlet />

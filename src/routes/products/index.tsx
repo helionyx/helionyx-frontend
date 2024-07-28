@@ -1,4 +1,4 @@
-import ProductList from '@/routes/products/-pages/ProductList'
+import { ProductList } from '@/components/product-list'
 import { createFileRoute } from '@tanstack/react-router'
 
 const ProductsIndexComponent = () => {

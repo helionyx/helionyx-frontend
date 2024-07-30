@@ -1,14 +1,14 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Input } from '@/components/ui/input'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { useFilteredProductsQuery } from '@/routes/products/-api/queries.api'
 import FilterContent from '@/routes/products/-components/product-list/FilterContent'
+import SearchPopover from '@/routes/products/-components/product-list/SearchPopover'
 import SkeletonCard from '@/routes/products/-components/product-list/SkeletonCard'
 import { ProductFilters } from '@/routes/products/-types/product'
-import { Link, useSearch } from '@tanstack/react-router'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
 import { Filter, Loader2 } from 'lucide-react'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const categoryMap = {
 	marking: 'Laser Marking Machines',
@@ -18,6 +18,7 @@ const categoryMap = {
 
 const ProductList: React.FC = () => {
 	const { category: uriCategory, search, power, wavelength } = useSearch({ from: '/products/_products-layout/' })
+	const navigate = useNavigate()
 
 	const [isFilterSheetOpen, setIsFilterSheetOpen] = useState(false)
 	const [searchTerm, setSearchTerm] = useState<string>(search || '')
@@ -34,16 +35,29 @@ const ProductList: React.FC = () => {
 
 	const allProducts = data?.pages.flatMap((page) => page.products) || []
 
+	useEffect(() => {
+		navigate({
+			search: (prev) => ({
+				...prev,
+				search: searchTerm,
+				category: uriCategory ?? selectedFilters.category,
+				power: selectedFilters.power,
+				wavelength: selectedFilters.wavelength
+			}),
+			replace: true
+		})
+	}, [uriCategory, searchTerm, selectedFilters, navigate])
+
+	const handleSearchSubmit = (newSearchTerm: string) => {
+		setSearchTerm(newSearchTerm)
+	}
+
 	return (
 		<div className='container mx-auto px-4 py-8'>
-			<div className='flex items-center gap-4 mb-4 md:hidden'>
-				<Input
-					type='text'
-					placeholder='Search products...'
-					value={searchTerm}
-					onChange={(e) => setSearchTerm(e.target.value)}
-					className='flex-grow'
-				/>
+			<div className='flex items-center justify-end gap-4 mb-4 md:hidden'>
+				<div className='relative'>
+					<SearchPopover initialSearchTerm={searchTerm} onSearchSubmit={handleSearchSubmit} />
+				</div>
 				<Sheet open={isFilterSheetOpen} onOpenChange={setIsFilterSheetOpen}>
 					<SheetTrigger asChild>
 						<Button variant='outline' className='md:hidden'>
@@ -75,13 +89,9 @@ const ProductList: React.FC = () => {
 				<div>
 					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
 						<div className='hidden md:block md:col-span-full'>
-							<Input
-								type='text'
-								placeholder='Search products...'
-								value={searchTerm}
-								onChange={(e) => setSearchTerm(e.target.value)}
-								className='flex-grow'
-							/>
+							<div className='relative text-end'>
+								<SearchPopover initialSearchTerm={searchTerm} onSearchSubmit={handleSearchSubmit} />
+							</div>
 						</div>
 						{isLoading
 							? Array(6)
@@ -89,7 +99,7 @@ const ProductList: React.FC = () => {
 									.map((_, idx) => <SkeletonCard key={idx} />)
 							: allProducts.map((product) => (
 									<Link key={product.id} to='/products/$productId' params={{ productId: product.id.toString() }}>
-										<Card className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4'>
+										<Card className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-lg transition-shadow'>
 											<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center'>
 												<img
 													src={product.mainImage}
@@ -102,7 +112,7 @@ const ProductList: React.FC = () => {
 											</CardHeader>
 											<CardContent className='p-0 space-y-2'>
 												<CardTitle className='text-lg'>{product.name}</CardTitle>
-												<CardDescription>{product.summarization}</CardDescription>
+												<CardDescription>{product.summarization.slice(0, 50)}...</CardDescription>
 											</CardContent>
 											<CardFooter className='p-0 flex items-center justify-end gap-2'>
 												<Link to='/products/$productId' params={{ productId: product.id.toString() }}>

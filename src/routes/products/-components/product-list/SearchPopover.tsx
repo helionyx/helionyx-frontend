@@ -1,0 +1,150 @@
+import { Button } from '@/components/ui/button'
+import { Input } from '@/components/ui/input'
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
+import { Skeleton } from '@/components/ui/skeleton'
+import { useFilteredProductsQuery } from '@/routes/products/-api/queries.api'
+import useDebounce from '@/routes/products/-hook/useDebounce'
+import { Link, useNavigate } from '@tanstack/react-router'
+import { Loader2, Search } from 'lucide-react'
+import React, { useEffect, useRef, useState } from 'react'
+
+const SearchResultSkeleton: React.FC = () => (
+	<div className='flex items-center space-x-2 p-2'>
+		<Skeleton className='w-10 h-10 rounded' />
+		<div className='space-y-2'>
+			<Skeleton className='h-4 w-[150px]' />
+			<Skeleton className='h-3 w-[200px]' />
+		</div>
+	</div>
+)
+
+interface SearchPopoverProps {
+	initialSearchTerm: string
+	onSearchSubmit: (newSearchTerm: string) => void
+}
+
+const SearchPopover: React.FC<SearchPopoverProps> = ({ initialSearchTerm, onSearchSubmit }) => {
+	const [isOpen, setIsOpen] = useState(false)
+	const [localSearchTerm, setLocalSearchTerm] = useState(initialSearchTerm)
+	const [selectedIndex, setSelectedIndex] = useState(-1)
+	const debouncedSearchTerm = useDebounce(localSearchTerm, 300)
+	const navigate = useNavigate()
+
+	const { data, isLoading, isFetching } = useFilteredProductsQuery({ search: debouncedSearchTerm })
+
+	const searchResults = data?.pages[0]?.products || []
+	const isPending = isLoading || isFetching
+
+	const inputRef = useRef<HTMLInputElement>(null)
+	const resultsRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		if (debouncedSearchTerm.length > 0) {
+			setIsOpen(true)
+		}
+		setSelectedIndex(-1)
+	}, [debouncedSearchTerm])
+
+	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+		if (e.key === 'ArrowDown') {
+			e.preventDefault()
+			setSelectedIndex((prevIndex) => (prevIndex < searchResults.length ? prevIndex + 1 : prevIndex))
+		} else if (e.key === 'ArrowUp') {
+			e.preventDefault()
+			setSelectedIndex((prevIndex) => (prevIndex > -1 ? prevIndex - 1 : -1))
+		} else if (e.key === 'Enter') {
+			e.preventDefault()
+			if (selectedIndex === searchResults.length) {
+				handleViewAllResults()
+			} else if (selectedIndex > -1) {
+				const selectedProduct = searchResults[selectedIndex]
+				if (selectedProduct) {
+					navigate({ to: '/products/$productId', params: { productId: selectedProduct.id.toString() } })
+					setIsOpen(false)
+				}
+			}
+		}
+	}
+
+	useEffect(() => {
+		if (resultsRef.current && selectedIndex > -1) {
+			const selectedElement = resultsRef.current.children[selectedIndex] as HTMLElement
+			if (selectedElement) {
+				selectedElement.scrollIntoView({ block: 'nearest' })
+			}
+		}
+	}, [selectedIndex])
+
+	const handleViewAllResults = () => {
+		onSearchSubmit(localSearchTerm)
+		navigate({
+			to: '/products',
+			search: (prev) => ({ ...prev, search: localSearchTerm })
+		})
+		setIsOpen(false)
+	}
+
+	return (
+		<Popover open={isOpen} onOpenChange={setIsOpen}>
+			<PopoverTrigger asChild>
+				<Button variant='outline' className='w-full md:w-auto relative'>
+					<Search className='mr-2 h-4 w-4' />
+					Search products
+				</Button>
+			</PopoverTrigger>
+			<PopoverContent className='w-80 z-50' align='start' sideOffset={5}>
+				<div className='space-y-4'>
+					<div className='relative'>
+						<Input
+							ref={inputRef}
+							type='text'
+							placeholder='Search products...'
+							value={localSearchTerm}
+							onChange={(e) => setLocalSearchTerm(e.target.value)}
+							onKeyDown={handleKeyDown}
+						/>
+						{isPending && <Loader2 className='absolute right-2 top-1/2 -mt-2 h-4 w-4 animate-spin' />}
+					</div>
+					<div ref={resultsRef} className='max-h-60 overflow-auto'>
+						{isPending ? (
+							Array(3)
+								.fill(0)
+								.map((_, index) => <SearchResultSkeleton key={index} />)
+						) : searchResults.length > 0 ? (
+							<>
+								{searchResults.map((product, index) => (
+									<Link
+										key={product.id}
+										to='/products/$productId'
+										params={{ productId: product.id.toString() }}
+										className={`block p-2 hover:bg-muted ${index === selectedIndex ? 'bg-muted' : ''}`}
+										onClick={() => setIsOpen(false)}
+									>
+										<div className='flex items-center space-x-2'>
+											<img src={product.mainImage} alt={product.name} className='w-10 h-10 object-cover rounded' />
+											<div>
+												<p className='font-medium'>{product.name}</p>
+												<p className='text-sm text-muted-foreground'>{product.summarization.slice(0, 50)}...</p>
+											</div>
+										</div>
+									</Link>
+								))}
+								<Button
+									variant='ghost'
+									className={`w-full justify-start p-2 ${selectedIndex === searchResults.length ? 'bg-muted' : ''}`}
+									onClick={handleViewAllResults}
+								>
+									View all results
+								</Button>
+							</>
+						) : (
+							<p className='text-center text-muted-foreground py-2'>No results found</p>
+						)}
+					</div>
+				</div>
+			</PopoverContent>
+		</Popover>
+	)
+}
+
+export default SearchPopover

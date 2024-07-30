@@ -1,268 +1,195 @@
+import React, { useEffect, useState } from 'react'
+import { useParams } from '@tanstack/react-router'
+import { useProductId, useRelatedProductsQuery } from '@/routes/products/-api/queries.api'
+import ProductDetailSkeleton from '@/routes/products/-components/product-detail/ProductDetailSkeleton'
+import RelatedProductsSkeleton from '@/routes/products/-components/product-detail/RelatedProductsSkeleton'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import {
 	Carousel,
-	type CarouselApi,
+	CarouselApi,
 	CarouselContent,
 	CarouselItem,
 	CarouselNext,
 	CarouselPrevious
 } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { useProductId, useRelatedProductsQuery } from '@/routes/products/-api/queries.api'
-import ProductDetailSkeleton from '@/routes/products/-components/product-detail/ProductDetailSkeleton'
-import { Link, useParams } from '@tanstack/react-router'
-import { Mailbox, Phone, ShoppingCart } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
+import { Link } from '@tanstack/react-router'
+import { Mailbox, Phone, ShoppingCart, Star } from 'lucide-react'
 
 const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/_products-layout/$productId' })
-	const { data: product, isPending } = useProductId(Number(productId))
-	const { data: relatedProducts } = useRelatedProductsQuery(Number(product?.id), product?.category)
+	const { data: product, isPending: isProductPending } = useProductId(Number(productId))
+	const { data: relatedProducts, isPending: isRelatedPending } = useRelatedProductsQuery(
+		Number(product?.id),
+		product?.category
+	)
 
-	const [api, setApi] = useState<CarouselApi>()
-	const [current, setCurrent] = useState(0)
-	const [count, setCount] = useState(0)
+	const [currentImage, setCurrentImage] = useState(0)
+	const [carouselApi, setCarouselApi] = useState<CarouselApi>()
 
 	useEffect(() => {
-		if (!api) return
+		if (carouselApi) {
+			carouselApi.scrollTo(currentImage)
 
-		setCount(api.scrollSnapList().length)
-		setCurrent(api.selectedScrollSnap() + 1)
+			const onSelect = () => {
+				setCurrentImage(carouselApi.selectedScrollSnap())
+			}
 
-		api.on('select', () => {
-			setCurrent(api.selectedScrollSnap() + 1)
-		})
-	}, [api])
+			carouselApi.on('select', onSelect)
 
-	if (isPending) return <ProductDetailSkeleton />
-	if (!product) return <div>Product not found</div>
+			return () => {
+				carouselApi.off('select', onSelect)
+			}
+		}
+	}, [carouselApi, currentImage])
+
+	if (isProductPending) return <ProductDetailSkeleton />
+	if (!product) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
 
 	return (
 		<div className='container mx-auto px-4 py-8'>
-			<Card>
-				<CardHeader className='p-6'>
-					<div className='md:flex'>
-						<div className='md:w-1/2 p-6'>
-							<Carousel setApi={setApi} className='w-full max-w-md'>
+			<Card className='mb-8'>
+				<CardContent className='p-6'>
+					<div className='flex flex-col lg:flex-row gap-8'>
+						{/* Product images section */}
+						<div className='lg:w-1/2'>
+							<Carousel className='w-full max-w-xl mx-auto' setApi={setCarouselApi}>
 								<CarouselContent>
 									{product.imagesList.map((image, index) => (
 										<CarouselItem key={index}>
 											<img
 												src={image}
 												alt={`${product.name} ${index + 1}`}
-												className='w-full h-full object-cover rounded-lg'
+												className='w-full h-[300px] object-contain rounded-lg'
 											/>
 										</CarouselItem>
 									))}
 								</CarouselContent>
-								<CarouselPrevious />
-								<CarouselNext />
+								<CarouselPrevious className='absolute left-2 top-1/2 -translate-y-1/2' />
+								<CarouselNext className='absolute right-2 top-1/2 -translate-y-1/2' />
 							</Carousel>
-							<CardDescription className='py-2 text-center text-sm text-muted-foreground'>
-								Image {current} of {count}
-							</CardDescription>
+							<div className='flex justify-start mt-4 overflow-x-auto pb-2'>
+								{product.imagesList.map((image, index) => (
+									<img
+										key={index}
+										src={image}
+										alt={`Thumbnail ${index + 1}`}
+										className={`w-16 h-16 object-cover rounded-md mr-2 flex-shrink-0 cursor-pointer ${
+											currentImage === index ? 'border-2 border-amber-500' : ''
+										}`}
+										onClick={() => {
+											setCurrentImage(index)
+											carouselApi?.scrollTo(index)
+										}}
+									/>
+								))}
+							</div>
 						</div>
 
-						<div className='md:w-1/2 p-6'>
-							<CardHeader className='p-0'>
-								<CardTitle className='text-3xl mb-8'>{product.name}</CardTitle>
-								<CardDescription className='mb-8'>{product.summarization}</CardDescription>
-							</CardHeader>
-
-							<CardContent className='p-0 space-y-8 mt-8'>
-								<CardTitle className='text-xl font-semibold'>Key Features:</CardTitle>
+						{/* Product details section */}
+						<div className='lg:w-1/2'>
+							<CardTitle className='text-2xl md:text-3xl font-bold mb-4'>{product.name}</CardTitle>
+							<div className='flex items-center mb-4'>
+								<div className='flex'>
+									{[...Array(5)].map((_, i) => (
+										<Star key={i} className={`w-5 h-5 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} />
+									))}
+								</div>
+								<span className='ml-2 text-sm text-gray-600'>(4.0) 120 reviews</span>
+							</div>
+							<CardDescription className='text-lg mb-6'>{product.summarization}</CardDescription>
+							<div className='mb-6'>
+								<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>
 								<ul className='space-y-2'>
 									{product.features.map((feature, index) => (
-										<li key={index} className='flex items-center'>
-											<Badge className='mr-2 rounded-full bg-green-500 hover:bg-green-500'>✓</Badge>
+										<li key={index} className='flex items-start'>
+											<Badge className='mr-2 mt-1 bg-green-500 flex-shrink-0'>{index + 1}</Badge>
 											<CardDescription>{feature}</CardDescription>
 										</li>
 									))}
 								</ul>
-							</CardContent>
-
-							<CardFooter className='p-0 flex space-x-8 mt-8 justify-center'>
-								<Button className='flex items-center text-xl bg-amber-500 hover:bg-amber-600 transition-colors w-full'>
-									<ShoppingCart className='w-6 h-6 mr-2' />
-									Get a Quote
-								</Button>
-							</CardFooter>
+							</div>
+							<Button className='w-full text-xl bg-amber-500 hover:bg-amber-600 transition-colors'>
+								<ShoppingCart className='w-6 h-6 mr-2' />
+								Get a Quote
+							</Button>
 						</div>
 					</div>
-				</CardHeader>
-
-				<Separator className='md:mt-24' />
-
-				<CardContent className='p-6'>
-					<Tabs defaultValue='overalls'>
-						<TabsList>
-							<TabsTrigger value='overalls'>Over All</TabsTrigger>
-							<TabsTrigger value='descriptions'>Descriptions</TabsTrigger>
-							<TabsTrigger value='specifications'>Specifications</TabsTrigger>
-							<TabsTrigger value='applications'>Applications</TabsTrigger>
-							<TabsTrigger value='support'>Support</TabsTrigger>
-						</TabsList>
-
-						<TabsContent value='overalls' className='space-y-4'>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Product Overview</CardTitle>
-								<CardDescription>{product.summarization}</CardDescription>
-							</CardContent>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Key Features:</CardTitle>
-								<ul className='list-disc pl-6'>
-									{product.features.map((feature, index) => (
-										<li key={index}>
-											<CardDescription>{feature}</CardDescription>
-										</li>
-									))}
-								</ul>
-							</CardContent>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Product Description</CardTitle>
-								<CardDescription>{product.description}</CardDescription>
-							</CardContent>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Product Specification</CardTitle>
-							</CardContent>
-							<CardContent className='grid grid-cols-2 md:grid-cols-3 gap-4 p-0'>
-								{product.specifications.map((spec, index) => (
-									<CardHeader className='p-0' key={index}>
-										<CardTitle className='text-sm font-semibold text-muted-foreground'>{spec.name}:</CardTitle>
-										<CardDescription>{spec.value}</CardDescription>
-									</CardHeader>
-								))}
-							</CardContent>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Product Applications</CardTitle>
-								<ul className='list-disc pl-6'>
-									{product.applications.map((application, index) => (
-										<li key={index}>
-											<CardDescription>{application}</CardDescription>
-										</li>
-									))}
-								</ul>
-							</CardContent>
-							<CardContent className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold mb-4'>Customer Support</CardTitle>
-								<CardDescription className='mb-4'>
-									Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-									{product.name}.
-								</CardDescription>
-							</CardContent>
-							<CardContent className='flex items-center p-0 space-x-4 space-y-4'>
-								<Button variant='link' className='p-0'>
-									<Mailbox className='w-4 h-4 mr-2' />
-									Email Support
-								</Button>
-								<Button variant='link' className='p-0'>
-									<Phone className='w-4 h-4 mr-2' />
-									Phone Support
-								</Button>
-							</CardContent>
-						</TabsContent>
-
-						<TabsContent value='descriptions' className='space-y-4'>
-							<CardHeader className='p-0 space-y-4'>
-								<CardTitle className='text-xl font-semibold'>Product Description</CardTitle>
-								<CardDescription>{product.description}</CardDescription>
-							</CardHeader>
-						</TabsContent>
-
-						<TabsContent value='specifications' className='space-y-4'>
-							<CardHeader className='p-0'>
-								<CardTitle className='text-xl font-semibold'>Product Specification</CardTitle>
-							</CardHeader>
-							<CardContent className='grid grid-cols-2 md:grid-cols-3 gap-4 p-0'>
-								{product.specifications.map((spec, index) => (
-									<CardHeader className='p-0' key={index}>
-										<CardTitle className='text-sm font-semibold text-muted-foreground'>{spec.name}:</CardTitle>
-										<CardDescription>{spec.value}</CardDescription>
-									</CardHeader>
-								))}
-							</CardContent>
-						</TabsContent>
-
-						<TabsContent value='applications' className='space-y-4'>
-							<CardHeader className='p-0'>
-								<CardTitle className='text-xl font-semibold'>Product Applications</CardTitle>
-								<ul className='list-disc pl-6'>
-									{product.applications.map((application, index) => (
-										<li key={index}>
-											<CardDescription>{application}</CardDescription>
-										</li>
-									))}
-								</ul>
-							</CardHeader>
-						</TabsContent>
-
-						<TabsContent value='support' className='space-y-4'>
-							<CardHeader className='p-0'>
-								<CardTitle className='text-xl font-semibold mb-4'>Customer Support</CardTitle>
-								<CardDescription className='mb-4'>
-									Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-									{product.name}.
-								</CardDescription>
-							</CardHeader>
-							<CardFooter className='flex items-center p-0 space-x-4'>
-								<Button variant='link' className='p-0 '>
-									<Mailbox className='w-4 h-4 mr-2' />
-									Email Support
-								</Button>
-								<Button variant='link' className='p-0'>
-									<Phone className='w-4 h-4 mr-2' />
-									Phone Support
-								</Button>
-							</CardFooter>
-						</TabsContent>
-					</Tabs>
 				</CardContent>
 			</Card>
 
-			<div className='mt-4'>
-				{relatedProducts && relatedProducts.length > 0 ? (
-					<>
-						<h2 className='text-2xl font-bold mb-6'>Related Products</h2>
-						<Carousel opts={{ align: 'start' }} className='w-full'>
-							<CarouselContent>
-								{relatedProducts.map((relatedProduct) => (
-									<CarouselItem key={relatedProduct.id} className='md:basis-1/3 lg:basis-1/4'>
-										<Link to='/products/$productId' params={{ productId: relatedProduct.id.toString() }}>
-											<Card className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4'>
-												<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center'>
-													<img
-														src={relatedProduct.mainImage}
-														alt={relatedProduct.name}
-														width={400}
-														height={300}
-														className='w-48 h-48 object-contain bg-transparent'
-													/>
-													<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
-												</CardHeader>
-												<CardContent className='p-0 space-y-2'>
-													<CardTitle className='text-lg'>{relatedProduct.name}</CardTitle>
-													<CardDescription>{relatedProduct.summarization}</CardDescription>
-												</CardContent>
-												<CardFooter className='p-0 flex items-center justify-start gap-2'>
-													<Link to='/products/$productId' params={{ productId: relatedProduct.id.toString() }}>
-														<Button variant='link' className='p-0 transition-colors duration-150 hover:text-amber-500'>
-															Learn More →
-														</Button>
-													</Link>
-												</CardFooter>
-											</Card>
-										</Link>
-									</CarouselItem>
+			<Card className='mb-8'>
+				<CardContent className='p-6'>
+					<div className='space-y-8'>
+						<section>
+							<CardTitle className='text-2xl font-semibold mb-4'>Product Overview</CardTitle>
+							<CardDescription>{product.summarization}</CardDescription>
+						</section>
+
+						<Separator />
+
+						<section>
+							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
+							<CardDescription>{product.description}</CardDescription>
+						</section>
+
+						<Separator />
+
+						<section>
+							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
+							<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
+								{product.specifications.map((spec, index) => (
+									<div key={index} className='bg-gray-100 p-4 rounded-lg'>
+										<CardTitle className='text-sm font-semibold text-gray-600'>{spec.name}:</CardTitle>
+										<CardDescription className='text-lg'>{spec.value}</CardDescription>
+									</div>
 								))}
-							</CarouselContent>
-							<CarouselPrevious />
-							<CarouselNext />
-						</Carousel>
-					</>
-				) : (
+							</div>
+						</section>
+
+						<Separator />
+
+						<section>
+							<CardTitle className='text-2xl font-semibold mb-4'>Product Applications</CardTitle>
+							<ul className='list-disc pl-6'>
+								{product.applications.map((application, index) => (
+									<li key={index} className='mb-2'>
+										<CardDescription>{application}</CardDescription>
+									</li>
+								))}
+							</ul>
+						</section>
+
+						<Separator />
+
+						<section>
+							<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
+							<CardDescription className='mb-4'>
+								Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
+								{product.name}.
+							</CardDescription>
+							<div className='flex flex-wrap gap-4'>
+								<Button variant='outline' className='flex items-center'>
+									<Mailbox className='w-5 h-5 mr-2' />
+									Email Support
+								</Button>
+								<Button variant='outline' className='flex items-center'>
+									<Phone className='w-5 h-5 mr-2' />
+									Phone Support
+								</Button>
+							</div>
+						</section>
+					</div>
+				</CardContent>
+			</Card>
+
+			{/* Related products section */}
+			<div className='mt-8'>
+				{isRelatedPending ? (
+					<RelatedProductsSkeleton />
+				) : relatedProducts?.length === 0 ? (
 					<Card>
 						<CardHeader>
 							<CardTitle>No Related Products</CardTitle>
@@ -279,6 +206,44 @@ const ProductDetail: React.FC = () => {
 							</Link>
 						</CardFooter>
 					</Card>
+				) : (
+					<>
+						<h2 className='text-2xl md:text-3xl font-bold mb-6'>Related Products</h2>
+						<Carousel className='w-full relative' opts={{ align: 'start' }}>
+							<CarouselContent>
+								{relatedProducts?.map((relatedProduct) => (
+									<CarouselItem key={relatedProduct.id} className='w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4'>
+										<Link to='/products/$productId' params={{ productId: relatedProduct.id.toString() }}>
+											<Card className='max-w-sm mx-auto bg-muted p-4 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-2xl transition-shadow'>
+												<CardHeader className='p-4 relative overflow-hidden rounded-lg flex justify-center'>
+													<img
+														src={relatedProduct.mainImage}
+														alt={relatedProduct.name}
+														className='w-full h-48 object-contain rounded-t-lg bg-transparent'
+													/>
+													<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
+												</CardHeader>
+												<CardContent className='p-4'>
+													<CardTitle className='text-lg mb-2'>{relatedProduct.name}</CardTitle>
+													<CardDescription className='text-sm'>{relatedProduct.summarization}</CardDescription>
+												</CardContent>
+												<CardFooter className='p-4'>
+													<Button
+														variant='outline'
+														className='w-full hover:bg-amber-100 hover:text-amber-500 hover:border-amber-500 transition-colors'
+													>
+														Learn More
+													</Button>
+												</CardFooter>
+											</Card>
+										</Link>
+									</CarouselItem>
+								))}
+							</CarouselContent>
+							<CarouselPrevious className='hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2' />
+							<CarouselNext className='hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2' />
+						</Carousel>
+					</>
 				)}
 			</div>
 		</div>

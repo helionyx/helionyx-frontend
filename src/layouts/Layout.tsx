@@ -83,7 +83,7 @@ const Header: React.FC = () => {
 								<NavigationMenuItem>
 									<NavigationMenuTrigger
 										className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300
-										data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
+data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
 									>
 										<Link to='/products'>PRODUCTS</Link>
 									</NavigationMenuTrigger>
@@ -125,7 +125,7 @@ const Header: React.FC = () => {
 											to='/about'
 											className='px-4 py-2 md:px-1 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 										>
-											ABOUT
+											ABOUT US
 										</Link>
 									</NavigationMenuLink>
 								</NavigationMenuItem>
@@ -217,7 +217,7 @@ const Footer: React.FC = () => {
 								</Link>
 							</li>
 							<li>
-								<Link to='/' className='text-white text-lg hover:text-[#F89D44] pl-3'>
+								<Link to='/contact' className='text-white text-lg hover:text-[#F89D44] pl-3'>
 									Contact
 								</Link>
 							</li>

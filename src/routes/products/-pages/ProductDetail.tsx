@@ -1,8 +1,3 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from '@tanstack/react-router'
-import { useProductId, useRelatedProductsQuery } from '@/routes/products/-api/queries.api'
-import ProductDetailSkeleton from '@/routes/products/-components/product-detail/ProductDetailSkeleton'
-import RelatedProductsSkeleton from '@/routes/products/-components/product-detail/RelatedProductsSkeleton'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
@@ -15,8 +10,12 @@ import {
 	CarouselPrevious
 } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
-import { Link } from '@tanstack/react-router'
-import { Mailbox, Phone, ShoppingCart, Star } from 'lucide-react'
+import { useProductId, useRelatedProductsQuery } from '@/routes/products/-api/queries.api'
+import ProductDetailSkeleton from '@/routes/products/-components/product-detail/ProductDetailSkeleton'
+import RelatedProductsSkeleton from '@/routes/products/-components/product-detail/RelatedProductsSkeleton'
+import { Link, useParams } from '@tanstack/react-router'
+import { Mailbox, Phone, ShoppingCart } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 
 const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/_products-layout/$productId' })
@@ -91,14 +90,6 @@ const ProductDetail: React.FC = () => {
 						{/* Product details section */}
 						<div className='lg:w-1/2'>
 							<CardTitle className='text-2xl md:text-3xl font-bold mb-4'>{product.name}</CardTitle>
-							<div className='flex items-center mb-4'>
-								<div className='flex'>
-									{[...Array(5)].map((_, i) => (
-										<Star key={i} className={`w-5 h-5 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'}`} />
-									))}
-								</div>
-								<span className='ml-2 text-sm text-gray-600'>(4.0) 120 reviews</span>
-							</div>
 							<CardDescription className='text-lg mb-6'>{product.summarization}</CardDescription>
 							<div className='mb-6'>
 								<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>

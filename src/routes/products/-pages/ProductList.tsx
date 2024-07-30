@@ -100,7 +100,7 @@ const ProductList: React.FC = () => {
 							: allProducts.map((product) => (
 									<Link key={product.id} to='/products/$productId' params={{ productId: product.id.toString() }}>
 										<Card className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-lg transition-shadow'>
-											<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center'>
+											<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center items-center'>
 												<img
 													src={product.mainImage}
 													alt={product.name}

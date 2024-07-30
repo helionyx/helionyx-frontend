@@ -1,7 +1,7 @@
-import { Card, CardContent } from '@/components/ui/card'
-
 import testimonail1 from '@/assets/01.png'
 import testimonail2 from '@/assets/02.png'
+import { Card, CardContent } from '@/components/ui/card'
+import React from 'react'
 
 const testimonial = [
 	{
@@ -10,7 +10,7 @@ const testimonial = [
 			"LaserTech Pro's marking systems have significantly improved our product traceability and reduced errors. Their support team is unparalleled.",
 		name: 'Jane Doe',
 		title: 'CEO, TechInnovate Inc.',
-		image: testimonail1,
+		image: testimonail1
 	},
 	{
 		id: 2,
@@ -18,8 +18,8 @@ const testimonial = [
 			"The precision and speed of LaserTech Pro's cutting systems have revolutionized our manufacturing process. We've seen a 30% increase in efficiency.",
 		name: 'John Smith',
 		title: 'Operations Manager, MetalWorks Co.',
-		image: testimonail2,
-	},
+		image: testimonail2
+	}
 ]
 
 const Testimonial: React.FC = () => {
@@ -31,7 +31,7 @@ const Testimonial: React.FC = () => {
 					{testimonial.map((testimonial) => (
 						<Card key={testimonial.id} className='bg-white shadow-lg border-l-4 border-[#F89D44]'>
 							<CardContent className='pt-8'>
-								<p className='text-gray-600 italic mb-4'>"{testimonial.quote}"</p>
+								<p className='text-gray-600 italic mb-4'>{testimonial.quote}</p>
 								<div className='flex items-center'>
 									<img src={testimonial.image} alt='Client' className='w-12 h-12 rounded-full mr-4' />
 									<div>

@@ -91,21 +91,21 @@ export const products = [
 			'Integrated structure with high-quality fiber lasers',
 			'Air-cooling system without optical device pollution',
 			'Fundamental mode (TEMOO) output laser',
-			'Low power consumption (less than 400W/H)',
+			'Low power consumption (less than 400W/H)'
 		],
 		specifications: [
 			{ name: 'Laser Type', value: 'Fiber laser' },
 			{ name: 'Wavelength', value: '1064nm' },
 			{ name: 'Minimum Focusing Point', value: '0.01mm' },
 			{ name: 'Power Consumption', value: '< 400W/H' },
-			{ name: 'Output Frequency', value: '> 20KHz' },
+			{ name: 'Output Frequency', value: '> 20KHz' }
 		],
 		applications: [
 			'Metal product marking',
 			'Electronic component labeling',
 			'Automotive part marking',
-			'Jewelry engraving',
-		],
+			'Jewelry engraving'
+		]
 	},
 	{
 		id: 3,
@@ -125,26 +125,26 @@ export const products = [
 			Portable_laser_marking_machine_5,
 			Portable_laser_marking_machine_6,
 			Portable_laser_marking_machine_7,
-			Portable_laser_marking_machine_8,
+			Portable_laser_marking_machine_8
 		],
 		features: [
 			'Compact and integrated design',
 			'Reduced space requirements',
 			'Convenient operation',
-			'Stable performance',
+			'Stable performance'
 		],
 		specifications: [
 			{ name: 'Weight', value: 'TBD' },
 			{ name: 'Dimensions', value: 'TBD' },
 			{ name: 'Power Source', value: 'TBD' },
-			{ name: 'Marking Area', value: 'TBD' },
+			{ name: 'Marking Area', value: 'TBD' }
 		],
 		applications: [
 			'On-site marking in various industries',
 			'Small-scale production environments',
 			'Field service and maintenance marking',
-			'Temporary or mobile marking stations',
-		],
+			'Temporary or mobile marking stations'
+		]
 	},
 	{
 		id: 4,
@@ -162,19 +162,19 @@ export const products = [
 			'High-speed continuous marking',
 			'Self-developed laser technology',
 			'Higher security and stable performance',
-			'Support for various marking functions',
+			'Support for various marking functions'
 		],
 		specifications: [
 			{ name: 'Marking Speed', value: 'Up to 200 meters/minute (single line 2MM high characters)' },
 			{
 				name: 'Compatible Materials',
-				value: 'Most metal materials and some surface-treated non-metallic materials',
+				value: 'Most metal materials and some surface-treated non-metallic materials'
 			},
 			{ name: 'Laser Source', value: 'Self-developed high-performance laser' },
 			{
 				name: 'Marking Functions',
-				value: 'Automatic coding, serial number, batch number, date, barcode, QR code, automatic number jump',
-			},
+				value: 'Automatic coding, serial number, batch number, date, barcode, QR code, automatic number jump'
+			}
 		],
 		applications: [
 			'Production date marking',
@@ -183,8 +183,8 @@ export const products = [
 			'Food packaging',
 			'Personal care products labeling',
 			'Electronic components marking',
-			'Chemical building materials labeling',
-		],
+			'Chemical building materials labeling'
+		]
 	},
 	{
 		id: 6,
@@ -204,13 +204,13 @@ export const products = [
 			Flying_laser_marking_series_4,
 			Flying_laser_marking_series_5,
 			Flying_laser_marking_series_6,
-			Flying_laser_marking_series_7,
+			Flying_laser_marking_series_7
 		],
 		features: [
 			'High-speed continuous marking',
 			'Marking speed up to 200 meters/minute',
 			'Imported industrial-grade high-performance laser light source',
-			'Support for various coding and marking functions',
+			'Support for various coding and marking functions'
 		],
 		specifications: [
 			{ name: 'Marking Speed', value: 'Up to 200 meters/minute' },
@@ -218,8 +218,8 @@ export const products = [
 			{ name: 'Laser Source', value: 'Imported industrial-grade high-performance laser' },
 			{
 				name: 'Supported Functions',
-				value: 'Automatic coding, serial number, batch number, date, barcode, QR code',
-			},
+				value: 'Automatic coding, serial number, batch number, date, barcode, QR code'
+			}
 		],
 		applications: [
 			'High-volume production lines',
@@ -227,8 +227,8 @@ export const products = [
 			'Batch numbering',
 			'Anti-counterfeiting measures',
 			'Pharmaceutical packaging',
-			'Food packaging',
-		],
+			'Food packaging'
+		]
 	},
 	{
 		id: 7,
@@ -247,26 +247,26 @@ export const products = [
 			Handheld_intelligent_laser_marking_machine_3,
 			Handheld_intelligent_laser_marking_machine_4,
 			Handheld_intelligent_laser_marking_machine_5,
-			Handheld_intelligent_laser_marking_machine_6,
+			Handheld_intelligent_laser_marking_machine_6
 		],
 		features: [
 			'Portable and rechargeable',
 			'24V lithium battery power supply',
 			'6-8 hours of normal use on a single charge',
-			'Lightweight design (whole machine 6kg, marking head 1.25kg)',
+			'Lightweight design (whole machine 6kg, marking head 1.25kg)'
 		],
 		specifications: [
 			{ name: 'Weight', value: '6kg (whole machine), 1.25kg (marking head)' },
 			{ name: 'Battery Life', value: '6-8 hours under normal use' },
 			{ name: 'Battery Type', value: '24V rechargeable lithium' },
-			{ name: 'Interface', value: 'Rear USB' },
+			{ name: 'Interface', value: 'Rear USB' }
 		],
 		applications: [
 			'Marking large or immovable workpieces',
 			'On-site marking in various industries',
 			'Automotive parts marking',
-			'Construction material labeling',
-		],
+			'Construction material labeling'
+		]
 	},
 	{
 		id: 8,
@@ -284,20 +284,20 @@ export const products = [
 			'Larger marking range compared to 2D marking',
 			'Variable focal length for marking curved surfaces',
 			'Suitable for deep engraving',
-			'Reduced surface flatness requirements',
+			'Reduced surface flatness requirements'
 		],
 		specifications: [
 			{ name: 'Marking Range', value: 'Larger than traditional 2D marking' },
 			{ name: 'Focal Length', value: 'Variable for different heights and curved surfaces' },
 			{ name: 'Engraving Depth', value: 'Suitable for deep engraving' },
-			{ name: 'Surface Requirements', value: 'Reduced flatness requirements compared to 2D marking' },
+			{ name: 'Surface Requirements', value: 'Reduced flatness requirements compared to 2D marking' }
 		],
 		applications: [
 			'Marking on curved surfaces',
 			'Deep engraving applications',
 			'Automotive parts',
-			'Consumer electronics',
-		],
+			'Consumer electronics'
+		]
 	},
 	{
 		id: 9,
@@ -315,13 +315,13 @@ export const products = [
 			'Chemical-free cleaning process',
 			'High cleaning precision',
 			'Efficient and environmentally friendly',
-			'Suitable for various materials including metals and cultural relics',
+			'Suitable for various materials including metals and cultural relics'
 		],
 		specifications: [
 			{ name: 'Cleaning Precision', value: 'High' },
 			{ name: 'Compatible Materials', value: 'Organic pollutants, inorganic substances, metals, ceramics' },
 			{ name: 'Environmental Impact', value: 'Low, no chemical residues' },
-			{ name: 'Cleaning Speed', value: 'Efficient, varies by application' },
+			{ name: 'Cleaning Speed', value: 'Efficient, varies by application' }
 		],
 		applications: [
 			'Rust removal',
@@ -330,8 +330,8 @@ export const products = [
 			'Cultural relic restoration',
 			'Glue removal',
 			'Coating removal',
-			'Plating removal',
-		],
+			'Plating removal'
+		]
 	},
 	{
 		id: 10,
@@ -351,29 +351,29 @@ export const products = [
 			laser_cutting_machine_4,
 			laser_cutting_machine_5,
 			laser_cutting_machine_6,
-			laser_cutting_machine_7,
+			laser_cutting_machine_7
 		],
 		features: [
 			'High-speed precision cutting',
 			'Driven by imported magnetic suspension linear motors',
 			'Large speed regulation range',
-			'Built-in circulating cooling system',
+			'Built-in circulating cooling system'
 		],
 		specifications: [
 			{
 				name: 'Cutting Materials',
-				value: 'Metals, electronic components, ceramic materials, crystals, hard alloys',
+				value: 'Metals, electronic components, ceramic materials, crystals, hard alloys'
 			},
 			{ name: 'Positioning Accuracy', value: 'High' },
 			{ name: 'Control', value: 'Menu-based with LCD display' },
-			{ name: 'Cooling System', value: 'Built-in circulating cooling' },
+			{ name: 'Cooling System', value: 'Built-in circulating cooling' }
 		],
 		applications: [
 			'Automotive industry',
 			'Aerospace manufacturing',
 			'Electronics production',
-			'Scientific research sample preparation',
-		],
+			'Scientific research sample preparation'
+		]
 	},
 	{
 		id: 11,
@@ -396,21 +396,21 @@ export const products = [
 			Laser_tube_cutting_machine_7,
 			Laser_tube_cutting_machine_8,
 			Laser_tube_cutting_machine_9,
-			Laser_tube_cutting_machine_10,
+			Laser_tube_cutting_machine_10
 		],
 		features: [
 			'Fast and accurate tube cutting',
 			'Capable of cutting complex shapes',
 			'Reduced material waste',
-			'High production efficiency',
+			'High production efficiency'
 		],
 		specifications: [
 			{ name: 'Cutting Speed', value: 'Fast' },
 			{ name: 'Compatible Materials', value: 'Metal tubes' },
 			{ name: 'Shapes', value: 'Straight lines, curves, holes, etc.' },
-			{ name: 'Waste Reduction', value: 'Significant compared to traditional methods' },
+			{ name: 'Waste Reduction', value: 'Significant compared to traditional methods' }
 		],
-		applications: ['Automotive industry', 'Aerospace manufacturing', 'Furniture production', 'HVAC system components'],
+		applications: ['Automotive industry', 'Aerospace manufacturing', 'Furniture production', 'HVAC system components']
 	},
 	{
 		id: 12,
@@ -433,7 +433,7 @@ export const products = [
 			Dot_pin_marking_machine_9,
 			Dot_pin_marking_machine_10,
 			Dot_pin_marking_machine_11,
-			Dot_pin_marking_machine_12,
+			Dot_pin_marking_machine_12
 		],
 		description:
 			"The Dot Pin Marking Machine is an integrated portable pneumatic marking device that doesn't require a separate computer. It features a new touch-type integrated control system with built-in Chinese and English language options, and dozens of fonts to choose from. The machine allows for importing graphics at will, offers faster marking speed, and higher accuracy compared to traditional methods.",
@@ -443,18 +443,18 @@ export const products = [
 			'Multiple font options',
 			'Ability to import custom graphics',
 			'Fast marking speed',
-			'High accuracy',
+			'High accuracy'
 		],
 		specifications: [
 			{ name: 'software', value: 'MACS machine vision software' },
-			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' },
+			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' }
 		],
 		applications: [
 			'Marking of automobile beams and frames',
 			'Marking of special-shaped workpieces',
 			'Marking of various heavy workpieces',
-			'On-site marking of large, immovable objects',
-		],
+			'On-site marking of large, immovable objects'
+		]
 	},
 	{
 		id: 14,
@@ -472,18 +472,18 @@ export const products = [
 			'High precision cutting',
 			'Fast cutting speed',
 			'Flexibility for complex shapes',
-			'High cutting quality',
+			'High cutting quality'
 		],
 		specifications: [
 			{ name: 'software', value: 'MACS machine vision software' },
-			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' },
+			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' }
 		],
 		applications: [
 			'Automobile industry',
 			'Aerospace manufacturing',
 			'Electronics industry',
-			'General metal fabrication',
-		],
+			'General metal fabrication'
+		]
 	},
 	{
 		id: 13,
@@ -501,11 +501,11 @@ export const products = [
 			'Real-time image capture and processing',
 			'High-precision positioning',
 			'Compatible with automation equipment',
-			'Suitable for diverse and complex workpieces',
+			'Suitable for diverse and complex workpieces'
 		],
 		specifications: [
 			{ name: 'software', value: 'MACS machine vision software' },
-			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' },
+			{ name: 'compatibility', value: 'Assembly lines, vibration plates, XY-axis platform automation equipment' }
 		],
 		applications: [
 			'Semiconductor industry',
@@ -513,7 +513,7 @@ export const products = [
 			'Mobile phone manufacturing',
 			'Lithium battery production',
 			'Printing and packaging',
-			'Automotive parts marking',
-		],
-	},
+			'Automotive parts marking'
+		]
+	}
 ]

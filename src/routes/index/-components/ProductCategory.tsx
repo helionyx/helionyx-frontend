@@ -1,36 +1,33 @@
-import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-
-import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
-
 import cleaning from '@/assets/cleaning.jpg'
 import cutting from '@/assets/cutting.jpg'
 import mark2 from '@/assets/mark2.jpg'
+import { Button } from '@/components/ui/button'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Link } from '@tanstack/react-router'
+import React from 'react'
 
 const products = [
 	{
 		id: 1,
 		title: 'Laser Marking',
 		image: mark2,
-		description: 'High-precision marking solutions for product identification and traceability.',
+		description: 'High-precision marking solutions for product identification and traceability.'
 	},
 	{
 		id: 2,
 		title: 'Laser Cutting',
 		image: cutting,
-		description: 'Powerful cutting systems for metal, plastic, and composite materials.',
+		description: 'Powerful cutting systems for metal, plastic, and composite materials.'
 	},
 	{
 		id: 3,
 		title: 'Laser Cleaning',
 		image: cleaning,
-		description: 'Efficient and eco-friendly cleaning solutions for surface preparation.',
-	},
+		description: 'Efficient and eco-friendly cleaning solutions for surface preparation.'
+	}
 ]
 
 const ProductCategory: React.FC = () => {
-	const navigateAndScroll = useNavigateAndScroll()
-
 	return (
 		<section className='py-24 bg-[#F89D44]'>
 			<div className='container mx-auto px-4 max-w-5xl'>
@@ -47,20 +44,17 @@ const ProductCategory: React.FC = () => {
 									<CardTitle className='text-xl font-bold text-[#F89D44]'>{product.title}</CardTitle>
 								</CardHeader>
 								<CardContent>
-									<p className='text-gray-600'>{product.description}</p>
+									<CardDescription className='text-gray-600'>{product.description}</CardDescription>
 								</CardContent>
 								<CardFooter>
-									<Button
-										variant='outline'
-										onClick={() =>
-											navigateAndScroll('/products', {
-												search: { category: product.title.split('Laser')[1].trim().toLowerCase() },
-											})
-										}
-										className='data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent transition-color duration-300 w-full text-zinc-950 border-solid border-2 border-[#F89D44] hover:text-[#F89D44]'
-									>
-										Learn More
-									</Button>
+									<Link to='/products' search={{ category: product.title.split('Laser')[1].trim().toLowerCase() }}>
+										<Button
+											variant='outline'
+											className='data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent transition-color duration-300 w-full text-zinc-950 border-solid border-2 border-[#F89D44] hover:text-[#F89D44]'
+										>
+											Learn More
+										</Button>
+									</Link>
 								</CardFooter>
 							</Card>
 						))}

@@ -11,15 +11,21 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as LayoutImport } from './routes/_layout'
 import { Route as ProductsRouteImport } from './routes/products/route'
 import { Route as ContactRouteImport } from './routes/contact/route'
 import { Route as AboutRouteImport } from './routes/about/route'
 import { Route as IndexRouteImport } from './routes/index/route'
-import { Route as ProductsIndexImport } from './routes/products/index'
-import { Route as AboutIndexImport } from './routes/about/index'
-import { Route as ProductsProductIdRouteImport } from './routes/products/$productId/route'
+import { Route as ProductsProductsLayoutRouteImport } from './routes/products/_products-layout/route'
+import { Route as ProductsProductsLayoutIndexImport } from './routes/products/_products-layout/index'
+import { Route as ProductsProductsLayoutProductIdRouteImport } from './routes/products/_products-layout/$productId/route'
 
 // Create/Update Routes
+
+const LayoutRoute = LayoutImport.update({
+  id: '/_layout',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const ProductsRouteRoute = ProductsRouteImport.update({
   path: '/products',
@@ -41,20 +47,23 @@ const IndexRouteRoute = IndexRouteImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const ProductsIndexRoute = ProductsIndexImport.update({
-  path: '/',
-  getParentRoute: () => ProductsRouteRoute,
-} as any)
+const ProductsProductsLayoutRouteRoute =
+  ProductsProductsLayoutRouteImport.update({
+    id: '/_products-layout',
+    getParentRoute: () => ProductsRouteRoute,
+  } as any)
 
-const AboutIndexRoute = AboutIndexImport.update({
-  path: '/',
-  getParentRoute: () => AboutRouteRoute,
-} as any)
+const ProductsProductsLayoutIndexRoute =
+  ProductsProductsLayoutIndexImport.update({
+    path: '/',
+    getParentRoute: () => ProductsProductsLayoutRouteRoute,
+  } as any)
 
-const ProductsProductIdRouteRoute = ProductsProductIdRouteImport.update({
-  path: '/$productId',
-  getParentRoute: () => ProductsRouteRoute,
-} as any)
+const ProductsProductsLayoutProductIdRouteRoute =
+  ProductsProductsLayoutProductIdRouteImport.update({
+    path: '/$productId',
+    getParentRoute: () => ProductsProductsLayoutRouteRoute,
+  } as any)
 
 // Populate the FileRoutesByPath interface
 
@@ -88,26 +97,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRoute
     }
-    '/products/$productId': {
-      id: '/products/$productId'
+    '/_layout': {
+      id: '/_layout'
+      path: ''
+      fullPath: ''
+      preLoaderRoute: typeof LayoutImport
+      parentRoute: typeof rootRoute
+    }
+    '/products/_products-layout': {
+      id: '/products/_products-layout'
+      path: ''
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsProductsLayoutRouteImport
+      parentRoute: typeof ProductsRouteImport
+    }
+    '/products/_products-layout/$productId': {
+      id: '/products/_products-layout/$productId'
       path: '/$productId'
       fullPath: '/products/$productId'
-      preLoaderRoute: typeof ProductsProductIdRouteImport
-      parentRoute: typeof ProductsRouteImport
+      preLoaderRoute: typeof ProductsProductsLayoutProductIdRouteImport
+      parentRoute: typeof ProductsProductsLayoutRouteImport
     }
-    '/about/': {
-      id: '/about/'
-      path: '/'
-      fullPath: '/about/'
-      preLoaderRoute: typeof AboutIndexImport
-      parentRoute: typeof AboutRouteImport
-    }
-    '/products/': {
-      id: '/products/'
+    '/products/_products-layout/': {
+      id: '/products/_products-layout/'
       path: '/'
       fullPath: '/products/'
-      preLoaderRoute: typeof ProductsIndexImport
-      parentRoute: typeof ProductsRouteImport
+      preLoaderRoute: typeof ProductsProductsLayoutIndexImport
+      parentRoute: typeof ProductsProductsLayoutRouteImport
     }
   }
 }
@@ -116,11 +132,14 @@ declare module '@tanstack/react-router' {
 
 export const routeTree = rootRoute.addChildren({
   IndexRouteRoute,
-  AboutRouteRoute: AboutRouteRoute.addChildren({ AboutIndexRoute }),
+  AboutRouteRoute,
   ContactRouteRoute,
   ProductsRouteRoute: ProductsRouteRoute.addChildren({
-    ProductsProductIdRouteRoute,
-    ProductsIndexRoute,
+    ProductsProductsLayoutRouteRoute:
+      ProductsProductsLayoutRouteRoute.addChildren({
+        ProductsProductsLayoutProductIdRouteRoute,
+        ProductsProductsLayoutIndexRoute,
+      }),
   }),
 })
 
@@ -135,17 +154,15 @@ export const routeTree = rootRoute.addChildren({
         "/",
         "/about",
         "/contact",
-        "/products"
+        "/products",
+        "/_layout"
       ]
     },
     "/": {
       "filePath": "index/route.tsx"
     },
     "/about": {
-      "filePath": "about/route.tsx",
-      "children": [
-        "/about/"
-      ]
+      "filePath": "about/route.tsx"
     },
     "/contact": {
       "filePath": "contact/route.tsx"
@@ -153,21 +170,27 @@ export const routeTree = rootRoute.addChildren({
     "/products": {
       "filePath": "products/route.tsx",
       "children": [
-        "/products/$productId",
-        "/products/"
+        "/products/_products-layout"
       ]
     },
-    "/products/$productId": {
-      "filePath": "products/$productId/route.tsx",
-      "parent": "/products"
+    "/_layout": {
+      "filePath": "_layout.tsx"
     },
-    "/about/": {
-      "filePath": "about/index.tsx",
-      "parent": "/about"
+    "/products/_products-layout": {
+      "filePath": "products/_products-layout/route.tsx",
+      "parent": "/products",
+      "children": [
+        "/products/_products-layout/$productId",
+        "/products/_products-layout/"
+      ]
     },
-    "/products/": {
-      "filePath": "products/index.tsx",
-      "parent": "/products"
+    "/products/_products-layout/$productId": {
+      "filePath": "products/_products-layout/$productId/route.tsx",
+      "parent": "/products/_products-layout"
+    },
+    "/products/_products-layout/": {
+      "filePath": "products/_products-layout/index.tsx",
+      "parent": "/products/_products-layout"
     }
   }
 }

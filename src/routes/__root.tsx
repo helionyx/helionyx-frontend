@@ -1,5 +1,5 @@
 import type { QueryClient } from '@tanstack/react-query'
-import { Outlet, createRootRouteWithContext } from '@tanstack/react-router'
+import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router'
 import React from 'react'
 
 const TanStackRouterDevtools =
@@ -7,17 +7,22 @@ const TanStackRouterDevtools =
 		? () => null
 		: React.lazy(() =>
 				import('@tanstack/router-devtools').then((res) => ({
-					default: res.TanStackRouterDevtools,
+					default: res.TanStackRouterDevtools
 				}))
 			)
+
+const RootRoute: React.FC = () => {
+	return (
+		<>
+			<ScrollRestoration />
+			<Outlet />
+			<TanStackRouterDevtools />
+		</>
+	)
+}
 
 export const Route = createRootRouteWithContext<{
 	queryClient: QueryClient
 }>()({
-	component: () => (
-		<>
-			<Outlet />
-			<TanStackRouterDevtools />
-		</>
-	),
+	component: RootRoute
 })

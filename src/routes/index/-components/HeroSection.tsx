@@ -1,6 +1,6 @@
 import bg_laser from '@/assets/bg-laser.jpg'
-
 import { LightbulbIcon, ShieldCheckIcon } from 'lucide-react'
+import React from 'react'
 import { GiSewingMachine } from 'react-icons/gi'
 
 const HeroSection: React.FC = () => {

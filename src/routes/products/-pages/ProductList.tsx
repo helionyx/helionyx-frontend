@@ -1,67 +1,157 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { useNavigateAndScroll } from '@/hooks/useNavigateAndScroll'
-import { productsQueryOptions } from '@/routes/products/-api/queries.api'
-import { useSuspenseQuery } from '@tanstack/react-query'
-import { useState } from 'react'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
+import { useFilteredProductsQuery } from '@/routes/products/-api/queries.api'
+import FilterContent from '@/routes/products/-components/product-list/FilterContent'
+import SearchPopover from '@/routes/products/-components/product-list/SearchPopover'
+import SkeletonCard from '@/routes/products/-components/product-list/SkeletonCard'
+import { ProductFilters } from '@/routes/products/-types/product'
+import { Link, useNavigate, useSearch } from '@tanstack/react-router'
+import { Filter, Loader2 } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 
-const categories = ['All', 'Laser Marking Machines', 'Laser Cutting Machines', 'Laser Cleaning Machines']
+const categoryMap = {
+	marking: 'Laser Marking Machines',
+	cleaning: 'Laser Cleaning Machines',
+	cutting: 'Laser Cutting Machines'
+}
 
 const ProductList: React.FC = () => {
-	const productsQuery = useSuspenseQuery(productsQueryOptions)
+	const { category: uriCategory, search, power, wavelength } = useSearch({ from: '/products/_products-layout/' })
+	const navigate = useNavigate()
 
-	const [selectedCategory, setSelectedCategory] = useState('All')
+	const [isFilterSheetOpen, setIsFilterSheetOpen] = useState(false)
+	const [searchTerm, setSearchTerm] = useState<string>(search || '')
+	const [selectedFilters, setSelectedFilters] = useState<ProductFilters>({
+		category: uriCategory ? [categoryMap[uriCategory as keyof typeof categoryMap]] : [],
+		power: power || [],
+		wavelength: wavelength || []
+	})
 
-	const navigateAndScroll = useNavigateAndScroll()
+	const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isLoading } = useFilteredProductsQuery({
+		...selectedFilters,
+		search: searchTerm
+	})
 
-	const filteredProducts =
-		selectedCategory === 'All'
-			? productsQuery.data
-			: productsQuery.data.filter((product) => product.category === selectedCategory)
+	const allProducts = data?.pages.flatMap((page) => page.products) || []
+
+	useEffect(() => {
+		navigate({
+			search: (prev) => ({
+				...prev,
+				search: searchTerm,
+				category: uriCategory ?? selectedFilters.category,
+				power: selectedFilters.power,
+				wavelength: selectedFilters.wavelength
+			}),
+			replace: true
+		})
+	}, [uriCategory, searchTerm, selectedFilters, navigate])
+
+	const handleSearchSubmit = (newSearchTerm: string) => {
+		setSearchTerm(newSearchTerm)
+	}
 
 	return (
-		<div className='bg-gray-50 py-12'>
-			<div className='container mx-auto px-4'>
-				<h1 className='text-4xl font-bold text-amber-500 mb-8'>Our Products</h1>
-
-				{/* Category filter */}
-				<div className='mb-8 flex flex-wrap gap-2'>
-					{categories.map((category) => (
-						<Button
-							key={category}
-							variant={selectedCategory === category ? 'default' : 'outline'}
-							onClick={() => setSelectedCategory(category)}
-							className='bg-amber-600 text-white hover:text-white hover:bg-amber-700'
-						>
-							{category}
-						</Button>
-					))}
+		<div className='container mx-auto px-4 py-8'>
+			<div className='flex items-center justify-end gap-4 mb-4 md:hidden'>
+				<div className='relative'>
+					<SearchPopover initialSearchTerm={searchTerm} onSearchSubmit={handleSearchSubmit} />
 				</div>
+				<Sheet open={isFilterSheetOpen} onOpenChange={setIsFilterSheetOpen}>
+					<SheetTrigger asChild>
+						<Button variant='outline' className='md:hidden'>
+							<Filter className='mr-2 h-4 w-4' />
+							<p className='hidden sm:block'>Filters</p>
+						</Button>
+					</SheetTrigger>
+					<SheetContent side='left' className='w-[300px] sm:w-[400px]'>
+						<SheetHeader className='mb-8'>
+							<SheetTitle></SheetTitle>
+						</SheetHeader>
+						<FilterContent
+							selectedFilters={selectedFilters}
+							setSelectedFilters={setSelectedFilters}
+							setSearchTerm={setSearchTerm}
+						/>
+					</SheetContent>
+				</Sheet>
+			</div>
 
-				<div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8'>
-					{filteredProducts.map((product) => (
-						<Card key={product.id} className='bg-white shadow-lg hover:shadow-xl transition-shadow duration-300'>
-							<img src={product.mainImage} alt={product.name} className='w-full h-48 object-cover' />
-							<CardHeader>
-								<CardTitle className='text-xl font-bold text-blue-900'>{product.name}</CardTitle>
-								<CardDescription className='text-emerald-600'>{product.category}</CardDescription>
-							</CardHeader>
-							<CardContent>
-								<p className='text-gray-600'>{product.summarization}</p>
-							</CardContent>
-							<CardFooter>
-								<Button
-									variant='outline'
-									className='w-full bg-transparent text-amber-700 hover:text-amber-700 border-amber-700 hover:bg-amber-50'
-									onClick={() =>
-										navigateAndScroll('/products/$productId', { params: { productId: product.id.toString() } })
-									}
-								>
-									View Details
-								</Button>
-							</CardFooter>
-						</Card>
-					))}
+			<div className='grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8'>
+				<div className='hidden md:block bg-muted p-6 rounded-lg'>
+					<FilterContent
+						selectedFilters={selectedFilters}
+						setSelectedFilters={setSelectedFilters}
+						setSearchTerm={setSearchTerm}
+					/>
+				</div>
+				<div>
+					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+						<div className='hidden md:block md:col-span-full'>
+							<div className='relative text-end'>
+								<SearchPopover initialSearchTerm={searchTerm} onSearchSubmit={handleSearchSubmit} />
+							</div>
+						</div>
+						{isLoading
+							? Array(6)
+									.fill(0)
+									.map((_, idx) => <SkeletonCard key={idx} />)
+							: allProducts.map((product) => (
+									<Link key={product.id} to='/products/$productId' params={{ productId: product.id.toString() }}>
+										<Card className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-lg transition-shadow'>
+											<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center'>
+												<img
+													src={product.mainImage}
+													alt={product.name}
+													width={400}
+													height={300}
+													className='w-48 h-48 object-contain bg-transparent'
+												/>
+												<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
+											</CardHeader>
+											<CardContent className='p-0 space-y-2'>
+												<CardTitle className='text-lg'>{product.name}</CardTitle>
+												<CardDescription>{product.summarization.slice(0, 50)}...</CardDescription>
+											</CardContent>
+											<CardFooter className='p-0 flex items-center justify-end gap-2'>
+												<Link to='/products/$productId' params={{ productId: product.id.toString() }}>
+													<Button
+														variant='outline'
+														className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
+													>
+														More Detail
+													</Button>
+												</Link>
+											</CardFooter>
+										</Card>
+									</Link>
+								))}
+					</div>
+					{!isLoading && allProducts.length === 0 && (
+						<div className='col-span-full text-center py-8'>
+							<p>No products found matching your criteria.</p>
+						</div>
+					)}
+					{hasNextPage && (
+						<div className='mt-8 text-center'>
+							<Button
+								variant='outline'
+								className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
+								onClick={() => fetchNextPage()}
+								disabled={isFetchingNextPage}
+							>
+								{isFetchingNextPage ? (
+									<div className='flex items-center gap-2'>
+										<Loader2 className='h-4 w-4 animate-spin' />
+										<p>Load More...</p>
+									</div>
+								) : (
+									<p>Load More</p>
+								)}
+							</Button>
+						</div>
+					)}
 				</div>
 			</div>
 		</div>

@@ -3,6 +3,7 @@ import unmatchPrecision from '@/assets/icon-benefits-commitment.png'
 import innovation from '@/assets/icon-benefits-innovation.png'
 import sustainability from '@/assets/icon-benefits-sustainability.png'
 import quality from '@/assets/quality.png'
+import React from 'react'
 
 const Feature: React.FC = () => {
 	return (

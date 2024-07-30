@@ -7,7 +7,6 @@ import pluginQuery from '@tanstack/eslint-plugin-query'
 import typescriptEslint from '@typescript-eslint/eslint-plugin'
 import tsParser from '@typescript-eslint/parser'
 import react from 'eslint-plugin-react'
-import reactRefresh from 'eslint-plugin-react-refresh'
 import globals from 'globals'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -15,72 +14,100 @@ const __dirname = path.dirname(__filename)
 const compat = new FlatCompat({
 	baseDirectory: __dirname,
 	recommendedConfig: js.configs.recommended,
-	allConfig: js.configs.all,
+	allConfig: js.configs.all
 })
 
 export default [
 	{
-		ignores: ['**/dist', '**/.eslintrc.cjs'],
+		ignores: [
+			// dependencies
+			'**/node_modules/',
+			'**/.pnp.*',
+
+			// build outputs
+			'**/dist/',
+			'**/build/',
+
+			// cache directories
+			'**/.npm/',
+			'**/.eslintcache',
+			'**/.tsbuildinfo',
+
+			// config files
+			'**/vite.config.ts',
+			'**/tailwind.config.js',
+			'**/postcss.config.js',
+			'**/biome.json',
+
+			// generated files
+			'**/src/routeTree.gen.ts',
+
+			// test coverage
+			'**/coverage/',
+
+			// misc
+			'**/.DS_Store',
+			'**/*.log',
+
+			// shadcn components
+			'**/src/components/ui/**'
+		]
 	},
+	js.configs.recommended,
 	...fixupConfigRules(
 		compat.extends(
+			'plugin:react/recommended',
 			'prettier',
-			'eslint:recommended',
 			'plugin:prettier/recommended',
-			'plugin:react-hooks/recommended',
 			'plugin:@typescript-eslint/recommended',
-			'plugin:@tanstack/eslint-plugin-query/recommended'
+			'plugin:react-hooks/recommended'
 		)
 	),
+	...pluginQuery.configs['flat/recommended'],
 	{
+		files: ['**/*.ts', '**/*.tsx'],
 		plugins: {
-			react,
-			'react-refresh': reactRefresh,
+			react: fixupPluginRules(react),
 			'@typescript-eslint': fixupPluginRules(typescriptEslint),
-			'@tanstack/query': pluginQuery,
+			'@tanstack/query': pluginQuery
 		},
-
 		languageOptions: {
 			globals: {
-				...globals.browser,
+				...globals.browser
 			},
-
 			parser: tsParser,
-			ecmaVersion: 'latest',
-			sourceType: 'module',
+			parserOptions: {
+				ecmaVersion: 'latest',
+				sourceType: 'module',
+				ecmaFeatures: {
+					jsx: true
+				}
+			}
 		},
-
 		settings: {
-			'import/parsers': {
-				'@typescript-eslint/parser': ['.ts', '.tsx'],
-			},
+			react: {
+				version: 'detect'
+			}
 		},
-
 		rules: {
-			'@tanstack/query/exhaustive-deps': 'error',
 			'react/react-in-jsx-scope': 'off',
 			'react/prop-types': 'off',
-
 			'prettier/prettier': [
 				'error',
 				{
 					singleQuote: true,
-					trailingComma: 'es5',
+					trailingComma: 'none',
 					endOfLine: 'auto',
-					semi: true,
+					semi: false,
+					useTabs: true,
 					printWidth: 120,
-				},
-			],
-
-			'no-unused-vars': 'off',
-			'unused-imports/no-unused-imports': 'error',
-
-			'react-refresh/only-export-components': [
-				'warn',
-				{
-					allowConstantExport: true,
-				},
-			],
-		},
-	},
+					tabWidth: 2,
+					bracketSpacing: true,
+					bracketSameLine: false,
+					arrowParens: 'always',
+					jsxSingleQuote: true
+				}
+			]
+		}
+	}
 ]

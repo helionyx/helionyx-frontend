@@ -1,3 +1,10 @@
+import facebook from '@/assets/facebook.png'
+import instagram from '@/assets/instagram.png'
+import line from '@/assets/line.png'
+import logo_helionyx_rebg from '@/assets/logo-rebg.png'
+import logo_helionyx from '@/assets/logo.jpg'
+import telephone from '@/assets/telephone.png'
+import tiktok from '@/assets/tiktok.png'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
@@ -6,20 +13,11 @@ import {
 	NavigationMenuItem,
 	NavigationMenuLink,
 	NavigationMenuList,
-	NavigationMenuTrigger,
+	NavigationMenuTrigger
 } from '@/components/ui/navigation-menu'
 import { Link, useRouter } from '@tanstack/react-router'
-import { Menu, Search } from 'lucide-react'
-import { ChevronRight } from 'lucide-react'
-import type React from 'react'
-import { useEffect, useState } from 'react'
-import facebook from '../assets/facebook.png'
-import instagram from '../assets/instagram.png'
-import line from '../assets/line.png'
-import logo_helionyx_rebg from '../assets/logo-rebg.png'
-import logo_helionyx from '../assets/logo.jpg'
-import telephone from '../assets/telephone.png'
-import tiktok from '../assets/tiktok.png'
+import { ChevronRight, Menu, Search } from 'lucide-react'
+import React, { useEffect, useState } from 'react'
 
 interface BreadcrumbItem {
 	label: string
@@ -65,11 +63,9 @@ const Header: React.FC = () => {
 		<header className='bg-white text-[#F89D44] py-4 shadow-md relative z-50'>
 			<div className='container mx-auto px-4'>
 				<div className='flex items-center justify-between'>
-					<div>
-						<Link to='/'>
-							<img className='h-20 w-auto' src={logo_helionyx} alt='' />
-						</Link>
-					</div>
+					<Link to='/'>
+						<img className='h-20 w-auto' src={logo_helionyx} alt='' />
+					</Link>
 
 					<nav className='hidden md:block'>
 						<NavigationMenu>
@@ -86,13 +82,13 @@ const Header: React.FC = () => {
 								</NavigationMenuItem>
 								<NavigationMenuItem>
 									<NavigationMenuTrigger
-										className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] data-[state=open]:bg-transparent
-        data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent transition-color duration-300'
+										className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300
+										data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
 									>
-										PRODUCTS
+										<Link to='/products'>PRODUCTS</Link>
 									</NavigationMenuTrigger>
 									<NavigationMenuContent>
-										<ul className='bg-white p-4 rounded-md shadow-lg w-64'>
+										<ul className='bg-white p-4 rounded-md shadow-lg w-40'>
 											<li>
 												<Link
 													to='/products'
@@ -129,7 +125,7 @@ const Header: React.FC = () => {
 											to='/about'
 											className='px-4 py-2 md:px-1 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 										>
-											ABOUT US
+											ABOUT
 										</Link>
 									</NavigationMenuLink>
 								</NavigationMenuItem>
@@ -325,7 +321,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 		const pathSegments = path.split('/').filter(Boolean)
 		const newBreadcrumbItems = pathSegments.map((segment, index) => ({
 			label: segment.charAt(0).toUpperCase() + segment.slice(1),
-			path: `/${pathSegments.slice(0, index + 1).join('/')}`,
+			path: `/${pathSegments.slice(0, index + 1).join('/')}`
 		}))
 		setBreadcrumbItems(newBreadcrumbItems)
 	}, [router.state.location.pathname])

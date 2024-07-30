@@ -36,7 +36,7 @@ const ProductList: React.FC = () => {
 
 	return (
 		<div className='container mx-auto px-4 py-8'>
-			<div className='flex items-center gap-4 mb-4'>
+			<div className='flex items-center gap-4 mb-4 md:hidden'>
 				<Input
 					type='text'
 					placeholder='Search products...'
@@ -48,7 +48,7 @@ const ProductList: React.FC = () => {
 					<SheetTrigger asChild>
 						<Button variant='outline' className='md:hidden'>
 							<Filter className='mr-2 h-4 w-4' />
-							Filters
+							<p className='hidden sm:block'>Filters</p>
 						</Button>
 					</SheetTrigger>
 					<SheetContent side='left' className='w-[300px] sm:w-[400px]'>
@@ -74,6 +74,15 @@ const ProductList: React.FC = () => {
 				</div>
 				<div>
 					<div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
+						<div className='hidden md:block md:col-span-full'>
+							<Input
+								type='text'
+								placeholder='Search products...'
+								value={searchTerm}
+								onChange={(e) => setSearchTerm(e.target.value)}
+								className='flex-grow'
+							/>
+						</div>
 						{isLoading
 							? Array(6)
 									.fill(0)

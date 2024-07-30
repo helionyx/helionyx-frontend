@@ -53,7 +53,7 @@ const Contact = () => {
 					</div>
 					<div className='pl-8 mt-5'>
 						<div>Telephone Call: +6693 574 8998</div>
-						<div>Email: helionyx-laser@helionyx.com</div>
+						<div>Email: Sales@helionyx.com</div>
 						<div>Line: @Helionyx</div>
 						<div>QRCODE</div>
 					</div>

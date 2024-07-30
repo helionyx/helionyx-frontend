@@ -1,0 +1,49 @@
+# Ignore artifacts:
+build
+dist
+coverage
+
+# Ignore all HTML files:
+*.html
+
+# Ignore all JSON files:
+*.json
+
+# Ignore all JavaScript files:
+*.js
+
+# Ignore all CSS files:
+*.css
+
+# Ignore all TypeScript declaration files:
+*.d.ts
+
+# Ignore node_modules directory
+node_modules
+
+# Ignore all markdown files:
+*.md
+
+# Ignore Vite config
+vite.config.ts
+
+# Ignore TanStack Router generated files
+src/routeTree.gen.ts
+
+# Ignore ShadCN UI components
+src/components/ui
+
+# Ignore package manager lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore environment files
+.env*
+
+# Ignore IDE and editor folders
+.vscode
+.idea
+
+# Ignore log files
+*.log

@@ -1,0 +1,47 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"env": { "browser": true, "es2021": true },
+	"settings": {
+		"react": {
+			"version": "detect"
+		},
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		}
+	},
+	"extends": [
+		"eslint:recommended",
+		"plugin:react/recommended",
+		"prettier",
+		"plugin:prettier/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"plugin:react-hooks/recommended",
+		"plugin:@tanstack/eslint-plugin-query/recommended"
+	],
+	"overrides": [],
+	"parserOptions": {
+		"ecmaVersion": "latest",
+		"sourceType": "module"
+	},
+	"plugins": ["react", "@typescript-eslint"],
+	"rules": {
+		"react/react-in-jsx-scope": "off",
+		"react/prop-types": "off",
+		"prettier/prettier": [
+			"error",
+			{
+				"singleQuote": true,
+				"trailingComma": "none",
+				"endOfLine": "auto",
+				"semi": false,
+				"useTabs": true,
+				"printWidth": 120,
+				"tabWidth": 2,
+				"bracketSpacing": true,
+				"bracketSameLine": false,
+				"arrowParens": "always",
+				"jsxSingleQuote": true
+			}
+		]
+	}
+}

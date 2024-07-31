@@ -5,8 +5,8 @@ import logo_helionyx_rebg from '@/assets/logo-rebg.png'
 import logo_helionyx from '@/assets/logo.jpg'
 import telephone from '@/assets/telephone.png'
 import tiktok from '@/assets/tiktok.png'
+import SearchPopover from '@/components/SearchPopover'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import {
 	NavigationMenu,
 	NavigationMenuContent,
@@ -16,7 +16,7 @@ import {
 	NavigationMenuTrigger
 } from '@/components/ui/navigation-menu'
 import { Link, useRouter } from '@tanstack/react-router'
-import { ChevronRight, Menu, Search } from 'lucide-react'
+import { ChevronRight, Menu } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 
 interface BreadcrumbItem {
@@ -83,7 +83,7 @@ const Header: React.FC = () => {
 								<NavigationMenuItem>
 									<NavigationMenuTrigger
 										className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300
-data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
+										data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
 									>
 										<Link to='/products'>PRODUCTS</Link>
 									</NavigationMenuTrigger>
@@ -144,14 +144,7 @@ data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transpare
 					</nav>
 
 					<div className='hidden md:flex items-center space-x-2'>
-						<div className='relative'>
-							<Input
-								type='search'
-								placeholder='Search...'
-								className='pl-10 pr-4 py-2 border-2 text-[#f4a95e] rounded-full focus:outline-none focus:ring-2 focus:ring-[#f4a95e] focus:border-transparent'
-							/>
-							<Search className='absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#f4a95e]' />
-						</div>
+						<SearchPopover />
 					</div>
 
 					<Button
@@ -180,14 +173,6 @@ data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transpare
 								CONTACT
 							</Link>
 						</nav>
-						<div className='mt-4 relative'>
-							<Input
-								type='search'
-								placeholder='Search...'
-								className='w-full pl-10 pr-4 py-2 border-2 border-[#f4a95e] rounded-full focus:outline-none focus:ring-2 focus:ring--[#f4a95e] focus:border-transparent'
-							/>
-							<Search className='absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-[#F89D44]' />
-						</div>
 					</div>
 				)}
 			</div>

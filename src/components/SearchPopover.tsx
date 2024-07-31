@@ -4,13 +4,11 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Skeleton } from '@/components/ui/skeleton'
 import { useFilteredProductsQuery } from '@/routes/products/-api/queries.api'
 import useDebounce from '@/routes/products/-hook/useDebounce'
-import { useStore } from '@/stores/store'
 import { Link, useNavigate } from '@tanstack/react-router'
 import { Loader2, Search } from 'lucide-react'
-import React, { useEffect, useRef, useState } from 'react'
-import { useShallow } from 'zustand/react/shallow'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 
-const SearchResultSkeleton: React.FC = () => (
+const SearchPopoverSkeleton: React.FC = () => (
 	<div className='flex items-center space-x-2 p-2'>
 		<Skeleton className='w-10 h-10 rounded' />
 		<div className='space-y-2'>
@@ -20,23 +18,17 @@ const SearchResultSkeleton: React.FC = () => (
 	</div>
 )
 
-const SearchPopover: React.FC = () => {
-	const { searchTerm, setSearchTerm } = useStore(
-		useShallow((state) => ({
-			searchTerm: state.searchTerm,
-			setSearchTerm: state.setSearchTerm
-		}))
-	)
-
+const SearchPopover: React.FC = React.memo(() => {
 	const [isOpen, setIsOpen] = useState(false)
+	const [localSearchTerm, setLocalSearchTerm] = useState<string>('')
 	const [selectedIndex, setSelectedIndex] = useState(-1)
-	const debouncedSearchTerm = useDebounce(searchTerm, 300)
+	const debouncedSearchTerm = useDebounce(localSearchTerm, 300)
+
 	const navigate = useNavigate()
 
-	const { data, isLoading, isFetching } = useFilteredProductsQuery({ search: debouncedSearchTerm })
+	const { data, isPending } = useFilteredProductsQuery({ search: debouncedSearchTerm })
 
 	const searchResults = data?.pages[0]?.products || []
-	const isPending = isLoading || isFetching
 
 	const inputRef = useRef<HTMLInputElement>(null)
 	const resultsRef = useRef<HTMLDivElement>(null)
@@ -78,32 +70,36 @@ const SearchPopover: React.FC = () => {
 		}
 	}, [selectedIndex])
 
-	const handleViewAllResults = () => {
-		setSearchTerm(searchTerm)
+	const handleSearchChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+		setLocalSearchTerm(e.target.value)
+	}, [])
+
+	const handleViewAllResults = useCallback(() => {
 		navigate({
 			to: '/products',
-			search: (prev) => ({ ...prev, search: searchTerm })
+			search: (prev) => ({ ...prev, search: localSearchTerm }),
+			replace: true
 		})
 		setIsOpen(false)
-	}
+	}, [localSearchTerm, navigate])
 
 	return (
 		<Popover open={isOpen} onOpenChange={setIsOpen}>
 			<PopoverTrigger asChild>
 				<Button variant='outline' className='w-full md:w-auto relative'>
 					<Search className='mr-2 h-4 w-4' />
-					Search products
+					{localSearchTerm ? `Search: ${localSearchTerm}` : 'Search products'}
 				</Button>
 			</PopoverTrigger>
-			<PopoverContent className='w-80 z-50' align='start' sideOffset={5}>
+			<PopoverContent className='w-80 z-50' align='center' sideOffset={5}>
 				<div className='space-y-4'>
 					<div className='relative'>
 						<Input
 							ref={inputRef}
 							type='text'
 							placeholder='Search products...'
-							value={searchTerm}
-							onChange={(e) => setSearchTerm(e.target.value)}
+							value={localSearchTerm}
+							onChange={handleSearchChange}
 							onKeyDown={handleKeyDown}
 						/>
 						{isPending && <Loader2 className='absolute right-2 top-1/2 -mt-2 h-4 w-4 animate-spin' />}
@@ -112,7 +108,7 @@ const SearchPopover: React.FC = () => {
 						{isPending ? (
 							Array(3)
 								.fill(0)
-								.map((_, index) => <SearchResultSkeleton key={index} />)
+								.map((_, index) => <SearchPopoverSkeleton key={index} />)
 						) : searchResults.length > 0 ? (
 							<>
 								{searchResults.map((product, index) => (
@@ -148,6 +144,8 @@ const SearchPopover: React.FC = () => {
 			</PopoverContent>
 		</Popover>
 	)
-}
+})
+
+SearchPopover.displayName = 'SearchPopover'
 
 export default SearchPopover

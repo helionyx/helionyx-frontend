@@ -1,9 +1,10 @@
 import Footer from '@/components/footer'
 import Header from '@/components/header'
-import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { Outlet, createFileRoute } from '@tanstack/react-router'
+import React from 'react'
 
-export const Route = createFileRoute('/_root-layout')({
-	component: () => (
+const RootLayout: React.FC = () => {
+	return (
 		<div className='min-h-screen flex flex-col'>
 			<Header />
 			<main className='flex-grow'>
@@ -12,4 +13,8 @@ export const Route = createFileRoute('/_root-layout')({
 			<Footer />
 		</div>
 	)
+}
+
+export const Route = createFileRoute('/_root-layout')({
+	component: RootLayout
 })

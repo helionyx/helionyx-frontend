@@ -7,7 +7,7 @@ import RelatedProductPending from './relate-product-pending'
 
 const ProductDetailPending: React.FC = () => {
 	return (
-		<div className='container mx-auto px-4 py-8'>
+		<>
 			<Card className='mb-8 bg-muted'>
 				<CardContent className='p-6'>
 					<div className='flex flex-col lg:flex-row gap-8'>
@@ -95,7 +95,7 @@ const ProductDetailPending: React.FC = () => {
 			</Card>
 
 			<RelatedProductPending />
-		</div>
+		</>
 	)
 }
 

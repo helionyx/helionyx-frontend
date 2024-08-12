@@ -1,28 +1,24 @@
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import {
-	Carousel,
-	CarouselApi,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious
-} from '@/components/ui/carousel'
+import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Separator } from '@/components/ui/separator'
+import { Product } from '@/types'
 import { Link, useParams } from '@tanstack/react-router'
 import { Mailbox, Phone, ShoppingCart } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
-import { useProductId, useRelatedProductsQuery } from '../api/queries.api'
+import { useModelsQuery, useProductId, useRelatedProductsQuery } from '../api/queries.api'
 import ProductDetailPending from '../components/product-detail-pending'
+import ProductSpecificationTable from '../components/product-specification-table'
 import RelatedProductPending from '../components/relate-product-pending'
 
 const ProductDetail: React.FC = () => {
 	const { productId } = useParams({ from: '/products/_product-layout/$productId' })
-	const { data: product, isPending: isProductPending } = useProductId(Number(productId))
+	const { data: product, isPending: isProductPending } = useProductId(productId)
+	const { data: models, isPending: isModelsPending } = useModelsQuery(productId)
 	const { data: relatedProducts, isPending: isRelatedPending } = useRelatedProductsQuery(
-		Number(product?.id),
-		product?.category
+		product?.id,
+		product?.subCategoryId
 	)
 
 	const [currentImage, setCurrentImage] = useState(0)
@@ -44,8 +40,13 @@ const ProductDetail: React.FC = () => {
 		}
 	}, [carouselApi, currentImage])
 
-	if (isProductPending) return <ProductDetailPending />
-	if (!product) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+	const handleClickCarousel = (index: number) => {
+		setCurrentImage(index)
+		carouselApi?.scrollTo(index)
+	}
+
+	if (isProductPending || isModelsPending) return <ProductDetailPending />
+	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
 
 	return (
 		<>
@@ -56,7 +57,7 @@ const ProductDetail: React.FC = () => {
 						<div className='lg:w-1/2'>
 							<Carousel className='w-full max-w-xl mx-auto' setApi={setCarouselApi}>
 								<CarouselContent>
-									{product.imagesList.map((image, index) => (
+									{[product.imageUrl, ...product.additionalImages].map((image, index) => (
 										<CarouselItem key={index}>
 											<img
 												src={image}
@@ -66,11 +67,9 @@ const ProductDetail: React.FC = () => {
 										</CarouselItem>
 									))}
 								</CarouselContent>
-								<CarouselPrevious className='absolute left-2 top-1/2 -translate-y-1/2' />
-								<CarouselNext className='absolute right-2 top-1/2 -translate-y-1/2' />
 							</Carousel>
 							<div className='flex justify-start mt-4 overflow-x-auto pb-2'>
-								{product.imagesList.map((image, index) => (
+								{[product.imageUrl, ...product.additionalImages].map((image, index) => (
 									<img
 										key={index}
 										src={image}
@@ -78,10 +77,7 @@ const ProductDetail: React.FC = () => {
 										className={`w-16 h-16 object-cover rounded-md mr-2 flex-shrink-0 cursor-pointer ${
 											currentImage === index ? 'border-2 border-amber-500' : ''
 										}`}
-										onClick={() => {
-											setCurrentImage(index)
-											carouselApi?.scrollTo(index)
-										}}
+										onClick={() => handleClickCarousel(index)}
 									/>
 								))}
 							</div>
@@ -90,7 +86,7 @@ const ProductDetail: React.FC = () => {
 						{/* Product details section */}
 						<div className='lg:w-1/2'>
 							<CardTitle className='text-2xl md:text-3xl font-bold mb-4'>{product.name}</CardTitle>
-							<CardDescription className='text-lg mb-6'>{product.summarization}</CardDescription>
+							<CardDescription className='text-lg mb-6'>{product.description}</CardDescription>
 							<div className='mb-6'>
 								<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>
 								<ul className='space-y-2'>
@@ -111,16 +107,9 @@ const ProductDetail: React.FC = () => {
 				</CardContent>
 			</Card>
 
-			<Card className='mb-8'>
+			<Card className='mb-8 border-x-0'>
 				<CardContent className='p-6'>
 					<div className='space-y-8'>
-						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Overview</CardTitle>
-							<CardDescription>{product.summarization}</CardDescription>
-						</section>
-
-						<Separator />
-
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
 							<CardDescription>{product.description}</CardDescription>
@@ -130,27 +119,7 @@ const ProductDetail: React.FC = () => {
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-								{product.specifications.map((spec, index) => (
-									<div key={index} className='bg-gray-100 p-4 rounded-lg'>
-										<CardTitle className='text-sm font-semibold text-gray-600'>{spec.name}:</CardTitle>
-										<CardDescription className='text-lg'>{spec.value}</CardDescription>
-									</div>
-								))}
-							</div>
-						</section>
-
-						<Separator />
-
-						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Applications</CardTitle>
-							<ul className='list-disc pl-6'>
-								{product.applications.map((application, index) => (
-									<li key={index} className='mb-2'>
-										<CardDescription>{application}</CardDescription>
-									</li>
-								))}
-							</ul>
+							<ProductSpecificationTable product={product} models={models} />
 						</section>
 
 						<Separator />
@@ -180,7 +149,7 @@ const ProductDetail: React.FC = () => {
 			<div className='mt-8'>
 				{isRelatedPending ? (
 					<RelatedProductPending />
-				) : relatedProducts?.length === 0 ? (
+				) : !relatedProducts || relatedProducts.length === 0 ? (
 					<Card>
 						<CardHeader>
 							<CardTitle>No Related Products</CardTitle>
@@ -202,13 +171,13 @@ const ProductDetail: React.FC = () => {
 						<h2 className='text-2xl md:text-3xl font-bold mb-6'>Related Products</h2>
 						<Carousel className='w-full relative' opts={{ align: 'start' }}>
 							<CarouselContent>
-								{relatedProducts?.map((relatedProduct) => (
+								{relatedProducts.map((relatedProduct: Product) => (
 									<CarouselItem key={relatedProduct.id} className='w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4'>
-										<Link to='/products/$productId' params={{ productId: relatedProduct.id.toString() }}>
+										<Link to='/products/$productId' params={{ productId: relatedProduct.id }}>
 											<Card className='max-w-sm mx-auto bg-muted p-4 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-2xl transition-shadow'>
 												<CardHeader className='p-4 relative overflow-hidden rounded-lg flex justify-center'>
 													<img
-														src={relatedProduct.mainImage}
+														src={relatedProduct.imageUrl}
 														alt={relatedProduct.name}
 														className='w-full h-48 object-contain rounded-t-lg bg-transparent'
 													/>
@@ -216,7 +185,7 @@ const ProductDetail: React.FC = () => {
 												</CardHeader>
 												<CardContent className='p-4'>
 													<CardTitle className='text-lg mb-2'>{relatedProduct.name}</CardTitle>
-													<CardDescription className='text-sm'>{relatedProduct.summarization}</CardDescription>
+													<CardDescription className='text-sm'>{relatedProduct.description}</CardDescription>
 												</CardContent>
 												<CardFooter className='p-4'>
 													<Button
@@ -231,8 +200,6 @@ const ProductDetail: React.FC = () => {
 									</CarouselItem>
 								))}
 							</CarouselContent>
-							<CarouselPrevious className='hidden md:flex absolute -left-10 top-1/2 -translate-y-1/2' />
-							<CarouselNext className='hidden md:flex absolute -right-10 top-1/2 -translate-y-1/2' />
 						</Carousel>
 					</>
 				)}

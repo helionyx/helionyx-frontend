@@ -10,4 +10,15 @@ export default defineConfig({
 			'@': path.resolve(__dirname, './src'),
 		},
 	},
+	build: {
+		rollupOptions: {
+			output: {
+				manualChunks: {
+					vendor: ['react', 'react-dom', '@tanstack/react-query', '@tanstack/react-router'],
+					ui: ['@radix-ui/react-dialog', '@radix-ui/react-label', '@radix-ui/react-slot'],
+				},
+			},
+		},
+		chunkSizeWarningLimit: 1000, // เพิ่มขีดจำกัดเป็น 1000 kB
+	},
 })

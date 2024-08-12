@@ -48,29 +48,34 @@ const Header: React.FC = () => {
 										<ul className='bg-white p-4 rounded-md shadow-lg w-40'>
 											<li>
 												<Link
-													to='/products'
-													search={{ category: 'marking' }}
+													to='/laser-marking-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
-													Laser Marking
+													<span>Laser Marking</span>
 												</Link>
 											</li>
 											<li>
 												<Link
-													to='/products'
-													search={{ category: 'cutting' }}
+													to='/laser-cutting-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
-													Laser Cutting
+													<span>Laser Cutting</span>
 												</Link>
 											</li>
 											<li>
 												<Link
-													to='/products'
-													search={{ category: 'cleaning' }}
+													to='/laser-cleaning-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
-													Laser Cleaning
+													<span>Laser Cleaning</span>
+												</Link>
+											</li>
+											<li>
+												<Link
+													to='/dot-marking-machines'
+													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
+												>
+													<span>Dot Marking</span>
 												</Link>
 											</li>
 										</ul>

@@ -1,50 +1,37 @@
-import { products } from '@/db'
-import { FilteredProductsResponse, Product, ProductFilters, ProductListQueryParams } from '../types/product'
+import { categories, subCategories, products, models } from '@/databases'
+import { Category, Product, ProductListQueryParams, FilteredProductsResponse, Model } from '../types/product'
 
-export const getProductIds = async (): Promise<number[]> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-
+export const getProductIds = async (): Promise<string[]> => {
 	return products.map((product) => product.id)
 }
 
 export const getProducts = async (): Promise<Product[]> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-
 	return products
 }
 
-export const getProductById = async (id: number): Promise<Product | null> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-
-	const product = products.find((product) => product.id === id)
-	return product || null
+export const getProductById = async (id: string): Promise<Product | null> => {
+	return products.find((product) => product.id === id) || null
 }
 
-export const getCatalog = async (): Promise<ProductFilters> => {
-	await new Promise((resolve) => setTimeout(resolve, 500))
-
-	const category = [...new Set(products.map((p) => p.category))]
-	const power = [...new Set(products.map((p) => p.power))]
-	const wavelength = [...new Set(products.map((p) => p.wavelength))]
-
-	return { category, power, wavelength }
+export const getCatalog = async (): Promise<{ category: string[] }> => {
+	const categoryNames = categories.map((c) => c.name)
+	return { category: categoryNames }
 }
 
 export const getFilteredProducts = async (params: ProductListQueryParams): Promise<FilteredProductsResponse> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
-
-	const { category, power, wavelength, search, page = 1, pageSize = 6 } = params
+	const { category, search, page = 1, pageSize = 6 } = params
 
 	const filteredProducts = products.filter((product) => {
-		const matchesCategory = category?.length ? category.includes(product.category) : true
-		const matchesPower = power?.length ? power.includes(product.power) : true
-		const matchesWavelength = wavelength?.length ? wavelength.includes(product.wavelength) : true
+		const productCategory = categories.find(
+			(c) => c.id === subCategories.find((sc) => sc.id === product.subCategoryId)?.categoryId
+		)
+		const matchesCategory = category?.length ? category.includes(productCategory?.name || '') : true
 		const matchesSearch = search
 			? product.name.toLowerCase().includes(search.toLowerCase()) ||
-				product.summarization.toLowerCase().includes(search.toLowerCase())
+				product.description.toLowerCase().includes(search.toLowerCase())
 			: true
 
-		return matchesCategory && matchesPower && matchesWavelength && matchesSearch
+		return matchesCategory && matchesSearch
 	})
 
 	const paginatedProducts = filteredProducts.slice((page - 1) * pageSize, page * pageSize)
@@ -52,9 +39,25 @@ export const getFilteredProducts = async (params: ProductListQueryParams): Promi
 	return { products: paginatedProducts, totalCount: filteredProducts.length, pageSize }
 }
 
-export const getRelatedProducts = async (id: number, category: string): Promise<Product[] | []> => {
-	await new Promise((resolve) => setTimeout(resolve, 1000))
+export const getRelatedProducts = async (id: string, categoryId: string): Promise<Product[]> => {
+	const relatedProducts = products
+		.filter((product) => {
+			const productSubCategory = subCategories.find((sc) => sc.id === product.subCategoryId)
+			return productSubCategory?.categoryId === categoryId && product.id !== id
+		})
+		.slice(0, 6)
 
-	const relatedProducts = products.filter((p) => p.category === category && p.id !== id).slice(0, 6)
-	return relatedProducts || []
+	return relatedProducts
+}
+
+export const getCategoryList = async (): Promise<Category[]> => {
+	return categories
+}
+
+export const getModelById = async (productId: string): Promise<Model | null> => {
+	return models.find((model) => model.productId === productId) || null
+}
+
+export const getModelsByProductId = async (productId: string): Promise<Model[]> => {
+	return models.filter((model) => model.productId === productId)
 }

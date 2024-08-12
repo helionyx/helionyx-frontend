@@ -1,12 +1,13 @@
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Link, useNavigate } from '@tanstack/react-router'
+import { Loader2, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useFilteredProductsQuery } from '@/features/product/api/queries.api'
 import useDebounce from '@/features/product/hooks/use-debounce'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { Loader2, Search } from 'lucide-react'
-import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { Product } from '@/features/product/types/product'
 
 const SearchPopoverSkeleton: React.FC = () => (
 	<div className='flex items-center space-x-2 p-2'>
@@ -54,7 +55,7 @@ const SearchPopover: React.FC = React.memo(() => {
 			} else if (selectedIndex > -1) {
 				const selectedProduct = searchResults[selectedIndex]
 				if (selectedProduct) {
-					navigate({ to: '/products/$productId', params: { productId: selectedProduct.id.toString() } })
+					navigate({ to: '/products/$productId', params: { productId: selectedProduct.id } })
 					setIsOpen(false)
 				}
 			}
@@ -77,7 +78,7 @@ const SearchPopover: React.FC = React.memo(() => {
 	const handleViewAllResults = useCallback(() => {
 		navigate({
 			to: '/products',
-			search: (prev) => ({ ...prev, search: localSearchTerm }),
+			search: (prev: Record<string, unknown>) => ({ ...prev, search: localSearchTerm }),
 			replace: true
 		})
 		setIsOpen(false)
@@ -111,19 +112,19 @@ const SearchPopover: React.FC = React.memo(() => {
 								.map((_, index) => <SearchPopoverSkeleton key={index} />)
 						) : searchResults.length > 0 ? (
 							<>
-								{searchResults.map((product, index) => (
+								{searchResults.map((product: Product, index: number) => (
 									<Link
 										key={product.id}
 										to='/products/$productId'
-										params={{ productId: product.id.toString() }}
+										params={{ productId: product.id }}
 										className={`block p-2 hover:bg-muted ${index === selectedIndex ? 'bg-muted' : ''}`}
 										onClick={() => setIsOpen(false)}
 									>
 										<div className='flex items-center space-x-2'>
-											<img src={product.mainImage} alt={product.name} className='w-10 h-10 object-cover rounded' />
+											<img src={product.imageUrl} alt={product.name} className='w-10 h-10 object-cover rounded' />
 											<div>
 												<p className='font-medium'>{product.name}</p>
-												<p className='text-sm text-muted-foreground'>{product.summarization.slice(0, 50)}...</p>
+												<p className='text-sm text-muted-foreground'>{product.description.slice(0, 50)}...</p>
 											</div>
 										</div>
 									</Link>

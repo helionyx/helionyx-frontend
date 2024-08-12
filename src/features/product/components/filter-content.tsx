@@ -4,11 +4,11 @@ import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Skeleton } from '@/components/ui/skeleton'
 import { useStore } from '@/stores/store'
+import { ProductFilters, ProductListQueryParams } from '@/types'
 import { useNavigate } from '@tanstack/react-router'
 import React, { useCallback, useMemo } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useCatalogsQuery } from '../api/queries.api'
-import { ProductFilters } from '../types/product'
 
 const FilterContent: React.FC = React.memo(() => {
 	const navigate = useNavigate()
@@ -32,15 +32,17 @@ const FilterContent: React.FC = React.memo(() => {
 	)
 
 	const resetFilters = useCallback(() => {
-		setSelectedFilters({ category: [], power: [], wavelength: [] })
+		setSelectedFilters({ category: [] })
 		setSearchTerm('')
 	}, [setSearchTerm, setSelectedFilters])
 
 	const handleResetFilters = useCallback(() => {
 		resetFilters()
 		navigate({
-			search: (prev) => ({
-				search: prev.search
+			search: (prev: ProductListQueryParams) => ({
+				...prev,
+				search: undefined,
+				category: undefined
 			}),
 			replace: true
 		})
@@ -90,25 +92,11 @@ const FilterContent: React.FC = React.memo(() => {
 						Reset Filters
 					</Button>
 				</div>
-				<Accordion type='multiple' defaultValue={['category', 'power', 'wavelength']}>
+				<Accordion type='multiple' defaultValue={['category']}>
 					<AccordionItem value='category'>
 						<AccordionTrigger className='text-lg font-medium capitalize'>Category</AccordionTrigger>
 						<AccordionContent>
 							<div className='grid gap-2'>{renderFilterOptions(catalogs?.category, isCatalogsPending, 'category')}</div>
-						</AccordionContent>
-					</AccordionItem>
-					<AccordionItem value='power'>
-						<AccordionTrigger className='text-lg font-medium capitalize'>Power</AccordionTrigger>
-						<AccordionContent>
-							<div className='grid gap-2'>{renderFilterOptions(catalogs?.power, isCatalogsPending, 'power')}</div>
-						</AccordionContent>
-					</AccordionItem>
-					<AccordionItem value='wavelength'>
-						<AccordionTrigger className='text-lg font-medium capitalize'>Wavelength</AccordionTrigger>
-						<AccordionContent>
-							<div className='grid gap-2'>
-								{renderFilterOptions(catalogs?.wavelength, isCatalogsPending, 'wavelength')}
-							</div>
 						</AccordionContent>
 					</AccordionItem>
 				</Accordion>

@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { CategoryKey } from '@/stores/product-slice'
 import { useStore } from '@/stores/store'
+import { Product } from '@/types'
 import { Link, useSearch } from '@tanstack/react-router'
 import { Filter, Loader2 } from 'lucide-react'
 import React, { useEffect, useMemo } from 'react'
@@ -13,7 +14,7 @@ import FilterContent from '../components/filter-content'
 import ProductListPendingCard from '../components/product-list-pending-card'
 
 const ProductList: React.FC = () => {
-	const { category, search, power, wavelength } = useSearch({ from: '/products/_product-layout/' })
+	const { category, search } = useSearch({ from: '/products/_product-layout/' })
 
 	const { selectedFilters, isFilterSheetOpen, setIsFilterSheetOpen, initializeFilters } = useStore(
 		useShallow((state) => ({
@@ -27,11 +28,9 @@ const ProductList: React.FC = () => {
 	useEffect(() => {
 		initializeFilters({
 			category: category as CategoryKey | null,
-			power: power || [],
-			wavelength: wavelength || [],
 			search: search || ''
 		})
-	}, [category, power, search, wavelength, initializeFilters])
+	}, [category, search, initializeFilters])
 
 	const { data, fetchNextPage, hasNextPage, isFetchingNextPage, isPending } = useFilteredProductsQuery({
 		...selectedFilters,
@@ -55,14 +54,14 @@ const ProductList: React.FC = () => {
 			)
 		}
 
-		return allProducts.map((product) => (
+		return allProducts.map((product: Product) => (
 			<Card
 				key={product.id}
 				className='max-w-sm mx-auto bg-muted p-6 rounded-lg shadow-md overflow-hidden space-y-4 h-full hover:border-amber-500 hover:shadow-lg transition-shadow'
 			>
 				<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center items-center'>
 					<img
-						src={product.mainImage}
+						src={product.imageUrl}
 						alt={product.name}
 						width={400}
 						height={300}
@@ -72,10 +71,10 @@ const ProductList: React.FC = () => {
 				</CardHeader>
 				<CardContent className='p-0 space-y-2'>
 					<CardTitle className='text-lg'>{product.name}</CardTitle>
-					<CardDescription>{product.summarization.slice(0, 50)}...</CardDescription>
+					<CardDescription>{product.description.slice(0, 100)}...</CardDescription>
 				</CardContent>
 				<CardFooter className='p-0 flex items-center justify-end'>
-					<Link to='/products/$productId' params={{ productId: product.id.toString() }}>
+					<Link to='/products/$productId' params={{ productId: product.id }}>
 						<Button
 							variant='outline'
 							className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'

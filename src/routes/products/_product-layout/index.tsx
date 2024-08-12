@@ -6,8 +6,6 @@ export const Route = createFileRoute('/products/_product-layout/')({
 	validateSearch: (search: Record<string, unknown>): ProductListQueryParams => {
 		return {
 			category: (search.category as string[]) || '',
-			power: (search.power as string[]) || '',
-			wavelength: (search.wavelength as string[]) || '',
 			search: (search.search as string) || ''
 		}
 	},

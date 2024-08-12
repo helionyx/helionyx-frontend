@@ -12,12 +12,7 @@ type ProductActions = {
 	setSelectedFilters: (filters: ProductFilters) => void
 	setIsFilterSheetOpen: (isOpen: boolean) => void
 	resetFilters: () => void
-	initializeFilters: (params: {
-		category: CategoryKey | null
-		power: string[]
-		wavelength: string[]
-		search: string
-	}) => void
+	initializeFilters: (params: { category: CategoryKey | null; search: string }) => void
 	updateFilter: (type: keyof ProductFilters, value: string) => void
 }
 
@@ -34,9 +29,7 @@ export type CategoryKey = keyof typeof categoryMap
 const initialState: ProductState = {
 	searchTerm: '',
 	selectedFilters: {
-		category: [],
-		power: [],
-		wavelength: []
+		category: []
 	},
 	isFilterSheetOpen: false
 }
@@ -56,13 +49,11 @@ export const createProductSlice: StateCreator<ProductSlice, [['zustand/immer', n
 			state.isFilterSheetOpen = isOpen
 		}),
 	resetFilters: () => set(initialState),
-	initializeFilters: ({ category, power, wavelength, search }) =>
+	initializeFilters: ({ category, search }) =>
 		set((state) => {
 			state.searchTerm = search
 			state.selectedFilters = {
-				category: category ? [categoryMap[category]] : [],
-				power: power || [],
-				wavelength: wavelength || []
+				category: category ? [categoryMap[category]] : []
 			}
 		}),
 	updateFilter: (type, value) =>

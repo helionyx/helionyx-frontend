@@ -16,8 +16,8 @@ const CustomBreadcrumb: React.FC = () => {
 	const lastMatch = matches[matches.length - 1]
 	const isHomePage = lastMatch.pathname === '/'
 
-	const productId = params.productId ? Number(params.productId) : undefined
-	const { data: product } = useProductId(productId || 0)
+	const productId = params.productId || ''
+	const { data: product } = useProductId(productId)
 
 	if (isHomePage) return null
 
@@ -26,6 +26,10 @@ const CustomBreadcrumb: React.FC = () => {
 			return array.findIndex((m) => m.pathname === match.pathname) === index
 		})
 		.filter((match) => match.pathname !== '/products/')
+		.filter((match) => match.pathname !== '/laser-marking-machines/')
+		.filter((match) => match.pathname !== '/laser-cutting-machines/')
+		.filter((match) => match.pathname !== '/laser-cleaning-machines/')
+		.filter((match) => match.pathname !== '/dot-marking-machines/')
 
 	const breadcrumbItems = filteredMatches.map((match, index) => {
 		let label: string
@@ -40,6 +44,18 @@ const CustomBreadcrumb: React.FC = () => {
 			case `/products/${productId}`:
 				label = product ? product.name : '...'
 				break
+			case '/laser-marking-machines':
+				label = 'Laser Marking Machines'
+				break
+			case '/laser-cutting-machines':
+				label = 'Laser Cutting Machines'
+				break
+			case '/laser-cleaning-machines':
+				label = 'Laser Cleaing Machines'
+				break
+			case '/dot-marking-machines':
+				label = 'Dot Marking Machines'
+				break
 			case '/about':
 				label = 'About Us'
 				break
@@ -48,7 +64,8 @@ const CustomBreadcrumb: React.FC = () => {
 				break
 			default:
 				label = match.pathname.split('/').pop() || ''
-				label = label.charAt(0).toUpperCase() + label.slice(1)
+				label = label.charAt(0).toUpperCase() + label.slice(1).replace(/%20/g, ' ')
+				label = label.replace(/-/g, ' ')
 		}
 
 		const isLast = index === filteredMatches.length - 1

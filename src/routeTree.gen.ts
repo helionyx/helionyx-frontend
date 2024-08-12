@@ -12,18 +12,56 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProductsRouteImport } from './routes/products/route'
+import { Route as LaserMarkingMachinesRouteImport } from './routes/laser-marking-machines/route'
+import { Route as LaserCuttingMachinesRouteImport } from './routes/laser-cutting-machines/route'
+import { Route as LaserCleaningMachinesRouteImport } from './routes/laser-cleaning-machines/route'
+import { Route as DotMarkingMachinesRouteImport } from './routes/dot-marking-machines/route'
 import { Route as RootLayoutRouteImport } from './routes/_root-layout/route'
 import { Route as RootLayoutIndexImport } from './routes/_root-layout/index'
 import { Route as RootLayoutContactImport } from './routes/_root-layout/contact'
 import { Route as RootLayoutAboutImport } from './routes/_root-layout/about'
 import { Route as ProductsProductLayoutRouteImport } from './routes/products/_product-layout/route'
+import { Route as LaserMarkingMachinesLayoutRouteImport } from './routes/laser-marking-machines/_layout/route'
+import { Route as LaserCuttingMachinesLayoutRouteImport } from './routes/laser-cutting-machines/_layout/route'
+import { Route as LaserCleaningMachinesLayoutRouteImport } from './routes/laser-cleaning-machines/_layout/route'
+import { Route as DotMarkingMachinesLayoutRouteImport } from './routes/dot-marking-machines/_layout/route'
 import { Route as ProductsProductLayoutIndexImport } from './routes/products/_product-layout/index'
+import { Route as LaserMarkingMachinesLayoutIndexImport } from './routes/laser-marking-machines/_layout/index'
+import { Route as LaserCuttingMachinesLayoutIndexImport } from './routes/laser-cutting-machines/_layout/index'
+import { Route as LaserCleaningMachinesLayoutIndexImport } from './routes/laser-cleaning-machines/_layout/index'
+import { Route as DotMarkingMachinesLayoutIndexImport } from './routes/dot-marking-machines/_layout/index'
 import { Route as ProductsProductLayoutProductIdImport } from './routes/products/_product-layout/$productId'
+import { Route as LaserMarkingMachinesLayoutProductIdImport } from './routes/laser-marking-machines/_layout/$productId'
+import { Route as LaserCuttingMachinesLayoutProductIdImport } from './routes/laser-cutting-machines/_layout/$productId'
+import { Route as LaserCleaningMachinesLayoutProductIdImport } from './routes/laser-cleaning-machines/_layout/$productId'
+import { Route as DotMarkingMachinesLayoutProductIdImport } from './routes/dot-marking-machines/_layout/$productId'
 
 // Create/Update Routes
 
 const ProductsRouteRoute = ProductsRouteImport.update({
   path: '/products',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LaserMarkingMachinesRouteRoute = LaserMarkingMachinesRouteImport.update({
+  path: '/laser-marking-machines',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LaserCuttingMachinesRouteRoute = LaserCuttingMachinesRouteImport.update({
+  path: '/laser-cutting-machines',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LaserCleaningMachinesRouteRoute = LaserCleaningMachinesRouteImport.update(
+  {
+    path: '/laser-cleaning-machines',
+    getParentRoute: () => rootRoute,
+  } as any,
+)
+
+const DotMarkingMachinesRouteRoute = DotMarkingMachinesRouteImport.update({
+  path: '/dot-marking-machines',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -54,6 +92,30 @@ const ProductsProductLayoutRouteRoute = ProductsProductLayoutRouteImport.update(
   } as any,
 )
 
+const LaserMarkingMachinesLayoutRouteRoute =
+  LaserMarkingMachinesLayoutRouteImport.update({
+    id: '/_layout',
+    getParentRoute: () => LaserMarkingMachinesRouteRoute,
+  } as any)
+
+const LaserCuttingMachinesLayoutRouteRoute =
+  LaserCuttingMachinesLayoutRouteImport.update({
+    id: '/_layout',
+    getParentRoute: () => LaserCuttingMachinesRouteRoute,
+  } as any)
+
+const LaserCleaningMachinesLayoutRouteRoute =
+  LaserCleaningMachinesLayoutRouteImport.update({
+    id: '/_layout',
+    getParentRoute: () => LaserCleaningMachinesRouteRoute,
+  } as any)
+
+const DotMarkingMachinesLayoutRouteRoute =
+  DotMarkingMachinesLayoutRouteImport.update({
+    id: '/_layout',
+    getParentRoute: () => DotMarkingMachinesRouteRoute,
+  } as any)
+
 const ProductsProductLayoutIndexRoute = ProductsProductLayoutIndexImport.update(
   {
     path: '/',
@@ -61,10 +123,58 @@ const ProductsProductLayoutIndexRoute = ProductsProductLayoutIndexImport.update(
   } as any,
 )
 
+const LaserMarkingMachinesLayoutIndexRoute =
+  LaserMarkingMachinesLayoutIndexImport.update({
+    path: '/',
+    getParentRoute: () => LaserMarkingMachinesLayoutRouteRoute,
+  } as any)
+
+const LaserCuttingMachinesLayoutIndexRoute =
+  LaserCuttingMachinesLayoutIndexImport.update({
+    path: '/',
+    getParentRoute: () => LaserCuttingMachinesLayoutRouteRoute,
+  } as any)
+
+const LaserCleaningMachinesLayoutIndexRoute =
+  LaserCleaningMachinesLayoutIndexImport.update({
+    path: '/',
+    getParentRoute: () => LaserCleaningMachinesLayoutRouteRoute,
+  } as any)
+
+const DotMarkingMachinesLayoutIndexRoute =
+  DotMarkingMachinesLayoutIndexImport.update({
+    path: '/',
+    getParentRoute: () => DotMarkingMachinesLayoutRouteRoute,
+  } as any)
+
 const ProductsProductLayoutProductIdRoute =
   ProductsProductLayoutProductIdImport.update({
     path: '/$productId',
     getParentRoute: () => ProductsProductLayoutRouteRoute,
+  } as any)
+
+const LaserMarkingMachinesLayoutProductIdRoute =
+  LaserMarkingMachinesLayoutProductIdImport.update({
+    path: '/$productId',
+    getParentRoute: () => LaserMarkingMachinesLayoutRouteRoute,
+  } as any)
+
+const LaserCuttingMachinesLayoutProductIdRoute =
+  LaserCuttingMachinesLayoutProductIdImport.update({
+    path: '/$productId',
+    getParentRoute: () => LaserCuttingMachinesLayoutRouteRoute,
+  } as any)
+
+const LaserCleaningMachinesLayoutProductIdRoute =
+  LaserCleaningMachinesLayoutProductIdImport.update({
+    path: '/$productId',
+    getParentRoute: () => LaserCleaningMachinesLayoutRouteRoute,
+  } as any)
+
+const DotMarkingMachinesLayoutProductIdRoute =
+  DotMarkingMachinesLayoutProductIdImport.update({
+    path: '/$productId',
+    getParentRoute: () => DotMarkingMachinesLayoutRouteRoute,
   } as any)
 
 // Populate the FileRoutesByPath interface
@@ -78,12 +188,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RootLayoutRouteImport
       parentRoute: typeof rootRoute
     }
+    '/dot-marking-machines': {
+      id: '/dot-marking-machines'
+      path: '/dot-marking-machines'
+      fullPath: '/dot-marking-machines'
+      preLoaderRoute: typeof DotMarkingMachinesRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/laser-cleaning-machines': {
+      id: '/laser-cleaning-machines'
+      path: '/laser-cleaning-machines'
+      fullPath: '/laser-cleaning-machines'
+      preLoaderRoute: typeof LaserCleaningMachinesRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/laser-cutting-machines': {
+      id: '/laser-cutting-machines'
+      path: '/laser-cutting-machines'
+      fullPath: '/laser-cutting-machines'
+      preLoaderRoute: typeof LaserCuttingMachinesRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/laser-marking-machines': {
+      id: '/laser-marking-machines'
+      path: '/laser-marking-machines'
+      fullPath: '/laser-marking-machines'
+      preLoaderRoute: typeof LaserMarkingMachinesRouteImport
+      parentRoute: typeof rootRoute
+    }
     '/products': {
       id: '/products'
       path: '/products'
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRoute
+    }
+    '/dot-marking-machines/_layout': {
+      id: '/dot-marking-machines/_layout'
+      path: ''
+      fullPath: '/dot-marking-machines'
+      preLoaderRoute: typeof DotMarkingMachinesLayoutRouteImport
+      parentRoute: typeof DotMarkingMachinesRouteImport
+    }
+    '/laser-cleaning-machines/_layout': {
+      id: '/laser-cleaning-machines/_layout'
+      path: ''
+      fullPath: '/laser-cleaning-machines'
+      preLoaderRoute: typeof LaserCleaningMachinesLayoutRouteImport
+      parentRoute: typeof LaserCleaningMachinesRouteImport
+    }
+    '/laser-cutting-machines/_layout': {
+      id: '/laser-cutting-machines/_layout'
+      path: ''
+      fullPath: '/laser-cutting-machines'
+      preLoaderRoute: typeof LaserCuttingMachinesLayoutRouteImport
+      parentRoute: typeof LaserCuttingMachinesRouteImport
+    }
+    '/laser-marking-machines/_layout': {
+      id: '/laser-marking-machines/_layout'
+      path: ''
+      fullPath: '/laser-marking-machines'
+      preLoaderRoute: typeof LaserMarkingMachinesLayoutRouteImport
+      parentRoute: typeof LaserMarkingMachinesRouteImport
     }
     '/products/_product-layout': {
       id: '/products/_product-layout'
@@ -113,12 +279,68 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RootLayoutIndexImport
       parentRoute: typeof RootLayoutRouteImport
     }
+    '/dot-marking-machines/_layout/$productId': {
+      id: '/dot-marking-machines/_layout/$productId'
+      path: '/$productId'
+      fullPath: '/dot-marking-machines/$productId'
+      preLoaderRoute: typeof DotMarkingMachinesLayoutProductIdImport
+      parentRoute: typeof DotMarkingMachinesLayoutRouteImport
+    }
+    '/laser-cleaning-machines/_layout/$productId': {
+      id: '/laser-cleaning-machines/_layout/$productId'
+      path: '/$productId'
+      fullPath: '/laser-cleaning-machines/$productId'
+      preLoaderRoute: typeof LaserCleaningMachinesLayoutProductIdImport
+      parentRoute: typeof LaserCleaningMachinesLayoutRouteImport
+    }
+    '/laser-cutting-machines/_layout/$productId': {
+      id: '/laser-cutting-machines/_layout/$productId'
+      path: '/$productId'
+      fullPath: '/laser-cutting-machines/$productId'
+      preLoaderRoute: typeof LaserCuttingMachinesLayoutProductIdImport
+      parentRoute: typeof LaserCuttingMachinesLayoutRouteImport
+    }
+    '/laser-marking-machines/_layout/$productId': {
+      id: '/laser-marking-machines/_layout/$productId'
+      path: '/$productId'
+      fullPath: '/laser-marking-machines/$productId'
+      preLoaderRoute: typeof LaserMarkingMachinesLayoutProductIdImport
+      parentRoute: typeof LaserMarkingMachinesLayoutRouteImport
+    }
     '/products/_product-layout/$productId': {
       id: '/products/_product-layout/$productId'
       path: '/$productId'
       fullPath: '/products/$productId'
       preLoaderRoute: typeof ProductsProductLayoutProductIdImport
       parentRoute: typeof ProductsProductLayoutRouteImport
+    }
+    '/dot-marking-machines/_layout/': {
+      id: '/dot-marking-machines/_layout/'
+      path: '/'
+      fullPath: '/dot-marking-machines/'
+      preLoaderRoute: typeof DotMarkingMachinesLayoutIndexImport
+      parentRoute: typeof DotMarkingMachinesLayoutRouteImport
+    }
+    '/laser-cleaning-machines/_layout/': {
+      id: '/laser-cleaning-machines/_layout/'
+      path: '/'
+      fullPath: '/laser-cleaning-machines/'
+      preLoaderRoute: typeof LaserCleaningMachinesLayoutIndexImport
+      parentRoute: typeof LaserCleaningMachinesLayoutRouteImport
+    }
+    '/laser-cutting-machines/_layout/': {
+      id: '/laser-cutting-machines/_layout/'
+      path: '/'
+      fullPath: '/laser-cutting-machines/'
+      preLoaderRoute: typeof LaserCuttingMachinesLayoutIndexImport
+      parentRoute: typeof LaserCuttingMachinesLayoutRouteImport
+    }
+    '/laser-marking-machines/_layout/': {
+      id: '/laser-marking-machines/_layout/'
+      path: '/'
+      fullPath: '/laser-marking-machines/'
+      preLoaderRoute: typeof LaserMarkingMachinesLayoutIndexImport
+      parentRoute: typeof LaserMarkingMachinesLayoutRouteImport
     }
     '/products/_product-layout/': {
       id: '/products/_product-layout/'
@@ -138,6 +360,34 @@ export const routeTree = rootRoute.addChildren({
     RootLayoutContactRoute,
     RootLayoutIndexRoute,
   }),
+  DotMarkingMachinesRouteRoute: DotMarkingMachinesRouteRoute.addChildren({
+    DotMarkingMachinesLayoutRouteRoute:
+      DotMarkingMachinesLayoutRouteRoute.addChildren({
+        DotMarkingMachinesLayoutProductIdRoute,
+        DotMarkingMachinesLayoutIndexRoute,
+      }),
+  }),
+  LaserCleaningMachinesRouteRoute: LaserCleaningMachinesRouteRoute.addChildren({
+    LaserCleaningMachinesLayoutRouteRoute:
+      LaserCleaningMachinesLayoutRouteRoute.addChildren({
+        LaserCleaningMachinesLayoutProductIdRoute,
+        LaserCleaningMachinesLayoutIndexRoute,
+      }),
+  }),
+  LaserCuttingMachinesRouteRoute: LaserCuttingMachinesRouteRoute.addChildren({
+    LaserCuttingMachinesLayoutRouteRoute:
+      LaserCuttingMachinesLayoutRouteRoute.addChildren({
+        LaserCuttingMachinesLayoutProductIdRoute,
+        LaserCuttingMachinesLayoutIndexRoute,
+      }),
+  }),
+  LaserMarkingMachinesRouteRoute: LaserMarkingMachinesRouteRoute.addChildren({
+    LaserMarkingMachinesLayoutRouteRoute:
+      LaserMarkingMachinesLayoutRouteRoute.addChildren({
+        LaserMarkingMachinesLayoutProductIdRoute,
+        LaserMarkingMachinesLayoutIndexRoute,
+      }),
+  }),
   ProductsRouteRoute: ProductsRouteRoute.addChildren({
     ProductsProductLayoutRouteRoute:
       ProductsProductLayoutRouteRoute.addChildren({
@@ -156,6 +406,10 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "__root.tsx",
       "children": [
         "/_root-layout",
+        "/dot-marking-machines",
+        "/laser-cleaning-machines",
+        "/laser-cutting-machines",
+        "/laser-marking-machines",
         "/products"
       ]
     },
@@ -167,10 +421,66 @@ export const routeTree = rootRoute.addChildren({
         "/_root-layout/"
       ]
     },
+    "/dot-marking-machines": {
+      "filePath": "dot-marking-machines/route.tsx",
+      "children": [
+        "/dot-marking-machines/_layout"
+      ]
+    },
+    "/laser-cleaning-machines": {
+      "filePath": "laser-cleaning-machines/route.tsx",
+      "children": [
+        "/laser-cleaning-machines/_layout"
+      ]
+    },
+    "/laser-cutting-machines": {
+      "filePath": "laser-cutting-machines/route.tsx",
+      "children": [
+        "/laser-cutting-machines/_layout"
+      ]
+    },
+    "/laser-marking-machines": {
+      "filePath": "laser-marking-machines/route.tsx",
+      "children": [
+        "/laser-marking-machines/_layout"
+      ]
+    },
     "/products": {
       "filePath": "products/route.tsx",
       "children": [
         "/products/_product-layout"
+      ]
+    },
+    "/dot-marking-machines/_layout": {
+      "filePath": "dot-marking-machines/_layout/route.tsx",
+      "parent": "/dot-marking-machines",
+      "children": [
+        "/dot-marking-machines/_layout/$productId",
+        "/dot-marking-machines/_layout/"
+      ]
+    },
+    "/laser-cleaning-machines/_layout": {
+      "filePath": "laser-cleaning-machines/_layout/route.tsx",
+      "parent": "/laser-cleaning-machines",
+      "children": [
+        "/laser-cleaning-machines/_layout/$productId",
+        "/laser-cleaning-machines/_layout/"
+      ]
+    },
+    "/laser-cutting-machines/_layout": {
+      "filePath": "laser-cutting-machines/_layout/route.tsx",
+      "parent": "/laser-cutting-machines",
+      "children": [
+        "/laser-cutting-machines/_layout/$productId",
+        "/laser-cutting-machines/_layout/"
+      ]
+    },
+    "/laser-marking-machines/_layout": {
+      "filePath": "laser-marking-machines/_layout/route.tsx",
+      "parent": "/laser-marking-machines",
+      "children": [
+        "/laser-marking-machines/_layout/$productId",
+        "/laser-marking-machines/_layout/"
       ]
     },
     "/products/_product-layout": {
@@ -193,9 +503,41 @@ export const routeTree = rootRoute.addChildren({
       "filePath": "_root-layout/index.tsx",
       "parent": "/_root-layout"
     },
+    "/dot-marking-machines/_layout/$productId": {
+      "filePath": "dot-marking-machines/_layout/$productId.tsx",
+      "parent": "/dot-marking-machines/_layout"
+    },
+    "/laser-cleaning-machines/_layout/$productId": {
+      "filePath": "laser-cleaning-machines/_layout/$productId.tsx",
+      "parent": "/laser-cleaning-machines/_layout"
+    },
+    "/laser-cutting-machines/_layout/$productId": {
+      "filePath": "laser-cutting-machines/_layout/$productId.tsx",
+      "parent": "/laser-cutting-machines/_layout"
+    },
+    "/laser-marking-machines/_layout/$productId": {
+      "filePath": "laser-marking-machines/_layout/$productId.tsx",
+      "parent": "/laser-marking-machines/_layout"
+    },
     "/products/_product-layout/$productId": {
       "filePath": "products/_product-layout/$productId.tsx",
       "parent": "/products/_product-layout"
+    },
+    "/dot-marking-machines/_layout/": {
+      "filePath": "dot-marking-machines/_layout/index.tsx",
+      "parent": "/dot-marking-machines/_layout"
+    },
+    "/laser-cleaning-machines/_layout/": {
+      "filePath": "laser-cleaning-machines/_layout/index.tsx",
+      "parent": "/laser-cleaning-machines/_layout"
+    },
+    "/laser-cutting-machines/_layout/": {
+      "filePath": "laser-cutting-machines/_layout/index.tsx",
+      "parent": "/laser-cutting-machines/_layout"
+    },
+    "/laser-marking-machines/_layout/": {
+      "filePath": "laser-marking-machines/_layout/index.tsx",
+      "parent": "/laser-marking-machines/_layout"
     },
     "/products/_product-layout/": {
       "filePath": "products/_product-layout/index.tsx",

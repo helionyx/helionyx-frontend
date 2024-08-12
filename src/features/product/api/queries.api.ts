@@ -1,13 +1,22 @@
 import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '@tanstack/react-query'
-import { ProductListQueryParams } from '../types/product'
-import { getCatalog, getFilteredProducts, getProductById, getProducts, getRelatedProducts } from './product.api'
+import { Category, Model, Product, ProductListQueryParams } from '../types/product'
+import {
+	getCatalog,
+	getCategoryList,
+	getFilteredProducts,
+	getModelById,
+	getModelsByProductId,
+	getProductById,
+	getProducts,
+	getRelatedProducts
+} from './product.api'
 
 export const productsQueryOptions = queryOptions({
 	queryKey: ['products'],
 	queryFn: () => getProducts()
 })
 
-export const productQueryOption = (productId: number) =>
+export const productQueryOption = (productId: string) =>
 	queryOptions({
 		queryKey: ['products', { productId }],
 		queryFn: () => getProductById(productId)
@@ -25,16 +34,17 @@ export const filteredProductsQueryOptions = (params: ProductListQueryParams) =>
 	})
 
 export function useProducts() {
-	return useQuery({
+	return useQuery<Product[], Error>({
 		queryKey: ['products'],
 		queryFn: () => getProducts()
 	})
 }
 
-export function useProductId(productId: number) {
-	return useQuery({
+export function useProductId(productId: string) {
+	return useQuery<Product | null, Error>({
 		queryKey: ['products', { productId }],
-		queryFn: () => getProductById(productId)
+		queryFn: () => getProductById(productId),
+		enabled: !!productId
 	})
 }
 
@@ -47,9 +57,9 @@ export function useCatalogsQuery() {
 
 export function useFilteredProductsQuery(params: ProductListQueryParams) {
 	return useInfiniteQuery({
-		initialPageParam: 1,
 		queryKey: ['filteredProducts', params],
-		queryFn: ({ pageParam }) => getFilteredProducts({ ...params, page: pageParam }),
+		queryFn: ({ pageParam = 1 }) => getFilteredProducts({ ...params, page: pageParam }),
+		initialPageParam: 1,
 		getNextPageParam: (lastPage, pages) => {
 			if (lastPage.products.length < lastPage.pageSize) return undefined
 			return pages.length + 1
@@ -57,10 +67,33 @@ export function useFilteredProductsQuery(params: ProductListQueryParams) {
 	})
 }
 
-export function useRelatedProductsQuery(id: number | null | undefined, category: string | null | undefined) {
-	return useQuery({
-		queryKey: ['relatedProducts', { id, category }],
-		queryFn: () => getRelatedProducts(id as number, category as string),
-		enabled: id !== null && id !== undefined && category !== null && category !== undefined
+export function useRelatedProductsQuery(id: string | null | undefined, categoryId: string | null | undefined) {
+	return useQuery<Product[], Error>({
+		queryKey: ['relatedProducts', { id, categoryId }],
+		queryFn: () => getRelatedProducts(id as string, categoryId as string),
+		enabled: id !== null && id !== undefined && categoryId !== null && categoryId !== undefined
+	})
+}
+
+export function useCategoryListQuery() {
+	return useQuery<Category[], Error>({
+		queryKey: ['categoryList'],
+		queryFn: getCategoryList
+	})
+}
+
+export function useModelQuery(productId: string) {
+	return useQuery<Model | null, Error>({
+		queryKey: ['model', { productId }],
+		queryFn: () => getModelById(productId),
+		enabled: !!productId
+	})
+}
+
+export function useModelsQuery(productId: string) {
+	return useQuery<Model[], Error>({
+		queryKey: ['models', { productId }],
+		queryFn: () => getModelsByProductId(productId),
+		enabled: !!productId
 	})
 }

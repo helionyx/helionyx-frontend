@@ -1,7 +1,7 @@
 import { routeTree } from '@/routeTree.gen'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
+import React, { Suspense } from 'react'
 
 const queryClient = new QueryClient()
 
@@ -18,11 +18,21 @@ declare module '@tanstack/react-router' {
 	}
 }
 
+const ReactQueryDevtools = React.lazy(() =>
+	import('@tanstack/react-query-devtools').then((res) => ({
+		default: res.ReactQueryDevtools
+	}))
+)
+
 function App() {
 	return (
 		<QueryClientProvider client={queryClient}>
 			<RouterProvider router={router} />
-			<ReactQueryDevtools initialIsOpen={false} />
+			{process.env.NODE_ENV === 'development' && (
+				<Suspense fallback={null}>
+					<ReactQueryDevtools initialIsOpen={false} />
+				</Suspense>
+			)}
 		</QueryClientProvider>
 	)
 }

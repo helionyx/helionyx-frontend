@@ -1,36 +1,46 @@
-interface Specification {
+export interface Specifications {
+	[group: string]: { [key: string]: string | string[] } | string | string[]
+}
+
+export interface Category {
+	id: string
 	name: string
-	value: string
+	description?: string
+}
+
+export interface SubCategory {
+	id: string
+	categoryId: string
+	name: string
+	description?: string
 }
 
 export interface Product {
-	id: number
+	id: string
+	subCategoryId: string
 	name: string
-	category: string
-	summarization: string
 	description: string
-	power: string
-	wavelength: string
-	mainImage: string
-	imagesList: string[]
 	features: string[]
-	specifications: Specification[]
-	applications: string[]
+	imageUrl: string
+	additionalImages: string[]
+}
+
+export interface Model {
+	id: string
+	productId: string
+	name: string
+	specifications: Specifications
 }
 
 export interface ProductListQueryParams {
 	search?: string
 	category?: string | string[]
-	power?: string[]
-	wavelength?: string[]
 	page?: number
 	pageSize?: number
 }
 
 export interface ProductFilters {
 	category: string[]
-	power: string[]
-	wavelength: string[]
 }
 
 export interface FilteredProductsResponse {

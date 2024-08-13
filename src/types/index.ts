@@ -17,6 +17,7 @@ export interface SubCategory {
 
 export interface Product {
 	id: string
+	categoryId: string
 	subCategoryId: string
 	name: string
 	description: string

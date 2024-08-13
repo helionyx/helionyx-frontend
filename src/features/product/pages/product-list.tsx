@@ -74,7 +74,7 @@ const ProductList: React.FC = () => {
 					<CardDescription>{product.description.slice(0, 100)}...</CardDescription>
 				</CardContent>
 				<CardFooter className='p-0 flex items-center justify-end'>
-					<Link to='/products/$productId' params={{ productId: product.id }}>
+					<Link to={`/products/${product.categoryId}/${product.subCategoryId}/${product.id}`}>
 						<Button
 							variant='outline'
 							className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'

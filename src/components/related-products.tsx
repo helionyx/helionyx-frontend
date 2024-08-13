@@ -83,7 +83,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 												</CardDescription>
 											</CardContent>
 											<CardFooter className='p-4'>
-												<Link to={slug} params={{ productId: relatedProduct.id }}>
+												<Link to={`${slug}/${relatedProduct.subCategoryId}/${relatedProduct.id}`}>
 													<Button
 														variant='outline'
 														className='w-full hover:bg-amber-100 hover:text-amber-500 hover:border-amber-500 transition-colors'

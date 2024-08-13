@@ -6,18 +6,13 @@ import {
 	BreadcrumbPage,
 	BreadcrumbSeparator
 } from '@/components/ui/breadcrumb'
-import { useProductId } from '@/features/product/api/queries.api'
-import { Link, useMatches, useParams } from '@tanstack/react-router'
+import { Link, useMatches } from '@tanstack/react-router'
 import React from 'react'
 
 const CustomBreadcrumb: React.FC = () => {
 	const matches = useMatches()
-	const params = useParams({ strict: false })
 	const lastMatch = matches[matches.length - 1]
 	const isHomePage = lastMatch.pathname === '/'
-
-	const productId = params.productId || ''
-	const { data: product } = useProductId(productId)
 
 	if (isHomePage) return null
 
@@ -30,6 +25,10 @@ const CustomBreadcrumb: React.FC = () => {
 		.filter((match) => match.pathname !== '/laser-cutting-machines/')
 		.filter((match) => match.pathname !== '/laser-cleaning-machines/')
 		.filter((match) => match.pathname !== '/dot-marking-machines/')
+		.filter((match) => match.pathname !== '/products/laser-marking-machines/')
+		.filter((match) => match.pathname !== '/products/laser-cutting-machines/')
+		.filter((match) => match.pathname !== '/products/laser-cleaning-machines/')
+		.filter((match) => match.pathname !== '/products/dot-marking-machines/')
 
 	const breadcrumbItems = filteredMatches.map((match, index) => {
 		let label: string
@@ -41,9 +40,6 @@ const CustomBreadcrumb: React.FC = () => {
 			case '/products':
 				label = 'Products'
 				break
-			case `/products/${productId}`:
-				label = product ? product.name : '...'
-				break
 			case '/laser-marking-machines':
 				label = 'Laser Marking Machines'
 				break
@@ -54,6 +50,18 @@ const CustomBreadcrumb: React.FC = () => {
 				label = 'Laser Cleaing Machines'
 				break
 			case '/dot-marking-machines':
+				label = 'Dot Marking Machines'
+				break
+			case '/products/laser-marking-machines':
+				label = 'Laser Marking Machines'
+				break
+			case '/products/laser-cutting-machines':
+				label = 'Laser Cutting Machines'
+				break
+			case '/products/laser-cleaning-machines':
+				label = 'Laser Cleaing Machines'
+				break
+			case '/products/dot-marking-machines':
 				label = 'Dot Marking Machines'
 				break
 			case '/about':

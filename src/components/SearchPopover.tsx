@@ -7,7 +7,7 @@ import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover
 import { Skeleton } from '@/components/ui/skeleton'
 import { useFilteredProductsQuery } from '@/features/product/api/queries.api'
 import useDebounce from '@/features/product/hooks/use-debounce'
-import { Product } from '@/features/product/types/product'
+import { Product } from '@/types'
 
 const SearchPopoverSkeleton: React.FC = () => (
 	<div className='flex items-center space-x-2 p-2'>
@@ -55,7 +55,9 @@ const SearchPopover: React.FC = React.memo(() => {
 			} else if (selectedIndex > -1) {
 				const selectedProduct = searchResults[selectedIndex]
 				if (selectedProduct) {
-					navigate({ to: '/products/$productId', params: { productId: selectedProduct.id } })
+					navigate({
+						to: `/products/${selectedProduct.categoryId}/${selectedProduct.subCategoryId}/${selectedProduct.id}`
+					})
 					setIsOpen(false)
 				}
 			}
@@ -115,8 +117,7 @@ const SearchPopover: React.FC = React.memo(() => {
 								{searchResults.map((product: Product, index: number) => (
 									<Link
 										key={product.id}
-										to='/products/$productId'
-										params={{ productId: product.id }}
+										to={`/products/${product.categoryId}/${product.subCategoryId}/${product.id}`}
 										className={`block p-2 hover:bg-muted ${index === selectedIndex ? 'bg-muted' : ''}`}
 										onClick={() => setIsOpen(false)}
 									>

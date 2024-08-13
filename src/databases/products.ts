@@ -13,7 +13,9 @@ import hfi_s from '/laser-marking-machines/fiber-laser-marker/HFI-S.png'
 import hco_fc from '/laser-marking-machines/co2-laser-marker/HCO-FC.png'
 import hco_sc from '/laser-marking-machines/co2-laser-marker/HCO-SC.png'
 
-import hfi_h from '/laser-marking-machines/portable-laser-marker/HFI-H.png'
+import hfi_h20_30a from '/laser-marking-machines/portable-laser-marker/HFI_H20_30A.png'
+import hfi_h20_30r from '/laser-marking-machines/portable-laser-marker/HFI_H20_30R.png'
+import hfi_h20_30s from '/laser-marking-machines/portable-laser-marker/HFI_H20_30S.png'
 
 import hcn_c80 from '/laser-cutting-machines/HCN-C80.png'
 
@@ -25,6 +27,7 @@ import hdo_23 from '/laser-marking-machines/dot-marking/HDO-23.png'
 export const products: Product[] = [
 	{
 		id: 'huv-integrated-fiber-laser-marking-machine',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'uv-laser-marker',
 		name: 'HUV Integrated Fiber Laser Marking Machine',
 		description:
@@ -41,6 +44,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'huv-sw-machine-crs-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'uv-laser-marker',
 		name: 'HUV-SW Machine (CRS Laser Source)',
 		description:
@@ -58,6 +62,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'huv-mw-portable-uv-laser-marking-machine',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'uv-laser-marker',
 		name: 'HUV-MW Portable UV Laser Marking Machine',
 		description:
@@ -76,6 +81,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'huv-fw-uv-flying-laser-marking-machine-jpt-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'uv-laser-marker',
 		name: 'HUV-FW UV Flying Laser Marking Machine (JPT Laser Source)',
 		description:
@@ -93,6 +99,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hfi-m-fiber-laser-marker',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'fiber-laser-marker',
 		name: 'HFI-M Fiber Laser Marking Machine',
 		description:
@@ -111,6 +118,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hfi-mn-portable-mini-fiber-laser-marking-machine',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'fiber-laser-marker',
 		name: 'HFI-MN Portable Mini Fiber Laser Marking Machine',
 		description:
@@ -129,6 +137,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'fiber-laser-marker',
 		name: 'HFI-S Pulse Fiber Laser Marking Machine (JPT Laser Source)',
 		description:
@@ -139,6 +148,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'fiber-laser-marker',
 		name: 'HFI-F Fiber Flyinh Laser Marking Machine (JPT Laser Source)',
 		description:
@@ -154,6 +164,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hco-fc-co2-flying-laser-marking-machine-coherent-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'co2-laser-marker',
 		name: 'HCO-FC CO2 Flying Laser Marking Machine (COHERENT Laser Sorurce)',
 		description:
@@ -171,6 +182,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hco-sc-co2-laser-marking-machine-coherent-laser-source',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'co2-laser-marker',
 		name: 'HCO-SC CO2 Laser Marking Machine (COHERENT Laser Source)',
 		description:
@@ -188,6 +200,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hfi-h-model-hanheld-laser-marking-machine',
+		categoryId: 'laser-marking-machines',
 		subCategoryId: 'portable-laser-marker',
 		name: 'HFI-H Model HandHeld Laser Marking Machine',
 		description:
@@ -201,13 +214,14 @@ export const products: Product[] = [
 			'Versatile Marking Capabilities',
 			'Easy to Use and Maintain'
 		],
-		imageUrl: hfi_h,
-		additionalImages: []
+		imageUrl: hfi_h20_30a,
+		additionalImages: [hfi_h20_30r, hfi_h20_30s]
 	},
 	{
-		id: 'mct',
-		subCategoryId: 'wating-new-name',
-		name: 'MCT',
+		id: 'hcn-c80-cnc-laser-cutting-machine',
+		categoryId: 'laser-cutting-machines',
+		subCategoryId: 'laser-metal-cutting-machine',
+		name: 'HCN-C80 CNC Laser Cutting Machine',
 		description:
 			'The HUV series integrated fiber laser marking machine is an intelligent model specially designed to improve production efficiency and stability, using independently developed lasers. It has higher security, stable performance, and fast processing efficiency. It meets the marking needs of high-speed and high-volume applications. It is mainly used in production date, anti-counterfeiting, and pharmaceutical and food packaging industries. This model supports daily laser marking, date, barcode, QR code and other functions to meet the needs of customers in different industries.',
 		features: [
@@ -220,6 +234,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hcl-laser-cleaning-machine',
+		categoryId: 'laser-cleaning-machines',
 		subCategoryId: 'hcl-laser-cleaning-machine',
 		name: 'HCL Laser Cleaning Machine',
 		description:
@@ -238,6 +253,7 @@ export const products: Product[] = [
 	},
 	{
 		id: 'hdo',
+		categoryId: 'dot-marking-machines',
 		subCategoryId: 'hdo-marking-machine',
 		name: 'HDO',
 		description:

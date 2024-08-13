@@ -1322,7 +1322,7 @@ export const models: Model[] = [
 	},
 	{
 		id: 'mct-01',
-		productId: 'mct',
+		productId: 'hcn-c80-cnc-laser-cutting-machine',
 		name: 'MCT-01',
 		specifications: {
 			'Output Power': '1000w',
@@ -1350,7 +1350,7 @@ export const models: Model[] = [
 	},
 	{
 		id: 'mct-02',
-		productId: 'mct',
+		productId: 'hcn-c80-cnc-laser-cutting-machine',
 		name: 'MCT-02',
 		specifications: {
 			'Output Power': '1500 w',
@@ -1380,7 +1380,7 @@ export const models: Model[] = [
 	},
 	{
 		id: 'mct-03',
-		productId: 'mct',
+		productId: 'hcn-c80-cnc-laser-cutting-machine',
 		name: 'MCT-03',
 		specifications: {
 			'Output Power': '2000 w',
@@ -1410,7 +1410,7 @@ export const models: Model[] = [
 	},
 	{
 		id: 'mct-04',
-		productId: 'mct',
+		productId: 'hcn-c80-cnc-laser-cutting-machine',
 		name: 'MCT-04',
 		specifications: {
 			'Output Power': '3000w',

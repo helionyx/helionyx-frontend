@@ -48,7 +48,7 @@ const Header: React.FC = () => {
 										<ul className='bg-white p-4 rounded-md shadow-lg w-40'>
 											<li>
 												<Link
-													to='/laser-marking-machines'
+													to='/products/laser-marking-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													<span>Laser Marking</span>
@@ -56,7 +56,7 @@ const Header: React.FC = () => {
 											</li>
 											<li>
 												<Link
-													to='/laser-cutting-machines'
+													to='/products/laser-cutting-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													<span>Laser Cutting</span>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
 											</li>
 											<li>
 												<Link
-													to='/laser-cleaning-machines'
+													to='/products/laser-cleaning-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													<span>Laser Cleaning</span>
@@ -72,7 +72,7 @@ const Header: React.FC = () => {
 											</li>
 											<li>
 												<Link
-													to='/dot-marking-machines'
+													to='/products/dot-marking-machines'
 													className='block p-2 rounded-md text-zinc-950 hover:text-[#F89D44] transition-color duration-300'
 												>
 													<span>Dot Marking</span>

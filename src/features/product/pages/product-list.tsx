@@ -126,7 +126,7 @@ const ProductList: React.FC = () => {
 									<span>Loading More...</span>
 								</div>
 							) : (
-								<span>Load More</span>
+								<span>{t('learnMore')}</span>
 							)}
 						</Button>
 					</div>

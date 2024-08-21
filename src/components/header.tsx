@@ -43,7 +43,7 @@ const Header: React.FC = () => {
 								<NavigationMenuItem>
 									<NavigationMenuTrigger
 										className='px-4 py-2 rounded-md text-md font-medium text-zinc-950 hover:text-[#F89D44] transition-color duration-300
-										data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
+							data-[state=open]:bg-transparent data-[active]:bg-transparent hover:bg-transparent focus:bg-transparent'
 									>
 										<Link to='/products'>{t('nav.products')}</Link>
 									</NavigationMenuTrigger>

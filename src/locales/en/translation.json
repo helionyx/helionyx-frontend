@@ -1,7 +1,7 @@
 {
 	"nav": {
 		"home": "HOME",
-		"products": "PRODUCTS",
+		"products": "PRODUCT",
 		"categories": {
 			"laserMarking": "Laser Marking Machines",
 			"laserCutting": "Laser Cutting Machines",
@@ -191,5 +191,56 @@
 				"title": "HDO Marking Machine"
 			}
 		}
+	},
+	"whatOurClientSay": "What Our Clients Say",
+	"testimonial": {
+		"clientTechInnovate": {
+			"quote": "Helionyx's laser marking systems have significantly improved our product traceability and reduced errors. Their support team is unparalleled.",
+			"name": "Jane Doe",
+			"title": "CEO, TechInnovate Inc."
+		},
+		"clientMetalWorks": {
+			"quote": "The precision and speed of Helionyx's cutting systems have revolutionized our manufacturing process. We've seen a 30% increase in efficiency.",
+			"name": "John Smith",
+			"title": "Operations Manager, MetalWorks Co."
+		}
+	},
+	"learnMore": "Learn More",
+	"footer": {
+		"quickLinks": "Quick Links",
+		"product": "Product",
+		"aboutUS": "About Us",
+		"contact"	: "Contact",
+		"contactInfo": "Contact Information"
+	},
+	"footerCard": {
+		"contactusCard" : "CONTACT US",
+		"nameCard": "Name",
+		"emailCard": "Email",
+		"messageCard": "Message",
+		"sendCard": "SEND",
+		"descriptionCard": "Please enter your information and we will get back to you within one business day."
+	},
+	"aboutSecOne": {
+		"title": "ABOUT US",
+		"introduction": "Introduction",
+		"descriptionIntroduction": "Helionyx is a prominent and trusted leader in the laser technology industry, specializing in the development, manufacturing, and distribution of advanced laser marking systems. With a commitment to excelence and innovation, Helionyx has established itself as a reliable partner for businesses seeking cutting-edge laser solutions.",
+		"mession": "Mession",
+		"descriptionMession": "Our mission is to revolutionize the laser marking industry by providing high-quality, reliable, and e ficient laser systems that cater to a wide range of industrial applications. We strive to enhance productivity and precision for our clients through continuous innovation and superior customer service.",
+		"vision": "Vision for the Future",
+		"descriptionVision": "To be the global leader in laser technology, setting the benchmark for quality, innovation, and customer satisfaction."
+	},
+	"aboutSecTwo": {
+		"quality": "Quality",
+			"descriptionQuality": "Maintaining the highest standards in every aspect of our products and services.",
+		"reliability": "Reliability",
+			"descriptionReliability": "Ensuring consistent performance and dependability in all our offerings.",
+		"customerFocus": "Customer Focus",
+			"descriptionCustomerFocus": "Prioritizing the needs and success of our clients.",
+		"sustainability": "Sustainability",
+			"descriptionSustainability": "Continuously pushing the boundaries of laser technology to offer state-of-the-art solutions.",
+		"innovation": "Innovation",
+			"descriptionInnovation": "Committing to environmentally responsible practices in our operations."
 	}
+
 }

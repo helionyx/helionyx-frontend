@@ -1,4 +1,4 @@
-import { ProductFilters } from '@/features/product/types/product'
+import { ProductFilters } from '@/types'
 import { StateCreator } from 'zustand'
 
 type ProductState = {

@@ -13,6 +13,8 @@ type RenderProductDetailProps = {
 const RenderProductDetail: React.FC<RenderProductDetailProps> = ({ product }) => {
 	const { t } = useTranslation()
 
+	const features = t(product.featuresKey, { returnObjects: true }) as string[]
+
 	return (
 		<>
 			<CardTitle className='text-2xl md:text-3xl font-bold mb-4'>{t(product.nameKey)}</CardTitle>
@@ -25,7 +27,7 @@ const RenderProductDetail: React.FC<RenderProductDetailProps> = ({ product }) =>
 			<div className='my-6'>
 				<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>
 				<ul className='space-y-2'>
-					{t(product.featuresKey, { returnObjects: true }).map((feature: string, index: number) => (
+					{features.map((feature: string, index: number) => (
 						<li key={index} className='flex items-start'>
 							<Badge className='mr-2 mt-1 bg-green-500 flex-shrink-0'>{index + 1}</Badge>
 							<CardDescription>{feature}</CardDescription>

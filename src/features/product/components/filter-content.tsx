@@ -9,6 +9,7 @@ import { useNavigate } from '@tanstack/react-router'
 import React, { useCallback, useMemo } from 'react'
 import { useShallow } from 'zustand/react/shallow'
 import { useCatalogsQuery } from '../api/queries.api'
+import { useTranslation } from 'react-i18next'
 
 const FilterContent: React.FC = React.memo(() => {
 	const navigate = useNavigate()
@@ -23,6 +24,8 @@ const FilterContent: React.FC = React.memo(() => {
 	)
 
 	const { data: catalogs, isPending: isCatalogsPending } = useCatalogsQuery()
+
+	const { t } = useTranslation()
 
 	const handleFilterChange = useCallback(
 		(type: keyof ProductFilters, value: string) => {
@@ -65,17 +68,19 @@ const FilterContent: React.FC = React.memo(() => {
 				)
 			}
 
-			return ['All', ...(data || [])].map((value) => (
-				<Label key={`${type}-${value}`} className='flex items-center gap-2'>
-					<Checkbox
-						checked={value === 'All' ? selectedFilters[type].length === 0 : selectedFilters[type].includes(value)}
-						onCheckedChange={() => handleFilterChange(type, value)}
-					/>
-					{value}
-				</Label>
-			))
+			return data?.map((value) => {
+				return (
+					<Label key={`${type}-${value}`} className='flex items-center gap-2'>
+						<Checkbox
+							checked={selectedFilters[type].includes(value)}
+							onCheckedChange={() => handleFilterChange(type, value)}
+						/>
+						{t(value)}
+					</Label>
+				)
+			})
 		},
-		[handleFilterChange, selectedFilters]
+		[handleFilterChange, selectedFilters, t]
 	)
 
 	return useMemo(

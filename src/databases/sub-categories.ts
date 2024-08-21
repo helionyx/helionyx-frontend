@@ -4,36 +4,36 @@ export const subCategories: SubCategory[] = [
 	{
 		id: 'uv-laser-marker',
 		categoryId: 'laser-marking-machines',
-		name: 'UV Laser Marker'
+		name: 'subCategories.uvLaserMarker.title'
 	},
 	{
 		id: 'fiber-laser-marker',
 		categoryId: 'laser-marking-machines',
-		name: 'Fiber Laser Marker'
+		name: 'subCategories.fiberLaserMarker.title'
 	},
 	{
 		id: 'co2-laser-marker',
 		categoryId: 'laser-marking-machines',
-		name: 'CO2 Laser Marker'
+		name: 'subCategories.co2LaserMarker.title'
 	},
 	{
 		id: 'portable-laser-marker',
 		categoryId: 'laser-marking-machines',
-		name: 'Portable Laser Marker'
+		name: 'subCategories.portableLaserMarker.title'
 	},
 	{
 		id: 'laser-metal-cutting-machine',
 		categoryId: 'laser-cutting-machines',
-		name: 'Laser Metal Cutting Machine'
+		name: 'subCategories.laserMetalCutting.title'
 	},
 	{
 		id: 'hcl-laser-cleaning-machine',
 		categoryId: 'laser-cleaning-machines',
-		name: 'HCL Laser Cleaning Machine'
+		name: 'subCategories.hclLaserCleaningMachine.title'
 	},
 	{
 		id: 'hdo-marking-machine',
 		categoryId: 'dot-marking-machines',
-		name: 'HDO Marking Machine'
+		name: 'subCategories.hdoMarkingMachine.title'
 	}
 ]

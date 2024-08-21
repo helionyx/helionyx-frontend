@@ -83,7 +83,7 @@ const ProductList: React.FC = () => {
 							variant='outline'
 							className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
 						>
-							More Detail
+							{t('constants.buttons.viewDetails')}
 						</Button>
 					</Link>
 				</CardFooter>

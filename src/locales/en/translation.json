@@ -143,5 +143,53 @@
 				}
 			}
 		}
+	},
+	"constants": {
+		"buttons": {
+			"viewDetails": "More Details",
+			"getQuote": "Get A Quote"
+		}
+	},
+	"filterSettings": {
+		"categories": {
+			"all": {
+				"title": "All"
+			},
+			"laserMarking": {
+				"title": "Laser Marking Machines"
+			},
+			"laserCutting": {
+				"title": "Laser Cutting Machines"
+			},
+			"laserCleaning": {
+				"title": "Laser Cleaning Machines"
+			},
+			"dotMarking": {
+				"title": "Dot Marking Machines"
+			}
+		},
+		"subCategories": {
+			"uvLaserMarker": {
+				"title": "UV Laser Marker"
+			},
+			"fiberLaserMarker": {
+				"title": "Fiber Laser Marker"
+			},
+			"co2LaserMarker": {
+				"title": "CO2 Laser Marker"
+			},
+			"portableLaserMarker": {
+				"title": "Portable Laser Marker"
+			},
+			"laserMetalCutting": {
+				"title": "Laser Metal Cutting"
+			},
+			"hclLaserCleaningMachine": {
+				"title": "HCL Laser Cleaning Machine"
+			},
+			"hdoMarkingMachine": {
+				"title": "HDO Marking Machine"
+			}
+		}
 	}
 }

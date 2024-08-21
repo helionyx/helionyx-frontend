@@ -75,7 +75,7 @@ const RenderProductsCard: React.FC<RenderProductsCardProps> = React.memo(({ isPe
 								variant='outline'
 								className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
 							>
-								<span>More Detail</span>
+								<span>{t('constants.buttons.viewDetails')}</span>
 							</Button>
 						</Link>
 					</CardFooter>

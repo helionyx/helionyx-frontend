@@ -143,5 +143,53 @@
 				}
 			}
 		}
+	},
+	"constants": {
+		"buttons": {
+			"viewDetails": "รายละเอียดเพิ่มเติม",
+			"getQuote": "ขอรับใบเสนอราคา"
+		}
+	},
+	"filterSettings": {
+		"categories": {
+			"all": {
+				"title": "ทั้งหมด"
+			},
+			"laserMarking": {
+				"title": "เครื่องเลเซอร์มาร์ก"
+			},
+			"laserCutting": {
+				"title": "เครื่องเลเซอร์ตัด"
+			},
+			"laserCleaning": {
+				"title": "เครื่องเลเซอร์ทำความสะอาด"
+			},
+			"dotMarking": {
+				"title": "เครื่องเลเซอร์ทำเครื่องหมาย"
+			}
+		},
+		"subCategories": {
+			"uvLaserMarker": {
+				"title": "เลเซอร์มาร์กชนิด UV"
+			},
+			"fiberLaserMarker": {
+				"title": "เลเซอร์มาร์กชนิด Fiber"
+			},
+			"co2LaserMarker": {
+				"title": "CO2 Laser Marker"
+			},
+			"portableLaserMarker": {
+				"title": "Portable Laser Marker"
+			},
+			"laserMetalCutting": {
+				"title": "Laser Metal Cutting"
+			},
+			"hclLaserCleaningMachine": {
+				"title": "HCL Laser Cleaning Machine"
+			},
+			"hdoMarkingMachine": {
+				"title": "HDO Marking Machine"
+			}
+		}
 	}
 }

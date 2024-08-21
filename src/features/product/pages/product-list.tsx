@@ -5,9 +5,11 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { CategoryKey } from '@/stores/product-slice'
 import { useStore } from '@/stores/store'
 import { Product } from '@/types'
+import { formatEclipse } from '@/utils'
 import { Link, useSearch } from '@tanstack/react-router'
 import { Filter, Loader2 } from 'lucide-react'
 import React, { useEffect, useMemo } from 'react'
+import { useTranslation } from 'react-i18next'
 import { useShallow } from 'zustand/react/shallow'
 import { useFilteredProductsQuery } from '../api/queries.api'
 import FilterContent from '../components/filter-content'
@@ -15,6 +17,8 @@ import ProductListPendingCard from '../components/product-list-pending-card'
 
 const ProductList: React.FC = () => {
 	const { category, search } = useSearch({ from: '/products/_product-layout/' })
+
+	const { t } = useTranslation()
 
 	const { selectedFilters, isFilterSheetOpen, setIsFilterSheetOpen, initializeFilters } = useStore(
 		useShallow((state) => ({
@@ -62,7 +66,7 @@ const ProductList: React.FC = () => {
 				<CardHeader className='p-0 relative overflow-hidden rounded-lg flex justify-center items-center'>
 					<img
 						src={product.imageUrl}
-						alt={product.name}
+						alt={product.nameKey}
 						width={400}
 						height={300}
 						className='w-48 h-48 object-contain bg-transparent'
@@ -70,8 +74,8 @@ const ProductList: React.FC = () => {
 					<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
 				</CardHeader>
 				<CardContent className='p-0 space-y-2'>
-					<CardTitle className='text-lg'>{product.name}</CardTitle>
-					<CardDescription>{product.description.slice(0, 100)}...</CardDescription>
+					<CardTitle className='text-lg'>{t(product.nameKey)}</CardTitle>
+					<CardDescription>{formatEclipse(t(product.descriptionKey))}</CardDescription>
 				</CardContent>
 				<CardFooter className='p-0 flex items-center justify-end'>
 					<Link to={`/products/${product.categoryId}/${product.subCategoryId}/${product.id}`}>
@@ -85,7 +89,7 @@ const ProductList: React.FC = () => {
 				</CardFooter>
 			</Card>
 		))
-	}, [isPending, allProducts])
+	}, [isPending, allProducts, t])
 
 	return (
 		<div className='grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8'>

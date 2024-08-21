@@ -1,27 +1,29 @@
-import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
+import { useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
-import RenderTable from '@/features/product/laser-marking-machines/components/render-table'
 import { createFileRoute } from '@tanstack/react-router'
 import { Mailbox, Phone } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hfi-mn-portable-mini-fiber-laser-marking-machine'
 	const { data: product, isPending: isProductPending } = useProductId(productId)
-	const { data: models, isPending: isModelsPending } = useModelsQuery(productId)
 	const { data: relatedProducts, isPending: isRelatedPending } = useRelatedProductsQuery(
 		product?.id,
 		product?.subCategoryId
 	)
 
-	if (isProductPending || isModelsPending) return <ProductDetailPending />
-	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+	const { t } = useTranslation()
+
+	if (isProductPending) return <ProductDetailPending />
+	if (!product) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
 
 	return (
 		<>
@@ -47,14 +49,210 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<CardDescription>{product.description}</CardDescription>
+							<div className='space-y-4'>
+								<CardDescription>{t(product.descriptionKey)}</CardDescription>
+								{product.subDescriptionKey && <CardDescription>{t(product.subDescriptionKey)}</CardDescription>}
+							</div>
 						</section>
 
 						<Separator />
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead colSpan={2} className='w-1/4 text-center border'>
+											Model series
+										</TableHead>
+										<TableHead colSpan={2} className='text-center border'>
+											{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.name')}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead colSpan={2} className='w-1/4 text-center border bg-muted'>
+											Model
+										</TableHead>
+										<TableHead className='text-center border bg-muted'>{t('models.hfiMN20.name')}</TableHead>
+										<TableHead className='text-center border bg-muted'>{t('models.hfiMN30.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell rowSpan={7} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.hfiMN20.laserParameters')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.laserModel')}</TableCell>
+										<TableCell className='text-center border'>{t('models.hfiMN20.laserModelValue')}</TableCell>
+										<TableCell className='text-center border'>{t('models.hfiMN30.laserModelValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.outputPowerKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-center'>
+											{t('models.hfiMN20.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border bg-muted text-center'>
+											{t('models.hfiMN30.outputPowerValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.beamQualityKey')}</TableCell>
+										<TableCell colSpan={2} className='border text-center'>
+											{t('models.hfiMN20.beamQualityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.laserWaveLengthKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='border bg-muted text-center'>
+											{t('models.hfiMN20.laserWaveLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.pulseFrequencyKey')}</TableCell>
+										<TableCell className='border text-center'>{t('models.hfiMN20.pulseFrequencyValue')}</TableCell>
+										<TableCell className='border text-center'>{t('models.huvMW10.pulseFrequencyValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.hfiMN20.outputPowerStabilityKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='border text-center'>
+											{t('models.hfiMN20.outputPowerStabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.workingLifeKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='border bg-muted text-center'>
+											{t('models.hfiMN20.workingLifeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={6} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.huvA20.opticalProperties')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.markingRangeKey')}</TableCell>
+										<TableCell colSpan={2} className='border text-center'>
+											{t('models.hfiMN20.markingRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.engravingDepthKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='border bg-muted text-center'>
+											{t('models.hfiMN20.engravingDepthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.engravingSpeedKey')}</TableCell>
+										<TableCell colSpan={2} className='text-center border'>
+											{t('models.hfiMN20.engravingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.repeatAccuracyKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.repeatAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.hfiMN20.minimumMarkingLineWidthKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border'>
+											{t('models.hfiMN20.minimumMarkingLineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.minimumCharacterHeightKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.minimumCharacterHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={4} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.hfiMN20.useEnvironment')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.coolingWayKey')}</TableCell>
+										<TableCell colSpan={2} className='text-center border'>
+											{t('models.hfiMN20.coolingWayValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.systemPowerSupplyKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.systemPowerSupplyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.hfiMN20.temperatureHumidityKey')}
+										</TableCell>
+										<TableCell className='border text-center' colSpan={2}>
+											{t('models.hfiMN20.temperatureHumidityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.oilMistCondensationKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.oilMistCondensationValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={5} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.hfiMN20.otherParameters')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.supportSystemKey')}</TableCell>
+										<TableCell colSpan={2} className='text-center border'>
+											{t('models.hfiMN20.supportSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.fileFormatKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.fileFormatValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.hfiMN20.dimensionsKey')}</TableCell>
+										<TableCell colSpan={2} className='text-center border'>
+											{t('models.hfiMN20.dimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.packingSizeKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.packingSizeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.hfiMN20.totalWeightKey')}
+										</TableCell>
+										<TableCell colSpan={2} className='text-center border bg-muted'>
+											{t('models.hfiMN20.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -62,7 +260,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {product.name.toUpperCase()}</CardTitle>
+					<CardTitle>ADVANTAGES OF {t(product.nameKey).toUpperCase()}</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -74,9 +272,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High productivity</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.highProductivity.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								It can operate efficiently 24 hours a day, improve production efficiency and save costs
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.highProductivity.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -89,9 +289,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-slate-200'>
-							<CardTitle className='text-amber-500'>Cost-effective</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.costEffective.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The whole machine is small, flexible, convenient, powerful, and not limited by the use of space
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.costEffective.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -104,10 +306,13 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-slate-200'>
-							<CardTitle className='text-amber-500'>Can be disassembled at will</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.canBeDisassembled.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Compact design, the whole machine is small and portable, and the optical path of the column can be
-								disassembled at will
+								{t(
+									'products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.canBeDisassembled.description'
+								)}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -120,44 +325,49 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High quality light source</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.highQuality.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Using advanced fiber lasers, the output beam quality is good and the reliability is high
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.highQuality.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Unmatched Portability for Easy Transportation and Use</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.unmatchedPortability.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MZF-A Portable Mini Fiber Laser Marking Machine is a cutting-edge solution for marking a variety of
-								materials on-the-go. With its compact and lightweight design, this machine is easy to transport and set
-								up, making it perfect for mobile marking applications. You can take it to trade shows, job sites, or
-								anywhere else you need to mark your products quickly and efficiently.
-							</CardDescription>
-						</CardHeader>
-					</Card>
-					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
-						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Superior Marking Precision for a Wide Range of Materials</CardTitle>
-							<CardDescription className='text-base'>
-								This fiber laser marking machine is equipped with advanced laser technology that delivers exceptional
-								marking precision on a variety of metal materials. Whether you’re marking logos, barcodes, or other
-								identifying information, the MZF-A Portable Mini Fiber Laser Marking Machine ensures crisp, clear
-								results every time.
+								{t(
+									'products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.unmatchedPortability.description'
+								)}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
 							<CardTitle className='text-amber-500'>
-								Unbeatable Durability and Longevity for Low Cost of Ownership
+								{t(
+									'products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.superiorMarkingPrecision.title'
+								)}
 							</CardTitle>
 							<CardDescription className='text-base'>
-								The MZF-A Portable Mini Fiber Laser Marking Machine is built to last, with a rugged construction that
-								can withstand the demands of even the most challenging marking applications. Its high-quality components
-								ensure long-lasting performance, while its low-maintenance design keeps operating costs low. With the
-								MZF-A Portable Mini Fiber Laser Marking Machine, you can expect years of reliable marking performance.
+								{t(
+									'products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.superiorMarkingPrecision.description'
+								)}
+							</CardDescription>
+						</CardHeader>
+					</Card>
+					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
+						<CardHeader className='text-center space-y-8 p-14'>
+							<CardTitle className='text-amber-500'>
+								{t('products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.unbeatableDurability.title')}
+							</CardTitle>
+							<CardDescription className='text-base'>
+								{t(
+									'products.hfi-mn-portable-mini-fiber-laser-marking-machine.advantages.unbeatableDurability.description'
+								)}
 							</CardDescription>
 						</CardHeader>
 					</Card>
@@ -169,7 +379,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

@@ -19,10 +19,10 @@ export interface Product {
 	id: string
 	categoryId: string
 	subCategoryId: string
-	name: string
-	description: string
-	subDescription?: string
-	features: string[]
+	nameKey: string
+	descriptionKey: string
+	subDescriptionKey?: string
+	featuresKey: string
 	imageUrl: string
 	additionalImages: string[]
 }

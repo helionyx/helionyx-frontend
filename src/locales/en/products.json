@@ -1,0 +1,457 @@
+{
+	"products": {
+		"huv-integrated-fiber-laser-marking-machine": {
+			"name": "HUV Integrated Fiber Laser Marking Machine",
+			"description": "The HUV series integrated fiber laser marking machine is an intelligent model specially designed to improve production efficiency and stability, using independently developed lasers. It has higher security, stable performance, and fast processing efficiency. It meets the marking needs of high-speed and high-volume applications. It is mainly used in production date, anti-counterfeiting, and pharmaceutical and food packaging industries.",
+			"subDescription": "This model supports daily laser marking, date, barcode, QR code and other functions to meet the needs of customers in different industries.",
+			"features": [
+				"Fast and Accurate Laser Marking",
+				"Versatile and Durable Machine",
+				"Cost-Effective and Eco-Friendly Solution"
+			],
+			"advantages": {
+				"fastAndAccurateLaserMarking": {
+					"title": "Fast and Accurate Laser Marking",
+					"description": "With its advanced technology and precise control system, the UV-R Serial UV Flying Laser Marking Machine is capable of producing high-quality laser marking at an incredible speed. Its flying marking mode enables the machine to work continuously, even while the product is in motion. With an accuracy of up to 0.001mm, this machine can produce complex designs and patterns on a wide range of materials with ease."
+				},
+				"versatileAndDurableMarking": {
+					"title": "Versatile and Durable Machine",
+					"description": "The UV-R Serial UV Flying Laser Marking Machine is versatile and can be used to mark a wide range of materials, including metals, plastics, glass, and ceramics. Its durable construction ensures that it can withstand heavy usage and still deliver consistent results. The machine is also easy to maintain, reducing downtime and saving you money in the long run."
+				},
+				"costEffectiveAndEcoFriendly": {
+					"title": "Cost-Effective and Eco-Friendly Solution",
+					"description": "The UV-R Serial UV Flying Laser Marking Machine is a cost-effective solution for businesses of all sizes. Its fast and efficient operation means that you can produce more in less time, reducing labor costs and increasing productivity. Additionally, the machine’s eco-friendly design means that it produces no harmful emissions or waste, making it an environmentally conscious choice."
+				}
+			}
+		},
+		"huv-sw-machine-crs-laser-source": {
+			"name": "HUV-SW Machine (CRS Laser Source)",
+			"description": "The HUV-SW series ultraviolet laser marking machine of Helionyx is developed by using a 355nm ultraviolet laser. The material has a high absorption rate of ultraviolet light and has a wider range of material adaptability. Ultraviolet light focusing spot is very small, processing heat-affected zone is very small and it is more suitable for ultra-fine marking of various materials.",
+			"subDescription": "HUV-SW series ultraviolet laser marking machine is used in the high-end market of ultra-fine processing, perfect cutting and micro-processing. It is mainly used for marking and surface treatment of materials like various glass, LCD screens, textiles, thin ceramics, semiconductor wafers, IC grains, sapphire, polymer films, etc.",
+			"features": [
+				"The output laser spot is small",
+				"The laser beam is in good quality",
+				"High laser frequency, faster marking speed",
+				"The whole machine has stable performance"
+			]
+		},
+		"huv-mw-portable-uv-laser-marking-machine": {
+			"name": "HUV-MW Portable UV Laser Marking Machine",
+			"description": "The HUV-MW Portable UV Laser Marking Machine is the ultimate solution for accurate and portable marking. With its high beam quality and excellent spot mode, it can produce precise and permanent markings on a variety of materials. From barcodes to logos, this versatile marking machine can handle a wide range of marking needs.",
+			"features": [
+				"High productivity",
+				"Cost-effective",
+				"Can be disassembled at will",
+				"High quality light source",
+				"High Precision Marking",
+				"Portability and Versatility",
+				"User-Friendly Design"
+			],
+			"advantages": {
+				"highProductivity": {
+					"title": "High productivity",
+					"description": "Using online high-speed non-stop laser marking, high production efficiency, can work under static and high-speed flow of the production line"
+				},
+				"costEffective": {
+					"title": "Cost-effective",
+					"description": "The whole machine is small, flexible, convenient, powerful, and not limited by the use of space"
+				},
+				"canBeDisassembled": {
+					"title": "Can be disassembled at will",
+					"description": "Compact design, the whole machine is small and portable, and the optical path of the column can be disassembled at will"
+				},
+				"highQualityLightSource": {
+					"title": "High quality light source",
+					"description": "Using advanced fiber lasers, the output beam quality is good and the reliability is high"
+				},
+				"highPrecisionMarking": {
+					"title": "High Precision Marking",
+					"description": "Achieve precise and accurate markings with the HUV-MW Portable UV Laser Marking Machine. With its high beam quality and excellent spot mode, it can mark on a variety of materials with fine details and intricate designs. From barcodes to logos, it can produce sharp and permanent markings with ease."
+				},
+				"portabilityAndVersatility": {
+					"title": "Portability and Versatility",
+					"description": "The HUV-MW Portable UV Laser Marking Machine is a lightweight and compact device that can be easily transported to different locations. Its portability allows for marking on-site or in the field, making it an ideal tool for various industries. Whether you’re marking on metals, plastics, or ceramics, this Compact UV Marking Device is versatile enough to handle a wide range of materials."
+				},
+				"userFriendlyDesign": {
+					"title": "User-Friendly Design",
+					"description": "The HUV-MW Portable UV Laser Marking Machine is designed with user-friendliness in mind. Its intuitive interface and easy-to-use software allow for quick and hassle-free operation. With its low maintenance requirements and simple set-up process, this High-Precision Marking Tool is perfect for businesses of any size."
+				}
+			}
+		},
+		"huv-fw-uv-flying-laser-marking-machine-jpt-laser-source": {
+			"name": "HUV-FW UV Flying Laser Marking Machine (JPT Laser Source)",
+			"description": "The UV series HUV-FW laser marking machine is a high-speed continuous marking model designed to improve productivity. It uses JPT industrial-grade solid-state UV laser source which is with good beam quality and high reliability; The marking speed of the production line is up to 200 m/min ( Single-line 2MM-high numbers and letters), It provides high-speed and high-yield application identification requirements,it’s mainly used in production date, anti-counterfeiting, medical and food packaging industries. This model supports functions such as automatic encoding, serial number, batch number, date, barcode, two-dimensional code, automatic number skipping, etc., to meet the needs of customers in different industries.",
+			"subDescription": "UV series flying laser marking machine are widely used in various pipes, plastic films, plastic bottle caps and other materials like PPR, PVC, PE, etc. It is widely used in the production of food and beverage packaging, alcohol, dairy products, electronic components, medicine, personal care products, tobacco, chemical building materials and other fields, marking of expiration dates, batch numbers, shifts, manufacturer names and logos and other graphics and text.",
+			"features": [
+				"Marking speed up to 200 meters per minute",
+				"High-quality and reliable UV laser source",
+				"Compact design and flexible configuration",
+				"Flexible installation way, convenient installation position adjustment"
+			],
+			"advantages": {
+				"markingSpeed": {
+					"title": "Marking speed up to 200 meters per minute",
+					"description": "This is the industry’s fastest marking laser coding system, with a marking speed of up to 200 m/min (single line of 2MM-high numbers and letters), which can be used in medium-speed or high-speed production lines"
+				},
+				"highQuality": {
+					"title": "High-quality and reliable UV laser source",
+					"description": "It adopts JPT solid-state ultraviolet laser source which is in ultra-stable compact resonator structure,the advantages include high electro-optical conversion efficiency, good beam quality, high reliability, long life, maintenance-free operation, etc."
+				},
+				"compactDesign": {
+					"title": "Compact design and flexible configuration",
+					"description": "This model uses compact laser printer marking head to achieve simple integration to reduce installation costs and improve positioning flexibility."
+				},
+				"flexibleInstallation": {
+					"title": "Flexible installation way, convenient installation position adjustment",
+					"description": "The flying model is specially designed for high-speed production lines, which can be flexibly combined with production lines for installation and use. The frame can be moved up and down and left and right to adjust, the marking head can also be rotated 360° for marking."
+				}
+			}
+		},
+		"hfi-m-fiber-laser-marker": {
+			"name": "HFI-M Fiber Laser Marking Machine",
+			"description": "Increase your marking efficiency with the HFI-M MINI Fiber Laser Marking Machine. Achieve precise markings on a variety of materials with its advanced laser technology. Easy to use and maintain, this compact marking machine is perfect for businesses of all sizes.",
+			"features": [
+				"100% portable",
+				"Cost-effective",
+				"Can be disassembled at will",
+				"High quality light source",
+				"Precision Marking",
+				"Speed and Efficiency",
+				"Easy to Use and Maintain"
+			],
+			"advantages": {
+				"portable": {
+					"title": "100% portable",
+					"description": "Transport box, thickened and shockproof, handle design, more convenient transportation"
+				},
+				"costEffective": {
+					"title": "Cost-effective",
+					"description": "The whole machine is small, flexible, convenient, powerful, and not limited by the use of space"
+				},
+				"canBeDisassembled": {
+					"title": "Can be disassembled at will",
+					"description": "Compact design, the whole machine is small and portable, and the optical path of the column can be disassembled at will"
+				},
+				"highQuality": {
+					"title": "High quality light source",
+					"description": "Using advanced fiber lasers, the output beam quality is good and the reliability is high"
+				},
+				"precisionMarking": {
+					"title": "Precision Marking",
+					"description": "With the HFI-M MINI Fiber Laser Marking Machine, you can achieve precise and accurate markings on a variety of materials. This laser marking machine uses fiber optic technology, which allows for extremely fine lines and intricate designs. The high precision of this machine means that you can mark even the smallest of parts without any errors or defects. Whether you’re marking metal, or other materials, this compact laser marking machine is the perfect tool for achieving precise and professional markings."
+				},
+				"speed": {
+					"title": "Speed and Efficiency",
+					"description": "The HFI-M MINI Fiber Laser Marking Machine is not only precise but also incredibly fast and efficient. With its advanced laser technology, this machine can mark materials at a speed that’s up to 10 times faster than traditional marking methods. This means you can complete marking jobs in a fraction of the time it would take with other machines, which translates to increased productivity and profitability for your business. Whether you’re running a small shop or a large production facility, this marking machine can help you streamline your marking process and get more done in less time."
+				},
+				"easyToUse": {
+					"title": "Easy to Use and Maintain",
+					"description": "One of the great benefits of the HFI-M MINI Fiber Laser Marking Machine is that it’s incredibly easy to use and maintain. The machine’s user-friendly interface and intuitive controls make it easy for anyone to operate, regardless of their experience level. Additionally, the machine requires very little maintenance, which means you can spend less time on upkeep and more time on production. With its compact design and minimal maintenance requirements, it is a great choice for businesses of all sizes."
+				}
+			}
+		},
+		"hfi-mn-portable-mini-fiber-laser-marking-machine": {
+			"name": "HFI-MN Portable Mini Fiber Laser Marking Machine",
+			"description": "Discover the HFI-MN Portable Mini Fiber Laser Marking Machine - a compact and versatile solution for on-the-go marking applications. Achieve unmatched marking precision on a variety of materials, all while enjoying the unbeatable durability and low cost of ownership of this cutting-edge machine.",
+			"features": [
+				"High productivity",
+				"Cost-effective",
+				"Can be disassembled at will",
+				"High quality light source",
+				"Unmatched Portability for Easy Transportation and Use",
+				"Superior Marking Precision for a Wide Range of Materials",
+				"Unbeatable Durability and Longevity for Low Cost of Ownership"
+			],
+			"advantages": {
+				"highProductivity": {
+					"title": "High productivity",
+					"description": "It can operate efficiently 24 hours a day, improve production efficiency and save costs"
+				},
+				"costEffective": {
+					"title": "Cost-effective",
+					"description": "The whole machine is small, flexible, convenient, powerful, and not limited by the use of space"
+				},
+				"canBeDisassembled": {
+					"title": "Can be disassembled at will",
+					"description": "Compact design, the whole machine is small and portable, and the optical path of the column can be disassembled at will"
+				},
+				"highQuality": {
+					"title": "High quality light source",
+					"description": "Using advanced fiber lasers, the output beam quality is good and the reliability is high"
+				},
+				"unmatchedPortability": {
+					"title": "Unmatched Portability for Easy Transportation and Use",
+					"description": "The HFI-MN Portable Mini Fiber Laser Marking Machine is a cutting-edge solution for marking a variety of materials on-the-go. With its compact and lightweight design, this machine is easy to transport and set up, making it perfect for mobile marking applications. You can take it to trade shows, job sites, or anywhere else you need to mark your products quickly and efficiently."
+				},
+				"superiorMarkingPrecision": {
+					"title": "Superior Marking Precision for a Wide Range of Materials",
+					"description": "This fiber laser marking machine is equipped with advanced laser technology that delivers exceptional marking precision on a variety of metal materials. Whether you’re marking logos, barcodes, or other identifying information, the HFI-MN Portable Mini Fiber Laser Marking Machine ensures crisp, clear results every time."
+				},
+				"unbeatableDurability": {
+					"title": "Unbeatable Durability and Longevity for Low Cost of Ownership",
+					"description": "The HFI-MN Portable Mini Fiber Laser Marking Machine is built to last, with a rugged construction that can withstand the demands of even the most challenging marking applications. Its high-quality components ensure long-lasting performance, while its low-maintenance design keeps operating costs low. With the HFI-MN Portable Mini Fiber Laser Marking Machine, you can expect years of reliable marking performance."
+				}
+			}
+		},
+		"hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source": {
+			"name": "HFI-S Pulse Fiber Laser Marking Machine (JPT Laser Source)",
+			"description": "The HFI-S series fiber laser marking machine of Helionyx is an all-round marking equipment. Because of its strong adaptability, low maintenance and no consumables during the marking process, it is often used in the metal and plastic processing industries.",
+			"subDescription": "HFI-S Fiber series products use 1064nm wavelength laser, which is suitable for various metal materials such as iron, copper, aluminum, gold, silver, and some non-metal materials such as PC, ABS, PVC, PC+ABS. It is widely used in 3C, auto parts, electronic components, integrated circuits (PC), electrical appliances, precision equipment, hardware products, building materials, clocks and watches, jewelry, craft gifts and other industries.",
+			"features": ["Appearance", "Performance", "Control", "Software", "Service"],
+			"advantages": {
+				"appearance": {
+					"title": "Appearance",
+					"description": "integrated cabinet, small footprint"
+				},
+				"performance": {
+					"title": "Performance",
+					"description": "It has perfect laser characteristics and good pulse shape control ability. The seed source adopts waveform compensation, the amplified pulse deformation is corrected,   and the output pulse energy is higher"
+				},
+				"control": {
+					"title": "Control",
+					"description": "use industrial computer with keyboard, mouse and LCD, similar to desktop computer operation mode, application is simple, safe, accurate and easy to use"
+				},
+				"software": {
+					"title": "Software",
+					"description": "Full English interface based on Windows system, convenient for daily application, intuitive content"
+				},
+				"service": {
+					"title": "Service",
+					"description": "This series of marking machines are flexible and easy to operate. Helionyx provides reliable after-sales service to ensure your use needs."
+				}
+			}
+		},
+		"hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source": {
+			"name": "HFI-F Fiber Flyinh Laser Marking Machine (JPT Laser Source)",
+			"description": "The HFI-F fiber flying laser printer is a high-speed continuous marking machine designed to improve productivity. It adopts JPT industrial-grade high-performance laser source which are with stable performance, fast processing efficiency and marking speed on the production line. It can reach high speed up to 200 meters per minute (single-line 2MM-high numbers and letters) with high-yield application identification requirements, it mainly used in production date, anti-counterfeiting, medical and food packaging industries.",
+			"subDescription": "This model supports functions such as automatic encoding, serial number, batch number, date, barcode, two-dimensional code, automatic number skipping, etc., to meet the needs of customers in different industries. HCO-F Fiber laser online marking machine is suitable for online marking of most metal materials and some non-metallic materials with surface treatment, such as metal products, PVC, HDPE, aluminum film, rubber and plastics. It is widely used in the production of personal care products, food and beverage packaging, wine, dairy products, electronic components, chemical building materials and other fields, and the expiration date, batch number, shift, manufacturer name and logo and other graphics and text markings.",
+			"features": [
+				"Marking speed up to 200 meters per minute",
+				"Reliable and durable fiber laser source",
+				"Compact design and flexible configuration",
+				"Flexible installation way, convenient installation position adjustment"
+			],
+			"advantages": {
+				"markingSpeed": {
+					"title": "Marking speed up to 200 meters per minute",
+					"description": "This is the industry’s fastest marking laser coding system, with a marking speed of up to 200 m/min (single line of 2MM-high numbers and letters), which can be used in medium-speed or high-speed production lines."
+				},
+				"highQuality": {
+					"title": "Reliable and durable fiber laser source",
+					"description": "It adopts JPT high-quality fiber laser light source, which is in uniform laser power density and highly focused laser beam Achieved a better logo contrast and the working life of the laser can reach 100,000 hours."
+				},
+				"compactDesign": {
+					"title": "Compact design and flexible configuration",
+					"description": "This model uses compact laser printer marking head to achieve simple integration to reduce installation costs and improve positioning flexibility."
+				},
+				"flexibleInstallation": {
+					"title": "Flexible installation way, convenient installation position adjustment",
+					"description": "The flying model is specially designed for high-speed production lines, which can be flexibly combined with production lines for installation and use. The frame can be moved up and down and left and right to adjust, the marking head can also be rotated 360° for marking."
+				}
+			}
+		},
+		"hco-fc-co2-flying-laser-marking-machine-coherent-laser-source": {
+			"name": "HCO-FC CO2 Flying Laser Marking Machine (COHERENT Laser Sorurce)",
+			"description": "The HCO-FC laser marking machine is a high-speed continuous marking model designed to improve productivity. It uses COHENRENT industrial-grade metal RF CO2 laser tube. It has good optical modes and fast processing efficiency. The marking speed of the production line is up to 200m/min ( Single-line 2MM-high numbers and letters), it provides high-speed, high-yield application identification requirements, it mainly used in production date, anti-counterfeiting, medical and food packaging industries. This model supports functions such as automatic encoding, serial number, batch number, date, barcode, two-dimensional code, automatic number skipping, etc., to meet the needs of customers in different industries.",
+			"subDescription": "The HCO-FC laser marking machine is suitable for online marking of most non-metallic materials, such as paper packaging, film packaging, coated metal, plexiglass, resin plastic, bamboo and wooden products, PVC products, etc. It is widely used in food and beverage packaging, alcohol, dairy products, clothing accessories, leather, electronic components, medicine, personal care products, tobacco, chemical building materials,production and expiration date, batch number, shift, manufacturer name and logo, etc.",
+			"features": [
+				"Marking speed up to 200 meters per minute",
+				"Reliable and durable CO2 laser source",
+				"Compact design and flexible configuration",
+				"Flexible installation way, convenient installation position adjustment"
+			],
+			"advantages": {
+				"markingSpeed": {
+					"title": "Marking speed up to 200 meters per minute",
+					"description": "This is the industry’s fastest marking laser coding system, with a marking speed of up to 200 m/min (single line of 2MM-high numbers and letters), which can be used in medium-speed or high-speed production lines."
+				},
+				"reliableAndDurable": {
+					"title": "Reliable and durable CO2 laser source",
+					"description": "Using COHENRENT CO2 metal radio frequency laser source, the laser power density is uniform, the output light power is stable, there is no light leakage, anti-interference and there will be no shadows and virtual disconnection on special materials."
+				},
+				"compactDesign": {
+					"title": "Compact design and flexible configuration",
+					"description": "This model uses compact laser printer marking head to achieve simple integration to reduce installation costs and improve positioning flexibility."
+				},
+				"flexibleInstallation": {
+					"title": "Flexible installation way, convenient installation position adjustment",
+					"description": "The flying model is specially designed for high-speed production lines, which can be flexibly combined with production lines for installation and use. The frame can be moved up and down and left and right to adjust, the marking head can also be rotated 360° for marking."
+				}
+			}
+		},
+		"hco-sc-co2-laser-marking-machine-coherent-laser-source": {
+			"name": "HCO-SC CO2 Laser Marking Machine (COHERENT Laser Source)",
+			"description": "The HCO-SC series CO2 laser marking machine of Helionyx is a gas laser machine, which produces a wavelength of 10.6um, which belongs to the mid-infrared frequency band. The CO2 laser machine has larger power and higher electro-optical conversion efficiency. At present, it is mainly used for marking most non-metallic materials.",
+			"subDescription": "HCO-SC CO2 series products are widely used in the marking and cutting of graphics and text in clothing accessories, leather bags, food and beverage packaging, wood furniture, electronic components, handicraft processing, electrical equipment, glass and stone processing and other fields. Such as bamboo and wood products, plastic products, glass ceramics, paper packaging, label paper, leather fabrics, resin plastics, PCB boards, etc.",
+			"features": [
+				"Use high-quality",
+				"High-quality laser source components",
+				"Long-term running system",
+				"Integrated overall design"
+			]
+		},
+		"hfi-h-model-hanheld-laser-marking-machine": {
+			"name": "HFI-H Model HandHeld Laser Marking Machine",
+			"description": "Discover the ultimate solution for your marking needs with the HFI-H20 Model Handheld Laser Marking Machine. Its fiber laser technology allows for unmatched precision and speed, while its compact design and user-friendly software make it easy to use and maintain.",
+			"features": [
+				"Long battery life, 6-8 hours working time",
+				"The weight of the whole machine is 6KG, light and portable",
+				"Advanced fiber optic 20W laser",
+				"Playing while charging, the device can be charged while working",
+				"Unmatched Precision and Speed",
+				"Versatile Marking Capabilities",
+				"Easy to Use and Maintain"
+			],
+			"advantages": {
+				"longBatteryLife": {
+					"title": "Long battery life, 6-8 hours working time",
+					"description": "24V lithium battery is used to realize complete wireless, and it can work for 6-8 hours under normal use, with strong battery life"
+				},
+				"lightAndPortable": {
+					"title": "The weight of the whole machine is 6KG, light and portable",
+					"description": "Powerful and reliable, the weight of the whole machine is 6 kg, and its marking head is only 1.25 kg. It has an ergonomic grip, which is comfortable to hold and easy to operate."
+				},
+				"advancedFiberOptic": {
+					"title": "Advanced fiber optic 20W laser",
+					"description": "Using Chuangxin’s 20W fiber laser, the spot quality is good, and the output optical power is stable. It can be flexibly applied to metal materials and some non-metal materials."
+				},
+				"playingWhileCharging": {
+					"title": "Playing while charging, the device can be charged while working",
+					"description": "The power control design is added, the device can be charged and played while working, realizing continuous work and improving processing efficiency"
+				},
+				"unmatchedPrecisionAndSpeed": {
+					"title": "Unmatched Precision and Speed",
+					"description": "The HFI-H20 Model Handheld Laser Marking Machine is the ultimate solution for those who seek precision and speed in their marking needs. With its advanced fiber laser technology, this machine can mark on a wide range of materials with unbeatable accuracy and consistency. The HFI-H20 Model can mark up to 120 characters per second, providing unmatched speed that saves you valuable time and effort."
+				},
+				"versatileMarkingCapabilities": {
+					"title": "Versatile Marking Capabilities",
+					"description": "This handheld laser marking machine is capable of marking on various surfaces, including metals, plastics, and even some ceramics. Whether you need to engrave serial numbers, barcodes, logos, or other customized graphics, the HFI-H20 Model can do it all. Its compact design allows you to easily move it around and use it on different surfaces and materials."
+				},
+				"easyToUseAndMaintain": {
+					"title": "Easy to Use and Maintain",
+					"description": "The HFI-H20 Model Handheld Laser Marking Machine is user-friendly and easy to operate, making it suitable for both novice and expert users. Its software is simple to install and navigate, and it allows you to design and mark your logos and graphics easily. Maintenance is also hassle-free, as the machine is designed to last for many years without requiring frequent repairs."
+				}
+			}
+		},
+		"hcn-c80-cnc-laser-cutting-machine": {
+			"name": "HCN-C80 CNC Laser Cutting Machine",
+			"description": "The HUV series integrated fiber laser marking machine is an intelligent model specially designed to improve production efficiency and stability, using independently developed lasers. It has higher security, stable performance, and fast processing efficiency. It meets the marking needs of high-speed and high-volume applications. It is mainly used in production date, anti-counterfeiting, and pharmaceutical and food packaging industries. This model supports daily laser marking, date, barcode, QR code and other functions to meet the needs of customers in different industries.",
+			"features": [
+				"Fast and Accurate Laser Marking",
+				"Versatile and Durable Machine",
+				"Cost-Effective and Eco-Friendly Solution"
+			],
+			"advantages": {
+				"highProductivity": {
+					"title": "High productivity",
+					"description": "Using online high-speed non-stop laser marking, high production efficiency, can work under static and high-speed flow of the production line"
+				},
+				"costEffective": {
+					"title": "Cost-effective",
+					"description": "The whole machine is small, flexible, convenient, powerful, and not limited by the use of space"
+				},
+				"canBeDisassembled": {
+					"title": "Can be disassembled at will",
+					"description": "Compact design, the whole machine is small and portable, and the optical path of the column can be disassembled at will"
+				},
+				"highQuality": {
+					"title": "High quality light source",
+					"description": "Using advanced fiber lasers, the output beam quality is good and the reliability is high"
+				},
+				"precisionMarking": {
+					"title": "Precision Cutting with HCN-C80",
+					"description": "The HCN-C80 CNC Laser Cutting Machine is the perfect tool for precision cutting. With its high-quality laser beam, this machine can cut through a wide range of materials, including metal, wood, and plastic. Its advanced software allows for complex cutting designs, ensuring that you get the exact cut you need every time."
+				},
+				"userFriendly": {
+					"title": "User-Friendly Design of HCN-C80",
+					"description": "HCN-C80 CNC Laser Cutting Machine is designed with the user in mind. Its intuitive interface and easy-to-use software make it easy for anyone to operate. Additionally, the machine’s safety features, such as the protective enclosure and emergency stop button, make it safe to use for users of all experience levels. With its user-friendly design, this machine is a great choice for both beginners and experts alike."
+				},
+				"highSpeed": {
+					"title": "High-Speed and Efficiency of HCN-C80",
+					"description": "HCN-C80 CNC Laser Cutting Machine is a highly efficient machine that can cut through materials quickly and accurately. With its high-speed cutting capabilities, this machine can save you time and increase your productivity. Its efficient laser beam ensures that each cut is precise and clean, reducing the need for additional processing or finishing. With the HCN-C80 CNC Laser Cutting Machine, you can get your projects done faster and more efficiently."
+				}
+			}
+		},
+		"hcl-laser-cleaning-machine": {
+			"name": "HCL Laser Cleaning Machine",
+			"description": "The HCL Laser Cleaning Machine is a versatile and powerful tool that revolutionizes the cleaning process. With precision and speed, it removes rust, paint, and other surface contaminants while being eco-friendly and cost-effective.",
+			"features": [
+				"Environmental friendly",
+				"Easy to handle",
+				"High cleaning precision",
+				"System stability",
+				"Say Goodbye to Traditional Cleaning Methods",
+				"Power and Precision in One Machine",
+				"Experience the Future of Cleaning Technology"
+			],
+			"advantages": {
+				"ecoFriendly": {
+					"title": "Environmental friendly",
+					"description": "Non-grinding, non-contact cleaning to avoid secondary pollution"
+				},
+				"easyToHandle": {
+					"title": "Easy to handle",
+					"description": "Easy to control, just power on, can be hand-held or cooperate with a robot to realize automatic cleaning"
+				},
+				"highCleaningPrecision": {
+					"title": "High cleaning precision",
+					"description": "High cleaning precision, strong controllability, no consumables, strong environmental protection"
+				},
+				"systemStability": {
+					"title": "System stability",
+					"description": "Stable system, long life, one-time investment, cost-effective"
+				},
+				"sayGoodbyeToTraditionalCleaningMethods": {
+					"title": "Say Goodbye to Traditional Cleaning Methods",
+					"description": "Are you tired of using harsh chemicals, abrasives, or solvents to clean various surfaces? Then, it’s time to switch to the HCL Laser Cleaning Machine. This cutting-edge technology offers a non-abrasive and non-contact cleaning solution, making it a safer and more effective alternative to traditional cleaning methods. It can remove rust, paint, grease, and other contaminants from metals, plastics, composites, and more, without damaging the underlying surface. With the HCL Laser Cleaning Machine, you can achieve a cleaner and more eco-friendly workspace, without compromising the quality of your work."
+				},
+				"powerAndPrecisionInOneMachine": {
+					"title": "Power and Precision in One Machine",
+					"description": "The HCL Laser Cleaning Machine is not your ordinary cleaning machine. It is equipped with a high-powered laser that can deliver up to 1000 watts of energy, allowing you to clean even the toughest surfaces with ease. Additionally, it offers a precise and customizable cleaning experience, thanks to its adjustable laser spot size, power, and frequency settings. With this machine, you can clean small and intricate parts, as well as large and bulky surfaces, without any hassle. The HCL Laser Cleaning Machine is a versatile tool that can cater to your unique cleaning needs, no matter how complex they may be."
+				},
+				"experienceTheFutureOfCleaningTechnology": {
+					"title": "Experience the Future of Cleaning Technology",
+					"description": "The HCL Laser Cleaning Machine is not just a cleaning machine – it is a game-changer in the cleaning industry. With its advanced features and capabilities, it can help you save time, money, and resources, while achieving a higher level of cleanliness and safety in your workspace. It is also user-friendly, with a simple interface and intuitive controls, making it easy to operate and maintain. If you want to stay ahead of the competition and elevate your cleaning process to the next level, then the HCL Laser Cleaning Machine is the perfect investment for you."
+				}
+			}
+		},
+		"hdo": {
+			"name": "HDO",
+			"description": "Industrial pneumatic marking machine can realize the long-term marking of patterns, text, letters,VIN code, serial number, date and graphics on the workpiece.",
+			"features": [
+				"High-pressure chain steel base",
+				"Inlet filter pressure regulating valve",
+				"Carbide needles",
+				"Computer control and the new version of WINDOWS operating system",
+				"Automatically save the marked content",
+				"Support multiple types of fonts"
+			],
+			"advantages": {
+				"highQualitySteelBase": {
+					"title": "High-pressure chain steel base",
+					"description": "good quality, heavy and strong, playing a stable role on industrial pneumatic marking machine"
+				},
+				"inletFilterPressureRegulatingValve": {
+					"title": "Inlet filter pressure regulating valve",
+					"description": "adjust the pressure level to fully reduce the impact of upstream pressure fluctuations and ensure the stability of the output pressure"
+				},
+				"carbideNeedles": {
+					"title": "Carbide needles",
+					"description": "Industrial pneumatic marking machines can print mechanical parts and signs of most materials"
+				},
+				"computerControl": {
+					"title": "Computer control and the new version of WINDOWS operating system",
+					"description": "Chinese and English switching, powerful editing function, industrial pneumatic marking machine can arbitrarily arrange the required characters and graphics"
+				},
+				"autoSaving": {
+					"title": "Automatically save the marked content",
+					"description": "when the power is abnormally disconnected, the industrial pneumatic marking machine can automatically save the pattern being edited and marked"
+				},
+				"supportMultipleFonts": {
+					"title": "Support multiple types of fonts",
+					"description": "SHX font for Auto, CHR for Borland, TTF for Windows."
+				}
+			}
+		}
+	}
+}

@@ -6,10 +6,11 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
-import RenderTable from '@/features/product/laser-cleaning-machines/components/render-table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { createFileRoute } from '@tanstack/react-router'
 import { Mailbox, Phone } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hcl-laser-cleaning-machine'
@@ -19,6 +20,8 @@ const ProductDetail: React.FC = () => {
 		product?.id,
 		product?.subCategoryId
 	)
+
+	const { t } = useTranslation()
 
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
@@ -47,14 +50,120 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<CardDescription>{product.description}</CardDescription>
+							<CardDescription>{t(product.descriptionKey)}</CardDescription>
 						</section>
 
 						<Separator />
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold' colSpan={4}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border'>Model</TableHead>
+										<TableHead className='border'>{t('models.hcl200.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcl300.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcl500.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcl1000.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hcl200.laserModel')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcl200.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcl300.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcl500.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcl1000.laserModelValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.outputPowerKey')}</TableCell>
+										<TableCell className='border'>{t('models.hcl200.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcl300.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcl500.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcl1000.outputPowerValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hcl200.laserWaveLengthKey')}</TableCell>
+										<TableCell className='bg-muted border' colSpan={4}>
+											{t('models.hcl200.laserWaveLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.repetitionFrequencyRangeKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hcl200.repetitionFrequencyRangeValue')}
+										</TableCell>
+										<TableCell className='border'>{t('models.hcl1000.repetitionFrequencyRangeValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcl200.outputPowerStabilityKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hcl200.outputPowerStabilityValue')}
+										</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcl1000.outputPowerStabilityValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.pluseWidthRangeKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcl200.pluseWidthRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcl200.outputCoreDiameterKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcl200.outputCoreDiameterValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.outputFiberLengthKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcl200.outputFiberLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcl200.coolingWayKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcl200.coolingWayValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.operationModeKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcl200.operationModeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcl200.inputPowerKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcl200.inputPowerValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.operatingTemperatureKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcl200.operatingTemperatureValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcl200.dimensionsKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcl200.dimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcl200.totalWeightKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcl200.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -62,7 +171,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {product.name.toUpperCase()}</CardTitle>
+					<CardTitle>ADVANTAGES OF {t(product.nameKey).toUpperCase()}</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -74,9 +183,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Environmental friendly</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.ecoFriendly.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Non-grinding, non-contact cleaning to avoid secondary pollution
+								{t('products.hcl-laser-cleaning-machine.advantages.ecoFriendly.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -89,9 +200,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Easy to handle</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.easyToHandle.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Easy to control, just power on, can be hand-held or cooperate with a robot to realize automatic cleaning
+								{t('products.hcl-laser-cleaning-machine.advantages.easyToHandle.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -104,9 +217,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High cleaning precision</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.highCleaningPrecision.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								High cleaning precision, strong controllability, no consumables, strong environmental protection
+								{t('products.hcl-laser-cleaning-machine.advantages.highCleaningPrecision.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -119,50 +234,43 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>System stability</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.systemStability.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Stable system, long life, one-time investment, cost-effective
+								{t('products.hcl-laser-cleaning-machine.advantages.systemStability.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Say Goodbye to Traditional Cleaning Methods</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.sayGoodbyeToTraditionalCleaningMethods.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Are you tired of using harsh chemicals, abrasives, or solvents to clean various surfaces? Then, it’s
-								time to switch to the MQX Laser Cleaning Machine 1000w. This cutting-edge technology offers a
-								non-abrasive and non-contact cleaning solution, making it a safer and more effective alternative to
-								traditional cleaning methods. It can remove rust, paint, grease, and other contaminants from metals,
-								plastics, composites, and more, without damaging the underlying surface. With the MQX Laser Cleaning
-								Machine 1000w, you can achieve a cleaner and more eco-friendly workspace, without compromising the
-								quality of your work.
+								{t('products.hcl-laser-cleaning-machine.advantages.sayGoodbyeToTraditionalCleaningMethods.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Power and Precision in One Machine</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.powerAndPrecisionInOneMachine.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MQX Laser Cleaning Machine 1000w is not your ordinary cleaning machine. It is equipped with a
-								high-powered laser that can deliver up to 1000 watts of energy, allowing you to clean even the toughest
-								surfaces with ease. Additionally, it offers a precise and customizable cleaning experience, thanks to
-								its adjustable laser spot size, power, and frequency settings. With this machine, you can clean small
-								and intricate parts, as well as large and bulky surfaces, without any hassle. The MQX Laser Cleaning
-								Machine 1000w is a versatile tool that can cater to your unique cleaning needs, no matter how complex
-								they may be.
+								{t('products.hcl-laser-cleaning-machine.advantages.powerAndPrecisionInOneMachine.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Experience the Future of Cleaning Technology</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcl-laser-cleaning-machine.advantages.experienceTheFutureOfCleaningTechnology.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MQX Laser Cleaning Machine 1000w is not just a cleaning machine – it is a game-changer in the
-								cleaning industry. With its advanced features and capabilities, it can help you save time, money, and
-								resources, while achieving a higher level of cleanliness and safety in your workspace. It is also
-								user-friendly, with a simple interface and intuitive controls, making it easy to operate and maintain.
-								If you want to stay ahead of the competition and elevate your cleaning process to the next level, then
-								the MQX Laser Cleaning Machine 1000w is the perfect investment for you.
+								{t(
+									'products.hcl-laser-cleaning-machine.advantages.experienceTheFutureOfCleaningTechnology.description'
+								)}
 							</CardDescription>
 						</CardHeader>
 					</Card>
@@ -174,7 +282,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

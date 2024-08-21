@@ -1,5 +1,5 @@
 import { Carousel, CarouselApi, CarouselContent, CarouselItem } from '@/components/ui/carousel'
-import { Product } from '@/features/product/types/product'
+import { Product } from '@/types'
 import React, { useEffect, useState } from 'react'
 
 type RenderProductImageProps = {
@@ -39,7 +39,7 @@ const RenderProductImage: React.FC<RenderProductImageProps> = ({ product }) => {
 						<CarouselItem key={index}>
 							<img
 								src={image}
-								alt={`${product.name} ${index + 1}`}
+								alt={`${product.nameKey} ${index + 1}`}
 								className='w-full min-h-[300px] object-contain rounded-lg'
 							/>
 						</CarouselItem>

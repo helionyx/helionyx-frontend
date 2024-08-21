@@ -56,8 +56,8 @@ class ProductsService implements IProductsService {
 			const matchesCategory = category?.length ? category.includes(productCategory?.name || '') : true
 			const matchesSubCategory = subCategory?.length ? subCategory.includes(productSubCategory?.name || '') : true
 			const matchesSearch = search
-				? product.name.toLowerCase().includes(search.toLowerCase()) ||
-					product.description.toLowerCase().includes(search.toLowerCase())
+				? product.nameKey.toLowerCase().includes(search.toLowerCase()) ||
+					product.descriptionKey.toLowerCase().includes(search.toLowerCase())
 				: true
 
 			return matchesCategory && matchesSubCategory && matchesSearch

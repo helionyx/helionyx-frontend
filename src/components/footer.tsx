@@ -40,25 +40,25 @@ const Footer: React.FC = () => {
 						<div className='flex flex-col gap-2.5'>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={facebook} alt='' className='h-8 w-auto' />
-								<a href='' className='text-lg content-center text-white hover:text-[#F89D44]'>
-									Helionyx corp
+								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+									HelionyxTech
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={line} alt='' className='h-8 w-auto' />
-								<a href='' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
 									@Helionyx
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={instagram} alt='' className='h-8 w-auto' />
-								<a href='' className='text-lg content-center text-white hover:text-[#F89D44]'>
-									helionyx_ig
+								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+									HelionyxTech
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={tiktok} alt='' className='h-8 w-auto' />
-								<a href='' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
 									Helionyx
 								</a>
 							</div>

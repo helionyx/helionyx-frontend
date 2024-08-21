@@ -1,26 +1,6 @@
-import { infiniteQueryOptions, queryOptions, useInfiniteQuery, useQuery } from '@tanstack/react-query'
-import { Category, Model, Product, ProductListQueryParams } from '../types/product'
-import {
-	getCatalog,
-	getCategoryList,
-	getFilteredProducts,
-	getModelById,
-	getModelsByProductId,
-	getProductById,
-	getProducts,
-	getRelatedProducts
-} from './product.api'
-
-export const productsQueryOptions = queryOptions({
-	queryKey: ['products'],
-	queryFn: () => getProducts()
-})
-
-export const productQueryOption = (productId: string) =>
-	queryOptions({
-		queryKey: ['products', { productId }],
-		queryFn: () => getProductById(productId)
-	})
+import { Category, Model, Product, ProductListQueryParams } from '@/types'
+import { infiniteQueryOptions, useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { getCatalog, getCategoryList, getFilteredProducts, getModelsByProductId, getProductById } from './product.api'
 
 export const filteredProductsQueryOptions = (params: ProductListQueryParams) =>
 	infiniteQueryOptions({
@@ -32,13 +12,6 @@ export const filteredProductsQueryOptions = (params: ProductListQueryParams) =>
 			return pages.length + 1
 		}
 	})
-
-export function useProducts() {
-	return useQuery<Product[], Error>({
-		queryKey: ['products'],
-		queryFn: () => getProducts()
-	})
-}
 
 export function useProductId(productId: string) {
 	return useQuery<Product | null, Error>({
@@ -67,26 +40,10 @@ export function useFilteredProductsQuery(params: ProductListQueryParams) {
 	})
 }
 
-export function useRelatedProductsQuery(id: string | null | undefined, categoryId: string | null | undefined) {
-	return useQuery<Product[], Error>({
-		queryKey: ['relatedProducts', { id, categoryId }],
-		queryFn: () => getRelatedProducts(id as string, categoryId as string),
-		enabled: id !== null && id !== undefined && categoryId !== null && categoryId !== undefined
-	})
-}
-
 export function useCategoryListQuery() {
 	return useQuery<Category[], Error>({
 		queryKey: ['categoryList'],
 		queryFn: getCategoryList
-	})
-}
-
-export function useModelQuery(productId: string) {
-	return useQuery<Model | null, Error>({
-		queryKey: ['model', { productId }],
-		queryFn: () => getModelById(productId),
-		enabled: !!productId
 	})
 }
 

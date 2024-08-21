@@ -2,14 +2,15 @@ import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hoo
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
-import React from 'react'
-import { Separator } from '@/components/ui/separator'
-import RenderTable from '@/features/product/laser-marking-machines/components/render-table'
-import { Button } from '@/components/ui/button'
 import { Mailbox, Phone } from 'lucide-react'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'huv-mw-portable-uv-laser-marking-machine'
@@ -20,8 +21,12 @@ const ProductDetail: React.FC = () => {
 		product?.subCategoryId
 	)
 
+	const { t } = useTranslation()
+
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const features = t('products.huv-mw-portable-uv-laser-marking-machine.features', { returnObjects: true }) as string[]
 
 	return (
 		<>
@@ -47,14 +52,231 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<CardDescription>{product.description}</CardDescription>
+							<div className='space-y-4'>
+								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
+								{product.subDescriptionKey && (
+									<CardDescription className='text-base'>{t(product.subDescriptionKey)}</CardDescription>
+								)}
+								<div>
+									{features.map((feature: string, index: number) => (
+										<CardDescription key={index} className='text-base'>
+											<span className='text-amber-500'>&gt;&gt;</span> {feature}
+										</CardDescription>
+									))}
+								</div>
+							</div>
 						</section>
 
 						<Separator />
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead colSpan={2} className='w-1/4 text-center border'>
+											Model series
+										</TableHead>
+										<TableHead colSpan={3} className='text-center border'>
+											{t('products.huv-integrated-fiber-laser-marking-machine.name')}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead colSpan={2} className='w-1/4 text-center border bg-muted'>
+											Model
+										</TableHead>
+										<TableHead className='text-center border bg-muted'>{t('models.huvMW3.name')}</TableHead>
+										<TableHead className='text-center border bg-muted'>{t('models.huvMW5.name')}</TableHead>
+										<TableHead className='text-center border bg-muted'>{t('models.huvMW10.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell rowSpan={8} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.huvMW3.laserParameters')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.laserModelKey')}</TableCell>
+										<TableCell className='w-1/6 text-center border'>{t('models.huvMW3.laserModelValue')}</TableCell>
+										<TableCell className='w-1/6 text-center border'>{t('models.huvMW5.laserModelValue')}</TableCell>
+										<TableCell className='w-1/6 text-center border'>{t('models.huvMW10.laserModelValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.outputPowerKey')}
+										</TableCell>
+										<TableCell className='w-1/6 border bg-muted text-center'>
+											{t('models.huvMW3.outputPowerValue')}
+										</TableCell>
+										<TableCell className='w-1/6 border bg-muted text-center'>
+											{t('models.huvMW5.outputPowerValue')}
+										</TableCell>
+										<TableCell className='w-1/6 border bg-muted text-center'>
+											{t('models.huvMW10.outputPowerValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.beamQualityKey')}</TableCell>
+										<TableCell colSpan={3} className='border text-center'>
+											{t('models.huvMW3.beamQualityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.laserWaveLengthKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='border bg-muted text-center'>
+											{t('models.huvMW3.laserWaveLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.pulseFrequencyKey')}</TableCell>
+										<TableCell className='border text-center' colSpan={2}>
+											{t('models.huvMW3.pulseFrequencyValue')}
+										</TableCell>
+										<TableCell className='border text-center' colSpan={2}>
+											{t('models.huvMW10.pulseFrequencyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.exitBeamDiameterKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-center' colSpan={2}>
+											{t('models.huvMW10.exitBeamDiameterValue')}
+										</TableCell>
+										<TableCell className='border bg-muted text-center' colSpan={2}>
+											{t('models.huvMW10.exitBeamDiameterValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.huvMW3.outputPowerStabilityKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='border text-center'>
+											{t('models.huvMW3.outputPowerStabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.designLifeKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='border bg-muted text-center'>
+											{t('models.huvMW3.designLifeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={6} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.huvA20.opticalProperties')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.markingRangeKey')}</TableCell>
+										<TableCell colSpan={3} className='border text-center'>
+											{t('models.huvMW3.markingRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.engravingDepthKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='border bg-muted text-center'>
+											{t('models.huvMW3.engravingDepthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.engravingSpeedKey')}</TableCell>
+										<TableCell colSpan={3} className='text-center border'>
+											{t('models.huvMW3.engravingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.repeatabilityKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.repeatabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.huvMW3.minimumMarkerLineWidthKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border'>
+											{t('models.huvMW3.minimumMarkerLineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.minimumCharacterHeightKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.minimumCharacterHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={4} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.huvMW3.useEnvironment')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.coolingMethodKey')}</TableCell>
+										<TableCell colSpan={3} className='text-center border'>
+											{t('models.huvMW3.coolingMethodValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.systemPowerSupplyKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.systemPowerSupplyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>
+											{t('models.huvMW3.temperatureHumidityKey')}
+										</TableCell>
+										<TableCell className='border text-center' colSpan={3}>
+											{t('models.huvMW3.temperatureHumidityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.oilMistCondensationKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.oilMistCondensationValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell rowSpan={4} className='font-medium w-1/4 border text-center align-top p-4'>
+											{t('models.huvMW3.otherParameters')}
+										</TableCell>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.operatingSystemKey')}</TableCell>
+										<TableCell colSpan={3} className='text-center border'>
+											{t('models.huvMW3.operatingSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.fileFormatKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.fileFormatValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border text-center'>{t('models.huvMW3.dimensionsKey')}</TableCell>
+										<TableCell colSpan={3} className='text-center border'>
+											{t('models.huvMW3.dimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='w-1/4 border bg-muted text-center'>
+											{t('models.huvMW3.totalWeightKey')}
+										</TableCell>
+										<TableCell colSpan={3} className='text-center border bg-muted'>
+											{t('models.huvMW3.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -62,7 +284,9 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {product.name.toUpperCase()}</CardTitle>
+					<CardTitle>
+						ADVANTAGES OF {t('products.huv-mw-portable-uv-laser-marking-machine.name').toUpperCase()}
+					</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -74,10 +298,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High productivity</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highProductivity.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Using online high-speed non-stop laser marking, high production efficiency, can work under static and
-								high-speed flow of the production line
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highProductivity.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -90,9 +315,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Cost-effective</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.costEffective.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The whole machine is small, flexible, convenient, powerful, and not limited by the use of space
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.costEffective.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -105,10 +332,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Can be disassembled at will</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.canBeDisassembled.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Compact design, the whole machine is small and portable, and the optical path of the column can be
-								disassembled at will
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.canBeDisassembled.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -121,41 +349,43 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High quality light source</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highQualityLightSource.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Using advanced fiber lasers, the output beam quality is good and the reliability is high
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highQualityLightSource.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>High Precision Marking</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highPrecisionMarking.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Achieve precise and accurate markings with the MZF-H Portable UV Laser Marking Machine. With its high
-								beam quality and excellent spot mode, it can mark on a variety of materials with fine details and
-								intricate designs. From barcodes to logos, it can produce sharp and permanent markings with ease.
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.highPrecisionMarking.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Portability and Versatility</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.portabilityAndVersatility.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MZF-H Portable UV Laser Marking Machine is a lightweight and compact device that can be easily
-								transported to different locations. Its portability allows for marking on-site or in the field, making
-								it an ideal tool for various industries. Whether you’re marking on metals, plastics, or ceramics, this
-								Compact UV Marking Device is versatile enough to handle a wide range of materials.
+								{t(
+									'products.huv-mw-portable-uv-laser-marking-machine.advantages.portabilityAndVersatility.description'
+								)}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>User-Friendly Design</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.userFriendlyDesign.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MZF-H Portable UV Laser Marking Machine is designed with user-friendliness in mind. Its intuitive
-								interface and easy-to-use software allow for quick and hassle-free operation. With its low maintenance
-								requirements and simple set-up process, this High-Precision Marking Tool is perfect for businesses of
-								any size.
+								{t('products.huv-mw-portable-uv-laser-marking-machine.advantages.userFriendlyDesign.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
@@ -167,7 +397,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Product, Model } from '@/features/product/types/product'
+import { Model, Product } from '@/types'
 import React from 'react'
 
 interface ProductSpecificationTableProps {
@@ -53,7 +53,7 @@ const ProductSpecificationTable: React.FC<ProductSpecificationTableProps> = ({ p
 						Model series
 					</TableHead>
 					<TableHead colSpan={models.length} className='text-center border'>
-						{product.name}
+						{product.nameKey}
 					</TableHead>
 				</TableRow>
 				<TableRow>
@@ -120,7 +120,7 @@ const ProductSpecificationTable: React.FC<ProductSpecificationTableProps> = ({ p
 			{renderHeader()}
 			{renderBody()}
 			<TableCaption className='caption-bottom'>
-				Specifications for {product.name} - {models.map((m) => m.name).join(', ')}
+				Specifications for {product.nameKey} - {models.map((m) => m.name).join(', ')}
 			</TableCaption>
 		</Table>
 	)

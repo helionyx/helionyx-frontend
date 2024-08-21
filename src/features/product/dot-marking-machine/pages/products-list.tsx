@@ -1,39 +1,10 @@
 import { useProductsRelatedSubcategory } from '@/api/hooks.api'
-import AdvantageSection from '@/components/advantage-section'
 import FilterSection from '@/components/filter-section'
 import PaginationSection from '@/components/pagination-section'
 import RenderProductsCard from '@/components/render-products-card'
+import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import React, { useState } from 'react'
-
-const advantages = [
-	{
-		name: 'High-pressure chain steel base',
-		describe: `good quality, heavy and strong, playing a stable role on industrial pneumatic marking machine;`
-	},
-	{
-		name: 'Inlet filter pressure regulating valve',
-		describe: `adjust the pressure level to fully reduce the impact of upstream pressure fluctuations and ensure the stability
-				of the output pressure;`
-	},
-	{
-		name: 'Carbide needles',
-		describe: `Industrial pneumatic marking machines can print mechanical parts and signs of most materials;`
-	},
-	{
-		name: 'Computer control and the new version of WINDOWS operating system',
-		describe: `Chinese and English switching, powerful editing function, industrial pneumatic marking machine can arbitrarily
-				arrange the required characters and graphics;`
-	},
-	{
-		name: 'Automatically save the marked content',
-		describe: `when the power is abnormally disconnected, the industrial pneumatic marking machine can automatically save the
-				pattern being edited and marked;`
-	},
-	{
-		name: 'Support multiple types of fonts',
-		describe: `SHX font for Auto, CHR for Borland, TTF for Windows;`
-	}
-]
+import { useTranslation } from 'react-i18next'
 
 const subCategories = ['HDO Marking Machine']
 
@@ -48,6 +19,8 @@ const DotMarkingMachinesList: React.FC = () => {
 		page: currentPage,
 		pageSize
 	})
+
+	const { t } = useTranslation()
 
 	const handleSubCategoryChange = (subCategory: string) => {
 		setSelectedSubCategories((prev) =>
@@ -67,11 +40,8 @@ const DotMarkingMachinesList: React.FC = () => {
 		<>
 			<p></p>
 			<div className='p-0 space-y-2'>
-				<h1 className='text-4xl font-bold text-amber-500'>DOT MARKING MACHINES</h1>
-				<p className='text-muted-foreground'>
-					Industrial Dot marking machine can realize the long-term marking of patterns, text, letters, VIN code, serial
-					number, date and graphics on the workpiece.
-				</p>
+				<h1 className='text-4xl font-bold text-amber-500'>{t('dotMarking.title')}</h1>
+				<p className='text-muted-foreground'>{t('dotMarking.description')}</p>
 			</div>
 			<div className='grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8'>
 				<FilterSection
@@ -89,7 +59,31 @@ const DotMarkingMachinesList: React.FC = () => {
 				</div>
 			</div>
 			<div className='p-0 space-y-8'>
-				<AdvantageSection title='ADVANTAGES OF DOT MARKING MACHINES' advantages={advantages} />
+				<h1 className='text-4xl font-bold text-amber-500'>{t('dotMarking.advantages.title')}</h1>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.highQualitySteelBase.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.highQualitySteelBase.description')}</CardDescription>
+				</Card>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.pressureRegulatingValve.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.pressureRegulatingValve.description')}</CardDescription>
+				</Card>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.printingCapability.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.printingCapability.description')}</CardDescription>
+				</Card>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.computerControl.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.computerControl.description')}</CardDescription>
+				</Card>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.autoSaving.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.autoSaving.description')}</CardDescription>
+				</Card>
+				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
+					<CardTitle className='text-amber-500'>{t('dotMarking.advantages.supportMultipleFonts.name')}</CardTitle>
+					<CardDescription>{t('dotMarking.advantages.supportMultipleFonts.description')}</CardDescription>
+				</Card>
 			</div>
 		</>
 	)

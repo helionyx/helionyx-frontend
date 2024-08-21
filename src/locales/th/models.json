@@ -1,0 +1,1185 @@
+{
+	"models": {
+		"huvA20": {
+			"name": "HUV-A20",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModelKey": "โมเดลเลเซอร์",
+			"laserModelValue": "เลเซอร์แบบบูรณาการ",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "≤20W",
+
+			"beamQualityKey": "คุณภาพของลําแสง",
+			"beamQualityValue": "≤2",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "30-80 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064 nm",
+
+			"outputPowerStabilityKey": "ความเสถียรของพลังงานเอาท์พุท",
+			"outputPowerStabilityValue": "≤20W",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงทํางาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "70-175MM (ช่วงเป็นทางเลือก)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤ 1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤8000m/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "ความกว้างเส้นต่ำสุด",
+			"minimumLineWidthValue": "0.1 mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15 mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingMethodKey": "วิธีการระบายความร้อน",
+			"coolingMethodValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "≤350W / 220V / 50Hz",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, หากใช้งานนอกช่วงที่กำหนด จำเป็นต้องติดตั้งเครื่องปรับอากาศ",
+
+			"oilMistKey": "Oil mist, condensation",
+			"oilMistValue": "ยังไม่รองรับ",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "Golden oranges",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, กราฟิก และเนื้อหาการทำเครื่องหมายอื่น ๆ",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "108 x 125 x 467 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "บรรจุภัณฑ์: 533 x 195 x 242",
+
+			"hostWeightKey": "น้ำหนักของเครื่องหลัก",
+			"hostWeightValue": "5.5 กิโลกรัม",
+
+			"overWeightKey": "น้ำหนักของเครื่องทั้งหมด",
+			"overWeightValue": "9.1 กิโลกรัม"
+		},
+		"huvA30": {
+			"name": "HUV-A30",
+			"outputPowerValue": "≤30W",
+			"temperatureHumidityValue": "5KW"
+		},
+		"huvSW3": {
+			"name": "HUV-SW-3",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "355-3",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "คุณภาพของลําแสง",
+			"beamQualityValue": "CRS <1.2 / Maiman <1.3",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "CRS 10-200 kHz / Maiman 30-500 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "355 nm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 20,000 ชั่วโมง",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "ความกว้างเส้นต่ำสุด",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.03mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingMethodKey": "วิธีการระบายความร้อน",
+			"coolingMethodValue": "การระบายความร้อนด้วยน้ำภายนอก",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V สามารถเชื่อมต่อได้)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "5~35°, 30%≤RH≤85%",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "800x660x1425 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 100kg"
+		},
+		"huvSW5": {
+			"name": "HUV-SW-5"
+		},
+		"huvSW8": {
+			"name": "HUV-SW-8",
+			"laserModelValue": "355-8",
+			"outputPowerValue": "8W"
+		},
+		"huvSW10": {
+			"name": "HUV-SW-10",
+			"laserModelValue": "355-10",
+			"outputPowerValue": "10W"
+		},
+		"huvSW15": {
+			"name": "HUV-SW-15",
+			"laserModelValue": "355-15",
+			"outputPowerValue": "15W"
+		},
+		"huvSW20": {
+			"name": "HUV-SW-20",
+			"laserModelValue": "355-20",
+			"outputPowerValue": "20W"
+		},
+		"huvMW3": {
+			"name": "HUV-MW3",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "HUV-MW3",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M",
+			"beamQualityValue": "<1.2",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "355 nm",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"exitBeamDiameterKey": "เส้นผ่านศูนย์กลางของลำแสงขาออก",
+			"exitBeamDiameterValue": "0.7±0.1 mm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "3%",
+
+			"designLifeKey": "อายุการออกแบบ",
+			"designLifeValue": "ประมาณ 20,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~160mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatabilityKey": "การทําซ้ํา",
+			"repeatabilityValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkerLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.03mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingMethodKey": "วิธีการระบายความร้อน",
+			"coolingMethodValue": "การระบายความร้อนด้วยน้ำ",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (สามารถเชื่อมต่อได้ to 110V)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "5~35°, 30% RH 85%",
+
+			"oilMistCondensationKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "เครื่องทําเครื่องหมาย 300x460x615mm ถังเก็บน้ํา 250x340x24mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 30kg"
+		},
+		"huvMW5": {
+			"name": "HUV-MW5",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "HUV-MW5",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "5W",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"exitBeamDiameterKey": "เส้นผ่านศูนย์กลางของลำแสงขาออก",
+			"exitBeamDiameterValue": "0.7±0.1 mm"
+		},
+		"huvMW10": {
+			"name": "HUV-MW10",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "HUV-MW10",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "10W",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "40-300 kHz",
+
+			"exitBeamDiameterKey": "เส้นผ่านศูนย์กลางของลำแสงขาออก",
+			"exitBeamDiameterValue": "0.8±0.1 mm"
+		},
+		"huvFW3A": {
+			"name": "HUV-FW3A",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LARK-355-3A",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "<1.2",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "355 nm",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"outputBeamDiameterKey": "Output beam diameter",
+			"outputBeamDiameterValue": "0.7±0.1 mm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 20,000 ชั่วโมง",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkerLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V สามารถเชื่อมต่อได้)",
+
+			"temperatureHumidityKey": "อุณหภูมิและความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อมีการใช้งาน",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบการทำเครื่องหมายแบบเคลื่อนที่",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "660x510x1460 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "Host: 850x510x280 mm ถังเก็บน้ํา: 680x430x57 mm Column: 1350x350x280 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "รวมถังน้ำหล่อเย็นประมาณ 89 kg"
+		},
+		"huvFW5A": {
+			"name": "HUV-FW5A",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LARK-355-5A",
+
+			"outputPowerValue": "5W"
+		},
+		"huvFW3E": {
+			"name": "HUV-FW3E",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "SEAL-355-3E",
+
+			"outputPowerValue": "3W",
+
+			"coolingWayValue": "การระบายความร้อนด้วยน้ำภายนอก"
+		},
+		"huvFW355C": {
+			"name": "HUV-FW3-55C",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "SEAL-355-C",
+
+			"outputPowerValue": "3W",
+
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"coolingWayValue": "การระบายความร้อนด้วยน้ำภายนอก"
+		},
+		"huvFW555C": {
+			"name": "HUV-FW5-55C",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "SEAL-355-C",
+
+			"outputPowerValue": "5W",
+
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"coolingWayValue": "การระบายความร้อนด้วยน้ำภายนอก"
+		},
+		"huvFW1055C": {
+			"name": "HUV-FW10-55C",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "SEAL-355-10S",
+
+			"outputPowerValue": "10W",
+
+			"pulseFrequencyValue": "40-300 kHz",
+
+			"outputBeamDiameterValue": "0.8±0.1 mm"
+		},
+		"hfiM20": {
+			"name": "HFI-M20",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "MFP-20X/20QS",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "18.5W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.4",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "27-60 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingAreaKey": "Marking area",
+			"markingAreaValue": "100~150mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "ความกว้างเส้นต่ำสุด",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingMethodKey": "วิธีการระบายความร้อน",
+			"coolingMethodValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V สามารถเชื่อมต่อได้)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อใช้งานนอกช่วงที่กำหนด",
+
+			"oilMistCondensationKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "460x300x683 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "550x440x690 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 25kg"
+		},
+		"hfiM30": {
+			"name": "HFI-M30",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "MFP-30X/30QS",
+
+			"outputPowerValue": "30W",
+
+			"pulseFrequencyValue": "30-60 kHz"
+		},
+		"hfiMN20": {
+			"name": "HFI-MN20",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "MFP-20X/20QS",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "18.5/20W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M2",
+			"beamQualityValue": "≤1.4",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "27-60 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~150mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkingLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V สามารถเชื่อมต่อได้)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อใช้งานนอกช่วงที่กำหนด",
+
+			"oilMistCondensationKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"supportSystemKey": "ระบบสนับสนุน",
+			"supportSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "390x210x615 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "680x5500x270 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 20kg"
+		},
+		"hfiMN30": {
+			"name": "HFI-MN30",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "MFP-30X/30QS",
+
+			"outputPowerValue": "30W",
+
+			"pulseFrequencyValue": "30-60 kHz"
+		},
+		"hfiS20": {
+			"name": "HFI-S20",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-20-LP",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "20W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.5",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "1-600 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±10 nm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "<5%",
+
+			"designLifeKey": "อายุการออกแบบ",
+			"designLifeValue": "ประมาณ 100,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งานตลอดชีพ)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"markingDepthKey": "ความลึกในการทำเครื่องหมาย",
+			"markingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"markingSpeedKey": "ความเร็วในการทำเครื่องหมาย",
+			"markingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "ความกว้างเส้นต่ำสุด",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingModeKey": "โหมดระบายความร้อน",
+			"coolingModeValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ต้องติดตั้งเครื่องปรับอากาศเมื่อใช้งานเกินกว่าช่วงที่กำหนด",
+
+			"oilMistCondensationKey": "หมอกน้ํามัน",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"exteriordimensionsKey": "ขนาดภายนอก",
+			"exteriordimensionsValue": "800x600x1400 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "น้ำหนักของเครื่องทั้งหมด",
+			"totalWeightValue": "ประมาณ 75kg"
+		},
+		"hfiS30": {
+			"name": "HFI-S30",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-30-LP",
+
+			"outputPowerValue": "30W",
+
+			"beamQualityValue": "≤1.5"
+		},
+		"hfiS50": {
+			"name": "HFI-S50",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-50-LP",
+
+			"outputPowerValue": "50W",
+
+			"beamQualityValue": "≤1.8"
+		},
+		"hfiF20": {
+			"name": "HFI-F20",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-20-LP",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "20W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.5",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "1-600 kHz",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±10 nm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "<5%",
+
+			"designLifeKey": "อายุการออกแบบ",
+			"designLifeValue": "ประมาณ 100,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งานตลอดชีพ)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"markingDepthKey": "ความลึกในการทำเครื่องหมาย",
+			"markingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"markingSpeedKey": "ความเร็วในการทำเครื่องหมาย",
+			"markingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "ความกว้างเส้นต่ำสุด",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingModeKey": "โหมดระบายความร้อน",
+			"coolingModeValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ต้องติดตั้งเครื่องปรับอากาศเมื่อใช้งานเกินกว่าช่วงที่กำหนด",
+
+			"oilMistCondensationKey": "หมอกน้ํามัน",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"exteriordimensionsKey": "ขนาดภายนอก",
+			"exteriordimensionsValue": "800x600x1400 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "น้ำหนักของเครื่องทั้งหมด",
+			"totalWeightValue": "ประมาณ 75kg"
+		},
+		"hfiF30": {
+			"name": "HFI-F30",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-30-LP",
+
+			"outputPowerValue": "30W",
+
+			"beamQualityValue": "≤1.5"
+		},
+		"hfiF50": {
+			"name": "HFI-F50",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "LP-E-50-LP",
+
+			"outputPowerValue": "50W",
+
+			"beamQualityValue": "≤1.8"
+		},
+		"hcoFC40": {
+			"name": "C300C",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "HCO-FC40",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "40W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.2",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "10.6 um",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "0-25 kHz",
+
+			"exitBeamDiameterKey": "เส้นผ่านศูนย์กลางของลำแสงขาออก",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "±5%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 20,000 ชั่วโมงทํางาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkerLineWidthValue": "0.1mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "ระบบระบายความร้อนด้วยอากาศแบบมาตรฐานในตัว (สามารถปรับแต่งเป็นระบบระบายความร้อนด้วยน้ำได้)",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V สามารถเชื่อมต่อได้)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อใช้งานนอกช่วงที่กำหนด",
+
+			"oilMistCondensationKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบการทำเครื่องหมายด้วยเลเซอร์แบบเคลื่อนที่",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก and other marking content",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "660x510x1460 mm",
+
+			"packingSizeKey": "ขนาดบรรจุ",
+			"packingSizeValue": "Host: 980x600x370 mm Column: 1350x350x280 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 63kg"
+		},
+		"hcoFC70": {
+			"name": "C600C",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "HCO-FC70",
+
+			"outputPowerValue": "70W",
+
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hcoSC40": {
+			"name": "HCO-SC40",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "C30",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "40W",
+
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.2",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "10.6 um",
+
+			"pulseFrequencyKey": "ความถี่พัลส์",
+			"pulseFrequencyValue": "0-25 kHz",
+
+			"exitBeamDiameterKey": "เส้นผ่านศูนย์กลางของลำแสงขาออก",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "±5%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 20,000 ชั่วโมง",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingRangeKey": "ช่วงการทําเครื่องหมาย",
+			"markingRangeValue": "100~300mm (ช่วงที่เลือกได้)",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm (ขึ้นอยู่กับพลังงานและเวลา)",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "ความแม่นยำในการทำซ้ำ",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkingLineWidthValue": "0.1mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "ระบบระบายความร้อนด้วยอากาศแบบมาตรฐานในตัว (สามารถปรับแต่งเป็นระบบระบายความร้อนด้วยน้ำได้)",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (สามารถเชื่อมต่อได้ to 110V)",
+
+			"temperatureHumidityKey": "อุณหภูมิความชื้น",
+			"temperatureHumidityValue": "5~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อใช้งานนอกช่วงที่กำหนด",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "850x600x1400 mm",
+
+			"packingdimensionsKey": "ขนาดบรรจุ",
+			"packingdimensionsValue": "860x730x1050 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "ประมาณ 80kg"
+		},
+		"hcoSC25": {
+			"name": "HCO-SC25",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "C30-9.3/10.2",
+
+			"outputPowerValue": "25W",
+
+			"LaserWaveLengthValue": "9.3 / 10.2 um",
+
+			"pulseFrequencyValue": "0-20 kHz",
+
+			"workingLifeValue": "ประมาณ 20,000 ชั่วโมงทํางาน"
+		},
+		"hcoSC70": {
+			"name": "HCO-SC70",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "CH-C55",
+
+			"outputPowerValue": "70W",
+
+			"LaserWaveLengthValue": "10.6 um",
+
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hcoSC55": {
+			"name": "HCO-SC55",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "CH-C55-9.3/10.2",
+
+			"outputPowerValue": "55W",
+
+			"laserWaveLengthValue": "9.3 / 10.2 um",
+
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hfiH2030A": {
+			"name": "HFI-H20,30A",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "20M / 30M",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "20W /30W",
+
+			"pulseFrequencyKey": "ความถี่การซ้ำของพัลส์",
+			"pulseFrequencyValue": "20-60 kHz",
+
+			"laserWaveLengthKey": "ความยาวคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "<3%",
+
+			"workingLifeKey": "ระยะเวลาในการทำงาน",
+			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงทํางาน (ไม่ใช่อายุการใช้งาน)",
+
+			"opticalProperties": "คุณสมบัติทางแสง",
+			"markingAreaKey": "Marking area",
+			"markingAreaValue": "75mm",
+
+			"engravingDepthKey": "ความลึกของการแกะสลัก",
+			"engravingDepthValue": "≤1mm",
+
+			"engravingSpeedKey": "ความเร็วในการแกะสลัก",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "การทําซ้ํา",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "ความกว้างเส้นขีดเครื่องหมายขั้นต่ำ",
+			"minimumMarkingLineWidthValue": "0.15mm",
+
+			"minimumCharacterHeightKey": "ความสูงตัวอักษรต่ำสุด",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
+			"batteryLifeKey": "อายุใช้งานแบตเตอรี่",
+			"batteryLifeValue": "It can work for 6-8 hours under normal use in one day",
+
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W / 100-240V / 50/60Hz",
+
+			"otherParameters": "พารามิเตอร์อื่น ๆ",
+			"operatingSystemKey": "ระบบปฏิบัติการ",
+			"operatingSystemValue": "ระบบลินุกซ์",
+
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, ลวดลาย, รหัสสองมิติ, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก และเนื้อหาการทำเครื่องหมายอื่น ๆ (อินพุต USB มาตรฐาน)",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "โครงควบคุม: 255x135x200 mm หัวทำเครื่องหมาย: 258x120x260 mm",
+
+			"machineWeightKey": "น้ําหนักเครื่อง",
+			"machineWeightValue": "ตัวเครื่อง 6kg, หัวทำเครื่องหมาย 1.25kg"
+		},
+		"hfiH2030S": {
+			"name": "HFI-H20,30S"
+		},
+		"hfiH2030R": {
+			"name": "HFI-H20,30R"
+		},
+		"hcl200": {
+			"name": "HCL-200",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "RFL-P200",
+
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "200W",
+
+			"laserWaveLengthKey": "ความยาวของคลื่นเลเซอร์",
+			"laserWaveLengthValue": "1064±5nm",
+
+			"repetitionFrequencyRangeKey": "ช่วงความถี่การทำซ้ำ",
+			"repetitionFrequencyRangeValue": "10-50 kHz",
+
+			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
+			"outputPowerStabilityValue": "<5%",
+
+			"pluseWidthRangeKey": "ช่วงความกว้างของพัลส์",
+			"pluseWidthRangeValue": "120-160 ns",
+
+			"outputCoreDiameterKey": "เส้นผ่านศูนย์กลางของแกนขาออก",
+			"outputCoreDiameterValue": "100 m",
+
+			"outputFiberLengthKey": "ความยาวของเส้นใยขาออก",
+			"outputFiberLengthValue": "5 m (ปรับแต่งได้)",
+
+			"coolingWayKey": "วิธีการระบายความร้อน",
+			"coolingWayValue": "การระบายความร้อนด้วยน้ำ",
+
+			"inputPowerKey": "Input power",
+			"inputPowerValue": "220, 50/60 Hz",
+
+			"operatingTemperatureKey": "Operating temperature",
+			"operatingTemperatureValue": "10-40°C",
+
+			"dimensionsKey": "ขนาด",
+			"dimensionsValue": "1080x665x1130 mm",
+
+			"totalWeightKey": "น้ําหนักรวม",
+			"totalWeightValue": "180 KG"
+		},
+		"hcl300": {
+			"name": "HCL-300",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "RFL-P300",
+
+			"outputPowerValue": "300W"
+		},
+		"hcl500": {
+			"name": "HCL-500",
+			"laserParameters": "พารามิเตอร์เลเซอร์",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "RFL-P500",
+
+			"outputPowerValue": "500W"
+		},
+		"hcl1000": {
+			"name": "HCL-1000",
+			"laserModel": "โมเดลเลเซอร์",
+			"laserModelValue": "RFL-P1000",
+
+			"outputPowerValue": "1000W",
+
+			"repetitionFrequencyRangeValue": "40-300 kHz",
+
+			"outputPowerStabilityValue": "0.8±0.1 mm"
+		},
+		"hcnC801000": {
+			"name": "HCN-C80-1000",
+			"outputPowerKey": "กำลังส่งออก",
+			"outputPowerValue": "1000W",
+
+			"type": "ประเภท",
+			"typeValue": "ต่อเนื่อง",
+
+			"cuttingProductKey": "ความแม่นยำในการตัดผลิตภัณฑ์",
+			"cuttingProducValue": ".+/-0.05 mm",
+
+			"cutThroughHoleKey": "วิธีการตัดทะลุด้วยรูเปิดขนาดเล็กที่สุด",
+			"cutThroughHoleValue": "0.1 mm",
+
+			"processingMaterialKey": "วัสดุที่ใช้ในการแปรรูป",
+			"processingMaterialValue": "อะลูมิเนียม, ทองแดง, วัสดุโลหะ",
+
+			"effectiveCuttingSizeKey": "ขนาดการตัดที่มีประสิทธิภาพ",
+			"effectiveCuttingSizeValue": "650mm x 800mm",
+
+			"aFixedKey": "วิธีการแบบคงที่",
+			"aFixedValue": "การจับยึดขอบแบบนิวเมติกและการรองรับด้วยอุปกรณ์จับยึด",
+
+			"driveSystemKey": "ระบบขับเคลื่อน",
+			"driveSystemValue": "มอเตอร์เชิงเส้น",
+
+			"positioningAccuracyKey": "ความถูกต้องของตําแหน่ง",
+			"positioningAccuracyValue": "+/-0.008 mm",
+
+			"repeatabilityKey": "การทําซ้ํา",
+			"repeatabilityValue": "0.008 mm",
+
+			"ccdAlignmentAccuracyKey": "ความแม่นยําในการจัดตําแหน่ง CCD",
+			"ccdAlignmentAccuracyValue": "10um",
+
+			"cuttingGasSourceKey": "แหล่งก๊าซสำหรับการตัด",
+			"cuttingGasSourceValue": "อากาศ ไนโตรเจน ออกซิเจน",
+
+			"cutSurfaceKey": "ตัดพื้นผิว",
+			"cutSurfaceValue": "เรียบ, ไม่มีครีบ, ไม่มีขอบดำ",
+
+			"overallWarrantyKey": "การรับประกันโดยรวม",
+			"overallWarrantyValue": "1 ปี (ยกเว้นชิ้นส่วนที่สึกหรอ)",
+
+			"totalWeightKey": "น้ำหนัก",
+			"totalWeightValue": "1800 KG",
+
+			"cuttingSpeed": "ความเร็วในการตัด",
+			"cuttingSpeedValue": [
+				"- 0.8m/min(10mm ไม่ใช้ลมตัดแผ่นเหล็กเป็นสนิม)",
+				"- 4.0m/min(1.5mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 1.5m/min(2.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)"
+			]
+		},
+		"hcnC801500": {
+			"name": "HCN-C80-1500",
+			"outputPowerValue": "1500W",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(6.0mm ไม่ใช้ลมตัดแผ่นเหล็กเป็นสนิม)",
+				"- 1.8m/min(3.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 2.0m/min(2.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 3.5m/min(2.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 4.5m/min(1.5mm การตัดทองแดงด้วยออกซิเจน)"
+			]
+		},
+		"hcnC802000": {
+			"name": "HCN-C80-2000",
+			"outputPowerValue": "2000W",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(7.0mm ไม่ใช้ลมตัดแผ่นเหล็กเป็นสนิม)",
+				"- 0.8m/min(4.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 1.2m/min(5.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 2.0m/min(3.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 2.0m/min(5.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)"
+			]
+		},
+		"hcnC803000": {
+			"name": "HCN-C80-3000",
+			"outputPowerValue": "3000W",
+
+			"processingMaterialValue": "40-300 kHz",
+
+			"effectiveCuttingSizeValue": "0.8±0.1 mm",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(10mm ไม่ใช้ลมตัดแผ่นเหล็กเป็นสนิม)",
+				"- 0.8m/min(5.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 1.5m/min(4.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 1.5m/min(6.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 2.2m/min(5.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)"
+			]
+		},
+		"hcnC806000": {
+			"name": "HCN-C80-6000",
+			"outputPowerValue": "6000W",
+
+			"processingMaterialValue": "40-300 kHz",
+
+			"effectiveCuttingSizeValue": "0.8±0.1 mm",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(14mm ไม่ใช้ลมตัดแผ่นเหล็กเป็นสนิม)",
+				"- 1.2m/min(8.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 1.5m/min(6.0mm การตัดทองแดงด้วยออกซิเจน)",
+				"- 2.0m/min(6.0mm การตัดแผ่นอะลูมิเนียมด้วยก๊าซไนโตรเจน)",
+				"- 2.5m/min(5.0mm การตัดทองแดงด้วยออกซิเจน)"
+			]
+		}
+	}
+}

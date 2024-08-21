@@ -1,27 +1,36 @@
-import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
+import { useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import RelatedProducts from '@/components/related-products'
-import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
+import { Badge } from '@/components/ui/badge'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
+import { Mailbox, Phone, ShoppingCart } from 'lucide-react'
 import React from 'react'
-import { Separator } from '@/components/ui/separator'
-import RenderTable from '@/features/product/laser-marking-machines/components/render-table'
-import { Button } from '@/components/ui/button'
-import { Mailbox, Phone } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
 	const { data: product, isPending: isProductPending } = useProductId(productId)
-	const { data: models, isPending: isModelsPending } = useModelsQuery(productId)
 	const { data: relatedProducts, isPending: isRelatedPending } = useRelatedProductsQuery(
 		product?.id,
 		product?.subCategoryId
 	)
 
-	if (isProductPending || isModelsPending) return <ProductDetailPending />
-	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+	const { t } = useTranslation()
+
+	if (isProductPending) return <ProductDetailPending />
+	if (!product) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const features = t(product.featuresKey, { returnObjects: true }) as string[]
+
+	const advantages = t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.advantages', {
+		returnObjects: true
+	})
+	const advantagesList = Array.from(Object.values(advantages))
 
 	return (
 		<>
@@ -35,7 +44,30 @@ const ProductDetail: React.FC = () => {
 
 						{/* Product details section */}
 						<div className='lg:w-1/2'>
-							<RenderProductDetail product={product} />
+							<CardTitle className='text-2xl md:text-3xl font-bold mb-4'>{t(product.nameKey)}</CardTitle>
+							<div className='space-y-4'>
+								<CardDescription className='text-base'>
+									{t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.description')}
+								</CardDescription>
+								<CardDescription className='text-base'>
+									{t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.subDescription')}
+								</CardDescription>
+							</div>
+							<div className='my-6'>
+								<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>
+								<ul className='space-y-2'>
+									{features.map((feature: string, index: number) => (
+										<li key={index} className='flex items-center'>
+											<Badge className='mr-2 mt-1 bg-green-500 flex-shrink-0'>{index + 1}</Badge>
+											<CardDescription>{feature}</CardDescription>
+										</li>
+									))}
+								</ul>
+							</div>
+							<Button className='w-full text-xl bg-amber-500 hover:bg-amber-600 transition-colors'>
+								<ShoppingCart className='w-6 h-6 mr-2' />
+								<span>Get a Quote</span>
+							</Button>
 						</div>
 					</div>
 				</CardContent>
@@ -47,55 +79,22 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<div className='space-y-8'>
+							<div className='space-y-4'>
 								<CardDescription className='text-base'>
-									The HFI-S series fiber laser marking machine of Helionyx is an all-round marking equipment. Because of
-									its strong adaptability, low maintenance and no consumables during the marking process,{' '}
-									<span className='text-amber-500'>
-										it is often used in the metal and plastic processing industries.
-									</span>
+									{t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.description')}
 								</CardDescription>
 								<CardDescription className='text-base'>
-									HFI-S Fiber series products use 1064nm wavelength laser, which is suitable for various metal materials
-									such as iron, copper, aluminum, gold, silver, and some non-metal materials such as PC, ABS, PVC,
-									PC+ABS. It is widely used in 3C, auto parts, electronic components, integrated circuits (PC),
-									electrical appliances, precision equipment, hardware products, building materials, clocks and watches,
-									jewelry, craft gifts and other industries.
+									{t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.subDescription')}
 								</CardDescription>
 								<div>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>Appearance: integrated cabinet, small footprint;</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>
-											Performance: It has perfect laser characteristics and good pulse shape control ability. The seed
-											source adopts waveform compensation, the amplified pulse deformation is corrected, and the output
-											pulse energy is higher;
-										</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>
-											Control: use industrial computer with keyboard, mouse and LCD, similar to desktop computer
-											operation mode, application is simple, safe, accurate and easy to use;
-										</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>
-											Software: Full English interface based on Windows system, convenient for daily application,
-											intuitive content;
-										</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>
-											Service: This series of marking machines are flexible and easy to operate. Mac laser provides
-											reliable after-sales service to ensure your use needs.
-										</span>
-									</CardDescription>
+									{advantagesList.map((advantage: { title: string; description: string }, index: number) => (
+										<CardDescription key={index} className='text-base'>
+											<span className='text-amber-500'>&gt;&gt;</span>{' '}
+											<span>
+												{advantage.title}: {advantage.description}
+											</span>
+										</CardDescription>
+									))}
 								</div>
 							</div>
 						</section>
@@ -104,7 +103,150 @@ const ProductDetail: React.FC = () => {
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold' colSpan={3}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border'>Model</TableHead>
+										<TableHead className='border'>{t('models.hfiS20.name')}</TableHead>
+										<TableHead className='border'>{t('models.hfiS30.name')}</TableHead>
+										<TableHead className='border'>{t('models.hfiS50.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hfiS20.laserModel')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hfiS20.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hfiS30.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hfiS50.laserModelValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.outputPowerKey')}</TableCell>
+										<TableCell className='border'>{t('models.hfiS20.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hfiS30.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hfiS50.outputPowerValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hfiS20.beamQualityKey')}</TableCell>
+										<TableCell className='bg-muted border' colSpan={3}>
+											{t('models.hfiS20.beamQualityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.pulseFrequencyKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.pulseFrequencyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.laserWaveLengthKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.laserWaveLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.outputPowerStabilityKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.outputPowerStabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.designLifeKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.designLifeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.markingRangeKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.markingRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.markingDepthKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.markingDepthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.markingSpeedKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.markingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.repeatAccuracyKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.repeatAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.minimumLineWidthKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.minimumLineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.minimumCharacterHeightKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.minimumCharacterHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.coolingModeKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.coolingModeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.systemPowerSupplyKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.systemPowerSupplyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.temperatureHumidityKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.temperatureHumidityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.oilMistCondensationKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.oilMistCondensationValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.operatingSystemKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.operatingSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.fileFormatKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.fileFormatValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hfiS20.packingSizeKey')}</TableCell>
+										<TableCell className='border' colSpan={3}>
+											{t('models.hfiS20.packingSizeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hfiS20.totalWeightKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={3}>
+											{t('models.hfiS20.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -149,7 +291,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

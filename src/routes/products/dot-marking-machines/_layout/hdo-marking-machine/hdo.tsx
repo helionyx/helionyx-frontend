@@ -7,9 +7,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import React from 'react'
 import { Separator } from '@/components/ui/separator'
-import RenderTable from '@/features/product/dot-marking-machine/components/render-table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { Button } from '@/components/ui/button'
 import { Mailbox, Phone } from 'lucide-react'
+import { useTranslation } from 'react-i18next'
 
 import dm_01 from '/laser-marking-machines/dot-marking/dm_01.png'
 import dm_02 from '/laser-marking-machines/dot-marking/dm_02.png'
@@ -25,8 +26,15 @@ const ProductDetail: React.FC = () => {
 		product?.subCategoryId
 	)
 
+	const { t } = useTranslation()
+
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const advantages = t('products.hdo.advantages', {
+		returnObjects: true
+	})
+	const advantagesList: { title: string; description: string }[] = Array.from(Object.values(advantages))
 
 	return (
 		<>
@@ -52,49 +60,20 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<div className='space-y-8'>
-								<CardDescription className='text-base'>{product.description}</CardDescription>
-								<CardDescription className='text-base'>{product.subDescription}</CardDescription>
-								<div className='space-y-4'>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt; High-pressure chain steel base</span>
-									</CardDescription>
-									<CardDescription>
-										good quality, heavy and strong, playing a stable role on industrial pneumatic marking machine;
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt; Inlet filter pressure regulating valve</span>
-									</CardDescription>
-									<CardDescription>
-										adjust the pressure level to fully reduce the impact of upstream pressure fluctuations and ensure
-										the stability of the output pressure;
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt; Carbide needles</span>
-									</CardDescription>
-									<CardDescription>
-										Industrial pneumatic marking machines can print mechanical parts and signs of most materials;
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>
-											&gt;&gt; Computer control and the new version of WINDOWS operating system
-										</span>
-									</CardDescription>
-									<CardDescription>
-										Chinese and English switching, powerful editing function, industrial pneumatic marking machine can
-										arbitrarily arrange the required characters and graphics;
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt; Automatically save the marked content</span>
-									</CardDescription>
-									<CardDescription>
-										when the power is abnormally disconnected, the industrial pneumatic marking machine can
-										automatically save the pattern being edited and marked;
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt; Support multiple types of fonts</span>
-									</CardDescription>
-									<CardDescription>SHX font for Auto, CHR for Borland, TTF for Windows;</CardDescription>
+							<div className='space-y-4'>
+								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
+								{product.subDescriptionKey && (
+									<CardDescription className='text-base'>{t(product.subDescriptionKey)}</CardDescription>
+								)}
+								<div>
+									{advantagesList.map((advantage, index: number) => (
+										<CardDescription key={index} className='text-base my-2'>
+											<div className='space-y-2'>
+												<p className='text-amber-500'>&gt;&gt; {advantage.title}</p>
+												<p>{advantage.description}</p>
+											</div>
+										</CardDescription>
+									))}
 								</div>
 							</div>
 						</section>
@@ -103,7 +82,89 @@ const ProductDetail: React.FC = () => {
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold' colSpan={2}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border'>Model</TableHead>
+										<TableHead className='border'>{t('models.hdo23.name')}</TableHead>
+										<TableHead className='border'>{t('models.hdo12.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hdo23.outputPowerKey')}</TableCell>
+										<TableCell className='bg-muted border' colSpan={2}>
+											{t('models.hdo23.outputPowerValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hdo23.printRageKey')}</TableCell>
+										<TableCell className='border' colSpan={2}>
+											{t('models.hdo23.printRageValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hdo23.largestPrintHardnessKey')}</TableCell>
+										<TableCell className='bg-muted border' colSpan={2}>
+											{t('models.hdo23.largestPrintHardnessValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hdo23.printHeadLiftingHeightKey')}</TableCell>
+										<TableCell className='border' colSpan={2}>
+											{t('models.hdo23.printHeadLiftingHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hdo23.minimumCharacterKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={2}>
+											{t('models.hdo23.minimumCharacterValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hdo23.compressedAirPressureKey')}</TableCell>
+										<TableCell className='border' colSpan={2}>
+											{t('models.hdo23.compressedAirPressureValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hdo23.voltageRequirementsKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={2}>
+											{t('models.hdo23.voltageRequirementsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hdo23.environmentTempKey')}</TableCell>
+										<TableCell className='border' colSpan={2}>
+											{t('models.hdo23.environmentTempValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hdo23.printingSpeedKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={2}>
+											{t('models.hdo23.printingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hdo23.systemResetNumberKey')}</TableCell>
+										<TableCell className='border' colSpan={2}>
+											{t('models.hdo23.systemResetNumberValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hdo23.continuousWorkingTimeKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={2}>
+											{t('models.hdo23.continuousWorkingTimeValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -111,7 +172,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {product.name.toUpperCase()}</CardTitle>
+					<CardTitle>ADVANTAGES OF {t(product.nameKey).toUpperCase()}</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -119,9 +180,11 @@ const ProductDetail: React.FC = () => {
 							<img src={dm_01} className='w-full h-full object-cover rounded-t-none bg-transparent' />
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Automotive machinery industry</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hdo.advantages.highQualitySteelBase.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								bearings, steel sleeves, piston rings, engines, machine tools, etc .;
+								{t('products.hdo.advantages.highQualitySteelBase.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -130,10 +193,11 @@ const ProductDetail: React.FC = () => {
 							<img src={dm_02} className='w-full h-full object-cover rounded-t-none bg-transparent' />
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Hardware equipment industry</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hdo.advantages.inletFilterPressureRegulatingValve.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								tools, measuring tools, cutting tools, sanitary ware, tableware, locks, knives and scissors, medical
-								equipment, fitness equipment, stainless steel products, etc .;
+								{t('products.hdo.advantages.inletFilterPressureRegulatingValve.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -142,10 +206,9 @@ const ProductDetail: React.FC = () => {
 							<img src={dm_03} className='w-full h-full object-cover rounded-t-none bg-transparent' />
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Decoration label industry</CardTitle>
+							<CardTitle className='text-amber-500'>{t('products.hdo.advantages.carbideNeedles.title')}</CardTitle>
 							<CardDescription className='text-base'>
-								buttons, luggage buckles, belt buckles, gold and silver jewelry, signs, badges, attendance cards,
-								business cards, photos, leather bags, belts, pens and pen cases, collectors, artworks, etc
+								{t('products.hdo.advantages.carbideNeedles.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -154,18 +217,27 @@ const ProductDetail: React.FC = () => {
 							<img src={dm_04} className='w-full h-full object-cover rounded-t-none bg-transparent' />
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Electronic communication industry</CardTitle>
+							<CardTitle className='text-amber-500'>{t('products.hdo.advantages.computerControl.title')}</CardTitle>
 							<CardDescription className='text-base'>
-								keyboards, electronic components, home appliance panels, optical cables, cables, etc .;
+								{t('products.hdo.advantages.computerControl.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Instrument and glasses industry</CardTitle>
+							<CardTitle className='text-amber-500'>{t('products.hdo.advantages.autoSaving.title')}</CardTitle>
 							<CardDescription className='text-base'>
-								metal watch cases, watch bottoms, spectacle frames, instrument panels and other areas that require high
-								depth, smoothness and fineness.
+								{t('products.hdo.advantages.autoSaving.description')}
+							</CardDescription>
+						</CardHeader>
+					</Card>
+					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
+						<CardHeader className='text-center space-y-8 p-14'>
+							<CardTitle className='text-amber-500'>
+								{t('products.hdo.advantages.supportMultipleFonts.title')}
+							</CardTitle>
+							<CardDescription className='text-base'>
+								{t('products.hdo.advantages.supportMultipleFonts.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
@@ -177,7 +249,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

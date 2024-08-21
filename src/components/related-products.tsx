@@ -2,9 +2,10 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Carousel, CarouselContent, CarouselItem } from '@/components/ui/carousel'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Product } from '@/features/product/types/product'
+import { Product } from '@/types'
 import { Link } from '@tanstack/react-router'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 type RelatedProductsProps = {
 	isRelatedPending: boolean
@@ -13,6 +14,8 @@ type RelatedProductsProps = {
 }
 
 const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, relatedProducts, slug }) => {
+	const { t } = useTranslation()
+
 	return (
 		<>
 			{isRelatedPending ? (
@@ -71,15 +74,15 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 											<CardHeader className='p-4 relative overflow-hidden rounded-lg flex justify-center'>
 												<img
 													src={relatedProduct.imageUrl}
-													alt={relatedProduct.name}
+													alt={relatedProduct.nameKey}
 													className='w-full h-48 object-contain rounded-t-lg bg-transparent'
 												/>
 												<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
 											</CardHeader>
 											<CardContent className='p-4'>
-												<CardTitle className='text-lg mb-2'>{relatedProduct.name}</CardTitle>
+												<CardTitle className='text-lg mb-2'>{t(relatedProduct.nameKey)}</CardTitle>
 												<CardDescription className='text-sm'>
-													{relatedProduct.description.slice(0, 100)}...
+													{t(relatedProduct.descriptionKey).slice(0, 100)}...
 												</CardDescription>
 											</CardContent>
 											<CardFooter className='p-4'>

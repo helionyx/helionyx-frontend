@@ -1,0 +1,1270 @@
+{
+	"models": {
+		"huvA20": {
+			"name": "HUV-A20",
+			"laserParameters": "Laser parameters",
+			"laserModelKey": "Laser model",
+			"laserModelValue": "Integrated laser",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "≤20W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤2",
+
+			"pulseFrequencyKey": "Pulse repetition frequency",
+			"pulseFrequencyValue": "30-80 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064 nm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "<5%",
+
+			"workingLifeKey": "Design life",
+			"workingLifeValue": "Approximately 100,000 working hours (not service life)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "70-175MM (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤ 1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤8000m/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "Minimum mark line width",
+			"minimumLineWidthValue": "0.1 mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15 mm",
+
+			"useEnvironment": "Use environment",
+			"coolingMethodKey": "Cooling method",
+			"coolingMethodValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "≤350W / 220V / 50Hz",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, if used outside the range, an air conditioner must be installed",
+
+			"oilMistKey": "Oil mist, condensation",
+			"oilMistValue": "Not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating software",
+			"operatingSystemValue": "Golden oranges",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "The software supports text, QR codes, barcodes, graphics and other marking contents",
+
+			"dimensionsKey": "Dimensions",
+			"dimensionsValue": "108 x 125 x 467 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "Packaging: 533 x 195 x 242",
+
+			"hostWeightKey": "Host weight",
+			"hostWeightValue": "5.5kg",
+
+			"overWeightKey": "Overall weight",
+			"overWeightValue": "9.1kg"
+		},
+		"huvA30": {
+			"name": "HUV-A30",
+			"outputPowerValue": "≤30W",
+			"temperatureHumidityValue": "5KW"
+		},
+		"huvSW3": {
+			"name": "HUV-SW-3",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser source model",
+			"laserModelValue": "355-3",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "CRS <1.2 / Maiman <1.3",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "CRS 10-200 kHz / Maiman 30-500 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "355 nm",
+
+			"outputBeamDiameterKey": "Output beam diameter",
+			"outputBeamDiameterValue": "0.8 mm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 20,000 hours",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "Minimum marking line width",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.03mm",
+
+			"useEnvironment": "Use environment",
+			"coolingMethodKey": "Cooling way",
+			"coolingMethodValue": "External water cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "5~35°, 30%≤RH≤85%",
+
+			"oilMistKey": "Oil mist, condensation",
+			"oilMistValue": "Not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/types of WINDOWS operating system font library (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "800x660x1425 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "About 100kg"
+		},
+		"huvSW5": {
+			"name": "HUV-SW-5",
+			"laserModelValue": "355-5",
+			"outputPowerValue": "5W"
+		},
+		"huvSW8": {
+			"name": "HUV-SW-8",
+			"laserModelValue": "355-8",
+			"outputPowerValue": "8W"
+		},
+		"huvSW10": {
+			"name": "HUV-SW-10",
+			"laserModelValue": "355-10",
+			"outputPowerValue": "10W"
+		},
+		"huvSW15": {
+			"name": "HUV-SW-15",
+			"laserModelValue": "355-15",
+			"outputPowerValue": "15W"
+		},
+		"huvSW20": {
+			"name": "HUV-SW-20",
+			"laserModelValue": "355-20",
+			"outputPowerValue": "20W"
+		},
+		"huvMW3": {
+			"name": "HUV-MW3",
+			"laserParameters": "Laser parameters",
+			"laserModelKey": "Laser model",
+			"laserModelValue": "HUV-MW3",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "Beam quality M",
+			"beamQualityValue": "<1.2",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "355 nm",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"exitBeamDiameterKey": "Exit beam diameter",
+			"exitBeamDiameterValue": "0.7±0.1 mm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "3%",
+
+			"designLifeKey": "Design life",
+			"designLifeValue": "About 20,000 working hours (not service life)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~160mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatabilityKey": "Repeatability",
+			"repeatabilityValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "Minimum Marker line width",
+			"minimumMarkerLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.03mm",
+
+			"useEnvironment": "Use environment",
+			"coolingMethodKey": "Cooling method",
+			"coolingMethodValue": "Water cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (Can be connected to 110V)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "5~35°, 30% RH 85%",
+
+			"oilMistCondensationKey": "Oil mist, condensation",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/types of WINDOWS operating system font library (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "Marking machine 300x460x615mm water tank 250x340x24mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "About 30kg"
+		},
+		"huvMW5": {
+			"name": "HUV-MW5",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "HUV-MW5",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "5W",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"exitBeamDiameterKey": "Exit beam diameter",
+			"exitBeamDiameterValue": "0.7±0.1 mm"
+		},
+		"huvMW10": {
+			"name": "HUV-MW10",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "HUV-MW10",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "10W",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "40-300 kHz",
+
+			"exitBeamDiameterKey": "Exit beam diameter",
+			"exitBeamDiameterValue": "0.8±0.1 mm"
+		},
+		"huvFW3A": {
+			"name": "HUV-FW3A",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LARK-355-3A",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "3W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "<1.2",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "355 nm",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"outputBeamDiameterKey": "Output beam diameter",
+			"outputBeamDiameterValue": "0.7±0.1 mm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 20,000 hours",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "Minimum Marker line width",
+			"minimumMarkerLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature and humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner should be installed when used",
+
+			"oilMistKey": "Oil mist, condensation",
+			"oilMistValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Flying marking system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "The software supports text, QR code, barcode, serial number, graphics",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "660x510x1460 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "Host: 850x510x280 mm Water tank: 680x430x57 mm Column: 1350x350x280 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "Including cooling water tank about 89kg"
+		},
+		"huvFW5A": {
+			"name": "HUV-FW5A",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LARK-355-5A",
+
+			"outputPowerValue": "5W"
+		},
+		"huvFW3E": {
+			"name": "HUV-FW3E",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "SEAL-355-3E",
+
+			"outputPowerValue": "3W",
+
+			"coolingWayValue": "External water cooling"
+		},
+		"huvFW355C": {
+			"name": "HUV-FW3-55C",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "SEAL-355-C",
+
+			"outputPowerValue": "3W",
+
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"coolingWayValue": "External water cooling"
+		},
+		"huvFW555C": {
+			"name": "HUV-FW5-55C",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "SEAL-355-C",
+
+			"outputPowerValue": "5W",
+
+			"pulseFrequencyValue": "20-150 kHz",
+
+			"coolingWayValue": "External water cooling"
+		},
+		"huvFW1055C": {
+			"name": "HUV-FW10-55C",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "SEAL-355-10S",
+
+			"outputPowerValue": "10W",
+
+			"pulseFrequencyValue": "40-300 kHz",
+
+			"outputBeamDiameterValue": "0.8±0.1 mm"
+		},
+		"hfiM20": {
+			"name": "HFI-M20",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "MFP-20X/20QS",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "18.5W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.4",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "27-60 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 100,000 working hours (non-service life)",
+
+			"opticalProperties": "Optical properties",
+			"markingAreaKey": "Marking area",
+			"markingAreaValue": "100~150mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "Minimum line width",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingMethodKey": "Cooling method",
+			"coolingMethodValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner should be installed when used outside the range",
+
+			"oilMistCondensationKey": "Oil mist, condensation",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/typefaces of WINDOWS operating system font library (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "460x300x683 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "550x440x690 mm",
+
+			"totalWeightKey": "Machine weight",
+			"totalWeightValue": "About 25kg"
+		},
+		"hfiM30": {
+			"name": "HFI-M30",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "MFP-30X/30QS",
+
+			"outputPowerValue": "30W",
+
+			"pulseFrequencyValue": "30-60 kHz"
+		},
+		"hfiMN20": {
+			"name": "HFI-MN20",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "MFP-20X/20QS",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "18.5/20W",
+
+			"beamQualityKey": "Beam quality M2",
+			"beamQualityValue": "≤1.4",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "27-60 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "≤3%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 100,000 working hours (non-service life)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~150mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "Minimum Marking line width",
+			"minimumMarkingLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner should be installed when used outside the range",
+
+			"oilMistCondensationKey": "Oil mist, condensation",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"supportSystemKey": "Support system",
+			"supportSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/typefaces of WINDOWS operating system font library (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "390x210x615 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "680x5500x270 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "About 20kg"
+		},
+		"hfiMN30": {
+			"name": "HFI-MN30",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "MFP-30X/30QS",
+
+			"outputPowerValue": "30W",
+
+			"pulseFrequencyValue": "30-60 kHz"
+		},
+		"hfiS20": {
+			"name": "HFI-S20",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-20-LP",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "20W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.5",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "1-600 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064±10 nm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "<5%",
+
+			"designLifeKey": "Design life",
+			"designLifeValue": "Approximately 100,000 working hours (Non-lifetime)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"markingDepthKey": "Marking depth",
+			"markingDepthValue": "≤1mm (depending on power and time)",
+
+			"markingSpeedKey": "Marking speed",
+			"markingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "Minimum line width",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingModeKey": "Cooling mode",
+			"coolingModeValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W/220V/50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner shall be installed when it is used beyond the range",
+
+			"oilMistCondensationKey": "Oil mist",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/typefaces of WINDOWS operating system font library (standard USB input)",
+
+			"exteriordimensionsKey": "Exterior dimensions",
+			"exteriordimensionsValue": "800x600x1400 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "Weight of the whole machine",
+			"totalWeightValue": "About 75kg"
+		},
+		"hfiS30": {
+			"name": "HFI-S30",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-30-LP",
+
+			"outputPowerValue": "30W",
+
+			"beamQualityValue": "≤1.5"
+		},
+		"hfiS50": {
+			"name": "HFI-S50",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-50-LP",
+
+			"outputPowerValue": "50W",
+
+			"beamQualityValue": "≤1.8"
+		},
+		"hfiF20": {
+			"name": "HFI-F20",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-20-LP",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "20W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.5",
+
+			"pulseFrequencyKey": "Pulse repetition frequency",
+			"pulseFrequencyValue": "1-600 kHz",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064±10 nm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "<5%",
+
+			"designLifeKey": "Design life",
+			"designLifeValue": "Approximately 100,000 working hours (Non-lifetime)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"markingDepthKey": "Marking depth",
+			"markingDepthValue": "≤1mm (depending on power and time)",
+
+			"markingSpeedKey": "Marking speed",
+			"markingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumLineWidthKey": "Minimum line width",
+			"minimumLineWidthValue": "0.01mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingModeKey": "Cooling mode",
+			"coolingModeValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W/220V/50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner shall be installed when it is used beyond the range",
+
+			"oilMistCondensationKey": "Oil mist",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/typefaces of WINDOWS operating system font library (standard USB input)",
+
+			"exteriordimensionsKey": "Exterior dimensions",
+			"exteriordimensionsValue": "800x600x1400 mm",
+
+			"packingSizeKey": "Packing size",
+			"packingSizeValue": "860x730x1050 mm",
+
+			"totalWeightKey": "Weight of the whole machine",
+			"totalWeightValue": "About 75kg"
+		},
+		"hfiF30": {
+			"name": "HFI-F30",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-30-LP",
+
+			"outputPowerValue": "30W",
+
+			"beamQualityValue": "≤1.5"
+		},
+		"hfiF50": {
+			"name": "HFI-F50",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "LP-E-50-LP",
+
+			"outputPowerValue": "50W",
+
+			"beamQualityValue": "≤1.8"
+		},
+		"hcoFC40": {
+			"name": "C300C",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "HCO-FC40",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "40W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.2",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "10.6 um",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "0-25 kHz",
+
+			"exitBeamDiameterKey": "Exit beam diameter",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "±5%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 20,000 working hours (non-lifetime)",
+
+			"opticalProperties": "Optical properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkerLineWidthKey": "Minimum marker line width",
+			"minimumMarkerLineWidthValue": "0.1mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Standard built-in air cooling (water cooling can be customized)",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (110V can be connected)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, air conditioner should be installed when used outside the range",
+
+			"oilMistCondensationKey": "Oil mist, condensation",
+			"oilMistCondensationValue": "not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Flying laser marking system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "The software supports text, QR code, barcode, serial number, graphics and other marking content",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "660x510x1460 mm",
+
+			"packingSizeKey": "Packing dimensions",
+			"packingSizeValue": "Host: 980x600x370 mm Column: 1350x350x280 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "About 63kg"
+		},
+		"hcoFC70": {
+			"name": "C600C",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "HCO-FC70",
+			"beamQualityValue": "≤1.2",
+			"laserWaveLengthValue": "10.6 um",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+			"outputPowerStabilityValue": "<5%",
+			"outputPowerValue": "70W",
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hcoSC40": {
+			"name": "HCO-SC40",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "C30",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "40W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.2",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "10.6 um",
+
+			"pulseFrequencyKey": "Pulse frequency",
+			"pulseFrequencyValue": "0-25 kHz",
+
+			"exitBeamDiameterKey": "Exit beam diameter",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "±5%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 20,000 hours ",
+
+			"opticalProperties": "Optical Properties",
+			"markingRangeKey": "Marking range",
+			"markingRangeValue": "100~300mm (range optional)",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm (depending on power and time)",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeat accuracy",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "Minimum marking line width",
+			"minimumMarkingLineWidthValue": "0.1mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Standard built-in air cooling (water cooling can be customized)",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 220V / 50Hz (Can be connected to 110V)",
+
+			"temperatureHumidityKey": "Temperature humidity",
+			"temperatureHumidityValue": "5~40°, 30%≤RH≤85%, air conditioner should be installed when used outside the range",
+
+			"oilMistCondensationKey": "Oil mist, condensation",
+			"oilMistCondensationValue": "Not allowed",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "Windows operating system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "All fonts/types of WINDOWS operating system font library (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "850x600x1400 mm",
+
+			"packingdimensionsKey": "Packing dimensions",
+			"packingdimensionsValue": "860x730x1050 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "About 80kg"
+		},
+		"hcoSC25": {
+			"name": "HCO-SC25",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "C30-9.3/10.2",
+
+			"outputPowerValue": "25w",
+
+			"beamQualityValue": "≤1.2",
+			"outputPowerStabilityValue": "<5%",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"laserWaveLengthValue": "9.3 / 10.2 um",
+			"pulseFrequencyValue": "0-20 kHz",
+			"workingLifeValue": "About 20,000 working hours "
+		},
+		"hcoSC70": {
+			"name": "HCO-SC70",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "CH-C55",
+
+			"outputPowerValue": "70W",
+
+			"beamQualityValue": "≤1.2",
+			"outputPowerStabilityValue": "<5%",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"laserWaveLengthValue": "10.6 um",
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hcoSC55": {
+			"name": "HCO-SC55",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "CH-C55-9.3/10.2",
+
+			"outputPowerValue": "55W",
+
+			"beamQualityValue": "≤1.2",
+			"outputPowerStabilityValue": "<5%",
+			"exitBeamDiameterValue": "1.8±0.2 mm",
+
+			"laserWaveLengthValue": "9.3 / 10.2 um",
+			"pulseFrequencyValue": "0-200 kHz"
+		},
+		"hfiH2030A": {
+			"name": "HFI-H20,30A",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "20M / 30M",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "20W /30W",
+
+			"beamQualityKey": "Beam quality M²",
+			"beamQualityValue": "≤1.4",
+
+			"pulseFrequencyKey": "Pulse repetition frequency",
+			"pulseFrequencyValue": "20-60 kHz",
+
+			"laserWaveLengthKey": "Laser wavelength",
+			"laserWaveLengthValue": "1064±5",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "<3%",
+
+			"workingLifeKey": "Working life",
+			"workingLifeValue": "About 100,000 hours(Non-lifetime)",
+
+			"opticalProperties": "Optical properties",
+			"markingAreaKey": "Marking area",
+			"markingAreaValue": "75mm",
+
+			"engravingDepthKey": "Engraving depth",
+			"engravingDepthValue": "≤1mm",
+
+			"engravingSpeedKey": "Engraving speed",
+			"engravingSpeedValue": "≤10000mm/s",
+
+			"repeatAccuracyKey": "Repeatability",
+			"repeatAccuracyValue": "±0.002",
+
+			"minimumMarkingLineWidthKey": "Minimum mark line width",
+			"minimumMarkingLineWidthValue": "0.15mm",
+
+			"minimumCharacterHeightKey": "Minimum character height",
+			"minimumCharacterHeightValue": "0.15mm",
+
+			"useEnvironment": "Use environment",
+			"batteryLifeKey": "Battery life",
+			"batteryLifeValue": "It can work for 6-8 hours under normal use in one day",
+
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Built-in air cooling",
+
+			"systemPowerSupplyKey": "System power supply",
+			"systemPowerSupplyValue": "500W / 100-240V / 50/60Hz",
+
+			"otherParameters": "Other parameters",
+			"operatingSystemKey": "Operating system",
+			"operatingSystemValue": "linux system",
+
+			"fileFormatKey": "File format",
+			"fileFormatValue": "The software supports text, pattern, two-dimensionsal code, barcode, serial number, graphics and other marking content (standard USB input)",
+
+			"dimensionsKey": "dimensions",
+			"dimensionsValue": "Control chassis: 255x135x200 mm Marking head: 258x120x260 mm",
+
+			"machineWeightKey": "Machine weight",
+			"machineWeightValue": "Machine 6kg, Marking head 1.25kg"
+		},
+		"hfiH2030S": {
+			"name": "HFI-H20,30S",
+			"laserModelValue": "20M / 30M",
+			"outputPowerValue": "20W /30W"
+		},
+		"hfiH2030R": {
+			"name": "HFI-H20,30R",
+			"laserModelValue": "20M / 30M",
+			"outputPowerValue": "20W /30W"
+		},
+		"hcl200": {
+			"name": "HCL-200",
+			"laserModel": "Laser model",
+			"laserModelValue": "RFL-P200",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "200W",
+
+			"laserWaveLengthKey": "Laser wave length",
+			"laserWaveLengthValue": "1064±5nm",
+
+			"repetitionFrequencyRangeKey": "Repetition frequency range",
+			"repetitionFrequencyRangeValue": "10-50 kHz",
+
+			"outputPowerStabilityKey": "Output power stability",
+			"outputPowerStabilityValue": "<5%",
+
+			"pluseWidthRangeKey": "Pluse width range",
+			"pluseWidthRangeValue": "120-160 ns",
+
+			"outputCoreDiameterKey": "Output core diameter",
+			"outputCoreDiameterValue": "100 m",
+
+			"outputFiberLengthKey": "Output fiber length",
+			"outputFiberLengthValue": "5 m (customizable)",
+
+			"coolingWayKey": "Cooling way",
+			"coolingWayValue": "Water cooling",
+
+			"operationModeKey": "Operation mode",
+			"operationModeValue": "Automatic/manual (optional)",
+
+			"inputPowerKey": "Input power",
+			"inputPowerValue": "220, 50/60 Hz",
+
+			"operatingTemperatureKey": "Operating temperature",
+			"operatingTemperatureValue": "10-40°C",
+
+			"dimensionsKey": "Dimensions",
+			"dimensionsValue": "1080x665x1130 mm",
+
+			"totalWeightKey": "Total Weight",
+			"totalWeightValue": "180 KG"
+		},
+		"hcl300": {
+			"name": "HCL-300",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "RFL-P300",
+
+			"outputPowerValue": "300W"
+		},
+		"hcl500": {
+			"name": "HCL-500",
+			"laserParameters": "Laser parameters",
+			"laserModel": "Laser model",
+			"laserModelValue": "RFL-P500",
+
+			"outputPowerValue": "500W"
+		},
+		"hcl1000": {
+			"name": "HCL-1000",
+			"laserModel": "Laser model",
+			"laserModelValue": "RFL-P1000",
+
+			"outputPowerValue": "1000W",
+
+			"repetitionFrequencyRangeValue": "40-300 kHz",
+
+			"outputPowerStabilityValue": "0.8±0.1 mm"
+		},
+		"hcnC801000": {
+			"name": "HCN-C80-1000",
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "1000W",
+
+			"type": "Type",
+			"typeValue": "continuous",
+
+			"cuttingProductKey": "Cutting product precision",
+			"cuttingProducValue": ".+/-0.05 mm",
+
+			"cutThroughHoleKey": "Cut through hole minimum aperture method",
+			"cutThroughHoleValue": "0.1 mm",
+
+			"processingMaterialKey": "Processing material",
+			"processingMaterialValue": "Aluminum, copper, metal materials",
+
+			"effectiveCuttingSizeKey": "Effective cutting size",
+			"effectiveCuttingSizeValue": "650mmx800mm",
+
+			"aFixedKey": "A fixed way",
+			"aFixedValue": "Pneumatic edge clamping and jig support",
+
+			"driveSystemKey": "Drive system",
+			"driveSystemValue": "Linear Motor",
+
+			"positioningAccuracyKey": "Positioning accuracy",
+			"positioningAccuracyValue": "+/-0.008 mm",
+
+			"repeatabilityKey": "Repeatability",
+			"repeatabilityValue": "0.008 mm",
+
+			"ccdAlignmentAccuracyKey": "CCD alignment accuracy",
+			"ccdAlignmentAccuracyValue": "10um",
+
+			"cuttingGasSourceKey": "Cutting gas source",
+			"cuttingGasSourceValue": "air, nitrogen, oxygen",
+
+			"cuttinglineWidthKey": "Cutting line width and fluctuation",
+			"cuttinglineWidthValue": "1.2KW",
+
+			"cutSurfaceKey": "Cut surface",
+			"cutSurfaceValue": "Smooth, no burr, no black edge",
+
+			"overallWarrantyKey": "Overall warranty",
+			"overallWarrantyValue": "1 year (except wearing parts)",
+
+			"totalWeightKey": "Weight",
+			"totalWeightValue": "1800 KG",
+
+			"cuttingSpeed": "Cutting Speed",
+			"cuttingSpeedValue": [
+				"- 0.8m/min(10mm no Air cut rusty steel plate)",
+				"- 4.0m/min(1.5mm Nitrogen gas cutting ofaluminum plate)",
+				"- 1.5m/min(2.0mm Nitrogen gas cutting of aluminum plate)"
+			]
+		},
+		"hcnC801500": {
+			"name": "HCN-C80-1500",
+			"outputPowerValue": "1500W",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(6.0mm no Air cut rusty steel plate)",
+				"- 1.8m/min(3.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 2.0m/min(2.0mm Copper Oxygen Cutting)",
+				"- 3.5m/min(2.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 4.5m/min(1.5mm Copper Oxygen Cutting)"
+			]
+		},
+		"hcnC802000": {
+			"name": "HCN-C80-2000",
+			"outputPowerValue": "2000W",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(7.0mm no Air cut rusty steel plate)",
+				"- 0.8m/min(4.0mm Copper Oxygen Cutting)",
+				"- 1.2m/min(5.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 2.0m/min(3.0mm Copper Oxygen Cutting)",
+				"- 2.0m/min(5.0mm Nitrogen gas cutting of aluminum plate)"
+			]
+		},
+		"hcnC803000": {
+			"name": "HCN-C80-3000",
+			"outputPowerValue": "3000W",
+
+			"processingMaterialValue": "40-300 kHz",
+
+			"effectiveCuttingSizeValue": "0.8±0.1 mm",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(10mm no Air cut rusty steel plate)",
+				"- 0.8m/min(5.0mm Copper Oxygen Cutting)",
+				"- 1.5m/min(4.0mm Copper Oxygen Cutting)",
+				"- 1.5m/min(6.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 2.2m/min(5.0mm Nitrogen gas cutting of aluminum plate)"
+			]
+		},
+		"hcnC806000": {
+			"name": "HCN-C80-6000",
+			"outputPowerValue": "6000W",
+
+			"processingMaterialValue": "40-300 kHz",
+
+			"effectiveCuttingSizeValue": "0.8±0.1 mm",
+
+			"cuttingSpeedValue": [
+				"- 0.8m/min(14mm no Air cut rusty steel plate)",
+				"- 1.2m/min(8.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 1.5m/min(6.0mm Copper Oxygen Cutting)",
+				"- 2.0m/min(6.0mm Nitrogen gas cutting of aluminum plate)",
+				"- 2.5m/min(5.0mm Copper Oxygen Cutting)"
+			]
+		},
+		"hdo23": {
+			"name": "HDO-23",
+
+			"outputPowerKey": "Output power",
+			"outputPowerValue": "300W",
+
+			"printRageKey": "Print Range",
+			"printRageValue": "80*140 mm",
+
+			"largestPrintHardnessKey": "Largest print hardness",
+			"largestPrintHardnessValue": "HRC62",
+
+			"printHeadLiftingHeightKey": "Print Head Lifting Height",
+			"printHeadLiftingHeightValue": "≤ 1.5 mm",
+
+			"minimumCharacterKey": "Minimum Character",
+			"minimumCharacterValue": "≤ 1 mm",
+
+			"compressedAirPressureKey": "Compressed Air Pressure",
+			"compressedAirPressureValue": "0.3~0.7 MPa",
+
+			"voltageRequirementsKey": "Voltage Requirements",
+			"voltageRequirementsValue": "220V / 50HZ",
+
+			"environmentTempKey": "Environment Temperature",
+			"environmentTempValue": "10°C to 50°C",
+
+			"printingSpeedKey": "Printing Speed",
+			"printingSpeedValue": "1~3 characters per second",
+
+			"systemResetNumberKey": "System Reset Number",
+			"systemResetNumberValue": "1000 times",
+
+			"continuousWorkingTimeKey": "Continuous Working Time",
+			"continuousWorkingTimeValue": "> 48 hours"
+		},
+		"hdo12": {
+			"name": "HDO-12"
+		}
+	}
+}

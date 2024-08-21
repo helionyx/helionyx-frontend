@@ -5,11 +5,12 @@ import RenderProductImage from '@/components/render-product-image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
-import RenderTable from '@/features/product/laser-cutting-machines/components/render-table'
 import { createFileRoute } from '@tanstack/react-router'
 import { Mailbox, Phone } from 'lucide-react'
-import React from 'react'
+import React, { Fragment } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hcn-c80-cnc-laser-cutting-machine'
@@ -20,8 +21,20 @@ const ProductDetail: React.FC = () => {
 		product?.subCategoryId
 	)
 
+	const { t } = useTranslation()
+
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const cuttingSpeedValues = (translationKey: string): string[] => {
+		const formattedValues = t(translationKey, { returnObjects: true }) as string[]
+		return formattedValues.map((value) =>
+			value
+				.split('-')
+				.map((part) => part.trim())
+				.join('\n- ')
+		)
+	}
 
 	return (
 		<>
@@ -47,14 +60,199 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<CardDescription>{product.description}</CardDescription>
+							<CardDescription>{t(product.descriptionKey)}</CardDescription>
 						</section>
 
 						<Separator />
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold' colSpan={5}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border'>Model</TableHead>
+										<TableHead className='border'>{t('models.hcnC801000.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcnC801500.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcnC802000.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcnC803000.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcnC806000.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.outputPowerKey')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.outputPowerValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcnC801500.outputPowerValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcnC802000.outputPowerValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcnC803000.outputPowerValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcnC806000.outputPowerValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.type')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.typeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.cuttingProductKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.cuttingProducValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.cutThroughHoleKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.cutThroughHoleValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.processingMaterialKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.processingMaterialValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.effectiveCuttingSizeKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.effectiveCuttingSizeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.aFixedKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.aFixedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.driveSystemKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.driveSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.positioningAccuracyKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.positioningAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.repeatabilityKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.repeatabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.ccdAlignmentAccuracyKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.ccdAlignmentAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.cuttingGasSourceKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.cuttingGasSourceValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.cuttinglineWidthKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.cuttinglineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.cutSurfaceKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.cutSurfaceValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.overallWarrantyKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={5}>
+											{t('models.hcnC801000.overallWarrantyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcnC801000.totalWeightKey')}</TableCell>
+										<TableCell className='border' colSpan={5}>
+											{t('models.hcnC801000.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcnC801000.cuttingSpeed')}</TableCell>
+										<TableCell className='border bg-muted'>
+											{cuttingSpeedValues('models.hcnC801000.cuttingSpeedValue').map((value, index) => (
+												<Fragment key={index}>
+													{value.split('\n').map((line, lineIndex) => (
+														<Fragment key={lineIndex}>
+															{line}
+															{lineIndex < value.split('\n').length - 1 && <br />}
+														</Fragment>
+													))}
+													{index < value.length - 1 && <br />}
+												</Fragment>
+											))}
+										</TableCell>
+										<TableCell className='border bg-muted'>
+											{cuttingSpeedValues('models.hcnC801500.cuttingSpeedValue').map((value, index) => (
+												<Fragment key={index}>
+													{value.split('\n').map((line, lineIndex) => (
+														<Fragment key={lineIndex}>
+															{line}
+															{lineIndex < value.split('\n').length - 1 && <br />}
+														</Fragment>
+													))}
+													{index < value.length - 1 && <br />}
+												</Fragment>
+											))}
+										</TableCell>
+										<TableCell className='border bg-muted'>
+											{cuttingSpeedValues('models.hcnC802000.cuttingSpeedValue').map((value, index) => (
+												<Fragment key={index}>
+													{value.split('\n').map((line, lineIndex) => (
+														<Fragment key={lineIndex}>
+															{line}
+															{lineIndex < value.split('\n').length - 1 && <br />}
+														</Fragment>
+													))}
+													{index < value.length - 1 && <br />}
+												</Fragment>
+											))}
+										</TableCell>
+										<TableCell className='border bg-muted'>
+											{cuttingSpeedValues('models.hcnC803000.cuttingSpeedValue').map((value, index) => (
+												<Fragment key={index}>
+													{value.split('\n').map((line, lineIndex) => (
+														<Fragment key={lineIndex}>
+															{line}
+															{lineIndex < value.split('\n').length - 1 && <br />}
+														</Fragment>
+													))}
+													{index < value.length - 1 && <br />}
+												</Fragment>
+											))}
+										</TableCell>
+										<TableCell className='border bg-muted'>
+											{cuttingSpeedValues('models.hcnC806000.cuttingSpeedValue').map((value, index) => (
+												<Fragment key={index}>
+													{value.split('\n').map((line, lineIndex) => (
+														<Fragment key={lineIndex}>
+															{line}
+															{lineIndex < value.split('\n').length - 1 && <br />}
+														</Fragment>
+													))}
+													{index < value.length - 1 && <br />}
+												</Fragment>
+											))}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -62,7 +260,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {product.name.toUpperCase()}</CardTitle>
+					<CardTitle>ADVANTAGES OF {t(product.nameKey).toUpperCase()}</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -74,10 +272,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High productivity</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highProductivity.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Using online high-speed non-stop laser marking, high production efficiency, can work under static and
-								high-speed flow of the production line
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highProductivity.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -90,9 +289,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Cost-effective</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.costEffective.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The whole machine is small, flexible, convenient, powerful, and not limited by the use of space
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.costEffective.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -105,10 +306,11 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>Can be disassembled at will</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.canBeDisassembled.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Compact design, the whole machine is small and portable, and the optical path of the column can be
-								disassembled at will
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.canBeDisassembled.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
@@ -121,44 +323,41 @@ const ProductDetail: React.FC = () => {
 							/>
 						</CardHeader>
 						<CardContent className='text-center p-8 space-y-8 h-full bg-muted'>
-							<CardTitle className='text-amber-500'>High quality light source</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highQuality.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								Using advanced fiber lasers, the output beam quality is good and the reliability is high
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highQuality.description')}
 							</CardDescription>
 						</CardContent>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>Precision Cutting with MCT-6580</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.precisionMarking.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								The MCT-6580 CNC Laser Cutting Machine is the perfect tool for precision cutting. With its high-quality
-								laser beam, this machine can cut through a wide range of materials, including metal, wood, and plastic.
-								Its advanced software allows for complex cutting designs, ensuring that you get the exact cut you need
-								every time.
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.precisionMarking.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>User-Friendly Design of MCT-6580</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.userFriendly.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								MCT-6580 CNC Laser Cutting Machine is designed with the user in mind. Its intuitive interface and
-								easy-to-use software make it easy for anyone to operate. Additionally, the machine’s safety features,
-								such as the protective enclosure and emergency stop button, make it safe to use for users of all
-								experience levels. With its user-friendly design, this machine is a great choice for both beginners and
-								experts alike.
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.userFriendly.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
 					<Card className='col-span-full border-t-amber-500 rounded-none bg-muted'>
 						<CardHeader className='text-center space-y-8 p-14'>
-							<CardTitle className='text-amber-500'>High-Speed and Efficiency of MCT-6580</CardTitle>
+							<CardTitle className='text-amber-500'>
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highSpeed.title')}
+							</CardTitle>
 							<CardDescription className='text-base'>
-								MCT-6580 CNC Laser Cutting Machine is a highly efficient machine that can cut through materials quickly
-								and accurately. With its high-speed cutting capabilities, this machine can save you time and increase
-								your productivity. Its efficient laser beam ensures that each cut is precise and clean, reducing the
-								need for additional processing or finishing. With the MCT-6580 CNC Laser Cutting Machine, you can get
-								your projects done faster and more efficiently.
+								{t('products.hcn-c80-cnc-laser-cutting-machine.advantages.highSpeed.description')}
 							</CardDescription>
 						</CardHeader>
 					</Card>
@@ -170,7 +369,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

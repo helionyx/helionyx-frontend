@@ -6,9 +6,6 @@ coverage
 # Ignore all HTML files:
 *.html
 
-# Ignore all JSON files:
-*.json
-
 # Ignore all JavaScript files:
 *.js
 

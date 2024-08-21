@@ -1,6 +1,3 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from '@tanstack/react-router'
-import { Loader2, Search } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -8,6 +5,11 @@ import { Skeleton } from '@/components/ui/skeleton'
 import { useFilteredProductsQuery } from '@/features/product/api/queries.api'
 import useDebounce from '@/features/product/hooks/use-debounce'
 import { Product } from '@/types'
+import { formatEclipse } from '@/utils'
+import { Link, useNavigate } from '@tanstack/react-router'
+import { Loader2, Search } from 'lucide-react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import { useTranslation } from 'react-i18next'
 
 const SearchPopoverSkeleton: React.FC = () => (
 	<div className='flex items-center space-x-2 p-2'>
@@ -24,6 +26,8 @@ const SearchPopover: React.FC = React.memo(() => {
 	const [localSearchTerm, setLocalSearchTerm] = useState<string>('')
 	const [selectedIndex, setSelectedIndex] = useState(-1)
 	const debouncedSearchTerm = useDebounce(localSearchTerm, 300)
+
+	const { t } = useTranslation()
 
 	const navigate = useNavigate()
 
@@ -122,10 +126,10 @@ const SearchPopover: React.FC = React.memo(() => {
 										onClick={() => setIsOpen(false)}
 									>
 										<div className='flex items-center space-x-2'>
-											<img src={product.imageUrl} alt={product.name} className='w-10 h-10 object-cover rounded' />
+											<img src={product.imageUrl} alt={product.nameKey} className='w-10 h-10 object-cover rounded' />
 											<div>
-												<p className='font-medium'>{product.name}</p>
-												<p className='text-sm text-muted-foreground'>{product.description.slice(0, 50)}...</p>
+												<p className='font-medium'>{t(product.nameKey)}</p>
+												<p className='text-sm text-muted-foreground'>{formatEclipse(t(product.descriptionKey), 50)}</p>
 											</div>
 										</div>
 									</Link>

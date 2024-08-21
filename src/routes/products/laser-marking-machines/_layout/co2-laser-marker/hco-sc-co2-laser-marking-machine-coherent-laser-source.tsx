@@ -2,14 +2,15 @@ import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hoo
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
-import React from 'react'
-import { Separator } from '@/components/ui/separator'
-import RenderTable from '@/features/product/laser-marking-machines/components/render-table'
-import { Button } from '@/components/ui/button'
 import { Mailbox, Phone } from 'lucide-react'
+import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hco-sc-co2-laser-marking-machine-coherent-laser-source'
@@ -20,8 +21,12 @@ const ProductDetail: React.FC = () => {
 		product?.subCategoryId
 	)
 
+	const { t } = useTranslation()
+
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const features = t(product.featuresKey, { returnObjects: true }) as string[]
 
 	return (
 		<>
@@ -47,26 +52,17 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<div className='space-y-8'>
-								<CardDescription className='text-base'>{product.description}</CardDescription>
-								<CardDescription className='text-base'>{product.subDescription}</CardDescription>
+							<div className='space-y-4'>
+								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
+								{product.subDescriptionKey && (
+									<CardDescription className='text-base'>{t(product.subDescriptionKey)}</CardDescription>
+								)}
 								<div>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>Use high-quality CO2 radio frequency laser;</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>High-quality laser source components, good optical mode;</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>Long-term running system performance is stable;</span>
-									</CardDescription>
-									<CardDescription className='text-base'>
-										<span className='text-amber-500'>&gt;&gt;</span>{' '}
-										<span>Integrated overall design, compact structure and stable performance.</span>
-									</CardDescription>
+									{features.map((feature, index) => (
+										<CardDescription key={index} className='text-base'>
+											<span className='text-amber-500'>&gt;&gt;</span> {feature}
+										</CardDescription>
+									))}
 								</div>
 							</div>
 						</section>
@@ -75,7 +71,170 @@ const ProductDetail: React.FC = () => {
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold' colSpan={4}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border'>Model</TableHead>
+										<TableHead className='border'>{t('models.hcoSC40.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcoSC25.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcoSC70.name')}</TableHead>
+										<TableHead className='border'>{t('models.hcoSC55.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hcoSC40.laserModel')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC40.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC25.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC70.laserModelValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC55.laserModelValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.outputPowerKey')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC40.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC25.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC70.outputPowerValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC55.outputPowerValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='bg-muted border'>{t('models.hcoSC40.beamQualityKey')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC40.beamQualityValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC25.beamQualityValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC70.beamQualityValue')}</TableCell>
+										<TableCell className='bg-muted border'>{t('models.hcoSC55.beamQualityValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.laserWaveLengthKey')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC40.laserWaveLengthValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC25.laserWaveLengthValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC70.laserWaveLengthValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC55.laserWaveLengthValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.pulseFrequencyKey')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.pulseFrequencyValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC25.pulseFrequencyValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC70.pulseFrequencyValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC55.pulseFrequencyValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.exitBeamDiameterKey')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC40.exitBeamDiameterValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC25.exitBeamDiameterValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC70.exitBeamDiameterValue')}</TableCell>
+										<TableCell className='border'>{t('models.hcoSC55.exitBeamDiameterValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.outputPowerStabilityKey')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.outputPowerStabilityValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC25.outputPowerStabilityValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC70.outputPowerStabilityValue')}</TableCell>
+										<TableCell className='border bg-muted'>{t('models.hcoSC55.outputPowerStabilityValue')}</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.workingLifeKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.workingLifeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.markingRangeKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.markingRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.engravingDepthKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.engravingDepthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.engravingSpeedKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.engravingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.repeatAccuracyKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.repeatAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.minimumMarkingLineWidthKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.minimumMarkingLineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.minimumCharacterHeightKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.minimumCharacterHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.coolingWayKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.coolingWayValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.systemPowerSupplyKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.systemPowerSupplyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.temperatureHumidityKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.temperatureHumidityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.oilMistCondensationKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.oilMistCondensationValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.operatingSystemKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.operatingSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.fileFormatKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.fileFormatValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.dimensionsKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.dimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border'>{t('models.hcoSC40.packingdimensionsKey')}</TableCell>
+										<TableCell className='border' colSpan={4}>
+											{t('models.hcoSC40.packingdimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted'>{t('models.hcoSC40.totalWeightKey')}</TableCell>
+										<TableCell className='border bg-muted' colSpan={4}>
+											{t('models.hcoSC40.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -128,7 +287,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

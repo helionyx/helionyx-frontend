@@ -1,5 +1,5 @@
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Model, Product } from '@/features/product/types/product'
+import { Model, Product } from '@/types'
 import React from 'react'
 
 type RenderTableProps = {
@@ -49,7 +49,7 @@ const RenderTable: React.FC<RenderTableProps> = ({ product, models }) => {
 						Model series
 					</TableHead>
 					<TableHead colSpan={models.length} className='text-center border'>
-						{product.name}
+						{product.nameKey}
 					</TableHead>
 				</TableRow>
 				<TableRow>
@@ -117,7 +117,7 @@ const RenderTable: React.FC<RenderTableProps> = ({ product, models }) => {
 				{renderHeader()}
 				{renderBody()}
 				<TableCaption className='caption-bottom'>
-					Specifications for {product.name} - {models.map((m) => m.name).join(', ')}
+					Specifications for {product.nameKey} - {models.map((m) => m.name).join(', ')}
 				</TableCaption>
 			</Table>
 		</>

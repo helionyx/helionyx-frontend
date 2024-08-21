@@ -5,11 +5,12 @@ import RenderProductImage from '@/components/render-product-image'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
-import RenderTable from '@/features/product/laser-marking-machines/components/render-table'
 import { createFileRoute } from '@tanstack/react-router'
 import { Mailbox, Phone } from 'lucide-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
@@ -20,8 +21,15 @@ const ProductDetail: React.FC = () => {
 		product?.subCategoryId
 	)
 
+	const { t } = useTranslation()
+
 	if (isProductPending || isModelsPending) return <ProductDetailPending />
 	if (!product || !models) return <div className='container mx-auto px-4 py-8 text-center'>Product not found</div>
+
+	const advantages = t('products.huv-fw-uv-flying-laser-marking-machine-jpt-laser-source.advantages', {
+		returnObjects: true
+	})
+	const advantagesList = Array.from(Object.values(advantages))
 
 	return (
 		<>
@@ -47,14 +55,265 @@ const ProductDetail: React.FC = () => {
 					<div className='space-y-8'>
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
-							<CardDescription>{product.description}</CardDescription>
+							<div className='space-y-4'>
+								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
+								{product.subDescriptionKey && (
+									<CardDescription className='text-base'>{t(product.subDescriptionKey)}</CardDescription>
+								)}
+								<div>
+									{advantagesList.map((advantage: { title: string; description: string }, index: number) => (
+										<CardDescription key={index} className='text-base my-2'>
+											<div className='space-y-2'>
+												<p className='text-amber-500'>&gt;&gt; {advantage.title}</p>
+												<p>{advantage.description}</p>
+											</div>
+										</CardDescription>
+									))}
+								</div>
+							</div>
 						</section>
 
 						<Separator />
 
 						<section>
 							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
-							<RenderTable models={models} product={product} />
+							<Table className='w-full border-collapse text-muted-foreground'>
+								<TableHeader>
+									<TableRow>
+										<TableHead className='border bg-muted font-semibold text-muted-foreground'>Model Series</TableHead>
+										<TableHead className='border bg-muted font-semibold text-muted-foreground' colSpan={6}>
+											{t(product.nameKey)}
+										</TableHead>
+									</TableRow>
+									<TableRow>
+										<TableHead className='border text-muted-foreground'>Model</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW3A.name')}</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW5A.name')}</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW3E.name')}</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW355C.name')}</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW555C.name')}</TableHead>
+										<TableHead className='border text-muted-foreground'>{t('models.huvFW1055C.name')}</TableHead>
+									</TableRow>
+								</TableHeader>
+								<TableBody>
+									<TableRow>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW3A.laserModel')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW3A.laserModelValue')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW5A.laserModelValue')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW3E.laserModelValue')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW355C.laserModelValue')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW555C.laserModelValue')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW1055C.laserModelValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>{t('models.huvFW3A.outputPowerKey')}</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW5A.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3E.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW355C.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW555C.outputPowerValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW1055C.outputPowerValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='bg-muted border text-muted-foreground'>
+											{t('models.huvFW3A.beamQualityKey')}
+										</TableCell>
+										<TableCell className='bg-muted border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.beamQualityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.laserWaveLengthKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.laserWaveLengthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.pulseFrequencyKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={3}>
+											{t('models.huvFW3A.pulseFrequencyValue')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={2}>
+											{t('models.huvFW355C.pulseFrequencyValue')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={1}>
+											{t('models.huvFW1055C.pulseFrequencyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.outputBeamDiameterKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={5}>
+											{t('models.huvFW3A.outputBeamDiameterValue')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={1}>
+											{t('models.huvFW1055C.outputBeamDiameterValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.outputPowerStabilityKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.outputPowerStabilityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>{t('models.huvFW3A.workingLifeKey')}</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.workingLifeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.markingRangeKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.markingRangeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.engravingDepthKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.engravingDepthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.engravingSpeedKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.engravingSpeedValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.repeatAccuracyKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.repeatAccuracyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.minimumMarkerLineWidthKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.minimumMarkerLineWidthValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.minimumCharacterHeightKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.minimumCharacterHeightValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.coolingWayKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={2}>
+											{t('models.huvFW3A.coolingWayValue')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={4}>
+											{t('models.huvFW3E.coolingWayValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>
+											{t('models.huvFW3A.systemPowerSupplyKey')}
+										</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.systemPowerSupplyValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.temperatureHumidityKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.temperatureHumidityValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>{t('models.huvFW3A.oilMistKey')}</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.oilMistValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.operatingSystemKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.operatingSystemValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>{t('models.huvFW3A.fileFormatKey')}</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.fileFormatValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.dimensionsKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.dimensionsValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border text-muted-foreground'>{t('models.huvFW3A.packingSizeKey')}</TableCell>
+										<TableCell className='border text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.packingSizeValue')}
+										</TableCell>
+									</TableRow>
+									<TableRow>
+										<TableCell className='border bg-muted text-muted-foreground'>
+											{t('models.huvFW3A.totalWeightKey')}
+										</TableCell>
+										<TableCell className='border bg-muted text-muted-foreground' colSpan={6}>
+											{t('models.huvFW3A.totalWeightValue')}
+										</TableCell>
+									</TableRow>
+								</TableBody>
+							</Table>
 						</section>
 					</div>
 				</CardContent>
@@ -89,7 +348,7 @@ const ProductDetail: React.FC = () => {
 					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
 					<CardDescription className='mb-4'>
 						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{product.name}.
+						{t(product.nameKey)}.
 					</CardDescription>
 				</CardHeader>
 				<CardContent className='flex flex-wrap gap-4'>

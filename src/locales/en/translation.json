@@ -1,0 +1,147 @@
+{
+	"nav": {
+		"home": "HOME",
+		"products": "PRODUCTS",
+		"categories": {
+			"laserMarking": "Laser Marking Machines",
+			"laserCutting": "Laser Cutting Machines",
+			"laserCleaning": "Laser Cleaing Machines",
+			"dotMarking": "Dot Marking Machines"
+		},
+		"about": "ABOUT US",
+		"contact": "CONTACT"
+	},
+	"hero": {
+		"title": "LASER MARKING & CUTTING & CLEANING SOLUTIONS",
+		"description": "Helionyx is a prominent and trusted leader in the laser technology industry, specializing in the development, manufacturing, and distribution of advanced laser marking systems. With a commitment to excellence and innovation, Helionyx has established itself as a reliable partner for businesses seeking cutting-edge laser solutions."
+	},
+	"features": {
+		"innovativeProcess": "INNOVATIVE PROCESS",
+		"inlineSolutions": "INLINE SOLUTIONS",
+		"guaranteedSafety": "GUARANTEED SAFETY"
+	},
+	"whyChooseUs": "Why Choose Helionyx ?",
+	"feature": {
+		"reliability": {
+			"title": "Reliability",
+			"description": "Ensuring consistent performance and dependability in all our offerings."
+		},
+		"customerFocus": {
+			"title": "Customer Focus",
+			"description": "Prioritizing the needs and success of our clients."
+		},
+		"sustainability": {
+			"title": "Sustainability",
+			"description": "Continuously pushing the boundaries of laser technology to offer state-of-the-art solutions."
+		},
+		"innovation": {
+			"title": "Innovation",
+			"description": "Committing to environmentally responsible practices in our operations."
+		},
+		"quality": {
+			"title": "Quality",
+			"description": "Maintaining the highest standards in every aspect of our products and services."
+		}
+	},
+	"productCatalog": {
+		"title": "Laser Machine Category",
+		"laserMarking": {
+			"title": "Laser Marking",
+			"description": "High-precision marking solutions for product identification and traceability."
+		},
+		"laserCutting": {
+			"title": "Laser Cutting",
+			"description": "Powerful cutting systems for metal, plastic, and composite materials."
+		},
+		"laserCleaning": {
+			"title": "Laser Cleaning",
+			"description": "Efficient and eco-friendly cleaning solutions for surface preparation."
+		},
+		"dotMarking": {
+			"title": "Dot Marking",
+			"description": "Efficient and eco-friendly cleaning solutions for surface preparation."
+		},
+		"learnMore": "Learn More"
+	},
+	"breadcrumb": {
+		"home": "Home",
+		"aboutus": "About Us",
+		"contactus": "Contact Us",
+		"products": "Products",
+		"laserMarking": {
+			"title": "Laser Marking Machines",
+			"uvLaserMarker": {
+				"title": "UV Laser Marker",
+				"huvIntegratedLaserMarker": {
+					"title": "HUV Integrated Fiber Laser Marking Machine"
+				},
+				"huvSwMachineCrsLaserSource": {
+					"title": "HUV-SW Machine (CRS Laser Source)"
+				},
+				"huvMwPortableUvLaserMarker": {
+					"title": "HUV-MW Portable UV Laser Marking Machine"
+				},
+				"huvFwUvFlyingLaserMarker": {
+					"title": "HUV-FW UV Flying Laser Marking Machine (JPT Laser Source)"
+				}
+			},
+			"fiberLaserMarker": {
+				"title": "Fiber Laser Marker",
+				"hfiMFiberLaserMarker": {
+					"title": "HFI-M Fiber Laser Marking Machine"
+				},
+				"hfiMnPortableMiniFiberLaserMarker": {
+					"title": "HFI-MN Portable Mini Fiber Laser Marking Machine"
+				},
+				"hfiSfPulseFiberLaserMarker": {
+					"title": "HFI-S Pulse Fiber Laser Marking Machine (JPT Laser Source)"
+				},
+				"hfiFfFiberFlyingLaserMarker": {
+					"title": "HFI-F Fiber Flyinh Laser Marking Machine (JPT Laser Source)"
+				}
+			},
+			"co2LaserMarker": {
+				"title": "CO2 Laser Marker",
+				"hcoFcFlyingLaserMarker": {
+					"title": "HCO-FC CO2 Flying Laser Marking Machine (COHERENT Laser Sorurce)"
+				},
+				"hcoScCo2LaserMarker": {
+					"title": "HCO-SC CO2 Laser Marking Machine (COHERENT Laser Source)"
+				}
+			},
+			"portableLaserMarker": {
+				"title": "Portable Laser Marker",
+				"hfiHModelHandHeldLaserMarker": {
+					"title": "HFI-H Model HandHeld Laser Marking Machine"
+				}
+			}
+		},
+		"laserCutting": {
+			"title": "Laser Cutting Machines",
+			"laserMetalCutting": {
+				"title": "Laser Metal Cutting Machines",
+				"hcnC80CncLaserCuttingMachine": {
+					"title": "HCN-C80 CNC Laser Cutting Machine"
+				}
+			}
+		},
+		"laserCleaning": {
+			"title": "Laser Cleaning Machines",
+			"hclLaserCleaning": {
+				"title": "HCL Laser Cleaning Machine",
+				"hclLaserCleaningMachine": {
+					"title": "HCL Laser Cleaning Machine"
+				}
+			}
+		},
+		"dotMarking": {
+			"title": "Dot Marking Machines",
+			"hdoMarking": {
+				"title": "HDO Marking Machine",
+				"hdo": {
+					"title": "HDO"
+				}
+			}
+		}
+	}
+}

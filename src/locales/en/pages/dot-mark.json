@@ -1,0 +1,33 @@
+{
+	"dotMarking": {
+		"title": "DOT MARKING MACHINES",
+		"description": "Industrial Dot marking machine can realize the long-term marking of patterns, text, letters, VIN code, serial number, date and graphics on the workpiece.",
+		"advantages": {
+			"title": "ADVANTAGES OF DOT MARKING MACHINES",
+			"highQualitySteelBase": {
+				"name": "High-pressure chain steel base",
+				"description": "good quality, heavy and strong, playing a stable role on industrial pneumatic marking machine;"
+			},
+			"pressureRegulatingValve": {
+				"name": "Inlet filter pressure regulating valve",
+				"description": "adjust the pressure level to fully reduce the impact of upstream pressure fluctuations and ensure the stability of the output pressure;"
+			},
+			"printingCapability": {
+				"name": "Carbide needles",
+				"description": "Industrial pneumatic marking machines can print mechanical parts and signs of most materials;"
+			},
+			"computerControl": {
+				"name": "Computer control and the new version of WINDOWS operating system",
+				"description": "Chinese and English switching, powerful editing function, industrial pneumatic marking machine can arbitrarily arrange the required characters and graphics;"
+			},
+			"autoSaving": {
+				"name": "Automatically save the marked content",
+				"description": "when the power is abnormally disconnected, the industrial pneumatic marking machine can automatically save the pattern being edited and marked;"
+			},
+			"supportMultipleFonts": {
+				"name": "Support multiple types of fonts",
+				"description": "SHX font for Auto, CHR for Borland, TTF for Windows;"
+			}
+		}
+	}
+}

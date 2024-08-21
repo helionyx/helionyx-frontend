@@ -1,0 +1,147 @@
+{
+	"nav": {
+		"home": "หน้าแรก",
+		"products": "สินค้า",
+		"categories": {
+			"laserMarking": "เครื่องเลเซอร์มาร์ก",
+			"laserCutting": "เครื่องเลเซอร์ตัด",
+			"laserCleaning": "เครื่องเลเซอร์ทำความสะอาด",
+			"dotMarking": "เครื่องเลเซอร์ทำเครื่องหมาย"
+		},
+		"about": "เกี่ยวกับเรา",
+		"contact": "ติดต่อ"
+	},
+	"hero": {
+		"title": "โซลูชันการทำเครื่องหมาย การตัด และการทำความสะอาดด้วยเลเซอร์",
+		"description": "Helionyx เป็นผู้นำที่โดดเด่นและน่าเชื่อถือในอุตสาหกรรมเทคโนโลยีเลเซอร์ เชี่ยวชาญในการพัฒนา ผลิต และจัดจำหน่ายระบบการทำเครื่องหมายด้วยเลเซอร์ขั้นสูง ด้วยความมุ่งมั่นสู่ความเป็นเลิศและนวัตกรรม Helionyx ได้สร้างตัวเองให้เป็นพันธมิตรที่น่าเชื่อถือสำหรับธุรกิจที่ต้องการโซลูชันเลเซอร์ที่ทันสมัย"
+	},
+	"features": {
+		"innovativeProcess": "กระบวนการนวัตกรรม",
+		"inlineSolutions": "โซลูชันในสายการผลิต",
+		"guaranteedSafety": "ความปลอดภัยที่รับประกัน"
+	},
+	"whyChooseUs": "ทำไมต้องเลือก Helionyx ?",
+	"feature": {
+		"reliability": {
+			"title": "ความน่าเชื่อถือ",
+			"description": "รับรองประสิทธิภาพและความไว้วางใจได้อย่างสม่ำเสมอในทุกผลิตภัณฑ์ของเรา"
+		},
+		"customerFocus": {
+			"title": "มุ่งเน้นลูกค้า",
+			"description": "ให้ความสำคัญกับความต้องการและความสำเร็จของลูกค้าเป็นอันดับแรก"
+		},
+		"sustainability": {
+			"title": "ความยั่งยืน",
+			"description": "พัฒนาขอบเขตของเทคโนโลยีเลเซอร์อย่างต่อเนื่องเพื่อนำเสนอโซลูชันที่ล้ำสมัย"
+		},
+		"innovation": {
+			"title": "นวัตกรรม",
+			"description": "มุ่งมั่นในการดำเนินงานที่รับผิดชอบต่อสิ่งแวดล้อม"
+		},
+		"quality": {
+			"title": "คุณภาพ",
+			"description": "รักษามาตรฐานสูงสุดในทุกแง่มุมของผลิตภัณฑ์และบริการของเรา"
+		}
+	},
+	"productCatalog": {
+		"title": "หมวดหมู่เครื่องจักรเลเซอร์",
+		"laserMarking": {
+			"title": "การทำเครื่องหมายด้วยเลเซอร์",
+			"description": "โซลูชันการทำเครื่องหมายความแม่นยำสูงสำหรับการระบุและตรวจสอบย้อนกลับของผลิตภัณฑ์"
+		},
+		"laserCutting": {
+			"title": "การตัดด้วยเลเซอร์",
+			"description": "ระบบการตัดที่ทรงพลังสำหรับโลหะ พลาสติก และวัสดุผสม"
+		},
+		"laserCleaning": {
+			"title": "การทำความสะอาดด้วยเลเซอร์",
+			"description": "โซลูชันการทำความสะอาดที่มีประสิทธิภาพและเป็นมิตรกับสิ่งแวดล้อมสำหรับการเตรียมพื้นผิว"
+		},
+		"dotMarking": {
+			"title": "การทำเครื่องหมายแบบจุด",
+			"description": "โซลูชันการทำความสะอาดที่มีประสิทธิภาพและเป็นมิตรกับสิ่งแวดล้อมสำหรับการเตรียมพื้นผิว"
+		},
+		"learnMore": "เรียนรู้เพิ่มเติม"
+	},
+	"breadcrumb": {
+		"home": "หน้าหลัก",
+		"aboutus": "เกี่ยวกับเรา",
+		"contactus": "ติดต่อเรา",
+		"products": "ผลิตภัณฑ์",
+		"laserMarking": {
+			"title": "เครื่องเลเซอร์มาร์ก",
+			"uvLaserMarker": {
+				"title": "UV Laser Marker",
+				"huvIntegratedLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์กชนิดไฟเบอร์รุ่น HUV"
+				},
+				"huvSwMachineCrsLaserSource": {
+					"title": "เครื่องเลเซอร์มาร์ก UV รุ่น HUV-SW"
+				},
+				"huvMwPortableUvLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์ก UV แบบพกพา รุ่น HUV-MW"
+				},
+				"huvFwUvFlyingLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์ก UV รุ่น HUV-FW"
+				}
+			},
+			"fiberLaserMarker": {
+				"title": "เครื่องเลเซอร์มาร์กชนิดไฟเบอร์",
+				"hfiMFiberLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์กไฟเบอร์ขนาดเล็ก รุ่น HFI-M"
+				},
+				"hfiMnPortableMiniFiberLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์กไฟเบอร์แบบพกพา รุ่น HFI-MN"
+				},
+				"hfiSfPulseFiberLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์กไฟเบอร์ รุ่น HFI-S"
+				},
+				"hfiFfFiberFlyingLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์ก รุ่น HFI-F"
+				}
+			},
+			"co2LaserMarker": {
+				"title": "เครื่องเลเซอร์มาร์กชนิด CO2",
+				"hcoFcFlyingLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์ก รุ่น HCO-FC"
+				},
+				"hcoScCo2LaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์ก รุ่น HCO-SC"
+				}
+			},
+			"portableLaserMarker": {
+				"title": "เครื่องเลเซอร์มาร์กชนิด Portable",
+				"hfiHModelHandHeldLaserMarker": {
+					"title": "เครื่องเลเซอร์มาร์กแบบพกพา รุ่น HFI-H20"
+				}
+			}
+		},
+		"laserCutting": {
+			"title": "เครื่องเลเซอร์ตัด",
+			"laserMetalCutting": {
+				"title": "เครื่องตัดเลเซอร์ชนิดเหล็ก",
+				"hcnC80CncLaserCuttingMachine": {
+					"title": "เครื่องตัดเลเซอร์ รุ่น HCN-C80"
+				}
+			}
+		},
+		"laserCleaning": {
+			"title": "เครื่องเลเซอร์ทำความสะอาด",
+			"hclLaserCleaning": {
+				"title": "",
+				"hclLaserCleaningMachine": {
+					"title": "เครื่องทำความสะอาดด้วยเลเซอร์ รุ่น HCL"
+				}
+			}
+		},
+		"dotMarking": {
+			"title": "เครื่องเลเซอร์ทำเครื่องหมาย",
+			"hdoMarking": {
+				"title": "",
+				"hdo": {
+					"title": "เครื่องทำเครื่องหมาย รุ่น HDO"
+				}
+			}
+		}
+	}
+}

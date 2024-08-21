@@ -1,9 +1,11 @@
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Skeleton } from '@/components/ui/skeleton'
-import { Product } from '@/features/product/types/product'
+import { Product } from '@/types'
+import { formatEclipse } from '@/utils'
 import { Link } from '@tanstack/react-router'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 type RenderProductsCardProps = {
 	isPending: boolean
@@ -12,6 +14,8 @@ type RenderProductsCardProps = {
 }
 
 const RenderProductsCard: React.FC<RenderProductsCardProps> = React.memo(({ isPending, products, slug }) => {
+	const { t } = useTranslation()
+
 	if (isPending)
 		return Array(6)
 			.fill(null)
@@ -57,13 +61,13 @@ const RenderProductsCard: React.FC<RenderProductsCardProps> = React.memo(({ isPe
 							width={400}
 							height={300}
 							className='w-48 h-48 object-contain bg-transparent'
-							alt={product.name}
+							alt={product.nameKey}
 						/>
 						<div className='absolute top-0 left-0 w-full h-full bg-gradient-to-t from-black/10 to-transparent' />
 					</CardHeader>
 					<CardContent className='p-0 mt-2 space-y-4'>
-						<CardTitle className='text-lg'>{product.name}</CardTitle>
-						<CardDescription>{product.description.slice(0, 100)}...</CardDescription>
+						<CardTitle className='text-lg'>{t(product.nameKey)}</CardTitle>
+						<CardDescription>{formatEclipse(t(product.descriptionKey))}</CardDescription>
 					</CardContent>
 					<CardFooter className='p-0 flex items-center justify-end'>
 						<Link to={`${slug}/${product.subCategoryId}/${product.id}`}>

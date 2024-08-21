@@ -6,7 +6,12 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const subCategories = ['UV Laser Marker', 'Fiber Laser Marker', 'CO2 Laser Marker', 'Portable Laser Marker']
+const subCategories = [
+	'filterSettings.subCategories.uvLaserMarker.title',
+	'filterSettings.subCategories.fiberLaserMarker.title',
+	'filterSettings.subCategories.co2LaserMarker.title',
+	'filterSettings.subCategories.portableLaserMarker.title'
+]
 
 const LaserMarkingMachinesList: React.FC = () => {
 	const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([])
@@ -14,7 +19,7 @@ const LaserMarkingMachinesList: React.FC = () => {
 	const pageSize = 6
 
 	const { data, isPending } = useProductsRelatedSubcategory({
-		category: 'Laser Marking Machines',
+		category: 'filterSettings.categories.laserMarking.title',
 		subCategory: selectedSubCategories,
 		page: currentPage,
 		pageSize

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 interface FilterSectionProps {
 	title: string
@@ -19,6 +20,8 @@ const FilterSection: React.FC<FilterSectionProps> = ({
 	onSubCategoryChange,
 	onResetFilters
 }) => {
+	const { t } = useTranslation()
+
 	return (
 		<div className='hidden md:block bg-gray-100 p-6 rounded-lg'>
 			<div className='flex justify-between items-center mb-4'>
@@ -43,7 +46,7 @@ const FilterSection: React.FC<FilterSectionProps> = ({
 										checked={selectedSubCategories.includes(subCategory)}
 										onCheckedChange={() => onSubCategoryChange(subCategory)}
 									/>
-									<span>{subCategory}</span>
+									<span>{t(subCategory)}</span>
 								</Label>
 							))}
 						</div>

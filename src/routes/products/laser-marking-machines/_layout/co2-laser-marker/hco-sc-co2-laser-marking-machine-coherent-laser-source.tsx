@@ -1,14 +1,13 @@
 import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
+import CustomerSupport from '@/components/customer-support'
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
-import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
-import { Mailbox, Phone } from 'lucide-react'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
@@ -282,25 +281,7 @@ const ProductDetail: React.FC = () => {
 			</Card>
 
 			{/* Customer support section */}
-			<Card>
-				<CardHeader>
-					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
-					<CardDescription className='mb-4'>
-						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{t(product.nameKey)}.
-					</CardDescription>
-				</CardHeader>
-				<CardContent className='flex flex-wrap gap-4'>
-					<Button variant='outline' className='flex items-center'>
-						<Mailbox className='w-5 h-5 mr-2' />
-						<span>Email Support</span>
-					</Button>
-					<Button variant='outline' className='flex items-center'>
-						<Phone className='w-5 h-5 mr-2' />
-						<span>Phone Support</span>
-					</Button>
-				</CardContent>
-			</Card>
+			<CustomerSupport name={product.nameKey} className='mt-8' />
 
 			{/* Related products section */}
 			<div className='mt-8'>

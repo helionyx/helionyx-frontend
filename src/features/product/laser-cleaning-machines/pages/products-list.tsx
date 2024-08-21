@@ -6,7 +6,7 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const subCategories = ['HCL Laser Cleaning Machine']
+const subCategories = ['filterSettings.subCategories.hclLaserCleaningMachine.title']
 
 const LaserCleaningMachinesList: React.FC = () => {
 	const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([])
@@ -14,7 +14,7 @@ const LaserCleaningMachinesList: React.FC = () => {
 	const pageSize = 6
 
 	const { data, isPending } = useProductsRelatedSubcategory({
-		category: 'Laser Cleaning Machines',
+		category: 'filterSettings.categories.laserCleaning.title',
 		subCategory: selectedSubCategories,
 		page: currentPage,
 		pageSize

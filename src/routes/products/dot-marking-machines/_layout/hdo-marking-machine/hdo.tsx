@@ -1,17 +1,16 @@
-import { createFileRoute } from '@tanstack/react-router'
 import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import ProductDetailPending from '@/features/product/components/product-detail-pending'
-import React from 'react'
 import { Separator } from '@/components/ui/separator'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { Button } from '@/components/ui/button'
-import { Mailbox, Phone } from 'lucide-react'
+import ProductDetailPending from '@/features/product/components/product-detail-pending'
+import { createFileRoute } from '@tanstack/react-router'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
+import CustomerSupport from '@/components/customer-support'
 import dm_01 from '/laser-marking-machines/dot-marking/dm_01.png'
 import dm_02 from '/laser-marking-machines/dot-marking/dm_02.png'
 import dm_03 from '/laser-marking-machines/dot-marking/dm_03.png'
@@ -244,25 +243,8 @@ const ProductDetail: React.FC = () => {
 				</CardContent>
 			</Card>
 
-			<Card>
-				<CardHeader>
-					<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
-					<CardDescription className='mb-4'>
-						Our team of experts is ready to assist you with any questions or concerns you may have about the{' '}
-						{t(product.nameKey)}.
-					</CardDescription>
-				</CardHeader>
-				<CardContent className='flex flex-wrap gap-4'>
-					<Button variant='outline' className='flex items-center'>
-						<Mailbox className='w-5 h-5 mr-2' />
-						<span>Email Support</span>
-					</Button>
-					<Button variant='outline' className='flex items-center'>
-						<Phone className='w-5 h-5 mr-2' />
-						<span>Phone Support</span>
-					</Button>
-				</CardContent>
-			</Card>
+			{/* Customer support section */}
+			<CustomerSupport name={product.nameKey} className='mt-8' />
 
 			{/* Related products section */}
 			<div className='mt-8'>

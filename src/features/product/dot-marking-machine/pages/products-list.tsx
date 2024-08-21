@@ -6,7 +6,7 @@ import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 
-const subCategories = ['HDO Marking Machine']
+const subCategories = ['filterSettings.subCategories.hdoMarkingMachine.title']
 
 const DotMarkingMachinesList: React.FC = () => {
 	const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([])
@@ -14,7 +14,7 @@ const DotMarkingMachinesList: React.FC = () => {
 	const pageSize = 6
 
 	const { data, isPending } = useProductsRelatedSubcategory({
-		category: 'Dot Marking Machines',
+		category: 'filterSettings.categories.dotMarking.title',
 		subCategory: selectedSubCategories,
 		page: currentPage,
 		pageSize

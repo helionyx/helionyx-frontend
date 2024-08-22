@@ -172,6 +172,8 @@
 		"title": "Category",
 		"btn": "Reset",
 		"types": "Products Type",
+		"applyFilters": "Apply Filters",
+		"desc": "Adjust your product filters here.",
 		"categories": {
 			"all": {
 				"title": "All"

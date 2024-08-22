@@ -1,5 +1,6 @@
 import { useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import CustomerSupport from '@/components/customer-support'
+import ProductDetailPending from '@/components/product-detail-pending'
 import RelatedProducts from '@/components/related-products'
 import RenderProductImage from '@/components/render-product-image'
 import { Badge } from '@/components/ui/badge'
@@ -7,7 +8,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
 import { ShoppingCart } from 'lucide-react'
 import React from 'react'
@@ -290,13 +290,12 @@ const ProductDetail: React.FC = () => {
 			<CustomerSupport name={product.nameKey} className='mt-8' />
 
 			{/* Related products section */}
-			<div className='mt-8'>
-				<RelatedProducts
-					isRelatedPending={isRelatedPending}
-					relatedProducts={relatedProducts}
-					slug='/products/laser-marking-machines'
-				/>
-			</div>
+			<RelatedProducts
+				className='mt-8'
+				isRelatedPending={isRelatedPending}
+				relatedProducts={relatedProducts}
+				slug='/products/laser-cutting-machines'
+			/>
 		</>
 	)
 }

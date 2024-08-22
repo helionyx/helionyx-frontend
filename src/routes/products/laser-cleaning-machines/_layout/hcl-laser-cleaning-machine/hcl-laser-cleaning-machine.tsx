@@ -1,12 +1,12 @@
 import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import CustomerSupport from '@/components/customer-support'
+import ProductDetailPending from '@/components/product-detail-pending'
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -170,7 +170,9 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>{t('constants.name.appDesc')} {t(product.nameKey).toUpperCase()}</CardTitle>
+					<CardTitle>
+						{t('constants.name.appDesc')} {t(product.nameKey).toUpperCase()}
+					</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>
@@ -280,13 +282,12 @@ const ProductDetail: React.FC = () => {
 			<CustomerSupport name={product.nameKey} className='mt-8' />
 
 			{/* Related products section */}
-			<div className='mt-8'>
-				<RelatedProducts
-					isRelatedPending={isRelatedPending}
-					relatedProducts={relatedProducts}
-					slug='/products/laser-cleaning-machines'
-				/>
-			</div>
+			<RelatedProducts
+				className='mt-8'
+				isRelatedPending={isRelatedPending}
+				relatedProducts={relatedProducts}
+				slug='/products/laser-cutting-machines'
+			/>
 		</>
 	)
 }

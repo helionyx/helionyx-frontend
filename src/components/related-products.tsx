@@ -11,13 +11,14 @@ type RelatedProductsProps = {
 	isRelatedPending: boolean
 	relatedProducts: Product[] | undefined
 	slug: string
+	className?: string
 }
 
-const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, relatedProducts, slug }) => {
+const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, relatedProducts, slug, className }) => {
 	const { t } = useTranslation()
 
 	return (
-		<>
+		<div className={className ? className : ''}>
 			{isRelatedPending ? (
 				<>
 					<Skeleton className='h-10 w-64 mb-6 bg-gray-300' />
@@ -103,7 +104,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 					</Carousel>
 				</>
 			)}
-		</>
+		</div>
 	)
 }
 

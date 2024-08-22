@@ -152,7 +152,11 @@
 		"name": {
 			"key": "Key Features",
 			"prdDesc": "Product Description",
-			"prdSpec": "Product Specifications"
+			"prdSpec": "Product Specifications",
+			"app": "Application field",
+			"appDesc": "ADVANTAGES OF",
+			"scope": "Scope of application",
+			"sample": "Sample pictures"
 		}
 	},
 	"customerSupport": {

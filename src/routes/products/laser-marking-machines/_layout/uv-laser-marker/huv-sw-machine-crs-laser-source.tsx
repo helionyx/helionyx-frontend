@@ -50,7 +50,7 @@ const ProductDetail: React.FC = () => {
 				<CardContent className='p-6'>
 					<div className='space-y-8'>
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdDesc')}</CardTitle>
 							<div className='space-y-4'>
 								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
 								{product.subDescriptionKey && (
@@ -69,7 +69,7 @@ const ProductDetail: React.FC = () => {
 						<Separator />
 
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdSpec')}</CardTitle>
 							<Table className='w-full border-collapse text-muted-foreground'>
 								<TableHeader>
 									<TableRow>
@@ -255,7 +255,7 @@ const ProductDetail: React.FC = () => {
 			{/* Application section */}
 			<Card>
 				<CardHeader>
-					<CardTitle>Application field</CardTitle>
+					<CardTitle>{t('constants.name.app')}</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<section className='flex flex-col justify-center'>

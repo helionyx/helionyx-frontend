@@ -48,14 +48,14 @@ const ProductDetail: React.FC = () => {
 				<CardContent className='p-6'>
 					<div className='space-y-8'>
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdDesc')}</CardTitle>
 							<CardDescription>{t(product.descriptionKey)}</CardDescription>
 						</section>
 
 						<Separator />
 
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdSpec')}</CardTitle>
 							<Table className='w-full border-collapse text-muted-foreground'>
 								<TableHeader>
 									<TableRow>
@@ -170,7 +170,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card className='border-x-0'>
 				<CardHeader>
-					<CardTitle>ADVANTAGES OF {t(product.nameKey).toUpperCase()}</CardTitle>
+					<CardTitle>{t('constants.name.appDesc')} {t(product.nameKey).toUpperCase()}</CardTitle>
 				</CardHeader>
 				<CardContent className='grid md:grid-cols-2 gap-8 '>
 					<Card className='max-w-2xl mx-auto bg-muted p-0 rounded-none shadow-sm overflow-hidden space-y-4 h-[630px] hover:border-amber-500 hover:shadow-md transition-shadow'>

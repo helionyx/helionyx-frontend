@@ -79,7 +79,7 @@ const ProductDetail: React.FC = () => {
 				<CardContent className='p-6'>
 					<div className='space-y-8'>
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdDesc')}</CardTitle>
 							<div className='space-y-4'>
 								<CardDescription className='text-base'>
 									{t('products.hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.description')}
@@ -103,7 +103,7 @@ const ProductDetail: React.FC = () => {
 						<Separator />
 
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdSpec')}</CardTitle>
 							<Table className='w-full border-collapse text-muted-foreground'>
 								<TableHeader>
 									<TableRow>
@@ -256,7 +256,7 @@ const ProductDetail: React.FC = () => {
 			{/* Application section */}
 			<Card>
 				<CardHeader>
-					<CardTitle className='text-amber-500'>Scope of application</CardTitle>
+					<CardTitle className='text-amber-500'>{t('constants.name.scope')}</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<section className='flex flex-col'>
@@ -270,7 +270,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card>
 				<CardHeader>
-					<CardTitle className='text-amber-500'>Sample pictures</CardTitle>
+					<CardTitle className='text-amber-500'>{t('constants.name.sample')}</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<section className='flex flex-col'>

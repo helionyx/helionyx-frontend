@@ -1,28 +1,28 @@
 import { Product } from '@/types'
 
-import huv_fw_img from '/laser-marking-machines/uv-laser-marker/HUV-FW.png'
-import huv_mw_img from '/laser-marking-machines/uv-laser-marker/HUV-MW.png'
-import huv_sw_img from '/laser-marking-machines/uv-laser-marker/HUV-SW.png'
-import huv_img from '/laser-marking-machines/uv-laser-marker/HUV.png'
+import huv_fw_img from '@/assets/laser-marking-machines/uv-laser-marker/HUV-FW.png'
+import huv_mw_img from '@/assets/laser-marking-machines/uv-laser-marker/HUV-MW.png'
+import huv_sw_img from '@/assets/laser-marking-machines/uv-laser-marker/HUV-SW.png'
+import huv_img from '@/assets/laser-marking-machines/uv-laser-marker/HUV.png'
 
-import hfi_f from '/laser-marking-machines/fiber-laser-marker/HFI-F.png'
-import hfi_m from '/laser-marking-machines/fiber-laser-marker/HFI-M.png'
-import hfi_mn from '/laser-marking-machines/fiber-laser-marker/HFI-MN.png'
-import hfi_s from '/laser-marking-machines/fiber-laser-marker/HFI-S.png'
+import hfi_f from '@/assets/laser-marking-machines/fiber-laser-marker/HFI-F.png'
+import hfi_m from '@/assets/laser-marking-machines/fiber-laser-marker/HFI-M.png'
+import hfi_mn from '@/assets/laser-marking-machines/fiber-laser-marker/HFI-MN.png'
+import hfi_s from '@/assets/laser-marking-machines/fiber-laser-marker/HFI-S.png'
 
-import hco_fc from '/laser-marking-machines/co2-laser-marker/HCO-FC.png'
-import hco_sc from '/laser-marking-machines/co2-laser-marker/HCO-SC.png'
+import hco_fc from '@/assets/laser-marking-machines/co2-laser-marker/HCO-FC.png'
+import hco_sc from '@/assets/laser-marking-machines/co2-laser-marker/HCO-SC.png'
 
-import hfi_h20_30a from '/laser-marking-machines/portable-laser-marker/HFI_H20_30A.png'
-import hfi_h20_30r from '/laser-marking-machines/portable-laser-marker/HFI_H20_30R.png'
-import hfi_h20_30s from '/laser-marking-machines/portable-laser-marker/HFI_H20_30S.png'
+import hfi_h20_30a from '@/assets/laser-marking-machines/portable-laser-marker/HFI_H20_30A.png'
+import hfi_h20_30r from '@/assets/laser-marking-machines/portable-laser-marker/HFI_H20_30R.png'
+import hfi_h20_30s from '@/assets/laser-marking-machines/portable-laser-marker/HFI_H20_30S.png'
 
-import hcn_c80 from '/laser-cutting-machines/HCN-C80.png'
+import hcn_c80 from '@/assets/laser-cutting-machines/HCN-C80.png'
 
-import hcl from '/laser-cleaning-machines/HCL.png'
+import hcl from '@/assets/laser-cleaning-machines/HCL.png'
 
-import hdo_12 from '/laser-marking-machines/dot-marking/HDO-12.png'
-import hdo_23 from '/laser-marking-machines/dot-marking/HDO-23.png'
+import hdo_12 from '@/assets/laser-marking-machines/dot-marking/HDO-12.png'
+import hdo_23 from '@/assets/laser-marking-machines/dot-marking/HDO-23.png'
 
 export const products: Product[] = [
 	{

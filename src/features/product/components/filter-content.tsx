@@ -1,18 +1,69 @@
+import React, { useCallback, useState, useEffect } from 'react'
+import { useNavigate } from '@tanstack/react-router'
+import { useTranslation } from 'react-i18next'
+import { useShallow } from 'zustand/react/shallow'
+import { X } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
 import { Skeleton } from '@/components/ui/skeleton'
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription, SheetClose } from '@/components/ui/sheet'
+import { ScrollArea } from '@/components/ui/scroll-area'
 import { useStore } from '@/stores/store'
 import { ProductFilters, ProductListQueryParams } from '@/types'
-import { useNavigate } from '@tanstack/react-router'
-import React, { useCallback, useMemo } from 'react'
-import { useShallow } from 'zustand/react/shallow'
 import { useCatalogsQuery } from '../api/queries.api'
-import { useTranslation } from 'react-i18next'
+import { TFunction } from 'i18next'
 
-const FilterContent: React.FC = React.memo(() => {
+const FilterOptionsRenderer: React.FC<{
+	t: TFunction<'translation', undefined>
+	isPending: boolean
+	type: keyof ProductFilters
+	data: string[] | undefined
+	selectedFilters: ProductFilters
+	handleFilterChange: (type: keyof ProductFilters, value: string) => void
+}> = React.memo(({ t, data, isPending, type, selectedFilters, handleFilterChange }) => (
+	<div className='grid gap-2'>
+		{isPending ? (
+			<div className='space-y-2'>
+				{Array(4)
+					.fill(null)
+					.map((_, index) => (
+						<div key={`skeleton-${type}-${index}`} className='flex items-center space-x-2'>
+							<Skeleton className='h-4 w-4 bg-gray-300 rounded' />
+							<Skeleton className='h-4 w-2/3 bg-gray-300 rounded' />
+						</div>
+					))}
+			</div>
+		) : (
+			data?.map((value) => (
+				<Label key={`${type}-${value}`} className='flex items-center gap-2'>
+					<Checkbox
+						checked={selectedFilters[type].includes(value)}
+						onCheckedChange={() => handleFilterChange(type, value)}
+					/>
+					{t(value)}
+				</Label>
+			))
+		)}
+	</div>
+))
+
+FilterOptionsRenderer.displayName = 'FilterOptionsRenderer'
+
+const FilterContent: React.FC<{ isOpen?: boolean; onClose?: () => void }> = ({ isOpen, onClose }) => {
 	const navigate = useNavigate()
+	const { t } = useTranslation()
+	const [isMobile, setIsMobile] = useState(false)
+
+	useEffect(() => {
+		const checkScreenSize = () => {
+			setIsMobile(window.innerWidth < 768)
+		}
+		checkScreenSize()
+		window.addEventListener('resize', checkScreenSize)
+		return () => window.removeEventListener('resize', checkScreenSize)
+	}, [])
 
 	const { selectedFilters, setSelectedFilters, setSearchTerm, updateFilter } = useStore(
 		useShallow((state) => ({
@@ -25,8 +76,6 @@ const FilterContent: React.FC = React.memo(() => {
 
 	const { data: catalogs, isPending: isCatalogsPending } = useCatalogsQuery()
 
-	const { t } = useTranslation()
-
 	const handleFilterChange = useCallback(
 		(type: keyof ProductFilters, value: string) => {
 			updateFilter(type, value)
@@ -34,13 +83,9 @@ const FilterContent: React.FC = React.memo(() => {
 		[updateFilter]
 	)
 
-	const resetFilters = useCallback(() => {
+	const handleResetFilters = useCallback(() => {
 		setSelectedFilters({ category: [] })
 		setSearchTerm('')
-	}, [setSearchTerm, setSelectedFilters])
-
-	const handleResetFilters = useCallback(() => {
-		resetFilters()
 		navigate({
 			search: (prev: ProductListQueryParams) => ({
 				...prev,
@@ -49,68 +94,73 @@ const FilterContent: React.FC = React.memo(() => {
 			}),
 			replace: true
 		})
-	}, [resetFilters, navigate])
+	}, [setSelectedFilters, setSearchTerm, navigate])
 
-	const renderFilterOptions = useCallback(
-		(data: string[] | undefined, isPending: boolean, type: keyof ProductFilters) => {
-			if (isPending) {
-				return (
-					<div className='space-y-2'>
-						{Array(4)
-							.fill(null)
-							.map((_, index) => (
-								<div key={`skeleton-${type}-${index}`} className='flex items-center space-x-2'>
-									<Skeleton className='h-4 w-4 bg-gray-300 rounded' />
-									<Skeleton className='h-4 w-2/3 bg-gray-300 rounded' />
-								</div>
-							))}
+	const filterContent = (
+		<Accordion type='multiple' defaultValue={['category']}>
+			<AccordionItem value='category'>
+				<AccordionTrigger className='text-lg font-medium capitalize'>Category</AccordionTrigger>
+				<AccordionContent>
+					<FilterOptionsRenderer
+						t={t}
+						type='category'
+						data={catalogs?.category}
+						isPending={isCatalogsPending}
+						selectedFilters={selectedFilters}
+						handleFilterChange={handleFilterChange}
+					/>
+				</AccordionContent>
+			</AccordionItem>
+		</Accordion>
+	)
+
+	if (isMobile) {
+		return (
+			<Sheet open={isOpen} onOpenChange={onClose}>
+				<SheetContent side='left' className='w-full sm:max-w-md p-0'>
+					<SheetHeader className='sticky top-0 bg-background z-10 px-4 py-2 border-b'>
+						<div className='flex justify-between items-center'>
+							<SheetClose asChild>
+								<Button variant='ghost' size='icon'>
+									<X className='h-4 w-4' />
+								</Button>
+							</SheetClose>
+							<SheetTitle>Filters</SheetTitle>
+							<Button variant='ghost' size='sm' onClick={handleResetFilters}>
+								Reset
+							</Button>
+						</div>
+						<SheetDescription>Adjust your product filters here.</SheetDescription>
+					</SheetHeader>
+
+					<ScrollArea className='h-[calc(100vh-9rem)] px-4 py-6'>{filterContent}</ScrollArea>
+
+					<div className='sticky bottom-0 bg-background border-t p-4'>
+						<Button className='w-full' onClick={onClose}>
+							Apply Filters
+						</Button>
 					</div>
-				)
-			}
+				</SheetContent>
+			</Sheet>
+		)
+	}
 
-			return data?.map((value) => {
-				return (
-					<Label key={`${type}-${value}`} className='flex items-center gap-2'>
-						<Checkbox
-							checked={selectedFilters[type].includes(value)}
-							onCheckedChange={() => handleFilterChange(type, value)}
-						/>
-						{t(value)}
-					</Label>
-				)
-			})
-		},
-		[handleFilterChange, selectedFilters, t]
+	return (
+		<div className='bg-background p-6 rounded-lg shadow-md'>
+			<div className='flex justify-between items-center mb-4'>
+				<h2 className='text-xl font-bold'>Filters</h2>
+				<Button
+					variant='outline'
+					onClick={handleResetFilters}
+					size='sm'
+					className='text-amber-500 border-amber-500 hover:bg-amber-50'
+				>
+					Reset Filters
+				</Button>
+			</div>
+			{filterContent}
+		</div>
 	)
+}
 
-	return useMemo(
-		() => (
-			<>
-				<div className='flex justify-between items-center mb-4'>
-					<h2 className='text-xl font-bold'>Filters</h2>
-					<Button
-						variant='outline'
-						onClick={handleResetFilters}
-						size='sm'
-						className='text-amber-500 border-amber-500 hover:bg-amber-50'
-					>
-						Reset Filters
-					</Button>
-				</div>
-				<Accordion type='multiple' defaultValue={['category']}>
-					<AccordionItem value='category'>
-						<AccordionTrigger className='text-lg font-medium capitalize'>Category</AccordionTrigger>
-						<AccordionContent>
-							<div className='grid gap-2'>{renderFilterOptions(catalogs?.category, isCatalogsPending, 'category')}</div>
-						</AccordionContent>
-					</AccordionItem>
-				</Accordion>
-			</>
-		),
-		[catalogs, isCatalogsPending, handleResetFilters, renderFilterOptions]
-	)
-})
-
-FilterContent.displayName = 'FilterContent'
-
-export default FilterContent
+export default React.memo(FilterContent)

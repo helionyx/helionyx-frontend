@@ -11,10 +11,10 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 import CustomerSupport from '@/components/customer-support'
-import dm_01 from '/laser-marking-machines/dot-marking/dm_01.png'
-import dm_02 from '/laser-marking-machines/dot-marking/dm_02.png'
-import dm_03 from '/laser-marking-machines/dot-marking/dm_03.png'
-import dm_04 from '/laser-marking-machines/dot-marking/dm_04.png'
+import dm_01 from '@/assets/laser-marking-machines/dot-marking/dm_01.png'
+import dm_02 from '@/assets/laser-marking-machines/dot-marking/dm_02.png'
+import dm_03 from '@/assets/laser-marking-machines/dot-marking/dm_03.png'
+import dm_04 from '@/assets/laser-marking-machines/dot-marking/dm_04.png'
 
 const ProductDetail: React.FC = () => {
 	const productId = 'hdo'

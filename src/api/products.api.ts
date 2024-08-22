@@ -48,13 +48,13 @@ class ProductsService implements IProductsService {
 		const { category, subCategory, search, page = 1, pageSize = 6 } = params
 
 		const filteredProducts = products.filter((product) => {
-			const productCategory = categories.find(
-				(c) => c.id === subCategories.find((sc) => sc.id === product.subCategoryId)?.categoryId
-			)
-			const productSubCategory = subCategories.find((sc) => sc.id === product.subCategoryId)
+			// Check if the product matches the category
+			const matchesCategory = category ? product.categoryId === category : true
 
-			const matchesCategory = category?.length ? category.includes(productCategory?.name || '') : true
-			const matchesSubCategory = subCategory?.length ? subCategory.includes(productSubCategory?.name || '') : true
+			// Check if the product matches the subcategory
+			const matchesSubCategory = subCategory?.length ? subCategory.includes(product.subCategoryId) : true
+
+			// Check if the product matches the search term
 			const matchesSearch = search
 				? product.nameKey.toLowerCase().includes(search.toLowerCase()) ||
 					product.descriptionKey.toLowerCase().includes(search.toLowerCase())

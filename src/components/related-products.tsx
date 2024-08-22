@@ -48,8 +48,8 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 			) : !relatedProducts || relatedProducts.length === 0 ? (
 				<Card>
 					<CardHeader>
-						<CardTitle>No Related Products</CardTitle>
-						<CardDescription>There are currently no related products for this item.</CardDescription>
+						<CardTitle>{t('noRelatedProducts.title')}</CardTitle>
+						<CardDescription>{t('noRelatedProducts.desc')}</CardDescription>
 					</CardHeader>
 					<CardFooter>
 						<Link to='/products'>
@@ -57,14 +57,14 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 								variant='outline'
 								className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
 							>
-								<span>Browse All Products</span>
+								<span>{t('noRelatedProducts.viewDetails')}</span>
 							</Button>
 						</Link>
 					</CardFooter>
 				</Card>
 			) : (
 				<>
-					<h2 className='text-2xl md:text-3xl font-bold mb-6'>Related Products</h2>
+					<h2 className='text-2xl md:text-3xl font-bold mb-6'>{t('relatedProducts.title')}</h2>
 					<Carousel className='w-full relative' opts={{ align: 'start' }}>
 						<CarouselContent>
 							{relatedProducts.map((relatedProduct: Product) => (
@@ -91,7 +91,7 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 														variant='outline'
 														className='w-full hover:bg-amber-100 hover:text-amber-500 hover:border-amber-500 transition-colors'
 													>
-														<span>Learn More</span>
+														<span>{t('relatedProducts.viewDetails')}</span>
 													</Button>
 												</Link>
 											</CardFooter>

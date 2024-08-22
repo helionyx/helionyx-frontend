@@ -1,25 +1,20 @@
 import { useProductsRelatedSubcategory } from '@/api/hooks.api'
+import AdvantageCard from '@/components/advantage-card'
 import FilterSection from '@/components/filter-section'
 import PaginationSection from '@/components/pagination-section'
 import RenderProductsCard from '@/components/render-products-card'
-import { Card, CardDescription, CardTitle } from '@/components/ui/card'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
-
-const subCategories = [
-	'filterSettings.subCategories.uvLaserMarker.title',
-	'filterSettings.subCategories.fiberLaserMarker.title',
-	'filterSettings.subCategories.co2LaserMarker.title',
-	'filterSettings.subCategories.portableLaserMarker.title'
-]
 
 const LaserMarkingMachinesList: React.FC = () => {
 	const [selectedSubCategories, setSelectedSubCategories] = useState<string[]>([])
 	const [currentPage, setCurrentPage] = useState(1)
 	const pageSize = 6
 
+	const categoryId = 'laser-marking-machines'
+
 	const { data, isPending } = useProductsRelatedSubcategory({
-		category: 'filterSettings.categories.laserMarking.title',
+		category: categoryId,
 		subCategory: selectedSubCategories,
 		page: currentPage,
 		pageSize
@@ -27,9 +22,9 @@ const LaserMarkingMachinesList: React.FC = () => {
 
 	const { t } = useTranslation()
 
-	const handleSubCategoryChange = (subCategory: string) => {
+	const handleSubCategoryChange = (subCategoryId: string) => {
 		setSelectedSubCategories((prev) =>
-			prev.includes(subCategory) ? prev.filter((sc) => sc !== subCategory) : [...prev, subCategory]
+			prev.includes(subCategoryId) ? prev.filter((sc) => sc !== subCategoryId) : [...prev, subCategoryId]
 		)
 		setCurrentPage(1)
 	}
@@ -41,6 +36,9 @@ const LaserMarkingMachinesList: React.FC = () => {
 
 	const totalPages = data?.totalPages || 1
 
+	const advantages = t('laserCutting.advantages', { returnObjects: true })
+	const advantagesList: { name: string; description: string }[] = Array.from(Object.values(advantages))
+
 	return (
 		<>
 			<div className='p-0 space-y-2'>
@@ -49,8 +47,7 @@ const LaserMarkingMachinesList: React.FC = () => {
 			</div>
 			<div className='grid grid-cols-1 md:grid-cols-[300px_1fr] gap-8'>
 				<FilterSection
-					title='Product Type'
-					subCategories={subCategories}
+					categoryId={categoryId}
 					selectedSubCategories={selectedSubCategories}
 					onSubCategoryChange={handleSubCategoryChange}
 					onResetFilters={resetFilters}
@@ -66,27 +63,7 @@ const LaserMarkingMachinesList: React.FC = () => {
 					<PaginationSection currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
 				</div>
 			</div>
-			<div className='p-0 space-y-8'>
-				<h1 className='text-4xl font-bold text-amber-500'>{t('laserMarking.advantages.title')}</h1>
-				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
-					<CardTitle className='text-amber-500'>{t('laserMarking.advantages.highSpeedAndPrecision.name')}</CardTitle>
-					<CardDescription>{t('laserMarking.advantages.highSpeedAndPrecision.description')}</CardDescription>
-				</Card>
-				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
-					<CardTitle className='text-amber-500'>{t('laserMarking.advantages.nonContactProcess.name')}</CardTitle>
-					<CardDescription>{t('laserMarking.advantages.nonContactProcess.description')}</CardDescription>
-				</Card>
-				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
-					<CardTitle className='text-amber-500'>{t('laserMarking.advantages.versatileAndFlexible.name')}</CardTitle>
-					<CardDescription>{t('laserMarking.advantages.versatileAndFlexible.description')}</CardDescription>
-				</Card>
-				<Card className='p-8 border-t-amber-500 rounded-none space-y-8 bg-gray-50'>
-					<CardTitle className='text-amber-500'>
-						{t('laserMarking.advantages.permanentAndDurableMarking.name')}
-					</CardTitle>
-					<CardDescription>{t('laserMarking.advantages.permanentAndDurableMarking.description')}</CardDescription>
-				</Card>
-			</div>
+			<AdvantageCard title='laserMarking.advantageTitle' advantagesList={advantagesList} />
 		</>
 	)
 }

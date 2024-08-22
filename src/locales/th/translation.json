@@ -147,7 +147,9 @@
 	"constants": {
 		"buttons": {
 			"viewDetails": "รายละเอียดเพิ่มเติม",
-			"getQuote": "ขอใบเสนอราคา"
+			"getQuote": "ขอใบเสนอราคา",
+			"previous": "ก่อนหน้า",
+			"next": "ถัดไป"
 		},
 		"name": {
 			"key": "คุณสมบัติหลัก",

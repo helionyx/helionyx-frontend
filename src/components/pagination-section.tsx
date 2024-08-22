@@ -7,6 +7,7 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
+import { useTranslation } from 'react-i18next'
 
 interface PaginationSectionProps {
 	currentPage: number
@@ -15,6 +16,11 @@ interface PaginationSectionProps {
 }
 
 const PaginationSection: React.FC<PaginationSectionProps> = ({ currentPage, totalPages, onPageChange }) => {
+	const { t } = useTranslation()
+
+	const previousText = t('constants.buttons.previous')
+	const nextText = t('constants.buttons.next')
+
 	return (
 		<div className='flex justify-end'>
 			<Pagination>
@@ -24,6 +30,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ currentPage, tota
 							href='#'
 							onClick={() => onPageChange(Math.max(currentPage - 1, 1))}
 							className={currentPage === 1 ? 'pointer-events-none opacity-50' : ''}
+							text={previousText}
 						/>
 					</PaginationItem>
 					{[...Array(totalPages)].map((_, index) => (
@@ -38,6 +45,7 @@ const PaginationSection: React.FC<PaginationSectionProps> = ({ currentPage, tota
 							href='#'
 							onClick={() => onPageChange(Math.min(currentPage + 1, totalPages))}
 							className={currentPage === totalPages ? 'pointer-events-none opacity-50' : ''}
+							text={nextText}
 						/>
 					</PaginationItem>
 				</PaginationContent>

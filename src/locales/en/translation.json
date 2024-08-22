@@ -147,7 +147,9 @@
 	"constants": {
 		"buttons": {
 			"viewDetails": "More Details",
-			"getQuote": "Get A Quote"
+			"getQuote": "Get A Quote",
+			"previous": "Previous",
+			"next": "Next"
 		},
 		"name": {
 			"key": "Key Features",

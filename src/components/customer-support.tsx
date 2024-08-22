@@ -15,9 +15,9 @@ const CustomerSupport: React.FC<CustomerSupportProps> = ({ name, className }) =>
 	return (
 		<Card className={`${className}`}>
 			<CardHeader>
-				<CardTitle className='text-2xl font-semibold mb-4'>Customer Support</CardTitle>
+				<CardTitle className='text-2xl font-semibold mb-4'>{t('customerSupport.title')}</CardTitle>
 				<CardDescription className='mb-4'>
-					Our team of experts is ready to assist you with any questions or concerns you may have about the {t(name)}.
+					{t('customerSupport.desc')} {t(name)}.
 				</CardDescription>
 			</CardHeader>
 			<CardContent className='flex flex-wrap gap-4'>

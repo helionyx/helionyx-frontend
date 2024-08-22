@@ -25,7 +25,7 @@ const RenderProductDetail: React.FC<RenderProductDetailProps> = ({ product }) =>
 				)}
 			</div>
 			<div className='my-6'>
-				<CardTitle className='text-xl font-semibold mb-3'>Key Features:</CardTitle>
+				<CardTitle className='text-xl font-semibold mb-3'>{t('constants.name.key')}:</CardTitle>
 				<ul className='space-y-2'>
 					{features.map((feature: string, index: number) => (
 						<li key={index} className='flex items-start'>
@@ -35,9 +35,9 @@ const RenderProductDetail: React.FC<RenderProductDetailProps> = ({ product }) =>
 					))}
 				</ul>
 			</div>
-			<Button className='w-full text-xl bg-amber-500 hover:bg-amber-600 transition-colors'>
+			<Button className='w-full h-12 text-xl bg-amber-500 hover:bg-amber-600 transition-colors'>
 				<ShoppingCart className='w-6 h-6 mr-2' />
-				<span>Get a Quote</span>
+				<span>{t('constants.buttons.getQuote')}</span>
 			</Button>
 		</>
 	)

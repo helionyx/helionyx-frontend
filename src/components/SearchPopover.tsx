@@ -95,7 +95,7 @@ const SearchPopover: React.FC = React.memo(() => {
 			<PopoverTrigger asChild>
 				<Button variant='outline' className='w-full md:w-auto relative'>
 					<Search className='mr-2 h-4 w-4' />
-					{localSearchTerm ? `Search: ${localSearchTerm}` : 'Search products'}
+					{localSearchTerm ? `${t('searchPopover.titleActive')}: ${localSearchTerm}` : t('searchPopover.titleInactive')}
 				</Button>
 			</PopoverTrigger>
 			<PopoverContent className='w-80 z-50' align='center' sideOffset={5}>
@@ -104,7 +104,7 @@ const SearchPopover: React.FC = React.memo(() => {
 						<Input
 							ref={inputRef}
 							type='text'
-							placeholder='Search products...'
+							placeholder={t('searchPopover.placeholder')}
 							value={localSearchTerm}
 							onChange={handleSearchChange}
 							onKeyDown={handleKeyDown}
@@ -139,11 +139,11 @@ const SearchPopover: React.FC = React.memo(() => {
 									className={`w-full justify-start p-2 ${selectedIndex === searchResults.length ? 'bg-muted' : ''}`}
 									onClick={handleViewAllResults}
 								>
-									View all results
+									{t('searchPopover.viewAll')}
 								</Button>
 							</>
 						) : (
-							<p className='text-center text-muted-foreground py-2'>No results found</p>
+							<p className='text-center text-muted-foreground py-2'>{t('searchPopover.noResults')}</p>
 						)}
 					</div>
 				</div>

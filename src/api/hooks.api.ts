@@ -1,6 +1,7 @@
-import { useQuery } from '@tanstack/react-query'
-import productsService from './products.api'
 import { ProductListQueryParams } from '@/types'
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query'
+import { useTranslation } from 'react-i18next'
+import productsService from './products.api'
 
 export function useProductId(productId: string) {
 	return useQuery({
@@ -30,5 +31,27 @@ export function useProductsRelatedSubcategory(params: Partial<ProductListQueryPa
 	return useQuery({
 		queryKey: ['products', params],
 		queryFn: () => productsService.getFilteredProducts(params)
+	})
+}
+
+export function useCatalogsQuery() {
+	return useQuery({
+		queryKey: ['catalog'],
+		queryFn: productsService.getCatalog
+	})
+}
+
+export function useFilteredProductsQuery(params: Partial<ProductListQueryParams> = {}) {
+	const { i18n } = useTranslation()
+
+	return useInfiniteQuery({
+		queryKey: ['filteredProducts', { ...params, language: i18n.language }],
+		queryFn: ({ pageParam = 1 }) =>
+			productsService.getFilteredProducts({ ...params, page: pageParam, language: i18n.language }),
+		initialPageParam: 1,
+		getNextPageParam: (lastPage, pages) => {
+			if (lastPage.products.length < lastPage.pageSize) return undefined
+			return pages.length + 1
+		}
 	})
 }

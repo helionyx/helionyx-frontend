@@ -1,5 +1,6 @@
 import { categories, models, products, subCategories } from '@/databases'
 import { FilteredProductsResponse, Model, Product, ProductListQueryParams } from '@/types'
+import i18next from 'i18next'
 
 interface IProductsService {
 	getProductById: (id: string) => Promise<Product | null>
@@ -7,6 +8,7 @@ interface IProductsService {
 	getRelatedProducts: (id: string, subCategoryId: string) => Promise<Product[]>
 	getProductsRelatedSubCategory: (category: string) => Promise<Product[]>
 	getFilteredProducts: (params: ProductListQueryParams) => Promise<FilteredProductsResponse>
+	getCatalog: () => Promise<{ id: string; name: string }[]>
 }
 
 class ProductsService implements IProductsService {
@@ -45,20 +47,22 @@ class ProductsService implements IProductsService {
 	}
 
 	public getFilteredProducts = async (params: ProductListQueryParams) => {
-		const { category, subCategory, search, page = 1, pageSize = 6 } = params
+		const { category, subCategory, search, page = 1, pageSize = 6, language = 'en' } = params
 
 		const filteredProducts = products.filter((product) => {
 			// Check if the product matches the category
-			const matchesCategory = category ? product.categoryId === category : true
+			let matchesCategory = undefined
+			if (typeof category === 'string') {
+				matchesCategory = category ? product.categoryId === category : true
+			} else if (typeof category === 'object') {
+				matchesCategory = category?.length ? category.includes(product.categoryId) : true
+			}
 
 			// Check if the product matches the subcategory
 			const matchesSubCategory = subCategory?.length ? subCategory.includes(product.subCategoryId) : true
 
-			// Check if the product matches the search term
-			const matchesSearch = search
-				? product.nameKey.toLowerCase().includes(search.toLowerCase()) ||
-					product.descriptionKey.toLowerCase().includes(search.toLowerCase())
-				: true
+			// Check if the product matches the search term in both languages
+			const matchesSearch = search ? this.productMatchesSearch(product, search, language) : true
 
 			return matchesCategory && matchesSubCategory && matchesSearch
 		})
@@ -74,6 +78,27 @@ class ProductsService implements IProductsService {
 			currentPage: page,
 			totalPages: Math.ceil(filteredProducts.length / pageSize)
 		}
+	}
+
+	public getCatalog = async (): Promise<{ id: string; name: string }[]> => {
+		return categories.map((c) => ({ id: c.id, name: c.name }))
+	}
+
+	private productMatchesSearch(product: Product, search: string, language: string): boolean {
+		const searchLower = search.toLowerCase()
+		const nameKey = product.nameKey.toLowerCase()
+		const descriptionKey = product.descriptionKey.toLowerCase()
+
+		// Check if the search term matches the key directly
+		if (nameKey.includes(searchLower) || descriptionKey.includes(searchLower)) {
+			return true
+		}
+
+		// Check if the search term matches the translated value
+		const translatedName = i18next.t(product.nameKey, { lng: language }).toLowerCase()
+		const translatedDescription = i18next.t(product.descriptionKey, { lng: language }).toLowerCase()
+
+		return translatedName.includes(searchLower) || translatedDescription.includes(searchLower)
 	}
 }
 

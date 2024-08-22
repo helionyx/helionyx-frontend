@@ -1,9 +1,9 @@
+import { useFilteredProductsQuery } from '@/api/hooks.api'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
 import { Skeleton } from '@/components/ui/skeleton'
-import { useFilteredProductsQuery } from '@/features/product/api/queries.api'
-import useDebounce from '@/features/product/hooks/use-debounce'
+import useDebounce from '@/hooks/use-debounce'
 import { Product } from '@/types'
 import { formatEclipse } from '@/utils'
 import { Link, useNavigate } from '@tanstack/react-router'
@@ -27,11 +27,14 @@ const SearchPopover: React.FC = React.memo(() => {
 	const [selectedIndex, setSelectedIndex] = useState(-1)
 	const debouncedSearchTerm = useDebounce(localSearchTerm, 300)
 
-	const { t } = useTranslation()
+	const { t, i18n } = useTranslation()
 
 	const navigate = useNavigate()
 
-	const { data, isPending } = useFilteredProductsQuery({ search: debouncedSearchTerm })
+	const { data, isPending } = useFilteredProductsQuery({
+		search: debouncedSearchTerm,
+		language: i18n.language // Pass the current language to the query
+	})
 
 	const searchResults = data?.pages[0]?.products || []
 

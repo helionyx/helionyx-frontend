@@ -40,6 +40,7 @@ export interface ProductListQueryParams {
 	subCategory?: string | string[]
 	page?: number
 	pageSize?: number
+	language?: string
 }
 
 export interface ProductFilters {

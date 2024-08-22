@@ -1,3 +1,4 @@
+import { useCatalogsQuery } from '@/api/hooks.api'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
@@ -13,7 +14,6 @@ import { X } from 'lucide-react'
 import React, { useCallback, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useShallow } from 'zustand/react/shallow'
-import { useCatalogsQuery } from '../api/queries.api'
 
 const FilterOptionsRenderer: React.FC<{
 	t: TFunction<'translation', undefined>
@@ -99,7 +99,7 @@ const FilterContent: React.FC<{ isOpen?: boolean; onClose?: () => void }> = ({ i
 	const filterContent = (
 		<Accordion type='multiple' defaultValue={['category']}>
 			<AccordionItem value='category'>
-				<AccordionTrigger className='text-lg font-medium capitalize'>{t('filterSettings.types')}</AccordionTrigger>
+				<AccordionTrigger className='text-lg font-medium capitalize'>Category</AccordionTrigger>
 				<AccordionContent>
 					<FilterOptionsRenderer
 						t={t}
@@ -125,19 +125,19 @@ const FilterContent: React.FC<{ isOpen?: boolean; onClose?: () => void }> = ({ i
 									<X className='h-4 w-4' />
 								</Button>
 							</SheetClose>
-							<SheetTitle>{t('filterSettings.title')}</SheetTitle>
+							<SheetTitle>Filters</SheetTitle>
 							<Button variant='ghost' size='sm' onClick={handleResetFilters}>
-								{t('filterSettings.btn')}
+								Reset
 							</Button>
 						</div>
-						<SheetDescription>{t('filterSettings.desc')}</SheetDescription>
+						<SheetDescription>Adjust your product filters here.</SheetDescription>
 					</SheetHeader>
 
 					<ScrollArea className='h-[calc(100vh-9rem)] px-4 py-6'>{filterContent}</ScrollArea>
 
 					<div className='sticky bottom-0 bg-background border-t p-4'>
 						<Button className='w-full' onClick={onClose}>
-							{t('filterSettings.applyFilters')}
+							Apply Filters
 						</Button>
 					</div>
 				</SheetContent>
@@ -148,14 +148,14 @@ const FilterContent: React.FC<{ isOpen?: boolean; onClose?: () => void }> = ({ i
 	return (
 		<div className='bg-background p-6 rounded-lg shadow-md'>
 			<div className='flex justify-between items-center mb-4'>
-				<h2 className='text-xl font-bold'>{t('filterSettings.title')}</h2>
+				<h2 className='text-xl font-bold'>Filters</h2>
 				<Button
 					variant='outline'
 					onClick={handleResetFilters}
 					size='sm'
 					className='text-amber-500 border-amber-500 hover:bg-amber-50'
 				>
-					{t('filterSettings.btn')}
+					Reset Filters
 				</Button>
 			</div>
 			{filterContent}

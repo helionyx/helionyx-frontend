@@ -1,12 +1,12 @@
 import { useModelsQuery, useProductId, useRelatedProductsQuery } from '@/api/hooks.api'
 import CustomerSupport from '@/components/customer-support'
+import ProductDetailPending from '@/components/product-detail-pending'
 import RelatedProducts from '@/components/related-products'
 import RenderProductDetail from '@/components/render-product-detail'
 import RenderProductImage from '@/components/render-product-image'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import ProductDetailPending from '@/features/product/components/product-detail-pending'
 import { createFileRoute } from '@tanstack/react-router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
@@ -53,7 +53,7 @@ const ProductDetail: React.FC = () => {
 				<CardContent className='p-6'>
 					<div className='space-y-8'>
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Description</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdDesc')}</CardTitle>
 							<div className='space-y-4'>
 								<CardDescription className='text-base'>{t(product.descriptionKey)}</CardDescription>
 								{product.subDescriptionKey && (
@@ -75,7 +75,7 @@ const ProductDetail: React.FC = () => {
 						<Separator />
 
 						<section>
-							<CardTitle className='text-2xl font-semibold mb-4'>Product Specifications</CardTitle>
+							<CardTitle className='text-2xl font-semibold mb-4'>{t('constants.name.prdSpec')}</CardTitle>
 							<Table className='w-full border-collapse text-muted-foreground'>
 								<TableHeader>
 									<TableRow>
@@ -232,7 +232,7 @@ const ProductDetail: React.FC = () => {
 			{/* Application section */}
 			<Card>
 				<CardHeader>
-					<CardTitle className='text-amber-500'>Scope of application</CardTitle>
+					<CardTitle className='text-amber-500'>{t('constants.name.scope')}</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<section className='flex flex-col'>
@@ -243,7 +243,7 @@ const ProductDetail: React.FC = () => {
 
 			<Card>
 				<CardHeader>
-					<CardTitle className='text-amber-500'>Sample pictures</CardTitle>
+					<CardTitle className='text-amber-500'>{t('constants.name.sample')}</CardTitle>
 				</CardHeader>
 				<CardContent>
 					<section className='flex flex-col'>
@@ -256,13 +256,12 @@ const ProductDetail: React.FC = () => {
 			<CustomerSupport name={product.nameKey} className='mt-8' />
 
 			{/* Related products section */}
-			<div className='mt-8'>
-				<RelatedProducts
-					isRelatedPending={isRelatedPending}
-					relatedProducts={relatedProducts}
-					slug='/products/laser-marking-machines'
-				/>
-			</div>
+			<RelatedProducts
+				className='mt-8'
+				isRelatedPending={isRelatedPending}
+				relatedProducts={relatedProducts}
+				slug='/products/laser-cutting-machines'
+			/>
 		</>
 	)
 }

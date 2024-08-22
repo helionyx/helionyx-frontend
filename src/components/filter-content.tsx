@@ -19,7 +19,7 @@ const FilterOptionsRenderer: React.FC<{
 	t: TFunction<'translation', undefined>
 	isPending: boolean
 	type: keyof ProductFilters
-	data: string[] | undefined
+	data: { id: string; name: string }[] | undefined
 	selectedFilters: ProductFilters
 	handleFilterChange: (type: keyof ProductFilters, value: string) => void
 }> = React.memo(({ t, data, isPending, type, selectedFilters, handleFilterChange }) => (
@@ -36,13 +36,10 @@ const FilterOptionsRenderer: React.FC<{
 					))}
 			</div>
 		) : (
-			data?.map((value) => (
-				<Label key={`${type}-${value}`} className='flex items-center gap-2'>
-					<Checkbox
-						checked={selectedFilters[type].includes(value)}
-						onCheckedChange={() => handleFilterChange(type, value)}
-					/>
-					{t(value)}
+			data?.map(({ id, name }) => (
+				<Label key={`${type}-${id}`} className='flex items-center gap-2'>
+					<Checkbox checked={selectedFilters[type].includes(id)} onCheckedChange={() => handleFilterChange(type, id)} />
+					{t(name)}
 				</Label>
 			))
 		)}
@@ -104,7 +101,7 @@ const FilterContent: React.FC<{ isOpen?: boolean; onClose?: () => void }> = ({ i
 					<FilterOptionsRenderer
 						t={t}
 						type='category'
-						data={catalogs?.category}
+						data={catalogs}
 						isPending={isCatalogsPending}
 						selectedFilters={selectedFilters}
 						handleFilterChange={handleFilterChange}

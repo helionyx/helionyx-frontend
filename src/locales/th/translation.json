@@ -147,10 +147,31 @@
 	"constants": {
 		"buttons": {
 			"viewDetails": "รายละเอียดเพิ่มเติม",
-			"getQuote": "ขอรับใบเสนอราคา"
+			"getQuote": "ขอใบเสนอราคา"
+		},
+		"name": {
+			"key": "คุณสมบัติหลัก",
+			"prdDesc": "รายละเอียดเพิ่มเติม",
+			"prdSpec": "คุณสมบัติเฉพาะ"
 		}
 	},
+	"customerSupport": {
+		"title": "บริการหลังการขาย",
+		"desc": "หากมีข้อสงสัย หรืออยากทราบรายละเอียดเพิ่มเติมมากกว่านี้ ทางเรามีทีมผู้เชี่ยวชาญพร้อมให้คำแนะนำ เกี่ยวกับผลิตภัณฑ์ "
+	},
+	"relatedProducts": {
+		"title": "ผลิตภัณฑ์ที่เกี่ยวข้อง",
+		"viewDetails": "รายละเอียดเพิ่มเติม"
+	},
+	"noRelatedProducts": {
+		"title": "ไม่มีผลิตภัณฑ์ที่เกี่ยวข้อง",
+		"desc": "ขณะนี้ยังไม่มีผลิตภัณฑ์ที่เกี่ยวข้อง กรุณาเลือกหมวดหมู่อื่น",
+		"viewDetails": "ค้นหาหมวดหมู่อื่น"
+	},
 	"filterSettings": {
+		"title": "ตั้งค่าตัวกรอง",
+		"btn": "รีเซ็ต",
+		"types": "เลือกรุ่นผลิตภัณฑ์",
 		"categories": {
 			"all": {
 				"title": "ทั้งหมด"
@@ -176,10 +197,10 @@
 				"title": "เลเซอร์มาร์กชนิด Fiber"
 			},
 			"co2LaserMarker": {
-				"title": "CO2 Laser Marker"
+				"title": "เลเซอร์มาร์กชนิด CO2"
 			},
 			"portableLaserMarker": {
-				"title": "Portable Laser Marker"
+				"title": "เลเซอร์มาร์กชนิด Portable"
 			},
 			"laserMetalCutting": {
 				"title": "Laser Metal Cutting"
@@ -210,11 +231,11 @@
 		"quickLinks": "ลิงก์ทางลัด",
 		"product": "ผลิตภัณฑ์",
 		"aboutUS": "เกี่ยวกับเรา",
-		"contact"	: "ติดต่อเรา",
+		"contact": "ติดต่อเรา",
 		"contactInfo": "ข้อมูลติดต่อทางออนไลน์"
 	},
 	"footerCard": {
-		"contactusCard" : "ติดต่อเรา",
+		"contactusCard": "ติดต่อเรา",
 		"nameCard": "ชื่อ",
 		"emailCard": "อีเมล์",
 		"messageCard": "ข้อความ",
@@ -232,14 +253,21 @@
 	},
 	"aboutSecTwo": {
 		"quality": "คุณภาพ",
-			"descriptionQuality": "รักษามาตรฐานสูงสุดในทุกด้านของผลิตภัณฑ์และบริการของเรา.",
+		"descriptionQuality": "รักษามาตรฐานสูงสุดในทุกด้านของผลิตภัณฑ์และบริการของเรา.",
 		"reliability": "ความเชื่อถือได้",
-			"descriptionReliability": "รับรองประสิทธิภาพที่สม่ำเสมอและความน่าเชื่อถือในทุกสิ่งที่เรานำเสนอ.",
+		"descriptionReliability": "รับรองประสิทธิภาพที่สม่ำเสมอและความน่าเชื่อถือในทุกสิ่งที่เรานำเสนอ.",
 		"customerFocus": "มุ่งเน้นลูกค้า",
-			"descriptionCustomerFocus": "ให้ความสำคัญกับความต้องการและความสำเร็จของลูกค้าเป็นอันดับแรก.",
+		"descriptionCustomerFocus": "ให้ความสำคัญกับความต้องการและความสำเร็จของลูกค้าเป็นอันดับแรก.",
 		"sustainability": "ความยั่งยืน",
-			"descriptionSustainability": "ผลักดันขอบเขตของเทคโนโลยีเลเซอร์อย่างต่อเนื่อง เพื่อนำเสนอโซลูชั่นที่ล้ำสมัยที่สุด.",
+		"descriptionSustainability": "ผลักดันขอบเขตของเทคโนโลยีเลเซอร์อย่างต่อเนื่อง เพื่อนำเสนอโซลูชั่นที่ล้ำสมัยที่สุด.",
 		"innovation": "นวัตกรรม",
-			"descriptionInnovation": "มุ่งมั่นในการดำเนินงานที่รับผิดชอบต่อสิ่งแวดล้อมในการปฏิบัติงานของเรา"
+		"descriptionInnovation": "มุ่งมั่นในการดำเนินงานที่รับผิดชอบต่อสิ่งแวดล้อมในการปฏิบัติงานของเรา"
+	},
+	"searchPopover": {
+		"titleActive": "ค้นหา: ",
+		"titleInactive": "ค้นหาผลิตภัณฑ์",
+		"placeholder": "ค้นหาผลิตภัณฑ์...",
+		"viewAll": "ดูผลิตภัณฑ์ทั้งหมด",
+		"noResults": "ไม่พบผลิตภัณฑ์ที่ค้นหา"
 	}
 }

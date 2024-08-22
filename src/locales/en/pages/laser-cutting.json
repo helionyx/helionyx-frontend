@@ -2,8 +2,8 @@
 	"laserCutting": {
 		"title": "LASER CUTTING MACHINES",
 		"description": "Laser cutting machines are versatile tools used in various industries to cut and shape a wide range of materials. They work by using a highly focused laser beam to melt or vaporize the material, creating precise and clean cuts. The benefits of laser cutting machines include their ability to provide extreme precision, versatility in cutting various materials, high speed, and automation. They are widely used in industries such as automotive, aerospace, jewelry-making, and mass production facilities. Laser cutting machines have revolutionized the manufacturing industry by providing a faster, more efficient, and cost-effective way of cutting and shaping materials.",
+		"advantageTitle": "ADVANTAGES OF LASER CUTTING MACHINES",
 		"advantages": {
-			"title": "ADVANTAGES OF LASER CUTTING MACHINES",
 			"highPrecision": {
 				"name": "Precision",
 				"description": "Laser cutting equipments use a highly focused beam of light to cut materials with extreme precision. This means that the cuts are clean and accurate, and there is minimal material wastage. This level of precision is especially useful in industries such as aerospace, where even the slightest deviation in measurements can lead to catastrophic consequences."

@@ -148,9 +148,30 @@
 		"buttons": {
 			"viewDetails": "More Details",
 			"getQuote": "Get A Quote"
+		},
+		"name": {
+			"key": "Key Features",
+			"prdDesc": "Product Description",
+			"prdSpec": "Product Specifications"
 		}
 	},
+	"customerSupport": {
+		"title": "Customer Support",
+		"desc": "Our team of experts is ready to assist you with any questions or concerns you may have about the "
+	},
+	"relatedProducts": {
+		"title": "Related Products",
+		"viewDetails": "Learn More"
+	},
+	"noRelatedProducts": {
+		"title": "No Related Products Found",
+		"desc": "There are currently no related products for this item.",
+		"viewDetails": "Browse All Products"
+	},
 	"filterSettings": {
+		"title": "Category",
+		"btn": "Reset",
+		"types": "Products Type",
 		"categories": {
 			"all": {
 				"title": "All"
@@ -210,11 +231,11 @@
 		"quickLinks": "Quick Links",
 		"product": "Product",
 		"aboutUS": "About Us",
-		"contact"	: "Contact",
+		"contact": "Contact",
 		"contactInfo": "Contact Information"
 	},
 	"footerCard": {
-		"contactusCard" : "CONTACT US",
+		"contactusCard": "CONTACT US",
 		"nameCard": "Name",
 		"emailCard": "Email",
 		"messageCard": "Message",
@@ -232,15 +253,21 @@
 	},
 	"aboutSecTwo": {
 		"quality": "Quality",
-			"descriptionQuality": "Maintaining the highest standards in every aspect of our products and services.",
+		"descriptionQuality": "Maintaining the highest standards in every aspect of our products and services.",
 		"reliability": "Reliability",
-			"descriptionReliability": "Ensuring consistent performance and dependability in all our offerings.",
+		"descriptionReliability": "Ensuring consistent performance and dependability in all our offerings.",
 		"customerFocus": "Customer Focus",
-			"descriptionCustomerFocus": "Prioritizing the needs and success of our clients.",
+		"descriptionCustomerFocus": "Prioritizing the needs and success of our clients.",
 		"sustainability": "Sustainability",
-			"descriptionSustainability": "Continuously pushing the boundaries of laser technology to offer state-of-the-art solutions.",
+		"descriptionSustainability": "Continuously pushing the boundaries of laser technology to offer state-of-the-art solutions.",
 		"innovation": "Innovation",
-			"descriptionInnovation": "Committing to environmentally responsible practices in our operations."
+		"descriptionInnovation": "Committing to environmentally responsible practices in our operations."
+	},
+	"searchPopover": {
+		"titleActive": "Search: ",
+		"titleInactive": "Search products",
+		"placeholder": "Search products...",
+		"viewAll": "View all results",
+		"noResults": "No results found"
 	}
-
 }

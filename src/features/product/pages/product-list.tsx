@@ -9,10 +9,10 @@ import { Filter, Loader2 } from 'lucide-react'
 import React, { useEffect, useMemo, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { useShallow } from 'zustand/react/shallow'
-import { useFilteredProductsQuery } from '../api/queries.api'
 import FilterContent from '../components/filter-content'
 import ProductListPendingCard from '../components/product-list-pending-card'
 import SearchPopover from '@/components/SearchPopover'
+import { useFilteredProductsQuery } from '@/api/hooks.api'
 
 const ProductGridRenderer = React.memo(({ products, isPending }: { products: Product[]; isPending: boolean }) => {
 	const { t } = useTranslation()

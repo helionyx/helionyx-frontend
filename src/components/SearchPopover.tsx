@@ -1,4 +1,4 @@
-import { useFilteredProductsQuery } from '@/api/hooks.api'
+import { useProductSearch } from '@/api/hooks.api'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover'
@@ -27,16 +27,11 @@ const SearchPopover: React.FC = React.memo(() => {
 	const [selectedIndex, setSelectedIndex] = useState(-1)
 	const debouncedSearchTerm = useDebounce(localSearchTerm, 300)
 
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 
 	const navigate = useNavigate()
 
-	const { data, isPending } = useFilteredProductsQuery({
-		search: debouncedSearchTerm,
-		language: i18n.language // Pass the current language to the query
-	})
-
-	const searchResults = data?.pages[0]?.products || []
+	const { data: searchResults, isPending } = useProductSearch(debouncedSearchTerm)
 
 	const inputRef = useRef<HTMLInputElement>(null)
 	const resultsRef = useRef<HTMLDivElement>(null)
@@ -51,16 +46,16 @@ const SearchPopover: React.FC = React.memo(() => {
 	const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
 		if (e.key === 'ArrowDown') {
 			e.preventDefault()
-			setSelectedIndex((prevIndex) => (prevIndex < searchResults.length ? prevIndex + 1 : prevIndex))
+			setSelectedIndex((prevIndex) => (prevIndex < searchResults!.length ? prevIndex + 1 : prevIndex))
 		} else if (e.key === 'ArrowUp') {
 			e.preventDefault()
 			setSelectedIndex((prevIndex) => (prevIndex > -1 ? prevIndex - 1 : -1))
 		} else if (e.key === 'Enter') {
 			e.preventDefault()
-			if (selectedIndex === searchResults.length) {
+			if (selectedIndex === searchResults?.length) {
 				handleViewAllResults()
 			} else if (selectedIndex > -1) {
-				const selectedProduct = searchResults[selectedIndex]
+				const selectedProduct = searchResults![selectedIndex]
 				if (selectedProduct) {
 					navigate({
 						to: `/products/${selectedProduct.categoryId}/${selectedProduct.subCategoryId}/${selectedProduct.id}`
@@ -119,7 +114,7 @@ const SearchPopover: React.FC = React.memo(() => {
 							Array(3)
 								.fill(0)
 								.map((_, index) => <SearchPopoverSkeleton key={index} />)
-						) : searchResults.length > 0 ? (
+						) : searchResults && searchResults.length > 0 ? (
 							<>
 								{searchResults.map((product: Product, index: number) => (
 									<Link
@@ -129,7 +124,7 @@ const SearchPopover: React.FC = React.memo(() => {
 										onClick={() => setIsOpen(false)}
 									>
 										<div className='flex items-center space-x-2'>
-											<img src={product.imageUrl} alt={product.nameKey} className='w-10 h-10 object-cover rounded' />
+											<img src={product.imageUrl} alt={t(product.nameKey)} className='w-10 h-10 object-cover rounded' />
 											<div>
 												<p className='font-medium'>{t(product.nameKey)}</p>
 												<p className='text-sm text-muted-foreground'>{formatEclipse(t(product.descriptionKey), 50)}</p>

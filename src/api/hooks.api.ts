@@ -55,3 +55,12 @@ export function useFilteredProductsQuery(params: Partial<ProductListQueryParams>
 		}
 	})
 }
+
+export function useProductSearch(searchTerm: string) {
+	const { i18n } = useTranslation()
+
+	return useQuery({
+		queryKey: ['productSearch', searchTerm, i18n.language],
+		queryFn: () => productsService.searchProducts(searchTerm, i18n.language)
+	})
+}

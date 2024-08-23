@@ -9,6 +9,7 @@ interface IProductsService {
 	getProductsRelatedSubCategory: (category: string) => Promise<Product[]>
 	getFilteredProducts: (params: ProductListQueryParams) => Promise<FilteredProductsResponse>
 	getCatalog: () => Promise<{ id: string; name: string }[]>
+	searchProducts: (searchTerm: string, language: string) => Promise<Product[]>
 }
 
 class ProductsService implements IProductsService {
@@ -82,6 +83,10 @@ class ProductsService implements IProductsService {
 
 	public getCatalog = async (): Promise<{ id: string; name: string }[]> => {
 		return categories.map((c) => ({ id: c.id, name: c.name }))
+	}
+
+	public searchProducts = async (searchTerm: string, language: string): Promise<Product[]> => {
+		return products.filter((product) => this.productMatchesSearch(product, searchTerm, language))
 	}
 
 	private productMatchesSearch(product: Product, search: string, language: string): boolean {

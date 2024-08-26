@@ -53,7 +53,7 @@
 			"temperatureHumidityKey": "อุณหภูมิความชื้น",
 			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, หากใช้งานนอกช่วงที่กำหนด จำเป็นต้องติดตั้งเครื่องปรับอากาศ",
 
-			"oilMistKey": "Oil mist, condensation",
+			"oilMistKey": "ละอองน้ำมัน, การควบแน่น",
 			"oilMistValue": "ยังไม่รองรับ",
 
 			"otherParameters": "พารามิเตอร์อื่น ๆ",
@@ -133,6 +133,9 @@
 			"temperatureHumidityKey": "อุณหภูมิความชื้น",
 			"temperatureHumidityValue": "5~35°, 30%≤RH≤85%",
 
+			"oilMistKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistValue": "ไม่มี",
+
 			"otherParameters": "พารามิเตอร์อื่น ๆ",
 			"operatingSystemKey": "ระบบปฏิบัติการ",
 			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
@@ -175,7 +178,7 @@
 		"huvMW3": {
 			"name": "HUV-MW3",
 			"laserParameters": "พารามิเตอร์เลเซอร์",
-			"laserModel": "โมเดลเลเซอร์",
+			"laserModelKey": "โมเดลเลเซอร์",
 			"laserModelValue": "HUV-MW3",
 
 			"outputPowerKey": "กำลังส่งออก",
@@ -292,7 +295,7 @@
 			"pulseFrequencyKey": "ความถี่พัลส์",
 			"pulseFrequencyValue": "20-150 kHz",
 
-			"outputBeamDiameterKey": "Output beam diameter",
+			"outputBeamDiameterKey": "เส้นผ่านศูนย์กลางลำแสงเอาต์พุต",
 			"outputBeamDiameterValue": "0.7±0.1 mm",
 
 			"outputPowerStabilityKey": "เสถียรภาพของกำลังไฟฟ้าขาออก",
@@ -330,6 +333,9 @@
 			"temperatureHumidityKey": "อุณหภูมิและความชื้น",
 			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อมีการใช้งาน",
 
+			"oilMistKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistValue": "ไม่มี",
+
 			"otherParameters": "พารามิเตอร์อื่น ๆ",
 			"operatingSystemKey": "ระบบปฏิบัติการ",
 			"operatingSystemValue": "ระบบการทำเครื่องหมายแบบเคลื่อนที่",
@@ -337,7 +343,7 @@
 			"fileFormatKey": "รูปแบบไฟล์",
 			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก",
 
-			"dimensionsKey": "dimensions",
+			"dimensionsKey": "ขนาด",
 			"dimensionsValue": "660x510x1460 mm",
 
 			"packingSizeKey": "ขนาดบรรจุ",
@@ -425,7 +431,7 @@
 			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงการทำงาน (ไม่ใช่อายุการใช้งาน)",
 
 			"opticalProperties": "คุณสมบัติทางแสง",
-			"markingAreaKey": "Marking area",
+			"markingAreaKey": "พื้นที่การมาร์ค",
 			"markingAreaValue": "100~150mm (ช่วงที่เลือกได้)",
 
 			"engravingDepthKey": "ความลึกของการแกะสลัก",
@@ -463,7 +469,7 @@
 			"fileFormatKey": "รูปแบบไฟล์",
 			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
 
-			"dimensionsKey": "dimensions",
+			"dimensionsKey": "ขนาด",
 			"dimensionsValue": "460x300x683 mm",
 
 			"packingSizeKey": "ขนาดบรรจุ",
@@ -542,7 +548,10 @@
 			"supportSystemKey": "ระบบสนับสนุน",
 			"supportSystemValue": "ระบบปฏิบัติการวินโดวส์",
 
-			"dimensionsKey": "dimensions",
+			"fileFormatKey": "รูปแบบไฟล์",
+			"fileFormatValue": "ทุกตัวอักษรและประเภทตัวอักษรของระบบปฏิบัติการวินโดวส์ (USB)",
+
+			"dimensionsKey": "ขนาด",
 			"dimensionsValue": "390x210x615 mm",
 
 			"packingSizeKey": "ขนาดบรรจุ",
@@ -607,6 +616,9 @@
 			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
 			"coolingModeKey": "โหมดระบายความร้อน",
 			"coolingModeValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W/220V/50Hz (110V สามารถเชื่อมต่อได้)",
 
 			"temperatureHumidityKey": "อุณหภูมิความชื้น",
 			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ต้องติดตั้งเครื่องปรับอากาศเมื่อใช้งานเกินกว่าช่วงที่กำหนด",
@@ -696,6 +708,9 @@
 			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
 			"coolingModeKey": "โหมดระบายความร้อน",
 			"coolingModeValue": "การระบายความร้อนด้วยอากาศแบบในตัว",
+
+			"systemPowerSupplyKey": "แหล่งจ่ายไฟของระบบ",
+			"systemPowerSupplyValue": "500W/220V/50Hz (110V สามารถเชื่อมต่อได้)",
 
 			"temperatureHumidityKey": "อุณหภูมิความชื้น",
 			"temperatureHumidityValue": "0~40°, 30%≤RH≤85%, ต้องติดตั้งเครื่องปรับอากาศเมื่อใช้งานเกินกว่าช่วงที่กำหนด",
@@ -803,7 +818,7 @@
 			"operatingSystemValue": "ระบบการทำเครื่องหมายด้วยเลเซอร์แบบเคลื่อนที่",
 
 			"fileFormatKey": "รูปแบบไฟล์",
-			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก and other marking content",
+			"fileFormatValue": "ซอฟต์แวร์รองรับข้อความ, รหัส QR, บาร์โค้ด, หมายเลขซีเรียล, กราฟิก และเนื้อหาการทำเครื่องหมายอื่น ๆ",
 
 			"dimensionsKey": "ขนาด",
 			"dimensionsValue": "660x510x1460 mm",
@@ -880,6 +895,9 @@
 			"temperatureHumidityKey": "อุณหภูมิความชื้น",
 			"temperatureHumidityValue": "5~40°, 30%≤RH≤85%, ควรติดตั้งเครื่องปรับอากาศเมื่อใช้งานนอกช่วงที่กำหนด",
 
+			"oilMistCondensationKey": "ละอองน้ำมัน, การควบแน่น",
+			"oilMistCondensationValue": "ไม่อนุญาต",
+
 			"otherParameters": "พารามิเตอร์อื่น ๆ",
 			"operatingSystemKey": "ระบบปฏิบัติการ",
 			"operatingSystemValue": "ระบบปฏิบัติการวินโดวส์",
@@ -887,7 +905,7 @@
 			"fileFormatKey": "รูปแบบไฟล์",
 			"fileFormatValue": "แบบอักษร/ฟอนต์ทั้งหมดจากคลังแบบอักษรของระบบปฏิบัติการวินโดวส์ (อินพุต USB มาตรฐาน)",
 
-			"dimensionsKey": "dimensions",
+			"dimensionsKey": "ขนาด",
 			"dimensionsValue": "850x600x1400 mm",
 
 			"packingdimensionsKey": "ขนาดบรรจุ",
@@ -943,6 +961,9 @@
 			"outputPowerKey": "กำลังส่งออก",
 			"outputPowerValue": "20W /30W",
 
+			"beamQualityKey": "คุณภาพของลําแสง M²",
+			"beamQualityValue": "≤1.4",
+
 			"pulseFrequencyKey": "ความถี่การซ้ำของพัลส์",
 			"pulseFrequencyValue": "20-60 kHz",
 
@@ -956,7 +977,7 @@
 			"workingLifeValue": "ประมาณ 100,000 ชั่วโมงทํางาน (ไม่ใช่อายุการใช้งาน)",
 
 			"opticalProperties": "คุณสมบัติทางแสง",
-			"markingAreaKey": "Marking area",
+			"markingAreaKey": "พื้นที่การมาร์ค",
 			"markingAreaValue": "75mm",
 
 			"engravingDepthKey": "ความลึกของการแกะสลัก",
@@ -976,7 +997,7 @@
 
 			"useEnvironment": "สภาพแวดล้อมการใช้งาน",
 			"batteryLifeKey": "อายุใช้งานแบตเตอรี่",
-			"batteryLifeValue": "It can work for 6-8 hours under normal use in one day",
+			"batteryLifeValue": "สามารถทำงานได้ 6-8 ชั่วโมงต่อวันภายใต้การใช้งานปกติ",
 
 			"coolingWayKey": "วิธีการระบายความร้อน",
 			"coolingWayValue": "การระบายความร้อนด้วยอากาศแบบในตัว",

@@ -43,25 +43,45 @@ const Footer: React.FC = () => {
 						<div className='flex flex-col gap-2.5'>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={facebook} alt='' className='h-8 w-auto' />
-								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a
+									href='https://www.facebook.com/helionyx.tech?mibextid=LQQJ4d'
+									target='_blank'
+									rel='noreferrer'
+									className='text-lg content-center text-white hover:text-[#F89D44]'
+								>
 									HelionyxTech
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={line} alt='' className='h-8 w-auto' />
-								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a
+									href='https://lin.ee/T258p4g'
+									target='_blank'
+									rel='noreferrer'
+									className='text-lg content-center text-white hover:text-[#F89D44]'
+								>
 									@Helionyx
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={instagram} alt='' className='h-8 w-auto' />
-								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a
+									href='https://lin.ee/T258p4g'
+									target='_blank'
+									rel='noreferrer'
+									className='text-lg content-center text-white hover:text-[#F89D44]'
+								>
 									HelionyxTech
 								</a>
 							</div>
 							<div className='flex flex-rows gap-2.5'>
 								<img src={tiktok} alt='' className='h-8 w-auto' />
-								<a href='/' className='text-lg content-center text-white hover:text-[#F89D44]'>
+								<a
+									href='https://www.tiktok.com/@helionyx.tech?_t=8pAHDzrBO2S&_r=1'
+									target='_blank'
+									rel='noreferrer'
+									className='text-lg content-center text-white hover:text-[#F89D44]'
+								>
 									Helionyx
 								</a>
 							</div>

@@ -198,11 +198,11 @@
 			"pulseFrequencyKey": "Pulse frequency",
 			"pulseFrequencyValue": "20-150 kHz",
 
-			"exitBeamDiameterKey": "Exit beam diameter",
-			"exitBeamDiameterValue": "0.7±0.1 mm",
+			"outputBeamDiameterKey": "Output beam diameter",
+			"outputBeamDiameterValue": "0.7±0.1 mm",
 
 			"outputPowerStabilityKey": "Output power stability",
-			"outputPowerStabilityValue": "3%",
+			"outputPowerStabilityValue": "≤3%",
 
 			"designLifeKey": "Design life",
 			"designLifeValue": "About 20,000 working hours (not service life)",

@@ -20,6 +20,15 @@ declare module '@tanstack/react-router' {
 	}
 }
 
+const TanStackRouterDevtools =
+	process.env.NODE_ENV === 'production'
+		? () => null
+		: React.lazy(() =>
+				import('@tanstack/router-devtools').then((res) => ({
+					default: res.TanStackRouterDevtools
+				}))
+			)
+
 const ReactQueryDevtools = React.lazy(() =>
 	import('@tanstack/react-query-devtools').then((res) => ({
 		default: res.ReactQueryDevtools
@@ -33,6 +42,7 @@ function App() {
 				<RouterProvider router={router} />
 				{process.env.NODE_ENV === 'development' && (
 					<Suspense fallback={null}>
+						<TanStackRouterDevtools router={router} />
 						<ReactQueryDevtools initialIsOpen={false} />
 					</Suspense>
 				)}

@@ -1,25 +1,26 @@
+import Footer from '@/components/footer'
+import Header from '@/components/header'
+import LoadingIndicator from '@/components/loading-indicator'
 import { QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, Outlet, ScrollRestoration } from '@tanstack/react-router'
+import { createRootRouteWithContext, Outlet, ScrollRestoration, useRouterState } from '@tanstack/react-router'
 import React from 'react'
 
-const TanStackRouterDevtools =
-	process.env.NODE_ENV === 'production'
-		? () => null
-		: React.lazy(() =>
-				import('@tanstack/router-devtools').then((res) => ({
-					default: res.TanStackRouterDevtools
-				}))
-			)
+const RouterSpinner: React.FC = () => {
+	const isLoading = useRouterState({ select: (s) => s.status === 'pending' })
+	return <LoadingIndicator show={isLoading} wait='delay-300' />
+}
 
 const RootRoute: React.FC = () => {
 	return (
-		<>
-			<Outlet />
-			<ScrollRestoration />
-			<React.Suspense fallback={null}>
-				<TanStackRouterDevtools />
-			</React.Suspense>
-		</>
+		<div className='min-h-screen flex flex-col'>
+			<RouterSpinner />
+			<Header />
+			<main className='flex-grow'>
+				<Outlet />
+				<ScrollRestoration />
+			</main>
+			<Footer />
+		</div>
 	)
 }
 

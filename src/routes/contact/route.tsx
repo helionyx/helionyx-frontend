@@ -1,7 +1,7 @@
+import qrCodeLine from '@/assets/qrCodeLine.png'
 import { createFileRoute } from '@tanstack/react-router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import qrCodeLine from '@/assets/qrCodeLine.png'
 
 const Contact: React.FC = () => {
 	const { t } = useTranslation()

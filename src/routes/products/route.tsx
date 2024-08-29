@@ -1,5 +1,5 @@
 import CustomBreadcrumb from '@/components/custom-breadcrumb'
-import { createFileRoute, Outlet } from '@tanstack/react-router'
+import { Outlet, createFileRoute } from '@tanstack/react-router'
 import React from 'react'
 
 const ProductsLayout: React.FC = () => {

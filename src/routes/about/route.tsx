@@ -1,4 +1,3 @@
-import { createFileRoute } from '@tanstack/react-router'
 import company from '@/assets/company.jpg'
 import group_2 from '@/assets/group_2.png'
 import innovation_2 from '@/assets/innovation_2.png'
@@ -6,6 +5,7 @@ import quality_2 from '@/assets/quality_2.png'
 import reliability_2 from '@/assets/reliability_2.png'
 import sustainability_2 from '@/assets/sustainability_2.png'
 import technology from '@/assets/technology-aboutus.jpg'
+import { createFileRoute } from '@tanstack/react-router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 

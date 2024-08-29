@@ -2,7 +2,7 @@ import Footer from '@/components/footer'
 import Header from '@/components/header'
 import LoadingIndicator from '@/components/loading-indicator'
 import { QueryClient } from '@tanstack/react-query'
-import { createRootRouteWithContext, Outlet, ScrollRestoration, useRouterState } from '@tanstack/react-router'
+import { Outlet, ScrollRestoration, createRootRouteWithContext, useRouterState } from '@tanstack/react-router'
 import React from 'react'
 
 const RouterSpinner: React.FC = () => {

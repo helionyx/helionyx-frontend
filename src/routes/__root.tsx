@@ -1,6 +1,7 @@
 import Footer from '@/components/footer'
 import Header from '@/components/header'
 import LoadingIndicator from '@/components/loading-indicator'
+import { Toaster } from '@/components/ui/toaster'
 import { QueryClient } from '@tanstack/react-query'
 import { Outlet, ScrollRestoration, createRootRouteWithContext, useRouterState } from '@tanstack/react-router'
 import React from 'react'
@@ -19,6 +20,7 @@ const RootRoute: React.FC = () => {
 				<Outlet />
 				<ScrollRestoration />
 			</main>
+			<Toaster />
 			<Footer />
 		</div>
 	)

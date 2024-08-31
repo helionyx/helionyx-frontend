@@ -1,4 +1,3 @@
-import React from 'react'
 import {
 	Pagination,
 	PaginationContent,
@@ -7,6 +6,7 @@ import {
 	PaginationNext,
 	PaginationPrevious
 } from '@/components/ui/pagination'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 
 interface PaginationSectionProps {

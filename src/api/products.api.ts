@@ -1,10 +1,9 @@
-import { categories, models, products, subCategories } from '@/databases'
-import { FilteredProductsResponse, Model, Product, ProductListQueryParams } from '@/types'
+import { categories, products, subCategories } from '@/databases'
+import { FilteredProductsResponse, Product, ProductListQueryParams } from '@/types'
 import i18next from 'i18next'
 
 interface IProductsService {
 	getProductById: (id: string) => Promise<Product | null>
-	getModelsByProductId: (productId: string) => Promise<Model[]>
 	getRelatedProducts: (id: string, subCategoryId: string) => Promise<Product[]>
 	getProductsRelatedSubCategory: (category: string) => Promise<Product[]>
 	getFilteredProducts: (params: ProductListQueryParams) => Promise<FilteredProductsResponse>
@@ -15,10 +14,6 @@ interface IProductsService {
 class ProductsService implements IProductsService {
 	public getProductById = async (id: string) => {
 		return products.find((product) => product.id === id) || null
-	}
-
-	public getModelsByProductId = async (productId: string) => {
-		return models.filter((model) => model.productId === productId)
 	}
 
 	public getRelatedProducts = async (id: string, subCategoryId: string) => {

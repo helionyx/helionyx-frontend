@@ -70,14 +70,15 @@ const RenderProductsCard: React.FC<RenderProductsCardProps> = React.memo(({ isPe
 						<CardDescription>{formatEclipse(t(product.descriptionKey))}</CardDescription>
 					</CardContent>
 					<CardFooter className='p-0 flex items-center justify-end'>
-						<Link to={`${slug}/${product.subCategoryId}/${product.id}`}>
-							<Button
-								variant='outline'
-								className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
-							>
+						<Button
+							asChild
+							variant='outline'
+							className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
+						>
+							<Link to={`${slug}/${product.subCategoryId}/${product.id}`}>
 								<span>{t('constants.buttons.viewDetails')}</span>
-							</Button>
-						</Link>
+							</Link>
+						</Button>
 					</CardFooter>
 				</Card>
 			))}

@@ -1,6 +1,6 @@
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
 type Language = 'en' | 'th'
 

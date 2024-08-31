@@ -1,14 +1,20 @@
-import { useRouterState } from '@tanstack/react-router'
 import React from 'react'
 
-export const LoadingIndicator: React.FC = () => {
-	const isLoading = useRouterState({ select: (s) => s.status === 'pending' })
+type LoadingIndicatorProps = {
+	show?: boolean
+	wait?: `delay-${number}`
+}
 
-	if (!isLoading) return null
-
+const LoadingIndicator: React.FC<LoadingIndicatorProps> = ({ show = true, wait = 'delay-300' }) => {
 	return (
-		<div className='fixed top-0 left-0 right-0 h-1 bg-amber-500 z-50'>
+		<div
+			className={`fixed top-0 left-0 right-0 h-0.5 bg-amber-500 z-[100] transition-opacity duration-500 ${
+				show ? `opacity-100 ${wait}` : 'opacity-0 delay-0'
+			}`}
+		>
 			<div className='h-full w-1/3 bg-amber-600 animate-pulse'></div>
 		</div>
 	)
 }
+
+export default LoadingIndicator

@@ -4,12 +4,83 @@ import line from '@/assets/line.png'
 import logo_helionyx_rebg from '@/assets/logo-rebg.png'
 import telephone from '@/assets/telephone.png'
 import tiktok from '@/assets/tiktok.png'
+import { Button } from '@/components/ui/button'
+import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import { Textarea } from '@/components/ui/textarea'
+import { useToast } from '@/components/ui/use-toast'
+import emailjs from '@emailjs/browser'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { useMutation } from '@tanstack/react-query'
 import { Link } from '@tanstack/react-router'
 import React from 'react'
+import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
+import * as z from 'zod'
+
+const formSchema = z.object({
+	name: z.string().min(2, {
+		message: 'Name must be at least 2 characters.'
+	}),
+	email: z.string().email({
+		message: 'Please enter a valid email address.'
+	}),
+	message: z.string().min(10, {
+		message: 'Message must be at least 10 characters.'
+	})
+})
+
+type FormData = z.infer<typeof formSchema>
+
+const sendEmail = async (data: FormData) => {
+	const result = await emailjs.send(
+		'contact_service',
+		'contact_form',
+		{
+			user_name: data.name,
+			user_email: data.email,
+			message: data.message
+		},
+		'Yli8u916T4edPL-Mm'
+	)
+	return result
+}
 
 const Footer: React.FC = () => {
 	const { t } = useTranslation()
+	const { toast } = useToast()
+
+	const form = useForm<z.infer<typeof formSchema>>({
+		resolver: zodResolver(formSchema),
+		defaultValues: {
+			name: '',
+			email: '',
+			message: ''
+		}
+	})
+
+	const mutation = useMutation({
+		mutationFn: sendEmail,
+		onSuccess: () => {
+			toast({
+				title: 'Email sent successfully',
+				description: "We'll get back to you soon!"
+			})
+			form.reset()
+		},
+		onError: (error) => {
+			console.error('Failed to send email:', error)
+			toast({
+				title: 'Failed to send email',
+				description: 'Please try again later.',
+				variant: 'destructive'
+			})
+		}
+	})
+
+	const onSubmit = (values: FormData) => {
+		mutation.mutate(values)
+	}
 
 	return (
 		<footer className='bg-gray-600 text-white py-8'>
@@ -92,44 +163,65 @@ const Footer: React.FC = () => {
 						</div>
 					</div>
 					<div className='w-full max-w-sm p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8 dark:bg-gray-800 dark:border-gray-700'>
-						<form className='space-y-6' action='#'>
-							<h5 className='text-xl font-semibold text-gray-900'>{t('footerCard.contactusCard')}</h5>
-							<div>
-								<input
-									type='text'
+						<Form {...form}>
+							<form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+								<h5 className='text-xl font-semibold text-gray-900'>{t('footerCard.contactusCard')}</h5>
+								<FormField
+									control={form.control}
 									name='name'
-									id='name'
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
-									placeholder={t('footerCard.nameCard')}
-									required
+									render={({ field }) => (
+										<FormItem>
+											<FormControl>
+												<Input
+													placeholder={t('footerCard.nameCard')}
+													{...field}
+													className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
 								/>
-							</div>
-							<div>
-								<input
-									type='text'
+								<FormField
+									control={form.control}
 									name='email'
-									id='email'
-									placeholder={t('footerCard.emailCard')}
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  '
-									required
+									render={({ field }) => (
+										<FormItem>
+											<FormControl>
+												<Input
+													placeholder={t('footerCard.emailCard')}
+													{...field}
+													className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
 								/>
-							</div>
-							<div>
-								<textarea
+								<FormField
+									control={form.control}
 									name='message'
-									id='message'
-									placeholder={t('footerCard.messageCard')}
-									className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  '
-									required
-								></textarea>
-							</div>
-							<button
-								type='submit'
-								className='w-full text-white bg-[#f89e44d3] hover:bg-[#fd9b38]  focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
-							>
-								{t('footerCard.sendCard')}
-							</button>
-						</form>
+									render={({ field }) => (
+										<FormItem>
+											<FormControl>
+												<Textarea
+													placeholder={t('footerCard.messageCard')}
+													{...field}
+													className='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5'
+												/>
+											</FormControl>
+											<FormMessage />
+										</FormItem>
+									)}
+								/>
+								<Button
+									type='submit'
+									className='w-full text-white bg-[#f89e44d3] hover:bg-[#fd9b38] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center'
+								>
+									{t('footerCard.sendCard')}
+								</Button>
+							</form>
+						</Form>
 					</div>
 				</div>
 				<div className='mt-8 pt-8 border-t border-white text-center text-white'>

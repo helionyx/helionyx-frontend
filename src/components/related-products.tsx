@@ -7,6 +7,60 @@ import { Link } from '@tanstack/react-router'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 
+const RelatedProductPending: React.FC = () => {
+	return (
+		<>
+			<Skeleton className='h-10 w-64 mb-6 bg-gray-300' /> {/* Title skeleton */}
+			<Carousel className='w-full relative' opts={{ align: 'start' }}>
+				<CarouselContent>
+					{[...Array(4)].map((_, index) => (
+						<CarouselItem key={index} className='w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4'>
+							<Card className='max-w-sm mx-auto bg-muted p-4 rounded-lg shadow-md overflow-hidden space-y-4 h-full'>
+								<CardHeader className='p-4 relative overflow-hidden rounded-lg flex justify-center'>
+									<Skeleton className='relative w-full h-48 bg-gray-300 rounded-t-lg'>
+										<Skeleton className='absolute inset-0 skeleton-shine' />
+									</Skeleton>
+								</CardHeader>
+								<CardContent className='p-4'>
+									<Skeleton className='h-6 w-3/4 mb-2 bg-gray-300' />
+									<Skeleton className='h-4 w-full bg-gray-300' />
+									<Skeleton className='h-4 w-5/6 mt-2 bg-gray-300' />
+								</CardContent>
+								<CardFooter className='p-4'>
+									<Skeleton className='h-10 w-full bg-gray-300' />
+								</CardFooter>
+							</Card>
+						</CarouselItem>
+					))}
+				</CarouselContent>
+			</Carousel>
+		</>
+	)
+}
+
+const NoRelatedProducts = () => {
+	const { t } = useTranslation()
+
+	return (
+		<Card>
+			<CardHeader>
+				<CardTitle>{t('noRelatedProducts.title')}</CardTitle>
+				<CardDescription>{t('noRelatedProducts.desc')}</CardDescription>
+			</CardHeader>
+			<CardFooter>
+				<Link to='/products'>
+					<Button
+						variant='outline'
+						className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
+					>
+						<span>{t('noRelatedProducts.viewDetails')}</span>
+					</Button>
+				</Link>
+			</CardFooter>
+		</Card>
+	)
+}
+
 type RelatedProductsProps = {
 	isRelatedPending: boolean
 	relatedProducts: Product[] | undefined
@@ -20,49 +74,9 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 	return (
 		<div className={className ? className : ''}>
 			{isRelatedPending ? (
-				<>
-					<Skeleton className='h-10 w-64 mb-6 bg-gray-300' />
-					<Carousel className='w-full relative' opts={{ align: 'start' }}>
-						<CarouselContent>
-							{[...Array(4)].map((_, index) => (
-								<CarouselItem key={index} className='w-full sm:basis-1/2 md:basis-1/3 lg:basis-1/4 pl-4'>
-									<Card className='max-w-sm mx-auto bg-muted p-4 rounded-lg shadow-md overflow-hidden space-y-4 h-full'>
-										<CardHeader className='p-4 relative overflow-hidden rounded-lg flex justify-center'>
-											<Skeleton className='relative w-full h-48 bg-gray-300 rounded-t-lg'>
-												<Skeleton className='absolute inset-0 skeleton-shine' />
-											</Skeleton>
-										</CardHeader>
-										<CardContent className='p-4'>
-											<Skeleton className='h-6 w-3/4 mb-2 bg-gray-300' />
-											<Skeleton className='h-4 w-full bg-gray-300' />
-											<Skeleton className='h-4 w-5/6 mt-2 bg-gray-300' />
-										</CardContent>
-										<CardFooter className='p-4'>
-											<Skeleton className='h-10 w-full bg-gray-300' />
-										</CardFooter>
-									</Card>
-								</CarouselItem>
-							))}
-						</CarouselContent>
-					</Carousel>
-				</>
+				<RelatedProductPending />
 			) : !relatedProducts || relatedProducts.length === 0 ? (
-				<Card>
-					<CardHeader>
-						<CardTitle>{t('noRelatedProducts.title')}</CardTitle>
-						<CardDescription>{t('noRelatedProducts.desc')}</CardDescription>
-					</CardHeader>
-					<CardFooter>
-						<Link to='/products'>
-							<Button
-								variant='outline'
-								className='border-amber-500 hover:text-amber-500 hover:bg-amber-50 transition-colors'
-							>
-								<span>{t('noRelatedProducts.viewDetails')}</span>
-							</Button>
-						</Link>
-					</CardFooter>
-				</Card>
+				<NoRelatedProducts />
 			) : (
 				<>
 					<h2 className='text-2xl md:text-3xl font-bold mb-6'>{t('relatedProducts.title')}</h2>
@@ -87,14 +101,15 @@ const RelatedProducts: React.FC<RelatedProductsProps> = ({ isRelatedPending, rel
 												</CardDescription>
 											</CardContent>
 											<CardFooter className='p-4'>
-												<Link to={`${slug}/${relatedProduct.subCategoryId}/${relatedProduct.id}`}>
-													<Button
-														variant='outline'
-														className='w-full hover:bg-amber-100 hover:text-amber-500 hover:border-amber-500 transition-colors'
-													>
+												<Button
+													asChild
+													variant='outline'
+													className='w-full hover:bg-amber-100 hover:text-amber-500 hover:border-amber-500 transition-colors'
+												>
+													<Link to={`${slug}/${relatedProduct.subCategoryId}/${relatedProduct.id}`}>
 														<span>{t('relatedProducts.viewDetails')}</span>
-													</Button>
-												</Link>
+													</Link>
+												</Button>
 											</CardFooter>
 										</Card>
 									</div>

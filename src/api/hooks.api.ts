@@ -11,14 +11,6 @@ export function useProductId(productId: string) {
 	})
 }
 
-export function useModelsQuery(productId: string) {
-	return useQuery({
-		queryKey: ['models', { productId }],
-		queryFn: () => productsService.getModelsByProductId(productId),
-		enabled: !!productId
-	})
-}
-
 export function useRelatedProductsQuery(id: string | null | undefined, categoryId: string | null | undefined) {
 	return useQuery({
 		queryKey: ['relatedProducts', { id, categoryId }],

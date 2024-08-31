@@ -2,9 +2,9 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Button } from '@/components/ui/button'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Label } from '@/components/ui/label'
+import { subCategories } from '@/databases'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { subCategories } from '@/databases'
 
 interface FilterSectionProps {
 	categoryId: string

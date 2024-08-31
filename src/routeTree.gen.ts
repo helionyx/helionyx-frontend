@@ -12,38 +12,32 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as ProductsRouteImport } from './routes/products/route'
-import { Route as RootLayoutRouteImport } from './routes/_root-layout/route'
-import { Route as RootLayoutIndexImport } from './routes/_root-layout/index'
-import { Route as RootLayoutContactImport } from './routes/_root-layout/contact'
-import { Route as RootLayoutAboutImport } from './routes/_root-layout/about'
+import { Route as ContactRouteImport } from './routes/contact/route'
+import { Route as AboutRouteImport } from './routes/about/route'
+import { Route as IndexRouteImport } from './routes/index/route'
+import { Route as ProductsIndexImport } from './routes/products/index'
 import { Route as ProductsLaserMarkingMachinesRouteImport } from './routes/products/laser-marking-machines/route'
 import { Route as ProductsLaserCuttingMachinesRouteImport } from './routes/products/laser-cutting-machines/route'
 import { Route as ProductsLaserCleaningMachinesRouteImport } from './routes/products/laser-cleaning-machines/route'
 import { Route as ProductsDotMarkingMachinesRouteImport } from './routes/products/dot-marking-machines/route'
-import { Route as ProductsProductLayoutRouteImport } from './routes/products/_product-layout/route'
-import { Route as ProductsProductLayoutIndexImport } from './routes/products/_product-layout/index'
-import { Route as ProductsLaserMarkingMachinesLayoutRouteImport } from './routes/products/laser-marking-machines/_layout/route'
-import { Route as ProductsLaserCuttingMachinesLayoutRouteImport } from './routes/products/laser-cutting-machines/_layout/route'
-import { Route as ProductsLaserCleaningMachinesLayoutRouteImport } from './routes/products/laser-cleaning-machines/_layout/route'
-import { Route as ProductsDotMarkingMachinesLayoutRouteImport } from './routes/products/dot-marking-machines/_layout/route'
-import { Route as ProductsLaserMarkingMachinesLayoutIndexImport } from './routes/products/laser-marking-machines/_layout/index'
-import { Route as ProductsLaserCuttingMachinesLayoutIndexImport } from './routes/products/laser-cutting-machines/_layout/index'
-import { Route as ProductsLaserCleaningMachinesLayoutIndexImport } from './routes/products/laser-cleaning-machines/_layout/index'
-import { Route as ProductsDotMarkingMachinesLayoutIndexImport } from './routes/products/dot-marking-machines/_layout/index'
-import { Route as ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvSwMachineCrsLaserSourceImport } from './routes/products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source'
-import { Route as ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport } from './routes/products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
-import { Route as ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport } from './routes/products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
-import { Route as ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
-import { Route as ProductsLaserMarkingMachinesLayoutPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport } from './routes/products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
-import { Route as ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
-import { Route as ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport } from './routes/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
-import { Route as ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMFiberLaserMarkerImport } from './routes/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker'
-import { Route as ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
-import { Route as ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport } from './routes/products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
-import { Route as ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport } from './routes/products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
-import { Route as ProductsLaserCuttingMachinesLayoutLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport } from './routes/products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
-import { Route as ProductsLaserCleaningMachinesLayoutHclLaserCleaningMachineHclLaserCleaningMachineImport } from './routes/products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
-import { Route as ProductsDotMarkingMachinesLayoutHdoMarkingMachineHdoImport } from './routes/products/dot-marking-machines/_layout/hdo-marking-machine/hdo'
+import { Route as ProductsLaserMarkingMachinesIndexImport } from './routes/products/laser-marking-machines/index'
+import { Route as ProductsLaserCuttingMachinesIndexImport } from './routes/products/laser-cutting-machines/index'
+import { Route as ProductsLaserCleaningMachinesIndexImport } from './routes/products/laser-cleaning-machines/index'
+import { Route as ProductsDotMarkingMachinesIndexImport } from './routes/products/dot-marking-machines/index'
+import { Route as ProductsLaserMarkingMachinesUvLaserMarkerHuvSwMachineCrsLaserSourceImport } from './routes/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source'
+import { Route as ProductsLaserMarkingMachinesUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport } from './routes/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
+import { Route as ProductsLaserMarkingMachinesUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport } from './routes/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
+import { Route as ProductsLaserMarkingMachinesUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
+import { Route as ProductsLaserMarkingMachinesPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport } from './routes/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
+import { Route as ProductsLaserMarkingMachinesFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
+import { Route as ProductsLaserMarkingMachinesFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport } from './routes/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
+import { Route as ProductsLaserMarkingMachinesFiberLaserMarkerHfiMFiberLaserMarkerImport } from './routes/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker'
+import { Route as ProductsLaserMarkingMachinesFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport } from './routes/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
+import { Route as ProductsLaserMarkingMachinesCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport } from './routes/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
+import { Route as ProductsLaserMarkingMachinesCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport } from './routes/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
+import { Route as ProductsLaserCuttingMachinesLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport } from './routes/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
+import { Route as ProductsLaserCleaningMachinesHclLaserCleaningMachineHclLaserCleaningMachineImport } from './routes/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
+import { Route as ProductsDotMarkingMachinesHdoMarkingMachineHdoImport } from './routes/products/dot-marking-machines/hdo-marking-machine/hdo'
 
 // Create/Update Routes
 
@@ -52,24 +46,24 @@ const ProductsRouteRoute = ProductsRouteImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const RootLayoutRouteRoute = RootLayoutRouteImport.update({
-  id: '/_root-layout',
+const ContactRouteRoute = ContactRouteImport.update({
+  path: '/contact',
   getParentRoute: () => rootRoute,
 } as any)
 
-const RootLayoutIndexRoute = RootLayoutIndexImport.update({
-  path: '/',
-  getParentRoute: () => RootLayoutRouteRoute,
-} as any)
-
-const RootLayoutContactRoute = RootLayoutContactImport.update({
-  path: '/contact',
-  getParentRoute: () => RootLayoutRouteRoute,
-} as any)
-
-const RootLayoutAboutRoute = RootLayoutAboutImport.update({
+const AboutRouteRoute = AboutRouteImport.update({
   path: '/about',
-  getParentRoute: () => RootLayoutRouteRoute,
+  getParentRoute: () => rootRoute,
+} as any)
+
+const IndexRouteRoute = IndexRouteImport.update({
+  path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductsIndexRoute = ProductsIndexImport.update({
+  path: '/',
+  getParentRoute: () => ProductsRouteRoute,
 } as any)
 
 const ProductsLaserMarkingMachinesRouteRoute =
@@ -96,187 +90,163 @@ const ProductsDotMarkingMachinesRouteRoute =
     getParentRoute: () => ProductsRouteRoute,
   } as any)
 
-const ProductsProductLayoutRouteRoute = ProductsProductLayoutRouteImport.update(
-  {
-    id: '/_product-layout',
-    getParentRoute: () => ProductsRouteRoute,
-  } as any,
-)
-
-const ProductsProductLayoutIndexRoute = ProductsProductLayoutIndexImport.update(
-  {
+const ProductsLaserMarkingMachinesIndexRoute =
+  ProductsLaserMarkingMachinesIndexImport.update({
     path: '/',
-    getParentRoute: () => ProductsProductLayoutRouteRoute,
-  } as any,
-)
-
-const ProductsLaserMarkingMachinesLayoutRouteRoute =
-  ProductsLaserMarkingMachinesLayoutRouteImport.update({
-    id: '/_layout',
     getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
   } as any)
 
-const ProductsLaserCuttingMachinesLayoutRouteRoute =
-  ProductsLaserCuttingMachinesLayoutRouteImport.update({
-    id: '/_layout',
+const ProductsLaserCuttingMachinesIndexRoute =
+  ProductsLaserCuttingMachinesIndexImport.update({
+    path: '/',
     getParentRoute: () => ProductsLaserCuttingMachinesRouteRoute,
   } as any)
 
-const ProductsLaserCleaningMachinesLayoutRouteRoute =
-  ProductsLaserCleaningMachinesLayoutRouteImport.update({
-    id: '/_layout',
+const ProductsLaserCleaningMachinesIndexRoute =
+  ProductsLaserCleaningMachinesIndexImport.update({
+    path: '/',
     getParentRoute: () => ProductsLaserCleaningMachinesRouteRoute,
   } as any)
 
-const ProductsDotMarkingMachinesLayoutRouteRoute =
-  ProductsDotMarkingMachinesLayoutRouteImport.update({
-    id: '/_layout',
+const ProductsDotMarkingMachinesIndexRoute =
+  ProductsDotMarkingMachinesIndexImport.update({
+    path: '/',
     getParentRoute: () => ProductsDotMarkingMachinesRouteRoute,
   } as any)
 
-const ProductsLaserMarkingMachinesLayoutIndexRoute =
-  ProductsLaserMarkingMachinesLayoutIndexImport.update({
-    path: '/',
-    getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
-  } as any)
-
-const ProductsLaserCuttingMachinesLayoutIndexRoute =
-  ProductsLaserCuttingMachinesLayoutIndexImport.update({
-    path: '/',
-    getParentRoute: () => ProductsLaserCuttingMachinesLayoutRouteRoute,
-  } as any)
-
-const ProductsLaserCleaningMachinesLayoutIndexRoute =
-  ProductsLaserCleaningMachinesLayoutIndexImport.update({
-    path: '/',
-    getParentRoute: () => ProductsLaserCleaningMachinesLayoutRouteRoute,
-  } as any)
-
-const ProductsDotMarkingMachinesLayoutIndexRoute =
-  ProductsDotMarkingMachinesLayoutIndexImport.update({
-    path: '/',
-    getParentRoute: () => ProductsDotMarkingMachinesLayoutRouteRoute,
-  } as any)
-
-const ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvSwMachineCrsLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvSwMachineCrsLaserSourceImport.update(
+const ProductsLaserMarkingMachinesUvLaserMarkerHuvSwMachineCrsLaserSourceRoute =
+  ProductsLaserMarkingMachinesUvLaserMarkerHuvSwMachineCrsLaserSourceImport.update(
     {
       path: '/uv-laser-marker/huv-sw-machine-crs-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvMwPortableUvLaserMarkingMachineRoute =
-  ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport.update(
+const ProductsLaserMarkingMachinesUvLaserMarkerHuvMwPortableUvLaserMarkingMachineRoute =
+  ProductsLaserMarkingMachinesUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport.update(
     {
       path: '/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineRoute =
-  ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport.update(
+const ProductsLaserMarkingMachinesUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineRoute =
+  ProductsLaserMarkingMachinesUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport.update(
     {
       path: '/uv-laser-marker/huv-integrated-fiber-laser-marking-machine',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport.update(
+const ProductsLaserMarkingMachinesUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceRoute =
+  ProductsLaserMarkingMachinesUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport.update(
     {
       path: '/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineRoute =
-  ProductsLaserMarkingMachinesLayoutPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport.update(
+const ProductsLaserMarkingMachinesPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineRoute =
+  ProductsLaserMarkingMachinesPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport.update(
     {
       path: '/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport.update(
+const ProductsLaserMarkingMachinesFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceRoute =
+  ProductsLaserMarkingMachinesFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport.update(
     {
       path: '/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineRoute =
-  ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport.update(
+const ProductsLaserMarkingMachinesFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineRoute =
+  ProductsLaserMarkingMachinesFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport.update(
     {
       path: '/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMFiberLaserMarkerRoute =
-  ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMFiberLaserMarkerImport.update(
+const ProductsLaserMarkingMachinesFiberLaserMarkerHfiMFiberLaserMarkerRoute =
+  ProductsLaserMarkingMachinesFiberLaserMarkerHfiMFiberLaserMarkerImport.update(
     {
       path: '/fiber-laser-marker/hfi-m-fiber-laser-marker',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport.update(
+const ProductsLaserMarkingMachinesFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceRoute =
+  ProductsLaserMarkingMachinesFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport.update(
     {
       path: '/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport.update(
+const ProductsLaserMarkingMachinesCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceRoute =
+  ProductsLaserMarkingMachinesCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport.update(
     {
       path: '/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceRoute =
-  ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport.update(
+const ProductsLaserMarkingMachinesCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceRoute =
+  ProductsLaserMarkingMachinesCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport.update(
     {
       path: '/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source',
-      getParentRoute: () => ProductsLaserMarkingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserMarkingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserCuttingMachinesLayoutLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineRoute =
-  ProductsLaserCuttingMachinesLayoutLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport.update(
+const ProductsLaserCuttingMachinesLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineRoute =
+  ProductsLaserCuttingMachinesLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport.update(
     {
       path: '/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine',
-      getParentRoute: () => ProductsLaserCuttingMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserCuttingMachinesRouteRoute,
     } as any,
   )
 
-const ProductsLaserCleaningMachinesLayoutHclLaserCleaningMachineHclLaserCleaningMachineRoute =
-  ProductsLaserCleaningMachinesLayoutHclLaserCleaningMachineHclLaserCleaningMachineImport.update(
+const ProductsLaserCleaningMachinesHclLaserCleaningMachineHclLaserCleaningMachineRoute =
+  ProductsLaserCleaningMachinesHclLaserCleaningMachineHclLaserCleaningMachineImport.update(
     {
       path: '/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine',
-      getParentRoute: () => ProductsLaserCleaningMachinesLayoutRouteRoute,
+      getParentRoute: () => ProductsLaserCleaningMachinesRouteRoute,
     } as any,
   )
 
-const ProductsDotMarkingMachinesLayoutHdoMarkingMachineHdoRoute =
-  ProductsDotMarkingMachinesLayoutHdoMarkingMachineHdoImport.update({
+const ProductsDotMarkingMachinesHdoMarkingMachineHdoRoute =
+  ProductsDotMarkingMachinesHdoMarkingMachineHdoImport.update({
     path: '/hdo-marking-machine/hdo',
-    getParentRoute: () => ProductsDotMarkingMachinesLayoutRouteRoute,
+    getParentRoute: () => ProductsDotMarkingMachinesRouteRoute,
   } as any)
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/_root-layout': {
-      id: '/_root-layout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof RootLayoutRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRoute
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRoute
     }
     '/products': {
@@ -285,13 +255,6 @@ declare module '@tanstack/react-router' {
       fullPath: '/products'
       preLoaderRoute: typeof ProductsRouteImport
       parentRoute: typeof rootRoute
-    }
-    '/products/_product-layout': {
-      id: '/products/_product-layout'
-      path: ''
-      fullPath: '/products'
-      preLoaderRoute: typeof ProductsProductLayoutRouteImport
-      parentRoute: typeof ProductsRouteImport
     }
     '/products/dot-marking-machines': {
       id: '/products/dot-marking-machines'
@@ -321,187 +284,138 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductsLaserMarkingMachinesRouteImport
       parentRoute: typeof ProductsRouteImport
     }
-    '/_root-layout/about': {
-      id: '/_root-layout/about'
-      path: '/about'
-      fullPath: '/about'
-      preLoaderRoute: typeof RootLayoutAboutImport
-      parentRoute: typeof RootLayoutRouteImport
-    }
-    '/_root-layout/contact': {
-      id: '/_root-layout/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof RootLayoutContactImport
-      parentRoute: typeof RootLayoutRouteImport
-    }
-    '/_root-layout/': {
-      id: '/_root-layout/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof RootLayoutIndexImport
-      parentRoute: typeof RootLayoutRouteImport
-    }
-    '/products/dot-marking-machines/_layout': {
-      id: '/products/dot-marking-machines/_layout'
-      path: ''
-      fullPath: '/products/dot-marking-machines'
-      preLoaderRoute: typeof ProductsDotMarkingMachinesLayoutRouteImport
-      parentRoute: typeof ProductsDotMarkingMachinesRouteImport
-    }
-    '/products/laser-cleaning-machines/_layout': {
-      id: '/products/laser-cleaning-machines/_layout'
-      path: ''
-      fullPath: '/products/laser-cleaning-machines'
-      preLoaderRoute: typeof ProductsLaserCleaningMachinesLayoutRouteImport
-      parentRoute: typeof ProductsLaserCleaningMachinesRouteImport
-    }
-    '/products/laser-cutting-machines/_layout': {
-      id: '/products/laser-cutting-machines/_layout'
-      path: ''
-      fullPath: '/products/laser-cutting-machines'
-      preLoaderRoute: typeof ProductsLaserCuttingMachinesLayoutRouteImport
-      parentRoute: typeof ProductsLaserCuttingMachinesRouteImport
-    }
-    '/products/laser-marking-machines/_layout': {
-      id: '/products/laser-marking-machines/_layout'
-      path: ''
-      fullPath: '/products/laser-marking-machines'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
-      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
-    }
-    '/products/_product-layout/': {
-      id: '/products/_product-layout/'
+    '/products/': {
+      id: '/products/'
       path: '/'
       fullPath: '/products/'
-      preLoaderRoute: typeof ProductsProductLayoutIndexImport
-      parentRoute: typeof ProductsProductLayoutRouteImport
+      preLoaderRoute: typeof ProductsIndexImport
+      parentRoute: typeof ProductsRouteImport
     }
-    '/products/dot-marking-machines/_layout/': {
-      id: '/products/dot-marking-machines/_layout/'
+    '/products/dot-marking-machines/': {
+      id: '/products/dot-marking-machines/'
       path: '/'
       fullPath: '/products/dot-marking-machines/'
-      preLoaderRoute: typeof ProductsDotMarkingMachinesLayoutIndexImport
-      parentRoute: typeof ProductsDotMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsDotMarkingMachinesIndexImport
+      parentRoute: typeof ProductsDotMarkingMachinesRouteImport
     }
-    '/products/laser-cleaning-machines/_layout/': {
-      id: '/products/laser-cleaning-machines/_layout/'
+    '/products/laser-cleaning-machines/': {
+      id: '/products/laser-cleaning-machines/'
       path: '/'
       fullPath: '/products/laser-cleaning-machines/'
-      preLoaderRoute: typeof ProductsLaserCleaningMachinesLayoutIndexImport
-      parentRoute: typeof ProductsLaserCleaningMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserCleaningMachinesIndexImport
+      parentRoute: typeof ProductsLaserCleaningMachinesRouteImport
     }
-    '/products/laser-cutting-machines/_layout/': {
-      id: '/products/laser-cutting-machines/_layout/'
+    '/products/laser-cutting-machines/': {
+      id: '/products/laser-cutting-machines/'
       path: '/'
       fullPath: '/products/laser-cutting-machines/'
-      preLoaderRoute: typeof ProductsLaserCuttingMachinesLayoutIndexImport
-      parentRoute: typeof ProductsLaserCuttingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserCuttingMachinesIndexImport
+      parentRoute: typeof ProductsLaserCuttingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/': {
-      id: '/products/laser-marking-machines/_layout/'
+    '/products/laser-marking-machines/': {
+      id: '/products/laser-marking-machines/'
       path: '/'
       fullPath: '/products/laser-marking-machines/'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutIndexImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesIndexImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/dot-marking-machines/_layout/hdo-marking-machine/hdo': {
-      id: '/products/dot-marking-machines/_layout/hdo-marking-machine/hdo'
+    '/products/dot-marking-machines/hdo-marking-machine/hdo': {
+      id: '/products/dot-marking-machines/hdo-marking-machine/hdo'
       path: '/hdo-marking-machine/hdo'
       fullPath: '/products/dot-marking-machines/hdo-marking-machine/hdo'
-      preLoaderRoute: typeof ProductsDotMarkingMachinesLayoutHdoMarkingMachineHdoImport
-      parentRoute: typeof ProductsDotMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsDotMarkingMachinesHdoMarkingMachineHdoImport
+      parentRoute: typeof ProductsDotMarkingMachinesRouteImport
     }
-    '/products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine': {
-      id: '/products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
+    '/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine': {
+      id: '/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
       path: '/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
       fullPath: '/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine'
-      preLoaderRoute: typeof ProductsLaserCleaningMachinesLayoutHclLaserCleaningMachineHclLaserCleaningMachineImport
-      parentRoute: typeof ProductsLaserCleaningMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserCleaningMachinesHclLaserCleaningMachineHclLaserCleaningMachineImport
+      parentRoute: typeof ProductsLaserCleaningMachinesRouteImport
     }
-    '/products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine': {
-      id: '/products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
+    '/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine': {
+      id: '/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
       path: '/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
       fullPath: '/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine'
-      preLoaderRoute: typeof ProductsLaserCuttingMachinesLayoutLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport
-      parentRoute: typeof ProductsLaserCuttingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserCuttingMachinesLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineImport
+      parentRoute: typeof ProductsLaserCuttingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source': {
-      id: '/products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
+    '/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source': {
+      id: '/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
       path: '/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
       fullPath: '/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source': {
-      id: '/products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
+    '/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source': {
+      id: '/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
       path: '/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
       fullPath: '/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source': {
-      id: '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
+    '/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source': {
+      id: '/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
       path: '/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
       fullPath: '/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker': {
-      id: '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker'
+    '/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker': {
+      id: '/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker'
       path: '/fiber-laser-marker/hfi-m-fiber-laser-marker'
       fullPath: '/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMFiberLaserMarkerImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesFiberLaserMarkerHfiMFiberLaserMarkerImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine': {
-      id: '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
+    '/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine': {
+      id: '/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
       path: '/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
       fullPath: '/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source': {
-      id: '/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
+    '/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source': {
+      id: '/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
       path: '/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
       fullPath: '/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine': {
-      id: '/products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
+    '/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine': {
+      id: '/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
       path: '/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
       fullPath: '/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source': {
-      id: '/products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
+    '/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source': {
+      id: '/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
       path: '/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
       fullPath: '/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine': {
-      id: '/products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
+    '/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine': {
+      id: '/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
       path: '/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
       fullPath: '/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine': {
-      id: '/products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
+    '/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine': {
+      id: '/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
       path: '/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
       fullPath: '/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesUvLaserMarkerHuvMwPortableUvLaserMarkingMachineImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
-    '/products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source': {
-      id: '/products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source'
+    '/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source': {
+      id: '/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source'
       path: '/uv-laser-marker/huv-sw-machine-crs-laser-source'
       fullPath: '/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source'
-      preLoaderRoute: typeof ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvSwMachineCrsLaserSourceImport
-      parentRoute: typeof ProductsLaserMarkingMachinesLayoutRouteImport
+      preLoaderRoute: typeof ProductsLaserMarkingMachinesUvLaserMarkerHuvSwMachineCrsLaserSourceImport
+      parentRoute: typeof ProductsLaserMarkingMachinesRouteImport
     }
   }
 }
@@ -509,58 +423,41 @@ declare module '@tanstack/react-router' {
 // Create and export the route tree
 
 export const routeTree = rootRoute.addChildren({
-  RootLayoutRouteRoute: RootLayoutRouteRoute.addChildren({
-    RootLayoutAboutRoute,
-    RootLayoutContactRoute,
-    RootLayoutIndexRoute,
-  }),
+  IndexRouteRoute,
+  AboutRouteRoute,
+  ContactRouteRoute,
   ProductsRouteRoute: ProductsRouteRoute.addChildren({
-    ProductsProductLayoutRouteRoute:
-      ProductsProductLayoutRouteRoute.addChildren({
-        ProductsProductLayoutIndexRoute,
-      }),
     ProductsDotMarkingMachinesRouteRoute:
       ProductsDotMarkingMachinesRouteRoute.addChildren({
-        ProductsDotMarkingMachinesLayoutRouteRoute:
-          ProductsDotMarkingMachinesLayoutRouteRoute.addChildren({
-            ProductsDotMarkingMachinesLayoutIndexRoute,
-            ProductsDotMarkingMachinesLayoutHdoMarkingMachineHdoRoute,
-          }),
+        ProductsDotMarkingMachinesIndexRoute,
+        ProductsDotMarkingMachinesHdoMarkingMachineHdoRoute,
       }),
     ProductsLaserCleaningMachinesRouteRoute:
       ProductsLaserCleaningMachinesRouteRoute.addChildren({
-        ProductsLaserCleaningMachinesLayoutRouteRoute:
-          ProductsLaserCleaningMachinesLayoutRouteRoute.addChildren({
-            ProductsLaserCleaningMachinesLayoutIndexRoute,
-            ProductsLaserCleaningMachinesLayoutHclLaserCleaningMachineHclLaserCleaningMachineRoute,
-          }),
+        ProductsLaserCleaningMachinesIndexRoute,
+        ProductsLaserCleaningMachinesHclLaserCleaningMachineHclLaserCleaningMachineRoute,
       }),
     ProductsLaserCuttingMachinesRouteRoute:
       ProductsLaserCuttingMachinesRouteRoute.addChildren({
-        ProductsLaserCuttingMachinesLayoutRouteRoute:
-          ProductsLaserCuttingMachinesLayoutRouteRoute.addChildren({
-            ProductsLaserCuttingMachinesLayoutIndexRoute,
-            ProductsLaserCuttingMachinesLayoutLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineRoute,
-          }),
+        ProductsLaserCuttingMachinesIndexRoute,
+        ProductsLaserCuttingMachinesLaserMetalCuttingMachineHcnC80CncLaserCuttingMachineRoute,
       }),
     ProductsLaserMarkingMachinesRouteRoute:
       ProductsLaserMarkingMachinesRouteRoute.addChildren({
-        ProductsLaserMarkingMachinesLayoutRouteRoute:
-          ProductsLaserMarkingMachinesLayoutRouteRoute.addChildren({
-            ProductsLaserMarkingMachinesLayoutIndexRoute,
-            ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceRoute,
-            ProductsLaserMarkingMachinesLayoutCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceRoute,
-            ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceRoute,
-            ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMFiberLaserMarkerRoute,
-            ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineRoute,
-            ProductsLaserMarkingMachinesLayoutFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceRoute,
-            ProductsLaserMarkingMachinesLayoutPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineRoute,
-            ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceRoute,
-            ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineRoute,
-            ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvMwPortableUvLaserMarkingMachineRoute,
-            ProductsLaserMarkingMachinesLayoutUvLaserMarkerHuvSwMachineCrsLaserSourceRoute,
-          }),
+        ProductsLaserMarkingMachinesIndexRoute,
+        ProductsLaserMarkingMachinesCo2LaserMarkerHcoFcCo2FlyingLaserMarkingMachineCoherentLaserSourceRoute,
+        ProductsLaserMarkingMachinesCo2LaserMarkerHcoScCo2LaserMarkingMachineCoherentLaserSourceRoute,
+        ProductsLaserMarkingMachinesFiberLaserMarkerHfiFFiberFlyingLaserMarkingMachineJptLaserSourceRoute,
+        ProductsLaserMarkingMachinesFiberLaserMarkerHfiMFiberLaserMarkerRoute,
+        ProductsLaserMarkingMachinesFiberLaserMarkerHfiMnPortableMiniFiberLaserMarkingMachineRoute,
+        ProductsLaserMarkingMachinesFiberLaserMarkerHfiSPulseFiberLaserMarkingMachineJptLaserSourceRoute,
+        ProductsLaserMarkingMachinesPortableLaserMarkerHfiHModelHanheldLaserMarkingMachineRoute,
+        ProductsLaserMarkingMachinesUvLaserMarkerHuvFwUvFlyingLaserMarkingMachineJptLaserSourceRoute,
+        ProductsLaserMarkingMachinesUvLaserMarkerHuvIntegratedFiberLaserMarkingMachineRoute,
+        ProductsLaserMarkingMachinesUvLaserMarkerHuvMwPortableUvLaserMarkingMachineRoute,
+        ProductsLaserMarkingMachinesUvLaserMarkerHuvSwMachineCrsLaserSourceRoute,
       }),
+    ProductsIndexRoute,
   }),
 })
 
@@ -572,192 +469,148 @@ export const routeTree = rootRoute.addChildren({
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/_root-layout",
+        "/",
+        "/about",
+        "/contact",
         "/products"
       ]
     },
-    "/_root-layout": {
-      "filePath": "_root-layout/route.tsx",
-      "children": [
-        "/_root-layout/about",
-        "/_root-layout/contact",
-        "/_root-layout/"
-      ]
+    "/": {
+      "filePath": "index/route.tsx"
+    },
+    "/about": {
+      "filePath": "about/route.tsx"
+    },
+    "/contact": {
+      "filePath": "contact/route.tsx"
     },
     "/products": {
       "filePath": "products/route.tsx",
       "children": [
-        "/products/_product-layout",
         "/products/dot-marking-machines",
         "/products/laser-cleaning-machines",
         "/products/laser-cutting-machines",
-        "/products/laser-marking-machines"
-      ]
-    },
-    "/products/_product-layout": {
-      "filePath": "products/_product-layout/route.tsx",
-      "parent": "/products",
-      "children": [
-        "/products/_product-layout/"
+        "/products/laser-marking-machines",
+        "/products/"
       ]
     },
     "/products/dot-marking-machines": {
       "filePath": "products/dot-marking-machines/route.tsx",
       "parent": "/products",
       "children": [
-        "/products/dot-marking-machines/_layout"
+        "/products/dot-marking-machines/",
+        "/products/dot-marking-machines/hdo-marking-machine/hdo"
       ]
     },
     "/products/laser-cleaning-machines": {
       "filePath": "products/laser-cleaning-machines/route.tsx",
       "parent": "/products",
       "children": [
-        "/products/laser-cleaning-machines/_layout"
+        "/products/laser-cleaning-machines/",
+        "/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine"
       ]
     },
     "/products/laser-cutting-machines": {
       "filePath": "products/laser-cutting-machines/route.tsx",
       "parent": "/products",
       "children": [
-        "/products/laser-cutting-machines/_layout"
+        "/products/laser-cutting-machines/",
+        "/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine"
       ]
     },
     "/products/laser-marking-machines": {
       "filePath": "products/laser-marking-machines/route.tsx",
       "parent": "/products",
       "children": [
-        "/products/laser-marking-machines/_layout"
+        "/products/laser-marking-machines/",
+        "/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source",
+        "/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source",
+        "/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source",
+        "/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker",
+        "/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine",
+        "/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source",
+        "/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine",
+        "/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source",
+        "/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine",
+        "/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine",
+        "/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source"
       ]
     },
-    "/_root-layout/about": {
-      "filePath": "_root-layout/about.tsx",
-      "parent": "/_root-layout"
+    "/products/": {
+      "filePath": "products/index.tsx",
+      "parent": "/products"
     },
-    "/_root-layout/contact": {
-      "filePath": "_root-layout/contact.tsx",
-      "parent": "/_root-layout"
+    "/products/dot-marking-machines/": {
+      "filePath": "products/dot-marking-machines/index.tsx",
+      "parent": "/products/dot-marking-machines"
     },
-    "/_root-layout/": {
-      "filePath": "_root-layout/index.tsx",
-      "parent": "/_root-layout"
+    "/products/laser-cleaning-machines/": {
+      "filePath": "products/laser-cleaning-machines/index.tsx",
+      "parent": "/products/laser-cleaning-machines"
     },
-    "/products/dot-marking-machines/_layout": {
-      "filePath": "products/dot-marking-machines/_layout/route.tsx",
-      "parent": "/products/dot-marking-machines",
-      "children": [
-        "/products/dot-marking-machines/_layout/",
-        "/products/dot-marking-machines/_layout/hdo-marking-machine/hdo"
-      ]
+    "/products/laser-cutting-machines/": {
+      "filePath": "products/laser-cutting-machines/index.tsx",
+      "parent": "/products/laser-cutting-machines"
     },
-    "/products/laser-cleaning-machines/_layout": {
-      "filePath": "products/laser-cleaning-machines/_layout/route.tsx",
-      "parent": "/products/laser-cleaning-machines",
-      "children": [
-        "/products/laser-cleaning-machines/_layout/",
-        "/products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine"
-      ]
+    "/products/laser-marking-machines/": {
+      "filePath": "products/laser-marking-machines/index.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-cutting-machines/_layout": {
-      "filePath": "products/laser-cutting-machines/_layout/route.tsx",
-      "parent": "/products/laser-cutting-machines",
-      "children": [
-        "/products/laser-cutting-machines/_layout/",
-        "/products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine"
-      ]
+    "/products/dot-marking-machines/hdo-marking-machine/hdo": {
+      "filePath": "products/dot-marking-machines/hdo-marking-machine/hdo.tsx",
+      "parent": "/products/dot-marking-machines"
     },
-    "/products/laser-marking-machines/_layout": {
-      "filePath": "products/laser-marking-machines/_layout/route.tsx",
-      "parent": "/products/laser-marking-machines",
-      "children": [
-        "/products/laser-marking-machines/_layout/",
-        "/products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source",
-        "/products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source",
-        "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source",
-        "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker",
-        "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine",
-        "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source",
-        "/products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine",
-        "/products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source",
-        "/products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine",
-        "/products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine",
-        "/products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source"
-      ]
+    "/products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine": {
+      "filePath": "products/laser-cleaning-machines/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine.tsx",
+      "parent": "/products/laser-cleaning-machines"
     },
-    "/products/_product-layout/": {
-      "filePath": "products/_product-layout/index.tsx",
-      "parent": "/products/_product-layout"
+    "/products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine": {
+      "filePath": "products/laser-cutting-machines/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine.tsx",
+      "parent": "/products/laser-cutting-machines"
     },
-    "/products/dot-marking-machines/_layout/": {
-      "filePath": "products/dot-marking-machines/_layout/index.tsx",
-      "parent": "/products/dot-marking-machines/_layout"
+    "/products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source": {
+      "filePath": "products/laser-marking-machines/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-cleaning-machines/_layout/": {
-      "filePath": "products/laser-cleaning-machines/_layout/index.tsx",
-      "parent": "/products/laser-cleaning-machines/_layout"
+    "/products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source": {
+      "filePath": "products/laser-marking-machines/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-cutting-machines/_layout/": {
-      "filePath": "products/laser-cutting-machines/_layout/index.tsx",
-      "parent": "/products/laser-cutting-machines/_layout"
+    "/products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source": {
+      "filePath": "products/laser-marking-machines/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-marking-machines/_layout/": {
-      "filePath": "products/laser-marking-machines/_layout/index.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
+    "/products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker": {
+      "filePath": "products/laser-marking-machines/fiber-laser-marker/hfi-m-fiber-laser-marker.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/dot-marking-machines/_layout/hdo-marking-machine/hdo": {
-      "filePath": "products/dot-marking-machines/_layout/hdo-marking-machine/hdo.tsx",
-      "parent": "/products/dot-marking-machines/_layout"
+    "/products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine": {
+      "filePath": "products/laser-marking-machines/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine": {
-      "filePath": "products/laser-cleaning-machines/_layout/hcl-laser-cleaning-machine/hcl-laser-cleaning-machine.tsx",
-      "parent": "/products/laser-cleaning-machines/_layout"
+    "/products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source": {
+      "filePath": "products/laser-marking-machines/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine": {
-      "filePath": "products/laser-cutting-machines/_layout/laser-metal-cutting-machine/hcn-c80-cnc-laser-cutting-machine.tsx",
-      "parent": "/products/laser-cutting-machines/_layout"
+    "/products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine": {
+      "filePath": "products/laser-marking-machines/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/co2-laser-marker/hco-fc-co2-flying-laser-marking-machine-coherent-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
+    "/products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source": {
+      "filePath": "products/laser-marking-machines/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/co2-laser-marker/hco-sc-co2-laser-marking-machine-coherent-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
+    "/products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine": {
+      "filePath": "products/laser-marking-machines/uv-laser-marker/huv-integrated-fiber-laser-marking-machine.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/fiber-laser-marker/hfi-f-fiber-flying-laser-marking-machine-jpt-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
+    "/products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine": {
+      "filePath": "products/laser-marking-machines/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine.tsx",
+      "parent": "/products/laser-marking-machines"
     },
-    "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker": {
-      "filePath": "products/laser-marking-machines/_layout/fiber-laser-marker/hfi-m-fiber-laser-marker.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine": {
-      "filePath": "products/laser-marking-machines/_layout/fiber-laser-marker/hfi-mn-portable-mini-fiber-laser-marking-machine.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/fiber-laser-marker/hfi-s-pulse-fiber-laser-marking-machine-jpt-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine": {
-      "filePath": "products/laser-marking-machines/_layout/portable-laser-marker/hfi-h-model-hanheld-laser-marking-machine.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/uv-laser-marker/huv-fw-uv-flying-laser-marking-machine-jpt-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine": {
-      "filePath": "products/laser-marking-machines/_layout/uv-laser-marker/huv-integrated-fiber-laser-marking-machine.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine": {
-      "filePath": "products/laser-marking-machines/_layout/uv-laser-marker/huv-mw-portable-uv-laser-marking-machine.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
-    },
-    "/products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source": {
-      "filePath": "products/laser-marking-machines/_layout/uv-laser-marker/huv-sw-machine-crs-laser-source.tsx",
-      "parent": "/products/laser-marking-machines/_layout"
+    "/products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source": {
+      "filePath": "products/laser-marking-machines/uv-laser-marker/huv-sw-machine-crs-laser-source.tsx",
+      "parent": "/products/laser-marking-machines"
     }
   }
 }
